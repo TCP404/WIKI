@@ -63,18 +63,24 @@ nav:
       - 函数式编程:  Python/Adavanced/Python-No-Feature-Functional.md
       - 面向对象:
         - 类和对象: Python/Adavanced/OOP/Python-No-11-Class&Object.md
-        - 私有化:   Python/Adavanced/OOP/Python-No-Privatisation.md
-        - 魔术方法: Python/Adavanced/OOP/Python-No-Magic-Method.md
-        - 枚举类:   Python/Adavanced/OOP/Python-No-Enum.md
+        - 私有化:   Python/Adavanced/OOP/Python-No-12-Privatisation.md
+        - 魔术方法: Python/Adavanced/OOP/Python-No-13-Magic-Method.md
+        - 枚举类:   Python/Adavanced/OOP/Python-No-14-Enum.md
       - 进程线程:
         - 总叙: Python/Adavanced/Thread/Python-No-15-Abstract.md
         - 进程: Python/Adavanced/Thread/Python-No-16-Process.md
         - 线程: Python/Adavanced/Thread/Python-No-17-Thread.md
         - 协程: Python/Adavanced/Thread/Python-No-18-Coroutine.md
+    - Buildins:
+      - json: Python/Buildins/Python-No-Buildins-json.md
+      - re:   Python/Buildins/Python-No-Buildins-re.md
+    - Type: 
+      - string: Python/Type/Python-No-Type-String.md
     - Crawler:
-        - 总叙:     Python/Crawler/Python-Crawler-0-Crawler-Abstract.md
-        - 通用爬虫: Python/Crawler/Python-Crawler-1-General-Crawler.md
-        - 聚焦爬虫: Python/Crawler/Python-Crawler-2-Focued-Crawler.md
+      - 总叙:     Python/Crawler/Python-Crawler-0-Crawler-Abstract.md
+      - 通用爬虫: Python/Crawler/Python-Crawler-1-General-Crawler.md
+      - 聚焦爬虫: Python/Crawler/Python-Crawler-2-Focued-Crawler.md
+
 theme:
   name: material
   logo: _assets/logo/favicon.png
@@ -107,19 +113,6 @@ theme:
     - navigation.tabs
     - navigation.indexes
     - content.code.annotate # 代码注释美化，变成一个圆点，鼠标点击显示注释内容。Ref：https://squidfunk.github.io/mkdocs-material/reference/code-blocks/
-
-# extra:
-#   alternate:
-#     - name: 中文
-#       link: /zh-Hant/
-#       lang: zh-Hant
-#     - name: English
-#       link: /en/ # 
-#       lang: en
-#     - name: Deutsch
-#       link: /de/
-#       lang: de
-
 
 markdown_extensions:
   - abbr                    # 名词解释支持，Ref：https://squidfunk.github.io/mkdocs-material/reference/abbreviations/
@@ -169,8 +162,6 @@ markdown_extensions:
   - def_list
   - pymdownx.tasklist:
       custom_checkbox: true
-
-
 
 plugins:
   - search # necessary for search to work

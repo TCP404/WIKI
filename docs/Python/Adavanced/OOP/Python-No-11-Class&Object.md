@@ -1,17 +1,4 @@
----
-title: Python【No-11】类和对象
-tags: Python
-categories:
-  - Python
-  - OPP
-thumbnail: 'https://cdn.jsdelivr.net/gh/TCP404/Picgo/blog/thumbnail/python.png'
-abbrlink: 7031
-date: 2020-07-12 10:41:48
----
-
-模具和产品：类和对象
-
-<!--more-->
+# Class&Instance
 
 封装、继承、多态
 
@@ -82,7 +69,7 @@ class Person:
         self.name = name
         self.age = age
 ```
-![](IMG/20200902105833108_3400.png)
+![](![](https://cdn.jsdelivr.net/gh/TCP404/Picgo/blog/illustration-pic/Py/IMG/20200902105833108_3400.png)
 
 
 **实例化**：
@@ -101,7 +88,7 @@ print(p2.nose)        # 1 通过对象访问
 print(p1.name)   # Boii
 print(p2.name)   # Cai
 ```
-![](IMG/20200902105816461_6402.png)
+![](https://cdn.jsdelivr.net/gh/TCP404/Picgo/blog/illustration-pic/Py/IMG/20200902105816461_6402.png)
 
 
 
@@ -113,7 +100,7 @@ Person.eyes = 1
 print(p1.eyes)    # 1
 print(p2.eyes)    # 1
 ```
-![](IMG/20200902105922748_5672.png)
+![](https://cdn.jsdelivr.net/gh/TCP404/Picgo/blog/illustration-pic/Py/IMG/20200902105922748_5672.png)
 
 
 ```python
@@ -123,7 +110,7 @@ p1.age = 50
 print(p1.age)    # 50
 print(p2.age)    # 18, 改了对象A的，对象B是不受影响的
 ```
-![](IMG/20200902110710748_5406.png)
+![](https://cdn.jsdelivr.net/gh/TCP404/Picgo/blog/illustration-pic/Py/IMG/20200902110710748_5406.png)
 
 
 类变量，是属于类的，存在类那块内存中，类变量被该类创建出来的对象共享。
@@ -186,7 +173,8 @@ print(Person.eyes)        # 1
 print(p1.eyes)       # 50    此时personA的内存里已经有eyes这个变量了
 print(p2.eyes)       # 1
 ```
-![](IMG/20200902111556373_11112.png)
+![](https://cdn.jsdelivr.net/gh/TCP404/Picgo/blog/illustration-pic/Py/IMG/20200902111556373_11112.png)
+
 注意 p1 中 已经多了一个 eyes 的变量了
 
 #### 另外
@@ -205,7 +193,7 @@ class Person:
         self.name = name
         self.age = age
 ```
-![](IMG/20200902142346472_20282.png)
+![](https://cdn.jsdelivr.net/gh/TCP404/Picgo/blog/illustration-pic/Py/IMG/20200902142346472_20282.png)
 
 
 创建两个对象，然后通过对象修改类变量，和通过对象修改字典类型类变量
@@ -223,7 +211,7 @@ p1.eyes = 3
 # 通过对象 修改静态字典变量, 并不会复制一份d到对象空间里
 p1.d[1] = 50
 ```
-![](IMG/20200902142543383_3873.png)
+![](https://cdn.jsdelivr.net/gh/TCP404/Picgo/blog/illustration-pic/Py/IMG/20200902142543383_3873.png)
 可以看到通过类名修改后，类空间里的eyes被修改了
 通过对象修改类变量之后，对象空间里多了一个 eyes 变量并且已经修改了
 通过对象修改字典类型类变量之后，没有复制一份，而是修改了类空间里字典的值
@@ -265,7 +253,9 @@ I walked 5 steps.
 > 属于类的方法，和类变量一样，所有对象共享类方法
 
 - 定义：使用装饰器`@classmethod`。第一个参数必须是当前类对象，该参数名一般约定为“cls”，通过它来传递类的属性和方法（不能传实例的属性和方法）；
+
     如`p1.clsMethod` 或 `Person.clsMethod`，Python解释器会把类 Person 传给 cls 参数
+
 - 调用：类对象或实例对象都可以调用。
 
 
@@ -289,7 +279,18 @@ class Person:
 - 定义：使用装饰器`@staticmethod`。参数随意，没有“self”和“cls”参数，但是方法体中不能使用类或实例的任何属性和方法；
 - 调用：类对象或实例对象都可以调用。
 
+```python
+class Person:
+    __count = 0
 
+    def __init__(self):
+        Person.__count += 1
+    ...
+    ...
+    @staticmethod
+    def get_time():
+        return time.time()
+```
 
 
 ### 构造方法
@@ -322,7 +323,7 @@ personB = Person()    # ！！错误
 
 ### 访问限制
 > 不加下划线，仅变量名/方法名 = public，任何区域都可以访问
-> 一条下划线+变量名/方法名 = protected，`当前类`和`子类`和`同一模块`才可以访问
+> 一条下划线+变量名/方法名 = protected，`当前类`或`子类`或`同一模块`才可以访问
 > 两条下划线+变量名/方法名 = private， `当前类`才可以访问
 
 ```python

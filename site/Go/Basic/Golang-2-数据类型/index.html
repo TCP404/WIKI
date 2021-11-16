@@ -1178,6 +1178,10 @@
         
           
         
+          
+        
+          
+        
       
       
         <label class="md-nav__link" for="__nav_3">
@@ -1555,7 +1559,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../../Python/Adavanced/OOP/Python-No-Privatisation.md" class="md-nav__link">
+      <a href="../../../Python/Adavanced/OOP/Python-No-12-Privatisation/" class="md-nav__link">
         私有化
       </a>
     </li>
@@ -1569,7 +1573,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../../Python/Adavanced/OOP/Python-No-Magic-Method.md" class="md-nav__link">
+      <a href="../../../Python/Adavanced/OOP/Python-No-13-Magic-Method/" class="md-nav__link">
         魔术方法
       </a>
     </li>
@@ -1583,7 +1587,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../../Python/Adavanced/OOP/Python-No-Enum.md" class="md-nav__link">
+      <a href="../../../Python/Adavanced/OOP/Python-No-14-Enum/" class="md-nav__link">
         枚举类
       </a>
     </li>
@@ -1722,17 +1726,135 @@
         
           
         
+      
+      
+        <label class="md-nav__link" for="__nav_3_3">
+          Buildins
+          <span class="md-nav__icon md-icon"></span>
+        </label>
+      
+      <nav class="md-nav" aria-label="Buildins" data-md-level="2">
+        <label class="md-nav__title" for="__nav_3_3">
+          <span class="md-nav__icon md-icon"></span>
+          Buildins
+        </label>
+        <ul class="md-nav__list" data-md-scrollfix>
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../Python/Buildins/Python-No-Buildins-json/" class="md-nav__link">
+        json
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../Python/Buildins/Python-No-Buildins-re/" class="md-nav__link">
+        re
+      </a>
+    </li>
+  
+
+            
+          
+        </ul>
+      </nav>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+      
+        <input class="md-nav__toggle md-toggle" data-md-toggle="__nav_3_4" type="checkbox" id="__nav_3_4" >
+      
+      
+      
+        
           
         
       
       
-        <label class="md-nav__link" for="__nav_3_3">
+        <label class="md-nav__link" for="__nav_3_4">
+          Type
+          <span class="md-nav__icon md-icon"></span>
+        </label>
+      
+      <nav class="md-nav" aria-label="Type" data-md-level="2">
+        <label class="md-nav__title" for="__nav_3_4">
+          <span class="md-nav__icon md-icon"></span>
+          Type
+        </label>
+        <ul class="md-nav__list" data-md-scrollfix>
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../Python/Type/Python-No-Type-String/" class="md-nav__link">
+        string
+      </a>
+    </li>
+  
+
+            
+          
+        </ul>
+      </nav>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+      
+        <input class="md-nav__toggle md-toggle" data-md-toggle="__nav_3_5" type="checkbox" id="__nav_3_5" >
+      
+      
+      
+        
+          
+        
+          
+        
+          
+        
+      
+      
+        <label class="md-nav__link" for="__nav_3_5">
           Crawler
           <span class="md-nav__icon md-icon"></span>
         </label>
       
       <nav class="md-nav" aria-label="Crawler" data-md-level="2">
-        <label class="md-nav__title" for="__nav_3_3">
+        <label class="md-nav__title" for="__nav_3_5">
           <span class="md-nav__icon md-icon"></span>
           Crawler
         </label>
@@ -2052,11 +2174,11 @@
 </tr>
 </tbody>
 </table>
-<blockquote>
-<p><strong>注意</strong>：</p>
-<p>在使用<code>int</code>和<code>uint</code>类型时，不能假定它是32位或64位的整型，而要考虑<code>int</code>和<code>uint</code>可能在不同平台上的差异。
-在涉及到**二进制传输、读写文件的结构描述**时，为了保持文件的结构不会受到不同编译目标平台字节长度的影响，不要使用<code>int</code>和<code>uint</code>。</p>
-</blockquote>
+<div class="admonition warning">
+<p class="admonition-title">注意</p>
+<p>在使用 <code>int</code> 和 <code>uint</code> 类型时，不能假定它是32位或64位的整型，而要考虑<code>int</code>和<code>uint</code>可能在不同平台上的差异。
+在涉及到 <strong>二进制传输、读写文件的结构描述</strong> 时，为了保持文件的结构不会受到不同编译目标平台字节长度的影响，不要使用<code>int</code>和<code>uint</code>。</p>
+</div>
 <h3 id="_3">数字字面量语法<a class="headerlink" href="#_3" title="Permanent link">&para;</a></h3>
 <p>字面量语法使得开发者可以用 二进制、八进制、十六进制的格式定义数字</p>
 <ul>
@@ -2083,11 +2205,11 @@
 <span class="mi">46</span>       <span class="mi">46</span>
 <span class="mi">2</span><span class="nx">e</span>       <span class="mh">0x2e</span>    <span class="mh">0X2E</span>
 </code></pre></div></p>
-<blockquote>
-<p>整型支持算术运算和位操作，算术表达式和位操作表达式的结果还是整型
+<div class="admonition tip">
+<p class="admonition-title">整型支持算术运算和位操作，算术表达式和位操作表达式的结果还是整型</p>
 <div class="highlight"><pre><span></span><code><span class="kd">var</span> <span class="nx">a</span> <span class="kt">int</span> <span class="p">=</span> <span class="mi">1000</span> <span class="o">&gt;&gt;</span> <span class="mi">2</span>
-</code></pre></div></p>
-</blockquote>
+</code></pre></div>
+</div>
 <h2 id="_4">浮点型<a class="headerlink" href="#_4" title="Permanent link">&para;</a></h2>
 <p>Go 语言支持两种浮点型数：<code>float32</code>和<code>float64</code>。
 这两种浮点型数据格式遵循 <code>IEEE754</code>标准：</p>
@@ -2110,15 +2232,14 @@
 <span class="mf">3.141593</span>
 <span class="mf">3.14</span>
 </code></pre></div></p>
-<blockquote>
-<ol>
+<details class="tip"><summary>提示</summary><ol>
 <li>浮点型字面量被自动类型推断为 float64 类型
     <div class="highlight"><pre><span></span><code><span class="nx">b</span> <span class="o">:=</span> <span class="mf">10.00</span>
 <span class="nx">fmt</span><span class="p">.</span><span class="nx">Printf</span><span class="p">(</span><span class="s">&quot;%T&quot;</span><span class="p">,</span> <span class="nx">b</span><span class="p">)</span>    <span class="c1">// float64</span>
 </code></pre></div></li>
 <li>计算机很难进行浮点数的精确表示和存储，因此两个浮点数之间不应该使用 <code>==</code> 或 <code>!=</code> 来比较，高精度科学计算应该使用 math 标准库</li>
 </ol>
-</blockquote>
+</details>
 <h2 id="_5">复数<a class="headerlink" href="#_5" title="Permanent link">&para;</a></h2>
 <p><code>complex64</code> 和 <code>complex128</code></p>
 <p><div class="highlight"><pre><span></span><code><span class="kd">var</span> <span class="nx">c1</span> <span class="kt">complex64</span> <span class="p">=</span> <span class="mi">1</span> <span class="o">+</span> <span class="m">2i</span>
@@ -2135,25 +2256,26 @@
 复数有实部和虚部
 complex64的实部和虚部为32位
 complex128的实部和虚部为64位。</p>
-<blockquote>
+<div class="admonition tip">
+<p class="admonition-title">Tip</p>
 <p>Go 有三个内置函数处理复数</p>
 <div class="highlight"><pre><span></span><code><span class="kd">var</span> <span class="nx">v</span> <span class="p">=</span> <span class="nb">complex</span><span class="p">(</span><span class="mf">2.1</span><span class="p">,</span> <span class="mi">3</span><span class="p">)</span> <span class="c1">// 构造一个复数 (2.1+3i)</span>
 <span class="nx">a</span> <span class="o">:=</span> <span class="nb">real</span><span class="p">(</span><span class="nx">v</span><span class="p">)</span>            <span class="c1">// 返回复数实部 2.1</span>
 <span class="nx">b</span> <span class="o">:=</span> <span class="nb">imag</span><span class="p">(</span><span class="nx">v</span><span class="p">)</span>            <span class="c1">// 返回复数虚部 3</span>
 </code></pre></div>
-</blockquote>
+</div>
 <h2 id="_6">布尔值<a class="headerlink" href="#_6" title="Permanent link">&para;</a></h2>
 <p>Go 语言中以 <code>bool</code> 类型进行声明布尔型，布尔型数据只有 <code>true</code> 和 <code>false</code> 两个值。</p>
 <ol>
 <li>布尔类型变量默认值为 false</li>
-<li>Go 语言中**不允许将整型强制转换为布尔型（integer !-&gt; bool）**</li>
+<li>Go 语言中 <strong>不允许将整型强制转换为布尔型（integer !-&gt; bool）</strong></li>
 <li>布尔型无法参与数值运算，无法与其他类型进行转换</li>
 </ol>
 <h2 id="_7">字符串<a class="headerlink" href="#_7" title="Permanent link">&para;</a></h2>
 <p><strong>Go 语言中的字符串是原生数据类型</strong>，使用字符串就像使用其他原生数据类型（int、bool、float32等）一样
 Go 语言中字符串内部实现使用 <code>UTF-8</code> 编码，这使得 go 不需要专门使用 UTF-8 字符集的文本进行编码和解码，可以在Go语言中直接添加非ASCII码字符</p>
 <p>字符串是一种值类型，且值不可变；即创建某个文本后你无法再次修改这个文本的内容，即使你改变了，你会发现那已经不是原来的那串字符串了。
-更深入的讲，字符串是**字节的定长数组**。</p>
+更深入的讲，字符串是 <strong>字节的定长数组</strong>。</p>
 <ol>
 <li>
 <p>Go 支持以下2种形式的字面值</p>
@@ -2619,10 +2741,16 @@ ss 的类型是 string。<code>abc</code>类型只会在代码中存在，编译
     <div class="md-dialog" data-md-component="dialog">
       <div class="md-dialog__inner md-typeset"></div>
     </div>
-    <script id="__config" type="application/json">{"base": "../../..", "features": ["navigation.tabs", "navigation.indexes"], "translations": {"clipboard.copy": "Copy to clipboard", "clipboard.copied": "Copied to clipboard", "search.config.lang": "en", "search.config.pipeline": "trimmer, stopWordFilter", "search.config.separator": "[\\s\\-]+", "search.placeholder": "Search", "search.result.placeholder": "Type to start searching", "search.result.none": "No matching documents", "search.result.one": "1 matching document", "search.result.other": "# matching documents", "search.result.more.one": "1 more on this page", "search.result.more.other": "# more on this page", "search.result.term.missing": "Missing", "select.version.title": "Select version"}, "search": "../../../assets/javascripts/workers/search.fcfe8b6d.min.js", "version": null}</script>
+    <script id="__config" type="application/json">{"base": "../../..", "features": ["navigation.tabs", "navigation.indexes", "content.code.annotate"], "translations": {"clipboard.copy": "Copy to clipboard", "clipboard.copied": "Copied to clipboard", "search.config.lang": "en", "search.config.pipeline": "trimmer, stopWordFilter", "search.config.separator": "[\\s\\-]+", "search.placeholder": "Search", "search.result.placeholder": "Type to start searching", "search.result.none": "No matching documents", "search.result.one": "1 matching document", "search.result.other": "# matching documents", "search.result.more.one": "1 more on this page", "search.result.more.other": "# more on this page", "search.result.term.missing": "Missing", "select.version.title": "Select version"}, "search": "../../../assets/javascripts/workers/search.fcfe8b6d.min.js", "version": null}</script>
     
     
       <script src="../../../assets/javascripts/bundle.b1047164.min.js"></script>
+      
+        <script src="../../../_assets/js/mathjax.js"></script>
+      
+        <script src="https://polyfill.io/v3/polyfill.min.js?features=es6"></script>
+      
+        <script src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
       
     
   </body>

@@ -1011,6 +1011,10 @@
         
           
         
+          
+        
+          
+        
       
       
         <label class="md-nav__link" for="__nav_3">
@@ -1390,7 +1394,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../OOP/Python-No-Privatisation.md" class="md-nav__link">
+      <a href="../../OOP/Python-No-12-Privatisation/" class="md-nav__link">
         私有化
       </a>
     </li>
@@ -1404,7 +1408,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../OOP/Python-No-Magic-Method.md" class="md-nav__link">
+      <a href="../../OOP/Python-No-13-Magic-Method/" class="md-nav__link">
         魔术方法
       </a>
     </li>
@@ -1418,7 +1422,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../OOP/Python-No-Enum.md" class="md-nav__link">
+      <a href="../../OOP/Python-No-14-Enum/" class="md-nav__link">
         枚举类
       </a>
     </li>
@@ -1631,17 +1635,135 @@
         
           
         
+      
+      
+        <label class="md-nav__link" for="__nav_3_3">
+          Buildins
+          <span class="md-nav__icon md-icon"></span>
+        </label>
+      
+      <nav class="md-nav" aria-label="Buildins" data-md-level="2">
+        <label class="md-nav__title" for="__nav_3_3">
+          <span class="md-nav__icon md-icon"></span>
+          Buildins
+        </label>
+        <ul class="md-nav__list" data-md-scrollfix>
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../Buildins/Python-No-Buildins-json/" class="md-nav__link">
+        json
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../Buildins/Python-No-Buildins-re/" class="md-nav__link">
+        re
+      </a>
+    </li>
+  
+
+            
+          
+        </ul>
+      </nav>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+      
+        <input class="md-nav__toggle md-toggle" data-md-toggle="__nav_3_4" type="checkbox" id="__nav_3_4" >
+      
+      
+      
+        
           
         
       
       
-        <label class="md-nav__link" for="__nav_3_3">
+        <label class="md-nav__link" for="__nav_3_4">
+          Type
+          <span class="md-nav__icon md-icon"></span>
+        </label>
+      
+      <nav class="md-nav" aria-label="Type" data-md-level="2">
+        <label class="md-nav__title" for="__nav_3_4">
+          <span class="md-nav__icon md-icon"></span>
+          Type
+        </label>
+        <ul class="md-nav__list" data-md-scrollfix>
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../Type/Python-No-Type-String/" class="md-nav__link">
+        string
+      </a>
+    </li>
+  
+
+            
+          
+        </ul>
+      </nav>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+      
+        <input class="md-nav__toggle md-toggle" data-md-toggle="__nav_3_5" type="checkbox" id="__nav_3_5" >
+      
+      
+      
+        
+          
+        
+          
+        
+          
+        
+      
+      
+        <label class="md-nav__link" for="__nav_3_5">
           Crawler
           <span class="md-nav__icon md-icon"></span>
         </label>
       
       <nav class="md-nav" aria-label="Crawler" data-md-level="2">
-        <label class="md-nav__title" for="__nav_3_3">
+        <label class="md-nav__title" for="__nav_3_5">
           <span class="md-nav__icon md-icon"></span>
           Crawler
         </label>
@@ -2004,7 +2126,7 @@
 <strong>这是普通的进程使用方法。</strong></p>
 <p>你作为老板，先买好N艘船（开启进程池），来了一个客人，上船，用完了换你，下一个客人上去...
 等到哪天生意不做了关门，就把船一起卖掉关门（关闭进程池）。
-<strong>这是进程池的使用方法</strong>。省下了买船卖船（创建和销毁进程）的功夫。</p>
+<strong>这是进程池的使用方法</strong> 。省下了买船卖船（创建和销毁进程）的功夫。</p>
 <p>进程池中最大容量能同时容纳多少个进程是由开发者指定的，具体多少个要经过测试人员压力测试以后得出一个合适的数量。
 当进程池创建以后，不会立即工作，而是等到有进程被创建了才开始工作。</p>
 <div class="highlight"><pre><span></span><code><span class="kn">from</span> <span class="nn">multiprocessing</span> <span class="kn">import</span> <span class="n">Pool</span>
@@ -2150,10 +2272,16 @@
     <div class="md-dialog" data-md-component="dialog">
       <div class="md-dialog__inner md-typeset"></div>
     </div>
-    <script id="__config" type="application/json">{"base": "../../../..", "features": ["navigation.tabs", "navigation.indexes"], "translations": {"clipboard.copy": "Copy to clipboard", "clipboard.copied": "Copied to clipboard", "search.config.lang": "en", "search.config.pipeline": "trimmer, stopWordFilter", "search.config.separator": "[\\s\\-]+", "search.placeholder": "Search", "search.result.placeholder": "Type to start searching", "search.result.none": "No matching documents", "search.result.one": "1 matching document", "search.result.other": "# matching documents", "search.result.more.one": "1 more on this page", "search.result.more.other": "# more on this page", "search.result.term.missing": "Missing", "select.version.title": "Select version"}, "search": "../../../../assets/javascripts/workers/search.fcfe8b6d.min.js", "version": null}</script>
+    <script id="__config" type="application/json">{"base": "../../../..", "features": ["navigation.tabs", "navigation.indexes", "content.code.annotate"], "translations": {"clipboard.copy": "Copy to clipboard", "clipboard.copied": "Copied to clipboard", "search.config.lang": "en", "search.config.pipeline": "trimmer, stopWordFilter", "search.config.separator": "[\\s\\-]+", "search.placeholder": "Search", "search.result.placeholder": "Type to start searching", "search.result.none": "No matching documents", "search.result.one": "1 matching document", "search.result.other": "# matching documents", "search.result.more.one": "1 more on this page", "search.result.more.other": "# more on this page", "search.result.term.missing": "Missing", "select.version.title": "Select version"}, "search": "../../../../assets/javascripts/workers/search.fcfe8b6d.min.js", "version": null}</script>
     
     
       <script src="../../../../assets/javascripts/bundle.b1047164.min.js"></script>
+      
+        <script src="../../../../_assets/js/mathjax.js"></script>
+      
+        <script src="https://polyfill.io/v3/polyfill.min.js?features=es6"></script>
+      
+        <script src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
       
     
   </body>
