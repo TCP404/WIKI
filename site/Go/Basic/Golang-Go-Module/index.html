@@ -1,0 +1,2244 @@
+
+<!doctype html>
+<html lang="en" class="no-js">
+  <head>
+    
+      <meta charset="utf-8">
+      <meta name="viewport" content="width=device-width,initial-scale=1">
+      
+      
+      
+        <meta name="author" content="Boii">
+      
+      
+        <link rel="canonical" href="https://www.boii.xyz/wiki/Go/Basic/Golang-Go-Module/">
+      
+      <link rel="icon" href="../../../_assets/logo/favicon.png">
+      <meta name="generator" content="mkdocs-1.2.3, mkdocs-material-7.3.6">
+    
+    
+      
+        <title>Golang [nil] Go Module - Boii's Wiki</title>
+      
+    
+    
+      <link rel="stylesheet" href="../../../assets/stylesheets/main.a57b2b03.min.css">
+      
+        
+        <link rel="stylesheet" href="../../../assets/stylesheets/palette.3f5d1f46.min.css">
+        
+      
+    
+    
+    
+      
+        
+        <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+        <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Roboto:300,400,400i,700%7CRoboto+Mono&display=fallback">
+        <style>:root{--md-text-font-family:"Roboto";--md-code-font-family:"Roboto Mono"}</style>
+      
+    
+    
+    
+    
+      
+
+
+    
+    
+  </head>
+  
+  
+    
+    
+      
+    
+    
+    
+    
+    <body dir="ltr" data-md-color-scheme="default" data-md-color-primary="" data-md-color-accent="">
+  
+    
+    <script>function __prefix(e){return new URL("../../..",location).pathname+"."+e}function __get(e,t=localStorage){return JSON.parse(t.getItem(__prefix(e)))}</script>
+    
+      <script>var palette=__get("__palette");if(null!==palette&&"object"==typeof palette.color)for(var key in palette.color)document.body.setAttribute("data-md-color-"+key,palette.color[key])</script>
+    
+    <input class="md-toggle" data-md-toggle="drawer" type="checkbox" id="__drawer" autocomplete="off">
+    <input class="md-toggle" data-md-toggle="search" type="checkbox" id="__search" autocomplete="off">
+    <label class="md-overlay" for="__drawer"></label>
+    <div data-md-component="skip">
+      
+        
+        <a href="#go-module" class="md-skip">
+          Skip to content
+        </a>
+      
+    </div>
+    <div data-md-component="announce">
+      
+    </div>
+    
+      
+
+<header class="md-header" data-md-component="header">
+  <nav class="md-header__inner md-grid" aria-label="Header">
+    <a href="../../.." title="Boii&#39;s Wiki" class="md-header__button md-logo" aria-label="Boii's Wiki" data-md-component="logo">
+      
+  <img src="../../../_assets/logo/favicon.png" alt="logo">
+
+    </a>
+    <label class="md-header__button md-icon" for="__drawer">
+      <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M3 6h18v2H3V6m0 5h18v2H3v-2m0 5h18v2H3v-2z"/></svg>
+    </label>
+    <div class="md-header__title" data-md-component="header-title">
+      <div class="md-header__ellipsis">
+        <div class="md-header__topic">
+          <span class="md-ellipsis">
+            Boii's Wiki
+          </span>
+        </div>
+        <div class="md-header__topic" data-md-component="header-topic">
+          <span class="md-ellipsis">
+            
+              Golang [nil] Go Module
+            
+          </span>
+        </div>
+      </div>
+    </div>
+    
+      <form class="md-header__option" data-md-component="palette">
+        
+          
+          
+          <input class="md-option" data-md-color-media="" data-md-color-scheme="default" data-md-color-primary="" data-md-color-accent=""  aria-label="Switch to dark mode"  type="radio" name="__palette" id="__palette_1">
+          
+            <label class="md-header__button md-icon" title="Switch to dark mode" for="__palette_2" hidden>
+              <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 2a7 7 0 0 1 7 7c0 2.38-1.19 4.47-3 5.74V17a1 1 0 0 1-1 1H9a1 1 0 0 1-1-1v-2.26C6.19 13.47 5 11.38 5 9a7 7 0 0 1 7-7M9 21v-1h6v1a1 1 0 0 1-1 1h-4a1 1 0 0 1-1-1m3-17a5 5 0 0 0-5 5c0 2.05 1.23 3.81 3 4.58V16h4v-2.42c1.77-.77 3-2.53 3-4.58a5 5 0 0 0-5-5z"/></svg>
+            </label>
+          
+        
+          
+          
+          <input class="md-option" data-md-color-media="" data-md-color-scheme="slate" data-md-color-primary="" data-md-color-accent=""  aria-label="Switch to light mode"  type="radio" name="__palette" id="__palette_2">
+          
+            <label class="md-header__button md-icon" title="Switch to light mode" for="__palette_1" hidden>
+              <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 2a7 7 0 0 0-7 7c0 2.38 1.19 4.47 3 5.74V17a1 1 0 0 0 1 1h6a1 1 0 0 0 1-1v-2.26c1.81-1.27 3-3.36 3-5.74a7 7 0 0 0-7-7M9 21a1 1 0 0 0 1 1h4a1 1 0 0 0 1-1v-1H9v1z"/></svg>
+            </label>
+          
+        
+      </form>
+    
+    
+    
+      <label class="md-header__button md-icon" for="__search">
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M9.5 3A6.5 6.5 0 0 1 16 9.5c0 1.61-.59 3.09-1.56 4.23l.27.27h.79l5 5-1.5 1.5-5-5v-.79l-.27-.27A6.516 6.516 0 0 1 9.5 16 6.5 6.5 0 0 1 3 9.5 6.5 6.5 0 0 1 9.5 3m0 2C7 5 5 7 5 9.5S7 14 9.5 14 14 12 14 9.5 12 5 9.5 5z"/></svg>
+      </label>
+      
+<div class="md-search" data-md-component="search" role="dialog">
+  <label class="md-search__overlay" for="__search"></label>
+  <div class="md-search__inner" role="search">
+    <form class="md-search__form" name="search">
+      <input type="text" class="md-search__input" name="query" aria-label="Search" placeholder="Search" autocapitalize="off" autocorrect="off" autocomplete="off" spellcheck="false" data-md-component="search-query" required>
+      <label class="md-search__icon md-icon" for="__search">
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M9.5 3A6.5 6.5 0 0 1 16 9.5c0 1.61-.59 3.09-1.56 4.23l.27.27h.79l5 5-1.5 1.5-5-5v-.79l-.27-.27A6.516 6.516 0 0 1 9.5 16 6.5 6.5 0 0 1 3 9.5 6.5 6.5 0 0 1 9.5 3m0 2C7 5 5 7 5 9.5S7 14 9.5 14 14 12 14 9.5 12 5 9.5 5z"/></svg>
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M20 11v2H8l5.5 5.5-1.42 1.42L4.16 12l7.92-7.92L13.5 5.5 8 11h12z"/></svg>
+      </label>
+      <nav class="md-search__options" aria-label="Search">
+        
+        <button type="reset" class="md-search__icon md-icon" aria-label="Clear" tabindex="-1">
+          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M19 6.41 17.59 5 12 10.59 6.41 5 5 6.41 10.59 12 5 17.59 6.41 19 12 13.41 17.59 19 19 17.59 13.41 12 19 6.41z"/></svg>
+        </button>
+      </nav>
+      
+    </form>
+    <div class="md-search__output">
+      <div class="md-search__scrollwrap" data-md-scrollfix>
+        <div class="md-search-result" data-md-component="search-result">
+          <div class="md-search-result__meta">
+            Initializing search
+          </div>
+          <ol class="md-search-result__list"></ol>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+    
+    
+  </nav>
+  
+</header>
+    
+    <div class="md-container" data-md-component="container">
+      
+      
+        
+          
+            
+<nav class="md-tabs" aria-label="Tabs" data-md-component="tabs">
+  <div class="md-tabs__inner md-grid">
+    <ul class="md-tabs__list">
+      
+        
+  
+  
+
+
+  <li class="md-tabs__item">
+    <a href="../../.." class="md-tabs__link">
+      Home
+    </a>
+  </li>
+
+      
+        
+  
+  
+    
+  
+
+
+  
+  
+  
+    
+
+  
+  
+  
+    <li class="md-tabs__item">
+      <a href="../Golang-0-%E6%80%BB%E5%8F%99/" class="md-tabs__link md-tabs__link--active">
+        Golang
+      </a>
+    </li>
+  
+
+  
+
+      
+        
+  
+  
+
+
+  
+  
+  
+    
+
+  
+  
+  
+    <li class="md-tabs__item">
+      <a href="../../../Python/Basic/Python-No-1-Abstract/" class="md-tabs__link">
+        Python
+      </a>
+    </li>
+  
+
+  
+
+      
+    </ul>
+  </div>
+</nav>
+          
+        
+      
+      <main class="md-main" data-md-component="main">
+        <div class="md-main__inner md-grid">
+          
+            
+              
+              <div class="md-sidebar md-sidebar--primary" data-md-component="sidebar" data-md-type="navigation" >
+                <div class="md-sidebar__scrollwrap">
+                  <div class="md-sidebar__inner">
+                    
+
+  
+
+
+<nav class="md-nav md-nav--primary md-nav--lifted" aria-label="Navigation" data-md-level="0">
+  <label class="md-nav__title" for="__drawer">
+    <a href="../../.." title="Boii&#39;s Wiki" class="md-nav__button md-logo" aria-label="Boii's Wiki" data-md-component="logo">
+      
+  <img src="../../../_assets/logo/favicon.png" alt="logo">
+
+    </a>
+    Boii's Wiki
+  </label>
+  
+  <ul class="md-nav__list" data-md-scrollfix>
+    
+      
+      
+      
+
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../.." class="md-nav__link">
+        Home
+      </a>
+    </li>
+  
+
+    
+      
+      
+      
+
+  
+  
+    
+  
+  
+    
+    <li class="md-nav__item md-nav__item--active md-nav__item--nested">
+      
+      
+        <input class="md-nav__toggle md-toggle" data-md-toggle="__nav_2" type="checkbox" id="__nav_2" checked>
+      
+      
+      
+        
+          
+        
+          
+        
+          
+        
+          
+        
+      
+      
+        <label class="md-nav__link" for="__nav_2">
+          Golang
+          <span class="md-nav__icon md-icon"></span>
+        </label>
+      
+      <nav class="md-nav" aria-label="Golang" data-md-level="1">
+        <label class="md-nav__title" for="__nav_2">
+          <span class="md-nav__icon md-icon"></span>
+          Golang
+        </label>
+        <ul class="md-nav__list" data-md-scrollfix>
+          
+            
+              
+  
+  
+    
+  
+  
+    
+    <li class="md-nav__item md-nav__item--active md-nav__item--nested">
+      
+      
+        <input class="md-nav__toggle md-toggle" data-md-toggle="__nav_2_1" type="checkbox" id="__nav_2_1" checked>
+      
+      
+      
+        
+          
+        
+          
+        
+          
+        
+          
+        
+          
+        
+          
+        
+          
+        
+          
+        
+          
+        
+          
+        
+          
+        
+          
+        
+          
+        
+          
+        
+          
+        
+          
+        
+          
+        
+          
+        
+      
+      
+        <label class="md-nav__link" for="__nav_2_1">
+          Basic
+          <span class="md-nav__icon md-icon"></span>
+        </label>
+      
+      <nav class="md-nav" aria-label="Basic" data-md-level="2">
+        <label class="md-nav__title" for="__nav_2_1">
+          <span class="md-nav__icon md-icon"></span>
+          Basic
+        </label>
+        <ul class="md-nav__list" data-md-scrollfix>
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../Golang-0-%E6%80%BB%E5%8F%99/" class="md-nav__link">
+        0.总叙
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../Golang-1-%E5%9F%BA%E7%A1%80/" class="md-nav__link">
+        1.基础
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../Golang-2-%E6%95%B0%E6%8D%AE%E7%B1%BB%E5%9E%8B/" class="md-nav__link">
+        2.数据类型
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../Golang-3-%E8%BF%90%E7%AE%97%E7%AC%A6/" class="md-nav__link">
+        3.运算符
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../Golang-4-%E6%B5%81%E7%A8%8B%E6%8E%A7%E5%88%B6/" class="md-nav__link">
+        4.流程控制
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../Golang-5-%E6%95%B0%E7%BB%84/" class="md-nav__link">
+        5.数组
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../Golang-6-slice/" class="md-nav__link">
+        6.slice
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../Golang-7-map/" class="md-nav__link">
+        7.map
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../Golang-8-%E5%87%BD%E6%95%B0/" class="md-nav__link">
+        8.函数
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../Golang-9-%E6%8C%87%E9%92%88/" class="md-nav__link">
+        9.指针
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../Golang-10-%E7%BB%93%E6%9E%84%E4%BD%93/" class="md-nav__link">
+        10.结构体
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../Golang-11-%E5%8C%85/" class="md-nav__link">
+        11.包
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../Golang-12-%E6%8E%A5%E5%8F%A3/" class="md-nav__link">
+        12.接口
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../Golang-13-%E9%9D%A2%E5%90%91%E5%AF%B9%E8%B1%A1/" class="md-nav__link">
+        13.面向对象
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../Golang-14-%E9%94%99%E8%AF%AF%E4%B8%8E%E5%BC%82%E5%B8%B8/" class="md-nav__link">
+        14.错误与异常
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../Golang-15-%E5%8D%95%E5%85%83%E6%B5%8B%E8%AF%95/" class="md-nav__link">
+        15.单元测试
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../Golang-%E7%B1%BB%E5%9E%8B%E8%BD%AC%E6%8D%A2/" class="md-nav__link">
+        类型转换
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+    
+  
+  
+    <li class="md-nav__item md-nav__item--active">
+      
+      <input class="md-nav__toggle md-toggle" data-md-toggle="toc" type="checkbox" id="__toc">
+      
+      
+        
+      
+      
+        <label class="md-nav__link md-nav__link--active" for="__toc">
+          Go Module
+          <span class="md-nav__icon md-icon"></span>
+        </label>
+      
+      <a href="./" class="md-nav__link md-nav__link--active">
+        Go Module
+      </a>
+      
+        
+
+
+<nav class="md-nav md-nav--secondary" aria-label="Table of contents">
+  
+  
+  
+    
+  
+  
+    <label class="md-nav__title" for="__toc">
+      <span class="md-nav__icon md-icon"></span>
+      Table of contents
+    </label>
+    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#go111module" class="md-nav__link">
+    启用 GO111MODULE
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#go-mod" class="md-nav__link">
+    go mod 命令
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#go-mod-init" class="md-nav__link">
+    go mod init 初始化
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#go-mod-tidy" class="md-nav__link">
+    go mod tidy 整理依赖
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#go-mod-edit-mod" class="md-nav__link">
+    go mod edit 编辑mod文件
+  </a>
+  
+    <nav class="md-nav" aria-label="go mod edit 编辑mod文件">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#_1" class="md-nav__link">
+    格式化
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#_2" class="md-nav__link">
+    添加依赖项
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#_3" class="md-nav__link">
+    移除依赖项
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#go-get" class="md-nav__link">
+    go get
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#gomod" class="md-nav__link">
+    go.mod 文件
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#_4" class="md-nav__link">
+    语义化版本
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#go-module_1" class="md-nav__link">
+    在项目中使用 go module
+  </a>
+  
+    <nav class="md-nav" aria-label="在项目中使用 go module">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#_5" class="md-nav__link">
+    既有项目
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#_6" class="md-nav__link">
+    新项目
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#vscode-go" class="md-nav__link">
+    VSCode-go 的坑
+  </a>
+  
+    <nav class="md-nav" aria-label="VSCode-go 的坑">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#gomodule" class="md-nav__link">
+    开启 GOMODULE 就报错
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#go-tools" class="md-nav__link">
+    go tools 下载失败
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+    </ul>
+  
+</nav>
+      
+    </li>
+  
+
+            
+          
+        </ul>
+      </nav>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+      
+        <input class="md-nav__toggle md-toggle" data-md-toggle="__nav_2_2" type="checkbox" id="__nav_2_2" >
+      
+      
+      
+        
+          
+        
+          
+        
+          
+        
+          
+        
+      
+      
+        <label class="md-nav__link" for="__nav_2_2">
+          Adavanced
+          <span class="md-nav__icon md-icon"></span>
+        </label>
+      
+      <nav class="md-nav" aria-label="Adavanced" data-md-level="2">
+        <label class="md-nav__title" for="__nav_2_2">
+          <span class="md-nav__icon md-icon"></span>
+          Adavanced
+        </label>
+        <ul class="md-nav__list" data-md-scrollfix>
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../Adavanced/Golang-16-%E5%B9%B6%E5%8F%91/" class="md-nav__link">
+        16.并发
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../Adavanced/Golang-17-Channel/" class="md-nav__link">
+        17.Channel
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../Adavanced/Golang-18-%E5%B9%B6%E5%8F%91%E5%AE%89%E5%85%A8/" class="md-nav__link">
+        18.并发安全
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../Adavanced/Golang-19-reflect/" class="md-nav__link">
+        19.反射
+      </a>
+    </li>
+  
+
+            
+          
+        </ul>
+      </nav>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+      
+        <input class="md-nav__toggle md-toggle" data-md-toggle="__nav_2_3" type="checkbox" id="__nav_2_3" >
+      
+      
+      
+        
+          
+        
+      
+      
+        <label class="md-nav__link" for="__nav_2_3">
+          Framework
+          <span class="md-nav__icon md-icon"></span>
+        </label>
+      
+      <nav class="md-nav" aria-label="Framework" data-md-level="2">
+        <label class="md-nav__title" for="__nav_2_3">
+          <span class="md-nav__icon md-icon"></span>
+          Framework
+        </label>
+        <ul class="md-nav__list" data-md-scrollfix>
+          
+            
+              
+  
+  
+  
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+      
+        <input class="md-nav__toggle md-toggle" data-md-toggle="__nav_2_3_1" type="checkbox" id="__nav_2_3_1" >
+      
+      
+      
+        
+          
+        
+          
+        
+          
+        
+          
+        
+          
+        
+          
+        
+      
+      
+        <label class="md-nav__link" for="__nav_2_3_1">
+          Gin
+          <span class="md-nav__icon md-icon"></span>
+        </label>
+      
+      <nav class="md-nav" aria-label="Gin" data-md-level="3">
+        <label class="md-nav__title" for="__nav_2_3_1">
+          <span class="md-nav__icon md-icon"></span>
+          Gin
+        </label>
+        <ul class="md-nav__list" data-md-scrollfix>
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../Framework/gin/Gin-0-Get-Start/" class="md-nav__link">
+        Get start
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../Framework/gin/Gin-1-%E8%BF%94%E5%9B%9E%E6%95%B0%E6%8D%AE/" class="md-nav__link">
+        返回数据
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../Framework/gin/Gin-2-%E6%8E%A5%E6%94%B6%E8%AF%B7%E6%B1%82/" class="md-nav__link">
+        接收请求
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../Framework/gin/Gin-3-%E8%B7%AF%E7%94%B1%E7%BB%84/" class="md-nav__link">
+        路由组
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../Framework/gin/Gin-4-%E4%B8%8A%E4%BC%A0%E4%B8%8B%E8%BD%BD%E9%87%8D%E5%AE%9A%E5%90%91/" class="md-nav__link">
+        上传下载重定向
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../Framework/gin/Gin-5-%E4%B8%AD%E9%97%B4%E4%BB%B6/" class="md-nav__link">
+        中间件
+      </a>
+    </li>
+  
+
+            
+          
+        </ul>
+      </nav>
+    </li>
+  
+
+            
+          
+        </ul>
+      </nav>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+      
+        <input class="md-nav__toggle md-toggle" data-md-toggle="__nav_2_4" type="checkbox" id="__nav_2_4" >
+      
+      
+      
+        
+          
+        
+          
+        
+      
+      
+        <label class="md-nav__link" for="__nav_2_4">
+          nil
+          <span class="md-nav__icon md-icon"></span>
+        </label>
+      
+      <nav class="md-nav" aria-label="nil" data-md-level="2">
+        <label class="md-nav__title" for="__nav_2_4">
+          <span class="md-nav__icon md-icon"></span>
+          nil
+        </label>
+        <ul class="md-nav__list" data-md-scrollfix>
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../nil/Golang-nil-%E4%BA%A4%E5%8F%89%E7%BC%96%E8%AF%91/" class="md-nav__link">
+        交叉编译
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../nil/Golang-nil-%E9%80%89%E9%A1%B9%E8%AE%BE%E8%AE%A1%E6%A8%A1%E5%BC%8F/" class="md-nav__link">
+        选项设计模式
+      </a>
+    </li>
+  
+
+            
+          
+        </ul>
+      </nav>
+    </li>
+  
+
+            
+          
+        </ul>
+      </nav>
+    </li>
+  
+
+    
+      
+      
+      
+
+  
+  
+  
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+      
+        <input class="md-nav__toggle md-toggle" data-md-toggle="__nav_3" type="checkbox" id="__nav_3" >
+      
+      
+      
+        
+          
+        
+          
+        
+          
+        
+      
+      
+        <label class="md-nav__link" for="__nav_3">
+          Python
+          <span class="md-nav__icon md-icon"></span>
+        </label>
+      
+      <nav class="md-nav" aria-label="Python" data-md-level="1">
+        <label class="md-nav__title" for="__nav_3">
+          <span class="md-nav__icon md-icon"></span>
+          Python
+        </label>
+        <ul class="md-nav__list" data-md-scrollfix>
+          
+            
+              
+  
+  
+  
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+      
+        <input class="md-nav__toggle md-toggle" data-md-toggle="__nav_3_1" type="checkbox" id="__nav_3_1" >
+      
+      
+      
+        
+          
+        
+          
+        
+          
+        
+          
+        
+          
+        
+          
+        
+          
+        
+          
+        
+          
+        
+          
+        
+          
+        
+          
+        
+      
+      
+        <label class="md-nav__link" for="__nav_3_1">
+          Basic
+          <span class="md-nav__icon md-icon"></span>
+        </label>
+      
+      <nav class="md-nav" aria-label="Basic" data-md-level="2">
+        <label class="md-nav__title" for="__nav_3_1">
+          <span class="md-nav__icon md-icon"></span>
+          Basic
+        </label>
+        <ul class="md-nav__list" data-md-scrollfix>
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../Python/Basic/Python-No-1-Abstract/" class="md-nav__link">
+        总叙
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../Python/Basic/Python-No-2-Basic/" class="md-nav__link">
+        基础
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../Python/Basic/Python-No-3-Judge%26Loop/" class="md-nav__link">
+        判断和循环
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../Python/Basic/Python-No-4-Data-Type/" class="md-nav__link">
+        数据类型
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../Python/Basic/Python-No-5-Operator/" class="md-nav__link">
+        运算符
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../Python/Basic/Python-No-6-Function/" class="md-nav__link">
+        函数
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../Python/Basic/Python-No-7-Error-Handle/" class="md-nav__link">
+        错误处理
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../Python/Basic/Python-No-8-Debug/" class="md-nav__link">
+        调试
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../Python/Basic/Python-No-9-Test/" class="md-nav__link">
+        测试
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../Python/Basic/Python-No-10-Module/" class="md-nav__link">
+        模块
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../Python/Basic/Python-No-19-File/" class="md-nav__link">
+        File
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../Python/Basic/Python-No-20-IO/" class="md-nav__link">
+        IO
+      </a>
+    </li>
+  
+
+            
+          
+        </ul>
+      </nav>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+      
+        <input class="md-nav__toggle md-toggle" data-md-toggle="__nav_3_2" type="checkbox" id="__nav_3_2" >
+      
+      
+      
+        
+          
+        
+          
+        
+          
+        
+          
+        
+          
+        
+      
+      
+        <label class="md-nav__link" for="__nav_3_2">
+          Adavanced
+          <span class="md-nav__icon md-icon"></span>
+        </label>
+      
+      <nav class="md-nav" aria-label="Adavanced" data-md-level="2">
+        <label class="md-nav__title" for="__nav_3_2">
+          <span class="md-nav__icon md-icon"></span>
+          Adavanced
+        </label>
+        <ul class="md-nav__list" data-md-scrollfix>
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../Python/Adavanced/Python-No-Feature-High-Level-Feature/" class="md-nav__link">
+        高级特性
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../Python/Adavanced/Python-No-Feature-Utility-Class/" class="md-nav__link">
+        工具类
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../Python/Adavanced/Python-No-Feature-Functional/" class="md-nav__link">
+        函数式编程
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+      
+        <input class="md-nav__toggle md-toggle" data-md-toggle="__nav_3_2_4" type="checkbox" id="__nav_3_2_4" >
+      
+      
+      
+        
+          
+        
+          
+        
+          
+        
+          
+        
+      
+      
+        <label class="md-nav__link" for="__nav_3_2_4">
+          面向对象
+          <span class="md-nav__icon md-icon"></span>
+        </label>
+      
+      <nav class="md-nav" aria-label="面向对象" data-md-level="3">
+        <label class="md-nav__title" for="__nav_3_2_4">
+          <span class="md-nav__icon md-icon"></span>
+          面向对象
+        </label>
+        <ul class="md-nav__list" data-md-scrollfix>
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../Python/Adavanced/OOP/Python-No-11-Class%26Object/" class="md-nav__link">
+        类和对象
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../Python/Adavanced/OOP/Python-No-Privatisation.md" class="md-nav__link">
+        私有化
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../Python/Adavanced/OOP/Python-No-Magic-Method.md" class="md-nav__link">
+        魔术方法
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../Python/Adavanced/OOP/Python-No-Enum.md" class="md-nav__link">
+        枚举类
+      </a>
+    </li>
+  
+
+            
+          
+        </ul>
+      </nav>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+      
+        <input class="md-nav__toggle md-toggle" data-md-toggle="__nav_3_2_5" type="checkbox" id="__nav_3_2_5" >
+      
+      
+      
+        
+          
+        
+          
+        
+          
+        
+          
+        
+      
+      
+        <label class="md-nav__link" for="__nav_3_2_5">
+          进程线程
+          <span class="md-nav__icon md-icon"></span>
+        </label>
+      
+      <nav class="md-nav" aria-label="进程线程" data-md-level="3">
+        <label class="md-nav__title" for="__nav_3_2_5">
+          <span class="md-nav__icon md-icon"></span>
+          进程线程
+        </label>
+        <ul class="md-nav__list" data-md-scrollfix>
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../Python/Adavanced/Thread/Python-No-15-Abstract/" class="md-nav__link">
+        总叙
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../Python/Adavanced/Thread/Python-No-16-Process/" class="md-nav__link">
+        进程
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../Python/Adavanced/Thread/Python-No-17-Thread/" class="md-nav__link">
+        线程
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../Python/Adavanced/Thread/Python-No-18-Coroutine/" class="md-nav__link">
+        协程
+      </a>
+    </li>
+  
+
+            
+          
+        </ul>
+      </nav>
+    </li>
+  
+
+            
+          
+        </ul>
+      </nav>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+      
+        <input class="md-nav__toggle md-toggle" data-md-toggle="__nav_3_3" type="checkbox" id="__nav_3_3" >
+      
+      
+      
+        
+          
+        
+          
+        
+          
+        
+      
+      
+        <label class="md-nav__link" for="__nav_3_3">
+          Crawler
+          <span class="md-nav__icon md-icon"></span>
+        </label>
+      
+      <nav class="md-nav" aria-label="Crawler" data-md-level="2">
+        <label class="md-nav__title" for="__nav_3_3">
+          <span class="md-nav__icon md-icon"></span>
+          Crawler
+        </label>
+        <ul class="md-nav__list" data-md-scrollfix>
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../Python/Crawler/Python-Crawler-0-Crawler-Abstract/" class="md-nav__link">
+        总叙
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../Python/Crawler/Python-Crawler-1-General-Crawler/" class="md-nav__link">
+        通用爬虫
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../Python/Crawler/Python-Crawler-2-Focued-Crawler/" class="md-nav__link">
+        聚焦爬虫
+      </a>
+    </li>
+  
+
+            
+          
+        </ul>
+      </nav>
+    </li>
+  
+
+            
+          
+        </ul>
+      </nav>
+    </li>
+  
+
+    
+  </ul>
+</nav>
+                  </div>
+                </div>
+              </div>
+            
+            
+              
+              <div class="md-sidebar md-sidebar--secondary" data-md-component="sidebar" data-md-type="toc" >
+                <div class="md-sidebar__scrollwrap">
+                  <div class="md-sidebar__inner">
+                    
+
+
+<nav class="md-nav md-nav--secondary" aria-label="Table of contents">
+  
+  
+  
+    
+  
+  
+    <label class="md-nav__title" for="__toc">
+      <span class="md-nav__icon md-icon"></span>
+      Table of contents
+    </label>
+    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#go111module" class="md-nav__link">
+    启用 GO111MODULE
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#go-mod" class="md-nav__link">
+    go mod 命令
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#go-mod-init" class="md-nav__link">
+    go mod init 初始化
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#go-mod-tidy" class="md-nav__link">
+    go mod tidy 整理依赖
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#go-mod-edit-mod" class="md-nav__link">
+    go mod edit 编辑mod文件
+  </a>
+  
+    <nav class="md-nav" aria-label="go mod edit 编辑mod文件">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#_1" class="md-nav__link">
+    格式化
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#_2" class="md-nav__link">
+    添加依赖项
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#_3" class="md-nav__link">
+    移除依赖项
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#go-get" class="md-nav__link">
+    go get
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#gomod" class="md-nav__link">
+    go.mod 文件
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#_4" class="md-nav__link">
+    语义化版本
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#go-module_1" class="md-nav__link">
+    在项目中使用 go module
+  </a>
+  
+    <nav class="md-nav" aria-label="在项目中使用 go module">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#_5" class="md-nav__link">
+    既有项目
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#_6" class="md-nav__link">
+    新项目
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#vscode-go" class="md-nav__link">
+    VSCode-go 的坑
+  </a>
+  
+    <nav class="md-nav" aria-label="VSCode-go 的坑">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#gomodule" class="md-nav__link">
+    开启 GOMODULE 就报错
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#go-tools" class="md-nav__link">
+    go tools 下载失败
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+    </ul>
+  
+</nav>
+                  </div>
+                </div>
+              </div>
+            
+          
+          <div class="md-content" data-md-component="content">
+            <article class="md-content__inner md-typeset">
+              
+                
+                
+                <p>开启 Go Module 来管理你的模块</p>
+<!--more-->
+
+<h1 id="go-module">Go Module<a class="headerlink" href="#go-module" title="Permanent link">&para;</a></h1>
+<h2 id="go111module">启用 GO111MODULE<a class="headerlink" href="#go111module" title="Permanent link">&para;</a></h2>
+<p><strong>版本要求：go 1.11+，1.13起默认开启</strong></p>
+<p>启用 go module 支持首先要设置环境变量，有三个可选值：{% span blue, auto %}、{% span green, on %}、{% span red, off %}，默认是 {% span blue, auto %}。</p>
+<ol>
+<li><code>GO111MODULE=off</code> 禁用模块支持，编译时会从 <code>GOPATH</code> 和 <code>vendor</code> 文件夹中查找包。</li>
+<li><code>GO111MODULE=on</code> 开启模块支持，编译时会忽略 <code>GOPATH</code> 和 <code>vendor</code> 文件夹，只根据 <code>go.mod</code> 下载依赖。</li>
+<li><code>GO111MODULE=auto</code>，当项目在 <code>$GOPATH/src</code> 外且项目根目录有 <code>go.mod</code> 文件时，开启模块支持。</li>
+</ol>
+<p>设置 <code>GO111MODULE=on</code> 之后就可以使用 <code>go module</code> 了，以后就没必要在 <code>GOPATH</code> 中创建项目了。</p>
+<p>使用 go module 管理依赖后会在项目根目录下生成两个文件 <code>go.mod</code> 和 <code>go.sum</code>。</p>
+<p>开启方式：
+- windows：在环境变量中添加一条值
+    <img alt="" src="https://cdn.jsdelivr.net/gh/TCP404/Picgo/blog/illustration-pic/Go/IMG/20210217115631352_20287.png" /></p>
+<ul>
+<li>Linux：直接执行命令到 <code>/etc/profile</code> 或 <code>$HOME/.profile</code>
+    <div class="highlight"><pre><span></span><code>$ <span class="nb">echo</span> <span class="s2">&quot;export GO111MODULE=auto&quot;</span> &gt;&gt; /etc/profile
+</code></pre></div>
+    或者
+    <div class="highlight"><pre><span></span><code><span class="err">$</span> <span class="k">go</span> <span class="nx">env</span> <span class="o">-</span><span class="nx">w</span> <span class="nx">GO111MODULE</span><span class="p">=</span><span class="nx">auto</span>
+</code></pre></div></li>
+</ul>
+<h2 id="go-mod">go mod 命令<a class="headerlink" href="#go-mod" title="Permanent link">&para;</a></h2>
+<p>常用 <code>go mod</code> 命令如下：</p>
+<div class="highlight"><pre><span></span><code>go mod init     初始化当前文件夹，创建 go.mod 文件
+go mod download 下载依赖的 module 到本地cache（默认为 $GOPATH/pkg/mod，使用命令 go env GOMODCACHE 可查看）
+go mod edit     编辑 go.mod 文件
+go mod graph    打印模块依赖图
+go mod tidy     增加缺少的 module，删除无用的 module
+go mod vendor   将依赖复制到 vendor 下，vendor 目录不存在时会自动创建
+go mod verify   检验依赖
+go mod why      解释为什么要依赖
+</code></pre></div>
+<h2 id="go-mod-init">go mod init 初始化<a class="headerlink" href="#go-mod-init" title="Permanent link">&para;</a></h2>
+<p>初始化当前文件夹，创建 go.mod 文件。</p>
+<p>第一步，切换到项目目录中
+第二步，执行命令 <code>go mod init module名</code></p>
+<p>eg：</p>
+<p><img alt="" src="https://cdn.jsdelivr.net/gh/TCP404/Picgo/blog/illustration-pic/Go/IMG/20210217123923793_585.png" /></p>
+<h2 id="go-mod-tidy">go mod tidy 整理依赖<a class="headerlink" href="#go-mod-tidy" title="Permanent link">&para;</a></h2>
+<p>我们在代码中删除依赖代码后，相关的依赖库并不会在 <code>go.mod</code> 文件中自动移除。这种情况下我们可以使用 <code>go mod tidy</code> 命令更新 <code>go.mod</code> 中的依赖关系。</p>
+<div class="highlight"><pre><span></span><code>$ go mod tidy
+</code></pre></div>
+<h2 id="go-mod-edit-mod">go mod edit 编辑mod文件<a class="headerlink" href="#go-mod-edit-mod" title="Permanent link">&para;</a></h2>
+<h3 id="_1">格式化<a class="headerlink" href="#_1" title="Permanent link">&para;</a></h3>
+<p>因为我们可以手动修改go.mod文件，所以有些时候需要格式化该文件。Go提供了一下命令：</p>
+<div class="highlight"><pre><span></span><code>$ go mod edit -fmt
+</code></pre></div>
+<h3 id="_2">添加依赖项<a class="headerlink" href="#_2" title="Permanent link">&para;</a></h3>
+<div class="highlight"><pre><span></span><code>$ go mod edit -require<span class="o">=</span>要添加的模块
+</code></pre></div>
+<p>eg：
+<div class="highlight"><pre><span></span><code>$ go mod edit -require<span class="o">=</span>rsc.io/quote
+</code></pre></div></p>
+<h3 id="_3">移除依赖项<a class="headerlink" href="#_3" title="Permanent link">&para;</a></h3>
+<div class="highlight"><pre><span></span><code>$ go mod edit -droprequire<span class="o">=</span>要移除的模块
+</code></pre></div>
+<p>eg：
+<div class="highlight"><pre><span></span><code>$ go mod edit -require<span class="o">=</span>github.com/sirupsen/logrus@v1.7.1
+</code></pre></div></p>
+<h2 id="go-get">go get<a class="headerlink" href="#go-get" title="Permanent link">&para;</a></h2>
+<p>在项目中执行 <code>go get</code> 命令可以下载依赖包，并且还可以指定下载的版本。</p>
+<ol>
+<li>运行 <code>go get -u</code> 将会升级到最新的次要版本或者修订版本(x.y.z, z是修订版本号， y是次要版本号)</li>
+<li>运行 <code>go get -u=patch</code> 将会升级到最新的修订版本</li>
+<li>运行 <code>go get package@version</code> 将会升级到指定的版本号 version</li>
+</ol>
+<div class="highlight"><pre><span></span><code>$ go get 
+</code></pre></div>
+<p>如果下载所有依赖可以使用 <code>go mod download</code> 命令。</p>
+<h2 id="gomod">go.mod 文件<a class="headerlink" href="#gomod" title="Permanent link">&para;</a></h2>
+<p><strong><code>go.mod</code></strong> 有 5 种指令：<code>module</code>、<code>go</code>、<code>require</code>、<code>exclude</code>、<code>replace</code></p>
+<ul>
+<li><strong>module</strong>：定义模块路径</li>
+<li><strong>go</strong>：设置预期的语言版本</li>
+<li><strong>require</strong>：依赖包列表及版本</li>
+<li><strong>exclude</strong>：禁止依赖包列表（仅在当前模块为主模块时生效）</li>
+<li><strong>replace</strong>：替换依赖包列表（仅在当前模块为主模块时生效）</li>
+</ul>
+<div class="highlight"><pre><span></span><code><span class="nx">module</span> <span class="nx">my</span><span class="o">/</span><span class="nx">thing</span>
+
+<span class="nx">go</span> <span class="mf">1.16</span>
+
+<span class="nx">require</span> <span class="nx">other</span><span class="o">/</span><span class="nx">thing</span> <span class="nx">v1</span><span class="mf">.0.2</span> <span class="c1">// 这是注释</span>
+<span class="nx">require</span> <span class="ow">new</span><span class="err">/thing/v2 v2.3.4 // indirect</span>
+<span class="nx">require</span><span class="err">（</span>
+  <span class="ow">new</span><span class="err">/thing v2.3.4</span>
+  <span class="nx">old</span><span class="o">/</span><span class="nx">thing</span> <span class="nx">v0</span><span class="mf">.0.0</span><span class="o">-</span><span class="mf">20190603091049</span><span class="o">-</span><span class="mf">60506</span><span class="nx">f45cf65</span>
+<span class="err">）</span>
+
+<span class="nx">exclude</span> <span class="nx">old</span><span class="o">/</span><span class="nx">thing</span> <span class="nx">v1</span><span class="mf">.2.3</span>
+
+<span class="nx">replace</span> <span class="nx">bad</span><span class="o">/</span><span class="nx">thing</span> <span class="nx">v1</span><span class="mf">.4.5</span> <span class="p">=&gt;</span> <span class="nx">good</span><span class="o">/</span><span class="nx">thing</span> <span class="nx">v1</span><span class="mf">.4.5</span>
+</code></pre></div>
+<h2 id="_4">语义化版本<a class="headerlink" href="#_4" title="Permanent link">&para;</a></h2>
+<p>语义化版本号格式为：<code>X.Y.Z</code>（主版本号.次版本号.修订号），使用方法如下：</p>
+<ul>
+<li>进行不向下兼容的修改时，递增主版本号。</li>
+<li>API 保持向下兼容的新增及修改时，递增次版本号。</li>
+<li>修复问题但不影响 API 时，递增修订号。</li>
+</ul>
+<p>例如：
+有一个语义化版本号为：<code>v0.1.2</code>，则其主版本号为 0，次版本为 1，修订号为 2。</p>
+<p>而前面的 v 是 version（版本）的首字母，是 Go 语言惯例使用的，标准的语义化版本没有这个约定。</p>
+<p>所以在使用 Go 命令行工具或 go.mod 文件时，就可以使用语义化版本号来进行模块查询，具体规则如下：</p>
+<ul>
+<li>默认值（<code>@latest</code>）：将匹配**最新可用**的标签版本或源码库的最新未标签版本。</li>
+<li>指定某个 commit（<code>@c854792</code>）：将匹配该 <strong>commit</strong> 时的版本。</li>
+<li>指定某个分支（<code>@master</code>）：将匹配该**分支**版本。</li>
+<li>完全指定版本（<code>@v1.2.3</code>）：将匹配该**指定**版本。</li>
+<li>版本前缀（<code>@v1 或 @v1.2</code>）：将匹配具有该**前缀**的**最新可用**标签版本。</li>
+<li>版本比较（<code>@&lt;v1.2.3 或 @&gt;=v1.5.6</code>）：将匹配**最接近比较目标**的可用标签版本。&lt; 则为小于该版本的最新版本，&gt; 则为大于版本的最旧版本。当使用类 Unix 系统时，需用引号将字符串包裹起来以防止大于小于号被解释为重定向。
+    如：<code>go get 'github.com/gin-gonic/gin@&lt;v1.2.3'</code>。</li>
+</ul>
+<p><img alt="" src="https://cdn.jsdelivr.net/gh/TCP404/Picgo/blog/illustration-pic/Go/IMG/20210217145451209_10624.png" /></p>
+<p>如上图所示，为了能让 Go Modules 的使用者能够从旧版本更方便地升级至新版本，Go 语言官方提出了两个重要的规则：</p>
+<ol>
+<li>导入兼容性规则（import compatibility rule）：如果旧包和新包具有相同的导入路径，则新包必须向后兼容旧包。</li>
+<li>语义化导入版本规则（semantic import versioning rule）：每个不同主版本（即不兼容的包 v1 或 v2）使用不同的导入路径，以主版本结尾，且每个主版本中最多一个。如：一个 rsc.io/quote、一个 rsc.io/quote/v2、一个 rsc.io/quote/v3。</li>
+</ol>
+<p>而与 Git 分支的集成如下：</p>
+<p><img alt="Go Modules 分支" src="https://cdn.jsdelivr.net/gh/TCP404/Picgo/blog/illustration-pic/Go/IMG/20210217145532595_1214.png" /></p>
+<blockquote>
+<p>参考 <a href="https://juejin.cn/post/6844903872054427656">Go Modules 详解</a></p>
+</blockquote>
+<h2 id="go-module_1">在项目中使用 go module<a class="headerlink" href="#go-module_1" title="Permanent link">&para;</a></h2>
+<h3 id="_5">既有项目<a class="headerlink" href="#_5" title="Permanent link">&para;</a></h3>
+<p>如果需要对一个已经存在的项目启用 <code>go module</code>，可以按照以下步骤操作：</p>
+<ol>
+<li>在项目目录下执行 <code>go mod init</code>，生成一个go.mod文件。</li>
+<li>执行 <code>go get</code>，查找并记录当前项目的依赖，同时生成一个go.sum记录每个依赖库的版本和哈希值。</li>
+</ol>
+<h3 id="_6">新项目<a class="headerlink" href="#_6" title="Permanent link">&para;</a></h3>
+<p>对于一个新创建的项目，我们可以在项目文件夹下按照以下步骤操作：</p>
+<ol>
+<li>执行 <code>go mod init 项目名</code> 命令，在当前项目文件夹下创建一个 <code>go.mod</code> 文件。</li>
+<li>手动编辑 <code>go.mod</code> 中的 require 依赖项或执行 <code>go get</code> 自动发现、维护依赖。</li>
+<li>如果没反应，可以试试 <code>go mod tidy</code></li>
+</ol>
+<h2 id="vscode-go">VSCode-go 的坑<a class="headerlink" href="#vscode-go" title="Permanent link">&para;</a></h2>
+<h3 id="gomodule">开启 GOMODULE 就报错<a class="headerlink" href="#gomodule" title="Permanent link">&para;</a></h3>
+<blockquote>
+<p>报错信息：<code>found module "golang.org/x/tools" twice in the workspace</code></p>
+</blockquote>
+<p>一开始的时候我是在 VSC 里建了一个工作区，把 GOPATH 所在目录添加在工作区里，然后开启 GO111MODULE=auto，结果就一直报错。
+后来**新建一个工作区**，把自己放项目的文件夹添加到工作区，就没事了。</p>
+<p>我的 GOPATH：<code>GOPATH=E:\---CODE\GO\root</code></p>
+<p>GOPATH 放进去的工作区：
+<img alt="" src="https://cdn.jsdelivr.net/gh/TCP404/Picgo/blog/illustration-pic/Go/IMG/20210216232600109_13119.png" /></p>
+<p>没有 GOPATH 的工作区</p>
+<p><img alt="" src="https://cdn.jsdelivr.net/gh/TCP404/Picgo/blog/illustration-pic/Go/IMG/20210216232836076_13857.png" /></p>
+<p>相安无事</p>
+<h3 id="go-tools">go tools 下载失败<a class="headerlink" href="#go-tools" title="Permanent link">&para;</a></h3>
+<p>解决办法：把 GOPROXY 改到 <a href="https://goproxy.cn">https://goproxy.cn</a>。阿里云那个有时候不行，官网被墙。
+我试了只有这个地址一次过。</p>
+<ul>
+<li>
+<p>第一步：修改环境变量 GOPROXY
+    <img alt="" src="https://cdn.jsdelivr.net/gh/TCP404/Picgo/blog/illustration-pic/Go/IMG/20210216233219520_22889.png" /></p>
+</li>
+<li>
+<p>第二步：确保 GOPATH 下有<code>bin</code>、<code>pkg</code>、<code>src</code> 三个目录</p>
+</li>
+<li>
+<p>第三步：在 VSC 中按下 <code>Ctrl+Shift+P</code> 唤醒快捷命令行，输入：<code>Go:install/Update Tools</code>，回车。
+    <img alt="" src="https://cdn.jsdelivr.net/gh/TCP404/Picgo/blog/illustration-pic/Go/IMG/20210216232958058_14544.png" /></p>
+</li>
+<li>
+<p>第四步：全选，然后点击 OK 开始下载
+    <img alt="" src="https://cdn.jsdelivr.net/gh/TCP404/Picgo/blog/illustration-pic/Go/IMG/20210216233135419_18930.png" /></p>
+</li>
+<li>
+<p>第四步：丝滑顺畅一次过
+    <img alt="" src="https://cdn.jsdelivr.net/gh/TCP404/Picgo/blog/illustration-pic/Go/IMG/20210216233350018_30494.png" /></p>
+</li>
+</ul>
+                
+                  
+                
+              
+              
+                
+
+
+              
+            </article>
+          </div>
+        </div>
+        
+      </main>
+      
+        
+<footer class="md-footer">
+  
+    <nav class="md-footer__inner md-grid" aria-label="Footer">
+      
+        
+        <a href="../Golang-%E7%B1%BB%E5%9E%8B%E8%BD%AC%E6%8D%A2/" class="md-footer__link md-footer__link--prev" aria-label="Previous: 类型转换" rel="prev">
+          <div class="md-footer__button md-icon">
+            <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M20 11v2H8l5.5 5.5-1.42 1.42L4.16 12l7.92-7.92L13.5 5.5 8 11h12z"/></svg>
+          </div>
+          <div class="md-footer__title">
+            <div class="md-ellipsis">
+              <span class="md-footer__direction">
+                Previous
+              </span>
+              类型转换
+            </div>
+          </div>
+        </a>
+      
+      
+        
+        <a href="../../Adavanced/Golang-16-%E5%B9%B6%E5%8F%91/" class="md-footer__link md-footer__link--next" aria-label="Next: 16.并发" rel="next">
+          <div class="md-footer__title">
+            <div class="md-ellipsis">
+              <span class="md-footer__direction">
+                Next
+              </span>
+              16.并发
+            </div>
+          </div>
+          <div class="md-footer__button md-icon">
+            <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M4 11v2h12l-5.5 5.5 1.42 1.42L19.84 12l-7.92-7.92L10.5 5.5 16 11H4z"/></svg>
+          </div>
+        </a>
+      
+    </nav>
+  
+  <div class="md-footer-meta md-typeset">
+    <div class="md-footer-meta__inner md-grid">
+      <div class="md-footer-copyright">
+        
+          <div class="md-footer-copyright__highlight">
+            Copyright © 2021 [Mr.Boii](https://www.boii.xyz)
+          </div>
+        
+        
+          Made with
+          <a href="https://squidfunk.github.io/mkdocs-material/" target="_blank" rel="noopener">
+            Material for MkDocs
+          </a>
+        
+        
+      </div>
+      
+    </div>
+  </div>
+</footer>
+      
+    </div>
+    <div class="md-dialog" data-md-component="dialog">
+      <div class="md-dialog__inner md-typeset"></div>
+    </div>
+    <script id="__config" type="application/json">{"base": "../../..", "features": ["navigation.tabs", "navigation.indexes"], "translations": {"clipboard.copy": "Copy to clipboard", "clipboard.copied": "Copied to clipboard", "search.config.lang": "en", "search.config.pipeline": "trimmer, stopWordFilter", "search.config.separator": "[\\s\\-]+", "search.placeholder": "Search", "search.result.placeholder": "Type to start searching", "search.result.none": "No matching documents", "search.result.one": "1 matching document", "search.result.other": "# matching documents", "search.result.more.one": "1 more on this page", "search.result.more.other": "# more on this page", "search.result.term.missing": "Missing", "select.version.title": "Select version"}, "search": "../../../assets/javascripts/workers/search.fcfe8b6d.min.js", "version": null}</script>
+    
+    
+      <script src="../../../assets/javascripts/bundle.b1047164.min.js"></script>
+      
+    
+  </body>
+</html>

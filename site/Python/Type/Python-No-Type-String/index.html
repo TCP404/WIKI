@@ -1,0 +1,2179 @@
+
+<!doctype html>
+<html lang="en" class="no-js">
+  <head>
+    
+      <meta charset="utf-8">
+      <meta name="viewport" content="width=device-width,initial-scale=1">
+      
+      
+      
+        <meta name="author" content="Boii">
+      
+      
+        <link rel="canonical" href="https://www.boii.xyz/wiki/Python/Type/Python-No-Type-String/">
+      
+      <link rel="icon" href="../../../_assets/logo/favicon.png">
+      <meta name="generator" content="mkdocs-1.2.3, mkdocs-material-7.3.6">
+    
+    
+      
+        <title>Python【Type】String - Boii's Wiki</title>
+      
+    
+    
+      <link rel="stylesheet" href="../../../assets/stylesheets/main.a57b2b03.min.css">
+      
+        
+        <link rel="stylesheet" href="../../../assets/stylesheets/palette.3f5d1f46.min.css">
+        
+      
+    
+    
+    
+      
+        
+        <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+        <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Roboto:300,400,400i,700%7CRoboto+Mono&display=fallback">
+        <style>:root{--md-text-font-family:"Roboto";--md-code-font-family:"Roboto Mono"}</style>
+      
+    
+    
+    
+    
+      
+
+
+    
+    
+  </head>
+  
+  
+    
+    
+      
+    
+    
+    
+    
+    <body dir="ltr" data-md-color-scheme="default" data-md-color-primary="" data-md-color-accent="">
+  
+    
+    <script>function __prefix(e){return new URL("../../..",location).pathname+"."+e}function __get(e,t=localStorage){return JSON.parse(t.getItem(__prefix(e)))}</script>
+    
+      <script>var palette=__get("__palette");if(null!==palette&&"object"==typeof palette.color)for(var key in palette.color)document.body.setAttribute("data-md-color-"+key,palette.color[key])</script>
+    
+    <input class="md-toggle" data-md-toggle="drawer" type="checkbox" id="__drawer" autocomplete="off">
+    <input class="md-toggle" data-md-toggle="search" type="checkbox" id="__search" autocomplete="off">
+    <label class="md-overlay" for="__drawer"></label>
+    <div data-md-component="skip">
+      
+        
+        <a href="#_1" class="md-skip">
+          Skip to content
+        </a>
+      
+    </div>
+    <div data-md-component="announce">
+      
+    </div>
+    
+      
+
+<header class="md-header" data-md-component="header">
+  <nav class="md-header__inner md-grid" aria-label="Header">
+    <a href="../../.." title="Boii&#39;s Wiki" class="md-header__button md-logo" aria-label="Boii's Wiki" data-md-component="logo">
+      
+  <img src="../../../_assets/logo/favicon.png" alt="logo">
+
+    </a>
+    <label class="md-header__button md-icon" for="__drawer">
+      <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M3 6h18v2H3V6m0 5h18v2H3v-2m0 5h18v2H3v-2z"/></svg>
+    </label>
+    <div class="md-header__title" data-md-component="header-title">
+      <div class="md-header__ellipsis">
+        <div class="md-header__topic">
+          <span class="md-ellipsis">
+            Boii's Wiki
+          </span>
+        </div>
+        <div class="md-header__topic" data-md-component="header-topic">
+          <span class="md-ellipsis">
+            
+              Python【Type】String
+            
+          </span>
+        </div>
+      </div>
+    </div>
+    
+      <form class="md-header__option" data-md-component="palette">
+        
+          
+          
+          <input class="md-option" data-md-color-media="" data-md-color-scheme="default" data-md-color-primary="" data-md-color-accent=""  aria-label="Switch to dark mode"  type="radio" name="__palette" id="__palette_1">
+          
+            <label class="md-header__button md-icon" title="Switch to dark mode" for="__palette_2" hidden>
+              <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 2a7 7 0 0 1 7 7c0 2.38-1.19 4.47-3 5.74V17a1 1 0 0 1-1 1H9a1 1 0 0 1-1-1v-2.26C6.19 13.47 5 11.38 5 9a7 7 0 0 1 7-7M9 21v-1h6v1a1 1 0 0 1-1 1h-4a1 1 0 0 1-1-1m3-17a5 5 0 0 0-5 5c0 2.05 1.23 3.81 3 4.58V16h4v-2.42c1.77-.77 3-2.53 3-4.58a5 5 0 0 0-5-5z"/></svg>
+            </label>
+          
+        
+          
+          
+          <input class="md-option" data-md-color-media="" data-md-color-scheme="slate" data-md-color-primary="" data-md-color-accent=""  aria-label="Switch to light mode"  type="radio" name="__palette" id="__palette_2">
+          
+            <label class="md-header__button md-icon" title="Switch to light mode" for="__palette_1" hidden>
+              <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 2a7 7 0 0 0-7 7c0 2.38 1.19 4.47 3 5.74V17a1 1 0 0 0 1 1h6a1 1 0 0 0 1-1v-2.26c1.81-1.27 3-3.36 3-5.74a7 7 0 0 0-7-7M9 21a1 1 0 0 0 1 1h4a1 1 0 0 0 1-1v-1H9v1z"/></svg>
+            </label>
+          
+        
+      </form>
+    
+    
+    
+      <label class="md-header__button md-icon" for="__search">
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M9.5 3A6.5 6.5 0 0 1 16 9.5c0 1.61-.59 3.09-1.56 4.23l.27.27h.79l5 5-1.5 1.5-5-5v-.79l-.27-.27A6.516 6.516 0 0 1 9.5 16 6.5 6.5 0 0 1 3 9.5 6.5 6.5 0 0 1 9.5 3m0 2C7 5 5 7 5 9.5S7 14 9.5 14 14 12 14 9.5 12 5 9.5 5z"/></svg>
+      </label>
+      
+<div class="md-search" data-md-component="search" role="dialog">
+  <label class="md-search__overlay" for="__search"></label>
+  <div class="md-search__inner" role="search">
+    <form class="md-search__form" name="search">
+      <input type="text" class="md-search__input" name="query" aria-label="Search" placeholder="Search" autocapitalize="off" autocorrect="off" autocomplete="off" spellcheck="false" data-md-component="search-query" required>
+      <label class="md-search__icon md-icon" for="__search">
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M9.5 3A6.5 6.5 0 0 1 16 9.5c0 1.61-.59 3.09-1.56 4.23l.27.27h.79l5 5-1.5 1.5-5-5v-.79l-.27-.27A6.516 6.516 0 0 1 9.5 16 6.5 6.5 0 0 1 3 9.5 6.5 6.5 0 0 1 9.5 3m0 2C7 5 5 7 5 9.5S7 14 9.5 14 14 12 14 9.5 12 5 9.5 5z"/></svg>
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M20 11v2H8l5.5 5.5-1.42 1.42L4.16 12l7.92-7.92L13.5 5.5 8 11h12z"/></svg>
+      </label>
+      <nav class="md-search__options" aria-label="Search">
+        
+        <button type="reset" class="md-search__icon md-icon" aria-label="Clear" tabindex="-1">
+          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M19 6.41 17.59 5 12 10.59 6.41 5 5 6.41 10.59 12 5 17.59 6.41 19 12 13.41 17.59 19 19 17.59 13.41 12 19 6.41z"/></svg>
+        </button>
+      </nav>
+      
+    </form>
+    <div class="md-search__output">
+      <div class="md-search__scrollwrap" data-md-scrollfix>
+        <div class="md-search-result" data-md-component="search-result">
+          <div class="md-search-result__meta">
+            Initializing search
+          </div>
+          <ol class="md-search-result__list"></ol>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+    
+    
+  </nav>
+  
+</header>
+    
+    <div class="md-container" data-md-component="container">
+      
+      
+        
+          
+            
+<nav class="md-tabs" aria-label="Tabs" data-md-component="tabs">
+  <div class="md-tabs__inner md-grid">
+    <ul class="md-tabs__list">
+      
+        
+  
+  
+
+
+  <li class="md-tabs__item">
+    <a href="../../.." class="md-tabs__link">
+      Home
+    </a>
+  </li>
+
+      
+        
+  
+  
+
+
+  
+  
+  
+    
+
+  
+  
+  
+    <li class="md-tabs__item">
+      <a href="../../../Go/Basic/Golang-0-%E6%80%BB%E5%8F%99/" class="md-tabs__link">
+        Golang
+      </a>
+    </li>
+  
+
+  
+
+      
+        
+  
+  
+
+
+  
+  
+  
+    
+
+  
+  
+  
+    <li class="md-tabs__item">
+      <a href="../../Basic/Python-No-1-Abstract/" class="md-tabs__link">
+        Python
+      </a>
+    </li>
+  
+
+  
+
+      
+    </ul>
+  </div>
+</nav>
+          
+        
+      
+      <main class="md-main" data-md-component="main">
+        <div class="md-main__inner md-grid">
+          
+            
+              
+              <div class="md-sidebar md-sidebar--primary" data-md-component="sidebar" data-md-type="navigation" >
+                <div class="md-sidebar__scrollwrap">
+                  <div class="md-sidebar__inner">
+                    
+
+  
+
+
+<nav class="md-nav md-nav--primary md-nav--lifted" aria-label="Navigation" data-md-level="0">
+  <label class="md-nav__title" for="__drawer">
+    <a href="../../.." title="Boii&#39;s Wiki" class="md-nav__button md-logo" aria-label="Boii's Wiki" data-md-component="logo">
+      
+  <img src="../../../_assets/logo/favicon.png" alt="logo">
+
+    </a>
+    Boii's Wiki
+  </label>
+  
+  <ul class="md-nav__list" data-md-scrollfix>
+    
+      
+      
+      
+
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../.." class="md-nav__link">
+        Home
+      </a>
+    </li>
+  
+
+    
+      
+      
+      
+
+  
+  
+  
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+      
+        <input class="md-nav__toggle md-toggle" data-md-toggle="__nav_2" type="checkbox" id="__nav_2" >
+      
+      
+      
+        
+          
+        
+          
+        
+          
+        
+          
+        
+      
+      
+        <label class="md-nav__link" for="__nav_2">
+          Golang
+          <span class="md-nav__icon md-icon"></span>
+        </label>
+      
+      <nav class="md-nav" aria-label="Golang" data-md-level="1">
+        <label class="md-nav__title" for="__nav_2">
+          <span class="md-nav__icon md-icon"></span>
+          Golang
+        </label>
+        <ul class="md-nav__list" data-md-scrollfix>
+          
+            
+              
+  
+  
+  
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+      
+        <input class="md-nav__toggle md-toggle" data-md-toggle="__nav_2_1" type="checkbox" id="__nav_2_1" >
+      
+      
+      
+        
+          
+        
+          
+        
+          
+        
+          
+        
+          
+        
+          
+        
+          
+        
+          
+        
+          
+        
+          
+        
+          
+        
+          
+        
+          
+        
+          
+        
+          
+        
+          
+        
+          
+        
+          
+        
+      
+      
+        <label class="md-nav__link" for="__nav_2_1">
+          Basic
+          <span class="md-nav__icon md-icon"></span>
+        </label>
+      
+      <nav class="md-nav" aria-label="Basic" data-md-level="2">
+        <label class="md-nav__title" for="__nav_2_1">
+          <span class="md-nav__icon md-icon"></span>
+          Basic
+        </label>
+        <ul class="md-nav__list" data-md-scrollfix>
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../Go/Basic/Golang-0-%E6%80%BB%E5%8F%99/" class="md-nav__link">
+        0.总叙
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../Go/Basic/Golang-1-%E5%9F%BA%E7%A1%80/" class="md-nav__link">
+        1.基础
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../Go/Basic/Golang-2-%E6%95%B0%E6%8D%AE%E7%B1%BB%E5%9E%8B/" class="md-nav__link">
+        2.数据类型
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../Go/Basic/Golang-3-%E8%BF%90%E7%AE%97%E7%AC%A6/" class="md-nav__link">
+        3.运算符
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../Go/Basic/Golang-4-%E6%B5%81%E7%A8%8B%E6%8E%A7%E5%88%B6/" class="md-nav__link">
+        4.流程控制
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../Go/Basic/Golang-5-%E6%95%B0%E7%BB%84/" class="md-nav__link">
+        5.数组
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../Go/Basic/Golang-6-slice/" class="md-nav__link">
+        6.slice
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../Go/Basic/Golang-7-map/" class="md-nav__link">
+        7.map
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../Go/Basic/Golang-8-%E5%87%BD%E6%95%B0/" class="md-nav__link">
+        8.函数
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../Go/Basic/Golang-9-%E6%8C%87%E9%92%88/" class="md-nav__link">
+        9.指针
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../Go/Basic/Golang-10-%E7%BB%93%E6%9E%84%E4%BD%93/" class="md-nav__link">
+        10.结构体
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../Go/Basic/Golang-11-%E5%8C%85/" class="md-nav__link">
+        11.包
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../Go/Basic/Golang-12-%E6%8E%A5%E5%8F%A3/" class="md-nav__link">
+        12.接口
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../Go/Basic/Golang-13-%E9%9D%A2%E5%90%91%E5%AF%B9%E8%B1%A1/" class="md-nav__link">
+        13.面向对象
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../Go/Basic/Golang-14-%E9%94%99%E8%AF%AF%E4%B8%8E%E5%BC%82%E5%B8%B8/" class="md-nav__link">
+        14.错误与异常
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../Go/Basic/Golang-15-%E5%8D%95%E5%85%83%E6%B5%8B%E8%AF%95/" class="md-nav__link">
+        15.单元测试
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../Go/Basic/Golang-%E7%B1%BB%E5%9E%8B%E8%BD%AC%E6%8D%A2/" class="md-nav__link">
+        类型转换
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../Go/Basic/Golang-Go-Module/" class="md-nav__link">
+        Go Module
+      </a>
+    </li>
+  
+
+            
+          
+        </ul>
+      </nav>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+      
+        <input class="md-nav__toggle md-toggle" data-md-toggle="__nav_2_2" type="checkbox" id="__nav_2_2" >
+      
+      
+      
+        
+          
+        
+          
+        
+          
+        
+          
+        
+      
+      
+        <label class="md-nav__link" for="__nav_2_2">
+          Adavanced
+          <span class="md-nav__icon md-icon"></span>
+        </label>
+      
+      <nav class="md-nav" aria-label="Adavanced" data-md-level="2">
+        <label class="md-nav__title" for="__nav_2_2">
+          <span class="md-nav__icon md-icon"></span>
+          Adavanced
+        </label>
+        <ul class="md-nav__list" data-md-scrollfix>
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../Go/Adavanced/Golang-16-%E5%B9%B6%E5%8F%91/" class="md-nav__link">
+        16.并发
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../Go/Adavanced/Golang-17-Channel/" class="md-nav__link">
+        17.Channel
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../Go/Adavanced/Golang-18-%E5%B9%B6%E5%8F%91%E5%AE%89%E5%85%A8/" class="md-nav__link">
+        18.并发安全
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../Go/Adavanced/Golang-19-reflect/" class="md-nav__link">
+        19.反射
+      </a>
+    </li>
+  
+
+            
+          
+        </ul>
+      </nav>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+      
+        <input class="md-nav__toggle md-toggle" data-md-toggle="__nav_2_3" type="checkbox" id="__nav_2_3" >
+      
+      
+      
+        
+          
+        
+      
+      
+        <label class="md-nav__link" for="__nav_2_3">
+          Framework
+          <span class="md-nav__icon md-icon"></span>
+        </label>
+      
+      <nav class="md-nav" aria-label="Framework" data-md-level="2">
+        <label class="md-nav__title" for="__nav_2_3">
+          <span class="md-nav__icon md-icon"></span>
+          Framework
+        </label>
+        <ul class="md-nav__list" data-md-scrollfix>
+          
+            
+              
+  
+  
+  
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+      
+        <input class="md-nav__toggle md-toggle" data-md-toggle="__nav_2_3_1" type="checkbox" id="__nav_2_3_1" >
+      
+      
+      
+        
+          
+        
+          
+        
+          
+        
+          
+        
+          
+        
+          
+        
+      
+      
+        <label class="md-nav__link" for="__nav_2_3_1">
+          Gin
+          <span class="md-nav__icon md-icon"></span>
+        </label>
+      
+      <nav class="md-nav" aria-label="Gin" data-md-level="3">
+        <label class="md-nav__title" for="__nav_2_3_1">
+          <span class="md-nav__icon md-icon"></span>
+          Gin
+        </label>
+        <ul class="md-nav__list" data-md-scrollfix>
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../Go/Framework/gin/Gin-0-Get-Start/" class="md-nav__link">
+        Get start
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../Go/Framework/gin/Gin-1-%E8%BF%94%E5%9B%9E%E6%95%B0%E6%8D%AE/" class="md-nav__link">
+        返回数据
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../Go/Framework/gin/Gin-2-%E6%8E%A5%E6%94%B6%E8%AF%B7%E6%B1%82/" class="md-nav__link">
+        接收请求
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../Go/Framework/gin/Gin-3-%E8%B7%AF%E7%94%B1%E7%BB%84/" class="md-nav__link">
+        路由组
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../Go/Framework/gin/Gin-4-%E4%B8%8A%E4%BC%A0%E4%B8%8B%E8%BD%BD%E9%87%8D%E5%AE%9A%E5%90%91/" class="md-nav__link">
+        上传下载重定向
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../Go/Framework/gin/Gin-5-%E4%B8%AD%E9%97%B4%E4%BB%B6/" class="md-nav__link">
+        中间件
+      </a>
+    </li>
+  
+
+            
+          
+        </ul>
+      </nav>
+    </li>
+  
+
+            
+          
+        </ul>
+      </nav>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+      
+        <input class="md-nav__toggle md-toggle" data-md-toggle="__nav_2_4" type="checkbox" id="__nav_2_4" >
+      
+      
+      
+        
+          
+        
+          
+        
+      
+      
+        <label class="md-nav__link" for="__nav_2_4">
+          nil
+          <span class="md-nav__icon md-icon"></span>
+        </label>
+      
+      <nav class="md-nav" aria-label="nil" data-md-level="2">
+        <label class="md-nav__title" for="__nav_2_4">
+          <span class="md-nav__icon md-icon"></span>
+          nil
+        </label>
+        <ul class="md-nav__list" data-md-scrollfix>
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../Go/nil/Golang-nil-%E4%BA%A4%E5%8F%89%E7%BC%96%E8%AF%91/" class="md-nav__link">
+        交叉编译
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../Go/nil/Golang-nil-%E9%80%89%E9%A1%B9%E8%AE%BE%E8%AE%A1%E6%A8%A1%E5%BC%8F/" class="md-nav__link">
+        选项设计模式
+      </a>
+    </li>
+  
+
+            
+          
+        </ul>
+      </nav>
+    </li>
+  
+
+            
+          
+        </ul>
+      </nav>
+    </li>
+  
+
+    
+      
+      
+      
+
+  
+  
+  
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+      
+        <input class="md-nav__toggle md-toggle" data-md-toggle="__nav_3" type="checkbox" id="__nav_3" >
+      
+      
+      
+        
+          
+        
+          
+        
+          
+        
+      
+      
+        <label class="md-nav__link" for="__nav_3">
+          Python
+          <span class="md-nav__icon md-icon"></span>
+        </label>
+      
+      <nav class="md-nav" aria-label="Python" data-md-level="1">
+        <label class="md-nav__title" for="__nav_3">
+          <span class="md-nav__icon md-icon"></span>
+          Python
+        </label>
+        <ul class="md-nav__list" data-md-scrollfix>
+          
+            
+              
+  
+  
+  
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+      
+        <input class="md-nav__toggle md-toggle" data-md-toggle="__nav_3_1" type="checkbox" id="__nav_3_1" >
+      
+      
+      
+        
+          
+        
+          
+        
+          
+        
+          
+        
+          
+        
+          
+        
+          
+        
+          
+        
+          
+        
+          
+        
+          
+        
+          
+        
+      
+      
+        <label class="md-nav__link" for="__nav_3_1">
+          Basic
+          <span class="md-nav__icon md-icon"></span>
+        </label>
+      
+      <nav class="md-nav" aria-label="Basic" data-md-level="2">
+        <label class="md-nav__title" for="__nav_3_1">
+          <span class="md-nav__icon md-icon"></span>
+          Basic
+        </label>
+        <ul class="md-nav__list" data-md-scrollfix>
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../Basic/Python-No-1-Abstract/" class="md-nav__link">
+        总叙
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../Basic/Python-No-2-Basic/" class="md-nav__link">
+        基础
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../Basic/Python-No-3-Judge%26Loop/" class="md-nav__link">
+        判断和循环
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../Basic/Python-No-4-Data-Type/" class="md-nav__link">
+        数据类型
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../Basic/Python-No-5-Operator/" class="md-nav__link">
+        运算符
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../Basic/Python-No-6-Function/" class="md-nav__link">
+        函数
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../Basic/Python-No-7-Error-Handle/" class="md-nav__link">
+        错误处理
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../Basic/Python-No-8-Debug/" class="md-nav__link">
+        调试
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../Basic/Python-No-9-Test/" class="md-nav__link">
+        测试
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../Basic/Python-No-10-Module/" class="md-nav__link">
+        模块
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../Basic/Python-No-19-File/" class="md-nav__link">
+        File
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../Basic/Python-No-20-IO/" class="md-nav__link">
+        IO
+      </a>
+    </li>
+  
+
+            
+          
+        </ul>
+      </nav>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+      
+        <input class="md-nav__toggle md-toggle" data-md-toggle="__nav_3_2" type="checkbox" id="__nav_3_2" >
+      
+      
+      
+        
+          
+        
+          
+        
+          
+        
+          
+        
+          
+        
+      
+      
+        <label class="md-nav__link" for="__nav_3_2">
+          Adavanced
+          <span class="md-nav__icon md-icon"></span>
+        </label>
+      
+      <nav class="md-nav" aria-label="Adavanced" data-md-level="2">
+        <label class="md-nav__title" for="__nav_3_2">
+          <span class="md-nav__icon md-icon"></span>
+          Adavanced
+        </label>
+        <ul class="md-nav__list" data-md-scrollfix>
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../Adavanced/Python-No-Feature-High-Level-Feature/" class="md-nav__link">
+        高级特性
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../Adavanced/Python-No-Feature-Utility-Class/" class="md-nav__link">
+        工具类
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../Adavanced/Python-No-Feature-Functional/" class="md-nav__link">
+        函数式编程
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+      
+        <input class="md-nav__toggle md-toggle" data-md-toggle="__nav_3_2_4" type="checkbox" id="__nav_3_2_4" >
+      
+      
+      
+        
+          
+        
+          
+        
+          
+        
+          
+        
+      
+      
+        <label class="md-nav__link" for="__nav_3_2_4">
+          面向对象
+          <span class="md-nav__icon md-icon"></span>
+        </label>
+      
+      <nav class="md-nav" aria-label="面向对象" data-md-level="3">
+        <label class="md-nav__title" for="__nav_3_2_4">
+          <span class="md-nav__icon md-icon"></span>
+          面向对象
+        </label>
+        <ul class="md-nav__list" data-md-scrollfix>
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../Adavanced/OOP/Python-No-11-Class%26Object/" class="md-nav__link">
+        类和对象
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../Adavanced/OOP/Python-No-Privatisation.md" class="md-nav__link">
+        私有化
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../Adavanced/OOP/Python-No-Magic-Method.md" class="md-nav__link">
+        魔术方法
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../Adavanced/OOP/Python-No-Enum.md" class="md-nav__link">
+        枚举类
+      </a>
+    </li>
+  
+
+            
+          
+        </ul>
+      </nav>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+      
+        <input class="md-nav__toggle md-toggle" data-md-toggle="__nav_3_2_5" type="checkbox" id="__nav_3_2_5" >
+      
+      
+      
+        
+          
+        
+          
+        
+          
+        
+          
+        
+      
+      
+        <label class="md-nav__link" for="__nav_3_2_5">
+          进程线程
+          <span class="md-nav__icon md-icon"></span>
+        </label>
+      
+      <nav class="md-nav" aria-label="进程线程" data-md-level="3">
+        <label class="md-nav__title" for="__nav_3_2_5">
+          <span class="md-nav__icon md-icon"></span>
+          进程线程
+        </label>
+        <ul class="md-nav__list" data-md-scrollfix>
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../Adavanced/Thread/Python-No-15-Abstract/" class="md-nav__link">
+        总叙
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../Adavanced/Thread/Python-No-16-Process/" class="md-nav__link">
+        进程
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../Adavanced/Thread/Python-No-17-Thread/" class="md-nav__link">
+        线程
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../Adavanced/Thread/Python-No-18-Coroutine/" class="md-nav__link">
+        协程
+      </a>
+    </li>
+  
+
+            
+          
+        </ul>
+      </nav>
+    </li>
+  
+
+            
+          
+        </ul>
+      </nav>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+      
+        <input class="md-nav__toggle md-toggle" data-md-toggle="__nav_3_3" type="checkbox" id="__nav_3_3" >
+      
+      
+      
+        
+          
+        
+          
+        
+          
+        
+      
+      
+        <label class="md-nav__link" for="__nav_3_3">
+          Crawler
+          <span class="md-nav__icon md-icon"></span>
+        </label>
+      
+      <nav class="md-nav" aria-label="Crawler" data-md-level="2">
+        <label class="md-nav__title" for="__nav_3_3">
+          <span class="md-nav__icon md-icon"></span>
+          Crawler
+        </label>
+        <ul class="md-nav__list" data-md-scrollfix>
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../Crawler/Python-Crawler-0-Crawler-Abstract/" class="md-nav__link">
+        总叙
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../Crawler/Python-Crawler-1-General-Crawler/" class="md-nav__link">
+        通用爬虫
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../Crawler/Python-Crawler-2-Focued-Crawler/" class="md-nav__link">
+        聚焦爬虫
+      </a>
+    </li>
+  
+
+            
+          
+        </ul>
+      </nav>
+    </li>
+  
+
+            
+          
+        </ul>
+      </nav>
+    </li>
+  
+
+    
+  </ul>
+</nav>
+                  </div>
+                </div>
+              </div>
+            
+            
+              
+              <div class="md-sidebar md-sidebar--secondary" data-md-component="sidebar" data-md-type="toc" >
+                <div class="md-sidebar__scrollwrap">
+                  <div class="md-sidebar__inner">
+                    
+
+
+<nav class="md-nav md-nav--secondary" aria-label="Table of contents">
+  
+  
+  
+  
+    <label class="md-nav__title" for="__toc">
+      <span class="md-nav__icon md-icon"></span>
+      Table of contents
+    </label>
+    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#_1" class="md-nav__link">
+    下标
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#findindexrfindrindex" class="md-nav__link">
+    查找 find、index、rfind、rindex
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#_2" class="md-nav__link">
+    判断
+  </a>
+  
+    <nav class="md-nav" aria-label="判断">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#isdigit-vs-isdecimal-vs-isnumeric" class="md-nav__link">
+    isdigit() VS isdecimal() VS isnumeric()
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#count" class="md-nav__link">
+    计数 count
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#replace" class="md-nav__link">
+    替换 replace
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#splitrsplitpartitionrpartitionsplitlines" class="md-nav__link">
+    分割 split、rsplit、partition、rpartition、splitlines
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#_3" class="md-nav__link">
+    切片
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#_4" class="md-nav__link">
+    转换大小写
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#_5" class="md-nav__link">
+    填充
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#_6" class="md-nav__link">
+    修剪
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#_7" class="md-nav__link">
+    拼接
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#_8" class="md-nav__link">
+    编码
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#_9" class="md-nav__link">
+    长度
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#_10" class="md-nav__link">
+    格式化
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#_11" class="md-nav__link">
+    不可变性
+  </a>
+  
+</li>
+      
+    </ul>
+  
+</nav>
+                  </div>
+                </div>
+              </div>
+            
+          
+          <div class="md-content" data-md-component="content">
+            <article class="md-content__inner md-typeset">
+              
+                
+                
+                  <h1>Python【Type】String</h1>
+                
+                <p>关于String的详细笔记</p>
+<!--more-->
+
+<div class="highlight"><pre><span></span><code><span class="n">a</span> <span class="o">=</span> <span class="s1">&#39;hello&#39;</span>
+<span class="n">b</span> <span class="o">=</span> <span class="s2">&quot;good&quot;</span>
+<span class="n">c</span> <span class="o">=</span> <span class="s2">&quot;&quot;&quot; 哈哈哈 &quot;&quot;&quot;</span>
+<span class="n">d</span> <span class="o">=</span> <span class="s1">&#39;&#39;&#39; 呵呵呵 &#39;&#39;&#39;</span>
+
+<span class="n">str1</span> <span class="o">=</span> <span class="s1">&#39;OK&#39;</span>                     <span class="c1"># OK</span>
+<span class="n">str2</span> <span class="o">=</span> <span class="s2">&quot;OK&quot;</span>                     <span class="c1"># OK</span>
+<span class="n">str3</span> <span class="o">=</span> <span class="s1">&#39;&#39;&#39;I&#39;m OK.&#39;&#39;&#39;</span>            <span class="c1"># I&#39;m OK.</span>
+<span class="n">str4</span> <span class="o">=</span> <span class="s2">&quot;&quot;&quot;哈哈哈&quot;&quot;&quot;</span>              <span class="c1"># 哈哈哈</span>
+<span class="n">str4</span> <span class="o">=</span> <span class="s2">&quot;I&#39;m ok.&quot;</span>                <span class="c1"># I&#39;m ok.</span>
+<span class="n">str5</span> <span class="o">=</span> <span class="s1">&#39;I</span><span class="se">\&#39;</span><span class="s1">m ok.&#39;</span>               <span class="c1"># I&#39;m ok.</span>
+<span class="n">str6</span><span class="o">=</span> <span class="s2">&quot;I</span><span class="se">\&quot;</span><span class="s2">m ok.&quot;</span>               <span class="c1"># I&quot;m ok.</span>
+<span class="n">str7</span> <span class="o">=</span> <span class="s1">&#39;I&quot;m ok.&#39;</span>                <span class="c1"># I&quot;m ok.</span>
+<span class="n">str8</span> <span class="o">=</span> <span class="s2">&quot;&quot;&quot;I&#39;m &quot;Iron Man&quot;.&quot;&quot;&quot;</span>    <span class="c1"># I&#39;m &quot;Iron Man&quot;.</span>
+<span class="n">str9</span> <span class="o">=</span> <span class="sa">r</span><span class="s1">&#39;ab\ncd&#39;</span>                 <span class="c1"># ab\ncd</span>
+<span class="n">str0</span> <span class="o">=</span> <span class="sa">R</span><span class="s1">&#39;ab\ncd&#39;</span>                 <span class="c1"># ab\ncd</span>
+</code></pre></div>
+<div class="highlight"><pre><span></span><code><span class="n">str_1</span> <span class="o">=</span> <span class="s1">&#39;&#39;&#39;这是一个段落，所以可以直接换行，不需反斜杠来声明语句未结束</span>
+<span class="s1">    直到遇到下一个三单引号，才认为结束</span>
+<span class="s1">但是换行会跟着换行，空格会跟着空格&#39;&#39;&#39;</span>
+
+<span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">str_1输出为：</span>
+
+<span class="sd">这是一个段落，所以可以直接换行，不需反斜杠来声明语句未结束</span>
+<span class="sd">    直到遇到下一个三单引号，才认为结束</span>
+<span class="sd">但是换行会跟着换行，空格会跟着空格</span>
+<span class="sd">&quot;&quot;&quot;</span>
+</code></pre></div>
+<p><div class="highlight"><pre><span></span><code>\<span class="n">n</span> <span class="n">换行</span>    \<span class="n">t</span> <span class="n">缩进</span>
+
+<span class="c1"># 使用转义字符</span>
+<span class="n">str_2</span> <span class="o">=</span> <span class="s1">&#39;ab</span><span class="se">\n</span><span class="s1">cd&#39;</span>
+
+<span class="sd">&#39;&#39;&#39;</span>
+<span class="sd">str_2输出为：</span>
+<span class="sd">ab</span>
+<span class="sd">cd</span>
+<span class="sd">&#39;&#39;&#39;</span>
+
+
+<span class="sa">r</span><span class="s1">&#39;字符串&#39;</span> <span class="n">表示不转义</span>
+
+<span class="c1"># 不转义</span>
+<span class="n">str_3</span> <span class="o">=</span> <span class="sa">r</span><span class="s1">&#39;ab\ncd&#39;</span>    <span class="c1"># ab\ncd</span>
+</code></pre></div>
+转义字符</p>
+<table>
+<thead>
+<tr>
+<th align="center">转义字符</th>
+<th align="center">描述</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td align="center">\</td>
+<td align="center">续行符</td>
+</tr>
+<tr>
+<td align="center">\</td>
+<td align="center">反斜杠</td>
+</tr>
+<tr>
+<td align="center">\'</td>
+<td align="center">单引号</td>
+</tr>
+<tr>
+<td align="center">\"</td>
+<td align="center">双引号</td>
+</tr>
+<tr>
+<td align="center">\a</td>
+<td align="center">响铃</td>
+</tr>
+<tr>
+<td align="center">\b</td>
+<td align="center">退格</td>
+</tr>
+<tr>
+<td align="center">\e</td>
+<td align="center">转义</td>
+</tr>
+<tr>
+<td align="center">\000</td>
+<td align="center">空</td>
+</tr>
+<tr>
+<td align="center">\n</td>
+<td align="center">换行</td>
+</tr>
+<tr>
+<td align="center">\v</td>
+<td align="center">纵向制表符</td>
+</tr>
+<tr>
+<td align="center">\t</td>
+<td align="center">横向制表符</td>
+</tr>
+<tr>
+<td align="center">\r</td>
+<td align="center">回车</td>
+</tr>
+<tr>
+<td align="center">\f</td>
+<td align="center">换页</td>
+</tr>
+<tr>
+<td align="center">\o</td>
+<td align="center">八进制</td>
+</tr>
+<tr>
+<td align="center">\x</td>
+<td align="center">十六进制</td>
+</tr>
+</tbody>
+</table>
+<h2 id="_1">下标<a class="headerlink" href="#_1" title="Permanent link">&para;</a></h2>
+<div class="highlight"><pre><span></span><code> <span class="o">|</span>  <span class="n">P</span>  <span class="o">|</span>  <span class="n">y</span>  <span class="o">|</span>  <span class="n">t</span>  <span class="o">|</span>  <span class="n">h</span>  <span class="o">|</span>  <span class="n">o</span>  <span class="o">|</span>  <span class="n">n</span>  <span class="o">|</span>
+    <span class="mi">0</span>     <span class="mi">1</span>     <span class="mi">2</span>     <span class="mi">3</span>     <span class="mi">4</span>     <span class="mi">5</span>
+   <span class="o">-</span><span class="mi">6</span>    <span class="o">-</span><span class="mi">5</span>    <span class="o">-</span><span class="mi">4</span>    <span class="o">-</span><span class="mi">3</span>    <span class="o">-</span><span class="mi">2</span>    <span class="o">-</span><span class="mi">1</span>
+</code></pre></div>
+<h2 id="findindexrfindrindex">查找 find、index、rfind、rindex<a class="headerlink" href="#findindexrfindrindex" title="Permanent link">&para;</a></h2>
+<blockquote>
+<p>s.find(sub[, start[, end]) -&gt; int
+s.rfind(sub[, start[, end]) -&gt; int
+s.index(sub[, start[, end]) -&gt; int
+s.rindex(sub[, start[, end]) -&gt; int</p>
+</blockquote>
+<p>没r找第一个，有r找最后一个
+find找不到返回-1，index找不到报错</p>
+<div class="highlight"><pre><span></span><code><span class="n">s</span> <span class="o">=</span> <span class="s1">&#39;abcdefghijkl abundance gg&#39;</span>
+<span class="nb">print</span><span class="p">(</span><span class="n">s</span><span class="o">.</span><span class="n">find</span><span class="p">(</span><span class="s1">&#39;g&#39;</span><span class="p">))</span>     <span class="c1"># 返回字符串中第一个 g 的下标：6</span>
+<span class="nb">print</span><span class="p">(</span><span class="n">s</span><span class="o">.</span><span class="n">find</span><span class="p">(</span><span class="s1">&#39;z&#39;</span><span class="p">))</span>     <span class="c1"># 找不到则返回 -1</span>
+<span class="nb">print</span><span class="p">(</span><span class="n">s</span><span class="o">.</span><span class="n">index</span><span class="p">(</span><span class="s1">&#39;g&#39;</span><span class="p">))</span>    <span class="c1"># 返回字符串中第一个 g 的下标：6</span>
+<span class="nb">print</span><span class="p">(</span><span class="n">s</span><span class="o">.</span><span class="n">index</span><span class="p">(</span><span class="s1">&#39;z&#39;</span><span class="p">))</span>    <span class="c1"># 找不到则报错</span>
+
+<span class="nb">print</span><span class="p">(</span><span class="n">s</span><span class="o">.</span><span class="n">rfind</span><span class="p">(</span><span class="s1">&#39;g&#39;</span><span class="p">))</span>    <span class="c1"># 返回字符串中最后一个 g 的下标：24</span>
+<span class="nb">print</span><span class="p">(</span><span class="n">s</span><span class="o">.</span><span class="n">rfind</span><span class="p">(</span><span class="s1">&#39;z&#39;</span><span class="p">))</span>    <span class="c1"># 找不到则返回 -1</span>
+<span class="nb">print</span><span class="p">(</span><span class="n">s</span><span class="o">.</span><span class="n">rindex</span><span class="p">(</span><span class="s1">&#39;g&#39;</span><span class="p">))</span>   <span class="c1"># 返回字符串中最后一个 g 的下标：24</span>
+<span class="nb">print</span><span class="p">(</span><span class="n">s</span><span class="o">.</span><span class="n">rindex</span><span class="p">(</span><span class="s1">&#39;z&#39;</span><span class="p">))</span>   <span class="c1"># 找不到则报错</span>
+</code></pre></div>
+<h2 id="_2">判断<a class="headerlink" href="#_2" title="Permanent link">&para;</a></h2>
+<table>
+<thead>
+<tr>
+<th align="left">方法名</th>
+<th align="left">描述</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td align="left">startswith(value)</td>
+<td align="left">判断是否以 value 开始</td>
+</tr>
+<tr>
+<td align="left">endswith(value)</td>
+<td align="left">判断是否以 value 结束</td>
+</tr>
+<tr>
+<td align="left">isalpha()</td>
+<td align="left">判断是否全是字母</td>
+</tr>
+<tr>
+<td align="left">isdigit()</td>
+<td align="left">判断是否全是数字</td>
+</tr>
+<tr>
+<td align="left">isalnum()</td>
+<td align="left">判断是否全是字母或数字或字母+数字</td>
+</tr>
+<tr>
+<td align="left">isdecimal()</td>
+<td align="left">判断是否全是浮点数</td>
+</tr>
+<tr>
+<td align="left">isnumeric()</td>
+<td align="left">判断是否全是数值</td>
+</tr>
+<tr>
+<td align="left">islower()</td>
+<td align="left">判断是否全小写</td>
+</tr>
+<tr>
+<td align="left">isupper()</td>
+<td align="left">判断是否全大写</td>
+</tr>
+<tr>
+<td align="left">isspace()</td>
+<td align="left">判断是否全空格或\t或\n或\r</td>
+</tr>
+<tr>
+<td align="left">istitle()</td>
+<td align="left">判断是否所有单词都是首字母大写</td>
+</tr>
+</tbody>
+</table>
+<h3 id="isdigit-vs-isdecimal-vs-isnumeric">isdigit() VS isdecimal() VS isnumeric()<a class="headerlink" href="#isdigit-vs-isdecimal-vs-isnumeric" title="Permanent link">&para;</a></h3>
+<p><strong>isdigit()</strong>
+True: Unicode数字，byte数字（单字节），全角数字（双字节），罗马数字
+False: 汉字数字
+Error: 无</p>
+<p><strong>isdecimal()</strong>
+True: Unicode数字，，全角数字（双字节）
+False: 罗马数字，汉字数字
+Error: byte数字（单字节）</p>
+<p><strong>isnumeric()</strong>
+True: Unicode数字，全角数字（双字节），罗马数字，汉字数字
+False: 无
+Error: byte数字（单字节）</p>
+<h2 id="count">计数 count<a class="headerlink" href="#count" title="Permanent link">&para;</a></h2>
+<blockquote>
+<p>s.count(sub[, start[, end]) -&gt; int</p>
+</blockquote>
+<div class="highlight"><pre><span></span><code><span class="n">s</span> <span class="o">=</span> <span class="s1">&#39;abcdefghijkl abundance gg&#39;</span>
+<span class="nb">print</span><span class="p">(</span><span class="n">s</span><span class="o">.</span><span class="n">count</span><span class="p">(</span><span class="s1">&#39;g&#39;</span><span class="p">))</span>        <span class="c1"># 3. 字母 g 一共出现了3次</span>
+</code></pre></div>
+<h2 id="replace">替换 replace<a class="headerlink" href="#replace" title="Permanent link">&para;</a></h2>
+<blockquote>
+<p>s.replace(old, new[, count]) -&gt; str
+替换字符串中指定的内容，如果指定次数count， 则替换不会超过count次。</p>
+</blockquote>
+<div class="highlight"><pre><span></span><code><span class="n">s</span> <span class="o">=</span> <span class="s1">&#39;abcdefghijkl abundance gg&#39;</span>
+<span class="nb">print</span><span class="p">(</span><span class="n">s</span><span class="o">.</span><span class="n">replace</span><span class="p">(</span><span class="s1">&#39;g&#39;</span><span class="p">,</span> <span class="s1">&#39;*&#39;</span><span class="p">))</span>        <span class="c1"># abcdef*hijkl abundance **</span>
+<span class="nb">print</span><span class="p">(</span><span class="n">s</span><span class="o">.</span><span class="n">replace</span><span class="p">(</span><span class="s1">&#39;g&#39;</span><span class="p">,</span> <span class="s1">&#39;*&#39;</span><span class="p">,</span> <span class="mi">2</span><span class="p">))</span>     <span class="c1"># abcdef*hijkl abundance *g</span>
+</code></pre></div>
+<h2 id="splitrsplitpartitionrpartitionsplitlines">分割 split、rsplit、partition、rpartition、splitlines<a class="headerlink" href="#splitrsplitpartitionrpartitionsplitlines" title="Permanent link">&para;</a></h2>
+<blockquote>
+<p><code>s.split(sep[, maxsplit]) -&gt; list[str]</code>：按 sep 分割，从左边开始，只分割两次
+<code>s.rsplit(sep[, maxsplit]) -&gt; list[str]</code>：按 sep 分割，从右边开始，只分割两次
+<code>s.patition(sep) -&gt; tuple(str, str, str)</code>：按 sep 分割，从左边开始，分成 (前部，分割符号，后部)
+<code>s.rpartition(sep) -&gt; tuple(str, str, str)</code>：按 sep 分割，从右边开始，分成 (前部，分割符号，后部)</p>
+</blockquote>
+<div class="highlight"><pre><span></span><code><span class="n">s1</span> <span class="o">=</span> <span class="s1">&#39;Alice,Boii,Candy,Dannis,Eva,Fiona&#39;</span>
+
+<span class="nb">print</span><span class="p">(</span><span class="n">s1</span><span class="o">.</span><span class="n">split</span><span class="p">(</span><span class="s1">&#39;,&#39;</span><span class="p">))</span>                    <span class="c1"># [&#39;Alice&#39;, &#39;Boii&#39;, &#39;Candy&#39;, &#39;Dannis&#39;, &#39;Eva&#39;, &#39;Fiona&#39;]</span>
+<span class="nb">print</span><span class="p">(</span><span class="n">s1</span><span class="o">.</span><span class="n">split</span><span class="p">(</span><span class="s1">&#39;,&#39;</span><span class="p">,</span> <span class="mi">2</span><span class="p">))</span>                 <span class="c1"># [&#39;Alice&#39;, &#39;Boii&#39;, &#39;Candy,Dannis,Eva,Fiona&#39;]</span>
+<span class="nb">print</span><span class="p">(</span><span class="n">s1</span><span class="o">.</span><span class="n">rsplit</span><span class="p">(</span><span class="s1">&#39;,&#39;</span><span class="p">,</span> <span class="mi">2</span><span class="p">))</span>                <span class="c1"># [&#39;Alice,Boii,Candy,Dannis&#39;, &#39;Eva&#39;, &#39;Fiona&#39;]</span>
+
+
+<span class="n">s2</span> <span class="o">=</span> <span class="s1">&#39;2020.8.8拍摄.mp4&#39;</span>
+
+<span class="nb">print</span><span class="p">(</span><span class="n">s2</span><span class="o">.</span><span class="n">partition</span><span class="p">(</span><span class="s1">&#39;.&#39;</span><span class="p">))</span>                <span class="c1"># (&#39;2020&#39;, &#39;.&#39;, &#39;8.8拍摄.mp4&#39;)</span>
+<span class="nb">print</span><span class="p">(</span><span class="n">s2</span><span class="o">.</span><span class="n">rpartition</span><span class="p">(</span><span class="s1">&#39;.&#39;</span><span class="p">))</span>               <span class="c1"># (&#39;2020.8.8拍摄&#39;, &#39;.&#39;, &#39;mp4&#39;)</span>
+</code></pre></div>
+<blockquote>
+<p><code>s.splitlines([keepends]) -&gt; list[str]</code>：按换行符（\n，\r，\r\n）分割
+keepends -- 在输出结果里是否保留换行符('\r', '\r\n', \n')，默认为 False，不包含换行符，如果为 True，则保留换行符。</p>
+</blockquote>
+<div class="highlight"><pre><span></span><code><span class="n">str1</span> <span class="o">=</span> <span class="s1">&#39;ab c</span><span class="se">\n\n</span><span class="s1">de fg</span><span class="se">\r</span><span class="s1">kl</span><span class="se">\r\n</span><span class="s1">&#39;</span>
+<span class="nb">print</span><span class="p">(</span><span class="n">str1</span><span class="o">.</span><span class="n">splitlines</span><span class="p">())</span>        <span class="c1"># [&#39;ab c&#39;, &#39;&#39;, &#39;de fg&#39;, &#39;kl&#39;]</span>
+
+<span class="n">str2</span> <span class="o">=</span> <span class="s1">&#39;ab c</span><span class="se">\n\n</span><span class="s1">de fg</span><span class="se">\r</span><span class="s1">kl</span><span class="se">\r\n</span><span class="s1">&#39;</span>
+<span class="nb">print</span><span class="p">(</span><span class="n">str2</span><span class="o">.</span><span class="n">splitlines</span><span class="p">(</span><span class="kc">True</span><span class="p">))</span>    <span class="c1"># [&#39;ab c\n&#39;, &#39;\n&#39;, &#39;de fg\r&#39;, &#39;kl\r\n&#39;]</span>
+</code></pre></div>
+<h2 id="_3">切片<a class="headerlink" href="#_3" title="Permanent link">&para;</a></h2>
+<p>从字符串里截取一段指定的内容，生成一个新的字符串
+切片都是**包头不包尾**</p>
+<p>具体参考 <a href="">高级特性-&gt;切片</a></p>
+<h2 id="_4">转换大小写<a class="headerlink" href="#_4" title="Permanent link">&para;</a></h2>
+<div class="highlight"><pre><span></span><code><span class="n">s</span> <span class="o">=</span> <span class="s1">&#39;hello woRlD.good mornIng&#39;</span>
+
+<span class="c1"># 将第一个字符转成大写，其他字符转成小写</span>
+<span class="nb">print</span><span class="p">(</span><span class="n">s</span><span class="o">.</span><span class="n">capitalize</span><span class="p">())</span>   <span class="c1"># Hello world.good morning</span>
+<span class="c1"># 将全部字符转成大写</span>
+<span class="nb">print</span><span class="p">(</span><span class="n">s</span><span class="o">.</span><span class="n">upper</span><span class="p">())</span>        <span class="c1"># HELLO WORLD.GOOD MORNING</span>
+<span class="c1"># 将全部字符转成小写</span>
+<span class="nb">print</span><span class="p">(</span><span class="n">s</span><span class="o">.</span><span class="n">lower</span><span class="p">())</span>        <span class="c1"># hello world.good morning</span>
+<span class="c1"># 将每个单词首字母转成大写</span>
+<span class="nb">print</span><span class="p">(</span><span class="n">s</span><span class="o">.</span><span class="n">title</span><span class="p">())</span>        <span class="c1"># Hello World.Good Morning</span>
+</code></pre></div>
+<h2 id="_5">填充<a class="headerlink" href="#_5" title="Permanent link">&para;</a></h2>
+<blockquote>
+<p><code>s.ljust(weight, fillchar='') -&gt; str</code>
+<code>s.rjust(weight, fillchar='') -&gt; str</code>
+<code>s.center(weight, fillchar='') -&gt; str</code></p>
+</blockquote>
+<p>不足 weight 的话，用 fillchar 填充，fillchar默认空格</p>
+<div class="highlight"><pre><span></span><code><span class="nb">print</span><span class="p">(</span><span class="s1">&#39;|&#39;</span> <span class="o">+</span> <span class="s1">&#39;Monday&#39;</span><span class="o">.</span><span class="n">ljust</span><span class="p">(</span><span class="mi">10</span><span class="p">)</span> <span class="o">+</span> <span class="s1">&#39;|&#39;</span><span class="p">)</span>        <span class="c1"># |Monday    |</span>
+<span class="nb">print</span><span class="p">(</span><span class="s1">&#39;|&#39;</span> <span class="o">+</span> <span class="s1">&#39;Monday&#39;</span><span class="o">.</span><span class="n">ljust</span><span class="p">(</span><span class="mi">10</span><span class="p">,</span> <span class="s1">&#39;^&#39;</span><span class="p">)</span> <span class="o">+</span> <span class="s1">&#39;|&#39;</span><span class="p">)</span>   <span class="c1"># |Monday^^^^|</span>
+<span class="nb">print</span><span class="p">(</span><span class="s1">&#39;|&#39;</span> <span class="o">+</span> <span class="s1">&#39;Monday&#39;</span><span class="o">.</span><span class="n">rjust</span><span class="p">(</span><span class="mi">10</span><span class="p">)</span> <span class="o">+</span> <span class="s1">&#39;|&#39;</span><span class="p">)</span>        <span class="c1"># |    Monday|</span>
+<span class="nb">print</span><span class="p">(</span><span class="s1">&#39;|&#39;</span> <span class="o">+</span> <span class="s1">&#39;Monday&#39;</span><span class="o">.</span><span class="n">rjust</span><span class="p">(</span><span class="mi">10</span><span class="p">,</span> <span class="s1">&#39;#&#39;</span><span class="p">)</span> <span class="o">+</span> <span class="s1">&#39;|&#39;</span><span class="p">)</span>   <span class="c1"># |####Monday|</span>
+<span class="nb">print</span><span class="p">(</span><span class="s1">&#39;|&#39;</span> <span class="o">+</span> <span class="s1">&#39;Friday&#39;</span><span class="o">.</span><span class="n">center</span><span class="p">(</span><span class="mi">20</span><span class="p">,</span> <span class="s1">&#39;*&#39;</span><span class="p">)</span> <span class="o">+</span> <span class="s1">&#39;|&#39;</span><span class="p">)</span>  <span class="c1"># |*******Friday*******|</span>
+<span class="nb">print</span><span class="p">(</span><span class="s1">&#39;|&#39;</span> <span class="o">+</span> <span class="s1">&#39;Friday&#39;</span><span class="o">.</span><span class="n">center</span><span class="p">(</span><span class="mi">4</span><span class="p">,</span> <span class="s1">&#39;*&#39;</span><span class="p">)</span> <span class="o">+</span> <span class="s1">&#39;|&#39;</span><span class="p">)</span>   <span class="c1"># |Friday|</span>
+</code></pre></div>
+<h2 id="_6">修剪<a class="headerlink" href="#_6" title="Permanent link">&para;</a></h2>
+<blockquote>
+<p><code>s.lstrip(chars) -&gt; str</code>
+<code>s.rstrip(chars) -&gt; str</code>
+<code>s.strip(chars) -&gt; str</code></p>
+</blockquote>
+<p>删除字符串 左边 / 右边 / 左边+右边 的 chars 字符</p>
+<div class="highlight"><pre><span></span><code><span class="nb">print</span><span class="p">(</span><span class="s1">&#39;|&#39;</span> <span class="o">+</span> <span class="s1">&#39;   Couldy Sunny   &#39;</span><span class="o">.</span><span class="n">lstrip</span><span class="p">()</span> <span class="o">+</span> <span class="s1">&#39;|&#39;</span><span class="p">)</span>      <span class="c1"># |Couldy Sunny   |</span>
+<span class="nb">print</span><span class="p">(</span><span class="s1">&#39;|&#39;</span> <span class="o">+</span> <span class="s1">&#39;   Couldy Sunny   &#39;</span><span class="o">.</span><span class="n">rstrip</span><span class="p">()</span> <span class="o">+</span> <span class="s1">&#39;|&#39;</span><span class="p">)</span>      <span class="c1"># |   Couldy Sunny|</span>
+<span class="nb">print</span><span class="p">(</span><span class="s1">&#39;|&#39;</span> <span class="o">+</span> <span class="s1">&#39;   Couldy Sunny   &#39;</span><span class="o">.</span><span class="n">strip</span><span class="p">()</span> <span class="o">+</span> <span class="s1">&#39;|&#39;</span><span class="p">)</span>       <span class="c1"># |Couldy Sunny|</span>
+
+<span class="nb">print</span><span class="p">(</span><span class="s1">&#39;|&#39;</span> <span class="o">+</span> <span class="s1">&#39;   Couldy+Sunny+++&#39;</span><span class="o">.</span><span class="n">lstrip</span><span class="p">(</span><span class="s1">&#39;+&#39;</span><span class="p">)</span> <span class="o">+</span> <span class="s1">&#39;|&#39;</span><span class="p">)</span>   <span class="c1"># |   Couldy+Sunny+++|</span>
+<span class="nb">print</span><span class="p">(</span><span class="s1">&#39;|&#39;</span> <span class="o">+</span> <span class="s1">&#39;   Couldy+Sunny+++&#39;</span><span class="o">.</span><span class="n">rstrip</span><span class="p">(</span><span class="s1">&#39;+&#39;</span><span class="p">)</span> <span class="o">+</span> <span class="s1">&#39;|&#39;</span><span class="p">)</span>   <span class="c1"># |   Couldy+Sunny|</span>
+<span class="nb">print</span><span class="p">(</span><span class="s1">&#39;|&#39;</span> <span class="o">+</span> <span class="s1">&#39;   Couldy+Sunny+++&#39;</span><span class="o">.</span><span class="n">strip</span><span class="p">(</span><span class="s1">&#39;+&#39;</span><span class="p">)</span> <span class="o">+</span> <span class="s1">&#39;|&#39;</span><span class="p">)</span>    <span class="c1"># |   Couldy+Sunny|</span>
+</code></pre></div>
+<h2 id="_7">拼接<a class="headerlink" href="#_7" title="Permanent link">&para;</a></h2>
+<blockquote>
+<p><code>s.join(iterable) -&gt; str</code>
+将 s 拼接到 iterable 的每一个元素上</p>
+</blockquote>
+<div class="highlight"><pre><span></span><code><span class="n">li</span> <span class="o">=</span> <span class="p">[</span><span class="s1">&#39;Alice&#39;</span><span class="p">,</span> <span class="s1">&#39;Boii&#39;</span><span class="p">,</span> <span class="s1">&#39;Candy&#39;</span><span class="p">,</span> <span class="s1">&#39;Dannis&#39;</span><span class="p">,</span> <span class="s1">&#39;Eva&#39;</span><span class="p">,</span> <span class="s1">&#39;Fiona&#39;</span><span class="p">]</span>
+<span class="nb">print</span><span class="p">(</span><span class="s1">&#39; - &#39;</span><span class="o">.</span><span class="n">join</span><span class="p">(</span><span class="n">li</span><span class="p">))</span>       <span class="c1"># Alice - Boii - Candy - Dannis - Eva - Fiona</span>
+
+<span class="nb">print</span><span class="p">(</span><span class="s1">&#39;+&#39;</span><span class="o">.</span><span class="n">join</span><span class="p">(</span><span class="s1">&#39;Hello&#39;</span><span class="p">))</span>    <span class="c1"># H+e+l+l+o</span>
+
+<span class="n">dic</span> <span class="o">=</span> <span class="p">{</span><span class="s1">&#39;name1&#39;</span><span class="p">:</span> <span class="s1">&#39;Alice&#39;</span><span class="p">,</span> <span class="s1">&#39;name2&#39;</span><span class="p">:</span> <span class="s1">&#39;Boii&#39;</span><span class="p">}</span>
+<span class="nb">print</span><span class="p">(</span><span class="s1">&#39; - &#39;</span><span class="o">.</span><span class="n">join</span><span class="p">(</span><span class="n">dic</span><span class="p">))</span>      <span class="c1"># name1 - name2</span>
+</code></pre></div>
+<h2 id="_8">编码<a class="headerlink" href="#_8" title="Permanent link">&para;</a></h2>
+<ul>
+<li><strong>ASCII</strong>
+    0~127共128个，占用 1byte 即 8bit 的长度，共使用了7位的长度，从0000 0000 到 0111 1111。
+    48-57 -&gt; 0-9，65-90 -&gt; A-Z，97-122 -&gt; a-z</li>
+<li><strong>ISO-8859-1</strong>
+    0~255共256个，占用 1byte 即 8bit 的长度，共使用了8位的长度，从 0000 0000到1111 1111。
+    0<sub>127与ASCII完全兼容，128</sub>255是一些欧洲字母</li>
+<li><strong>Unicode</strong>
+    万国码，汉字每个占 3byte</li>
+<li><strong>GBK</strong>
+    国标扩，汉字每个占 2byte</li>
+</ul>
+<h2 id="_9">长度<a class="headerlink" href="#_9" title="Permanent link">&para;</a></h2>
+<h2 id="_10">格式化<a class="headerlink" href="#_10" title="Permanent link">&para;</a></h2>
+<h2 id="_11">不可变性<a class="headerlink" href="#_11" title="Permanent link">&para;</a></h2>
+<p>字符串是不可变对象。
+当执行一个 <code>str = 'abc'</code> 的语句时，
+python在字符串池中创建了一个字符串 <code>'abc'</code> ，
+然后在内存中创建一个变量 <code>str</code>指向字符串池中的 <code>'abc'</code></p>
+<p>如果对<code>str</code>进行修改 <code>str = 'xyz'</code>
+python会在字符串池中再创建一个字符串 <code>'xyz'</code>，
+然后让变量 <code>str</code> 指向字符串池中的 <code>'xyz'</code>
+此时字符串池其实有 <code>'abc'</code> 和 <code>'xyz'</code>，只不过<code>'abc'</code>没有被指向， <code>'xyz'</code> 被<code>str</code>指向</p>
+<blockquote>
+<p>所以，对于不变对象来说，
+调用对象自身的任意方法，也不会改变该对象自身的内容。
+相反，这些方法会创建新的对象并返回
+这样，就保证了不可变对象本身永远是不可变的。</p>
+</blockquote>
+                
+                  
+                
+              
+              
+                
+
+
+              
+            </article>
+          </div>
+        </div>
+        
+      </main>
+      
+        
+<footer class="md-footer">
+  
+  <div class="md-footer-meta md-typeset">
+    <div class="md-footer-meta__inner md-grid">
+      <div class="md-footer-copyright">
+        
+          <div class="md-footer-copyright__highlight">
+            Copyright © 2021 [Mr.Boii](https://www.boii.xyz)
+          </div>
+        
+        
+          Made with
+          <a href="https://squidfunk.github.io/mkdocs-material/" target="_blank" rel="noopener">
+            Material for MkDocs
+          </a>
+        
+        
+      </div>
+      
+    </div>
+  </div>
+</footer>
+      
+    </div>
+    <div class="md-dialog" data-md-component="dialog">
+      <div class="md-dialog__inner md-typeset"></div>
+    </div>
+    <script id="__config" type="application/json">{"base": "../../..", "features": ["navigation.tabs", "navigation.indexes"], "translations": {"clipboard.copy": "Copy to clipboard", "clipboard.copied": "Copied to clipboard", "search.config.lang": "en", "search.config.pipeline": "trimmer, stopWordFilter", "search.config.separator": "[\\s\\-]+", "search.placeholder": "Search", "search.result.placeholder": "Type to start searching", "search.result.none": "No matching documents", "search.result.one": "1 matching document", "search.result.other": "# matching documents", "search.result.more.one": "1 more on this page", "search.result.more.other": "# more on this page", "search.result.term.missing": "Missing", "select.version.title": "Select version"}, "search": "../../../assets/javascripts/workers/search.fcfe8b6d.min.js", "version": null}</script>
+    
+    
+      <script src="../../../assets/javascripts/bundle.b1047164.min.js"></script>
+      
+    
+  </body>
+</html>

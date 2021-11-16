@@ -1,0 +1,2026 @@
+
+<!doctype html>
+<html lang="en" class="no-js">
+  <head>
+    
+      <meta charset="utf-8">
+      <meta name="viewport" content="width=device-width,initial-scale=1">
+      
+      
+      
+        <meta name="author" content="Boii">
+      
+      
+        <link rel="canonical" href="https://www.boii.xyz/wiki/Python/Buildints/Python-No-Buildins-re/">
+      
+      <link rel="icon" href="../../../_assets/logo/favicon.png">
+      <meta name="generator" content="mkdocs-1.2.3, mkdocs-material-7.3.6">
+    
+    
+      
+        <title>Python【Buildins】re - Boii's Wiki</title>
+      
+    
+    
+      <link rel="stylesheet" href="../../../assets/stylesheets/main.a57b2b03.min.css">
+      
+        
+        <link rel="stylesheet" href="../../../assets/stylesheets/palette.3f5d1f46.min.css">
+        
+      
+    
+    
+    
+      
+        
+        <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+        <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Roboto:300,400,400i,700%7CRoboto+Mono&display=fallback">
+        <style>:root{--md-text-font-family:"Roboto";--md-code-font-family:"Roboto Mono"}</style>
+      
+    
+    
+    
+    
+      
+
+
+    
+    
+  </head>
+  
+  
+    
+    
+      
+    
+    
+    
+    
+    <body dir="ltr" data-md-color-scheme="default" data-md-color-primary="" data-md-color-accent="">
+  
+    
+    <script>function __prefix(e){return new URL("../../..",location).pathname+"."+e}function __get(e,t=localStorage){return JSON.parse(t.getItem(__prefix(e)))}</script>
+    
+      <script>var palette=__get("__palette");if(null!==palette&&"object"==typeof palette.color)for(var key in palette.color)document.body.setAttribute("data-md-color-"+key,palette.color[key])</script>
+    
+    <input class="md-toggle" data-md-toggle="drawer" type="checkbox" id="__drawer" autocomplete="off">
+    <input class="md-toggle" data-md-toggle="search" type="checkbox" id="__search" autocomplete="off">
+    <label class="md-overlay" for="__drawer"></label>
+    <div data-md-component="skip">
+      
+        
+        <a href="#_1" class="md-skip">
+          Skip to content
+        </a>
+      
+    </div>
+    <div data-md-component="announce">
+      
+    </div>
+    
+      
+
+<header class="md-header" data-md-component="header">
+  <nav class="md-header__inner md-grid" aria-label="Header">
+    <a href="../../.." title="Boii&#39;s Wiki" class="md-header__button md-logo" aria-label="Boii's Wiki" data-md-component="logo">
+      
+  <img src="../../../_assets/logo/favicon.png" alt="logo">
+
+    </a>
+    <label class="md-header__button md-icon" for="__drawer">
+      <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M3 6h18v2H3V6m0 5h18v2H3v-2m0 5h18v2H3v-2z"/></svg>
+    </label>
+    <div class="md-header__title" data-md-component="header-title">
+      <div class="md-header__ellipsis">
+        <div class="md-header__topic">
+          <span class="md-ellipsis">
+            Boii's Wiki
+          </span>
+        </div>
+        <div class="md-header__topic" data-md-component="header-topic">
+          <span class="md-ellipsis">
+            
+              Python【Buildins】re
+            
+          </span>
+        </div>
+      </div>
+    </div>
+    
+      <form class="md-header__option" data-md-component="palette">
+        
+          
+          
+          <input class="md-option" data-md-color-media="" data-md-color-scheme="default" data-md-color-primary="" data-md-color-accent=""  aria-label="Switch to dark mode"  type="radio" name="__palette" id="__palette_1">
+          
+            <label class="md-header__button md-icon" title="Switch to dark mode" for="__palette_2" hidden>
+              <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 2a7 7 0 0 1 7 7c0 2.38-1.19 4.47-3 5.74V17a1 1 0 0 1-1 1H9a1 1 0 0 1-1-1v-2.26C6.19 13.47 5 11.38 5 9a7 7 0 0 1 7-7M9 21v-1h6v1a1 1 0 0 1-1 1h-4a1 1 0 0 1-1-1m3-17a5 5 0 0 0-5 5c0 2.05 1.23 3.81 3 4.58V16h4v-2.42c1.77-.77 3-2.53 3-4.58a5 5 0 0 0-5-5z"/></svg>
+            </label>
+          
+        
+          
+          
+          <input class="md-option" data-md-color-media="" data-md-color-scheme="slate" data-md-color-primary="" data-md-color-accent=""  aria-label="Switch to light mode"  type="radio" name="__palette" id="__palette_2">
+          
+            <label class="md-header__button md-icon" title="Switch to light mode" for="__palette_1" hidden>
+              <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 2a7 7 0 0 0-7 7c0 2.38 1.19 4.47 3 5.74V17a1 1 0 0 0 1 1h6a1 1 0 0 0 1-1v-2.26c1.81-1.27 3-3.36 3-5.74a7 7 0 0 0-7-7M9 21a1 1 0 0 0 1 1h4a1 1 0 0 0 1-1v-1H9v1z"/></svg>
+            </label>
+          
+        
+      </form>
+    
+    
+    
+      <label class="md-header__button md-icon" for="__search">
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M9.5 3A6.5 6.5 0 0 1 16 9.5c0 1.61-.59 3.09-1.56 4.23l.27.27h.79l5 5-1.5 1.5-5-5v-.79l-.27-.27A6.516 6.516 0 0 1 9.5 16 6.5 6.5 0 0 1 3 9.5 6.5 6.5 0 0 1 9.5 3m0 2C7 5 5 7 5 9.5S7 14 9.5 14 14 12 14 9.5 12 5 9.5 5z"/></svg>
+      </label>
+      
+<div class="md-search" data-md-component="search" role="dialog">
+  <label class="md-search__overlay" for="__search"></label>
+  <div class="md-search__inner" role="search">
+    <form class="md-search__form" name="search">
+      <input type="text" class="md-search__input" name="query" aria-label="Search" placeholder="Search" autocapitalize="off" autocorrect="off" autocomplete="off" spellcheck="false" data-md-component="search-query" required>
+      <label class="md-search__icon md-icon" for="__search">
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M9.5 3A6.5 6.5 0 0 1 16 9.5c0 1.61-.59 3.09-1.56 4.23l.27.27h.79l5 5-1.5 1.5-5-5v-.79l-.27-.27A6.516 6.516 0 0 1 9.5 16 6.5 6.5 0 0 1 3 9.5 6.5 6.5 0 0 1 9.5 3m0 2C7 5 5 7 5 9.5S7 14 9.5 14 14 12 14 9.5 12 5 9.5 5z"/></svg>
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M20 11v2H8l5.5 5.5-1.42 1.42L4.16 12l7.92-7.92L13.5 5.5 8 11h12z"/></svg>
+      </label>
+      <nav class="md-search__options" aria-label="Search">
+        
+        <button type="reset" class="md-search__icon md-icon" aria-label="Clear" tabindex="-1">
+          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M19 6.41 17.59 5 12 10.59 6.41 5 5 6.41 10.59 12 5 17.59 6.41 19 12 13.41 17.59 19 19 17.59 13.41 12 19 6.41z"/></svg>
+        </button>
+      </nav>
+      
+    </form>
+    <div class="md-search__output">
+      <div class="md-search__scrollwrap" data-md-scrollfix>
+        <div class="md-search-result" data-md-component="search-result">
+          <div class="md-search-result__meta">
+            Initializing search
+          </div>
+          <ol class="md-search-result__list"></ol>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+    
+    
+  </nav>
+  
+</header>
+    
+    <div class="md-container" data-md-component="container">
+      
+      
+        
+          
+            
+<nav class="md-tabs" aria-label="Tabs" data-md-component="tabs">
+  <div class="md-tabs__inner md-grid">
+    <ul class="md-tabs__list">
+      
+        
+  
+  
+
+
+  <li class="md-tabs__item">
+    <a href="../../.." class="md-tabs__link">
+      Home
+    </a>
+  </li>
+
+      
+        
+  
+  
+
+
+  
+  
+  
+    
+
+  
+  
+  
+    <li class="md-tabs__item">
+      <a href="../../../Go/Basic/Golang-0-%E6%80%BB%E5%8F%99/" class="md-tabs__link">
+        Golang
+      </a>
+    </li>
+  
+
+  
+
+      
+        
+  
+  
+
+
+  
+  
+  
+    
+
+  
+  
+  
+    <li class="md-tabs__item">
+      <a href="../../Basic/Python-No-1-Abstract/" class="md-tabs__link">
+        Python
+      </a>
+    </li>
+  
+
+  
+
+      
+    </ul>
+  </div>
+</nav>
+          
+        
+      
+      <main class="md-main" data-md-component="main">
+        <div class="md-main__inner md-grid">
+          
+            
+              
+              <div class="md-sidebar md-sidebar--primary" data-md-component="sidebar" data-md-type="navigation" >
+                <div class="md-sidebar__scrollwrap">
+                  <div class="md-sidebar__inner">
+                    
+
+  
+
+
+<nav class="md-nav md-nav--primary md-nav--lifted" aria-label="Navigation" data-md-level="0">
+  <label class="md-nav__title" for="__drawer">
+    <a href="../../.." title="Boii&#39;s Wiki" class="md-nav__button md-logo" aria-label="Boii's Wiki" data-md-component="logo">
+      
+  <img src="../../../_assets/logo/favicon.png" alt="logo">
+
+    </a>
+    Boii's Wiki
+  </label>
+  
+  <ul class="md-nav__list" data-md-scrollfix>
+    
+      
+      
+      
+
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../.." class="md-nav__link">
+        Home
+      </a>
+    </li>
+  
+
+    
+      
+      
+      
+
+  
+  
+  
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+      
+        <input class="md-nav__toggle md-toggle" data-md-toggle="__nav_2" type="checkbox" id="__nav_2" >
+      
+      
+      
+        
+          
+        
+          
+        
+          
+        
+          
+        
+      
+      
+        <label class="md-nav__link" for="__nav_2">
+          Golang
+          <span class="md-nav__icon md-icon"></span>
+        </label>
+      
+      <nav class="md-nav" aria-label="Golang" data-md-level="1">
+        <label class="md-nav__title" for="__nav_2">
+          <span class="md-nav__icon md-icon"></span>
+          Golang
+        </label>
+        <ul class="md-nav__list" data-md-scrollfix>
+          
+            
+              
+  
+  
+  
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+      
+        <input class="md-nav__toggle md-toggle" data-md-toggle="__nav_2_1" type="checkbox" id="__nav_2_1" >
+      
+      
+      
+        
+          
+        
+          
+        
+          
+        
+          
+        
+          
+        
+          
+        
+          
+        
+          
+        
+          
+        
+          
+        
+          
+        
+          
+        
+          
+        
+          
+        
+          
+        
+          
+        
+          
+        
+          
+        
+      
+      
+        <label class="md-nav__link" for="__nav_2_1">
+          Basic
+          <span class="md-nav__icon md-icon"></span>
+        </label>
+      
+      <nav class="md-nav" aria-label="Basic" data-md-level="2">
+        <label class="md-nav__title" for="__nav_2_1">
+          <span class="md-nav__icon md-icon"></span>
+          Basic
+        </label>
+        <ul class="md-nav__list" data-md-scrollfix>
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../Go/Basic/Golang-0-%E6%80%BB%E5%8F%99/" class="md-nav__link">
+        0.总叙
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../Go/Basic/Golang-1-%E5%9F%BA%E7%A1%80/" class="md-nav__link">
+        1.基础
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../Go/Basic/Golang-2-%E6%95%B0%E6%8D%AE%E7%B1%BB%E5%9E%8B/" class="md-nav__link">
+        2.数据类型
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../Go/Basic/Golang-3-%E8%BF%90%E7%AE%97%E7%AC%A6/" class="md-nav__link">
+        3.运算符
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../Go/Basic/Golang-4-%E6%B5%81%E7%A8%8B%E6%8E%A7%E5%88%B6/" class="md-nav__link">
+        4.流程控制
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../Go/Basic/Golang-5-%E6%95%B0%E7%BB%84/" class="md-nav__link">
+        5.数组
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../Go/Basic/Golang-6-slice/" class="md-nav__link">
+        6.slice
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../Go/Basic/Golang-7-map/" class="md-nav__link">
+        7.map
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../Go/Basic/Golang-8-%E5%87%BD%E6%95%B0/" class="md-nav__link">
+        8.函数
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../Go/Basic/Golang-9-%E6%8C%87%E9%92%88/" class="md-nav__link">
+        9.指针
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../Go/Basic/Golang-10-%E7%BB%93%E6%9E%84%E4%BD%93/" class="md-nav__link">
+        10.结构体
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../Go/Basic/Golang-11-%E5%8C%85/" class="md-nav__link">
+        11.包
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../Go/Basic/Golang-12-%E6%8E%A5%E5%8F%A3/" class="md-nav__link">
+        12.接口
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../Go/Basic/Golang-13-%E9%9D%A2%E5%90%91%E5%AF%B9%E8%B1%A1/" class="md-nav__link">
+        13.面向对象
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../Go/Basic/Golang-14-%E9%94%99%E8%AF%AF%E4%B8%8E%E5%BC%82%E5%B8%B8/" class="md-nav__link">
+        14.错误与异常
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../Go/Basic/Golang-15-%E5%8D%95%E5%85%83%E6%B5%8B%E8%AF%95/" class="md-nav__link">
+        15.单元测试
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../Go/Basic/Golang-%E7%B1%BB%E5%9E%8B%E8%BD%AC%E6%8D%A2/" class="md-nav__link">
+        类型转换
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../Go/Basic/Golang-Go-Module/" class="md-nav__link">
+        Go Module
+      </a>
+    </li>
+  
+
+            
+          
+        </ul>
+      </nav>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+      
+        <input class="md-nav__toggle md-toggle" data-md-toggle="__nav_2_2" type="checkbox" id="__nav_2_2" >
+      
+      
+      
+        
+          
+        
+          
+        
+          
+        
+          
+        
+      
+      
+        <label class="md-nav__link" for="__nav_2_2">
+          Adavanced
+          <span class="md-nav__icon md-icon"></span>
+        </label>
+      
+      <nav class="md-nav" aria-label="Adavanced" data-md-level="2">
+        <label class="md-nav__title" for="__nav_2_2">
+          <span class="md-nav__icon md-icon"></span>
+          Adavanced
+        </label>
+        <ul class="md-nav__list" data-md-scrollfix>
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../Go/Adavanced/Golang-16-%E5%B9%B6%E5%8F%91/" class="md-nav__link">
+        16.并发
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../Go/Adavanced/Golang-17-Channel/" class="md-nav__link">
+        17.Channel
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../Go/Adavanced/Golang-18-%E5%B9%B6%E5%8F%91%E5%AE%89%E5%85%A8/" class="md-nav__link">
+        18.并发安全
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../Go/Adavanced/Golang-19-reflect/" class="md-nav__link">
+        19.反射
+      </a>
+    </li>
+  
+
+            
+          
+        </ul>
+      </nav>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+      
+        <input class="md-nav__toggle md-toggle" data-md-toggle="__nav_2_3" type="checkbox" id="__nav_2_3" >
+      
+      
+      
+        
+          
+        
+      
+      
+        <label class="md-nav__link" for="__nav_2_3">
+          Framework
+          <span class="md-nav__icon md-icon"></span>
+        </label>
+      
+      <nav class="md-nav" aria-label="Framework" data-md-level="2">
+        <label class="md-nav__title" for="__nav_2_3">
+          <span class="md-nav__icon md-icon"></span>
+          Framework
+        </label>
+        <ul class="md-nav__list" data-md-scrollfix>
+          
+            
+              
+  
+  
+  
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+      
+        <input class="md-nav__toggle md-toggle" data-md-toggle="__nav_2_3_1" type="checkbox" id="__nav_2_3_1" >
+      
+      
+      
+        
+          
+        
+          
+        
+          
+        
+          
+        
+          
+        
+          
+        
+      
+      
+        <label class="md-nav__link" for="__nav_2_3_1">
+          Gin
+          <span class="md-nav__icon md-icon"></span>
+        </label>
+      
+      <nav class="md-nav" aria-label="Gin" data-md-level="3">
+        <label class="md-nav__title" for="__nav_2_3_1">
+          <span class="md-nav__icon md-icon"></span>
+          Gin
+        </label>
+        <ul class="md-nav__list" data-md-scrollfix>
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../Go/Framework/gin/Gin-0-Get-Start/" class="md-nav__link">
+        Get start
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../Go/Framework/gin/Gin-1-%E8%BF%94%E5%9B%9E%E6%95%B0%E6%8D%AE/" class="md-nav__link">
+        返回数据
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../Go/Framework/gin/Gin-2-%E6%8E%A5%E6%94%B6%E8%AF%B7%E6%B1%82/" class="md-nav__link">
+        接收请求
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../Go/Framework/gin/Gin-3-%E8%B7%AF%E7%94%B1%E7%BB%84/" class="md-nav__link">
+        路由组
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../Go/Framework/gin/Gin-4-%E4%B8%8A%E4%BC%A0%E4%B8%8B%E8%BD%BD%E9%87%8D%E5%AE%9A%E5%90%91/" class="md-nav__link">
+        上传下载重定向
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../Go/Framework/gin/Gin-5-%E4%B8%AD%E9%97%B4%E4%BB%B6/" class="md-nav__link">
+        中间件
+      </a>
+    </li>
+  
+
+            
+          
+        </ul>
+      </nav>
+    </li>
+  
+
+            
+          
+        </ul>
+      </nav>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+      
+        <input class="md-nav__toggle md-toggle" data-md-toggle="__nav_2_4" type="checkbox" id="__nav_2_4" >
+      
+      
+      
+        
+          
+        
+          
+        
+      
+      
+        <label class="md-nav__link" for="__nav_2_4">
+          nil
+          <span class="md-nav__icon md-icon"></span>
+        </label>
+      
+      <nav class="md-nav" aria-label="nil" data-md-level="2">
+        <label class="md-nav__title" for="__nav_2_4">
+          <span class="md-nav__icon md-icon"></span>
+          nil
+        </label>
+        <ul class="md-nav__list" data-md-scrollfix>
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../Go/nil/Golang-nil-%E4%BA%A4%E5%8F%89%E7%BC%96%E8%AF%91/" class="md-nav__link">
+        交叉编译
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../Go/nil/Golang-nil-%E9%80%89%E9%A1%B9%E8%AE%BE%E8%AE%A1%E6%A8%A1%E5%BC%8F/" class="md-nav__link">
+        选项设计模式
+      </a>
+    </li>
+  
+
+            
+          
+        </ul>
+      </nav>
+    </li>
+  
+
+            
+          
+        </ul>
+      </nav>
+    </li>
+  
+
+    
+      
+      
+      
+
+  
+  
+  
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+      
+        <input class="md-nav__toggle md-toggle" data-md-toggle="__nav_3" type="checkbox" id="__nav_3" >
+      
+      
+      
+        
+          
+        
+          
+        
+          
+        
+      
+      
+        <label class="md-nav__link" for="__nav_3">
+          Python
+          <span class="md-nav__icon md-icon"></span>
+        </label>
+      
+      <nav class="md-nav" aria-label="Python" data-md-level="1">
+        <label class="md-nav__title" for="__nav_3">
+          <span class="md-nav__icon md-icon"></span>
+          Python
+        </label>
+        <ul class="md-nav__list" data-md-scrollfix>
+          
+            
+              
+  
+  
+  
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+      
+        <input class="md-nav__toggle md-toggle" data-md-toggle="__nav_3_1" type="checkbox" id="__nav_3_1" >
+      
+      
+      
+        
+          
+        
+          
+        
+          
+        
+          
+        
+          
+        
+          
+        
+          
+        
+          
+        
+          
+        
+          
+        
+          
+        
+          
+        
+      
+      
+        <label class="md-nav__link" for="__nav_3_1">
+          Basic
+          <span class="md-nav__icon md-icon"></span>
+        </label>
+      
+      <nav class="md-nav" aria-label="Basic" data-md-level="2">
+        <label class="md-nav__title" for="__nav_3_1">
+          <span class="md-nav__icon md-icon"></span>
+          Basic
+        </label>
+        <ul class="md-nav__list" data-md-scrollfix>
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../Basic/Python-No-1-Abstract/" class="md-nav__link">
+        总叙
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../Basic/Python-No-2-Basic/" class="md-nav__link">
+        基础
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../Basic/Python-No-3-Judge%26Loop/" class="md-nav__link">
+        判断和循环
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../Basic/Python-No-4-Data-Type/" class="md-nav__link">
+        数据类型
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../Basic/Python-No-5-Operator/" class="md-nav__link">
+        运算符
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../Basic/Python-No-6-Function/" class="md-nav__link">
+        函数
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../Basic/Python-No-7-Error-Handle/" class="md-nav__link">
+        错误处理
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../Basic/Python-No-8-Debug/" class="md-nav__link">
+        调试
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../Basic/Python-No-9-Test/" class="md-nav__link">
+        测试
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../Basic/Python-No-10-Module/" class="md-nav__link">
+        模块
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../Basic/Python-No-19-File/" class="md-nav__link">
+        File
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../Basic/Python-No-20-IO/" class="md-nav__link">
+        IO
+      </a>
+    </li>
+  
+
+            
+          
+        </ul>
+      </nav>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+      
+        <input class="md-nav__toggle md-toggle" data-md-toggle="__nav_3_2" type="checkbox" id="__nav_3_2" >
+      
+      
+      
+        
+          
+        
+          
+        
+          
+        
+          
+        
+          
+        
+      
+      
+        <label class="md-nav__link" for="__nav_3_2">
+          Adavanced
+          <span class="md-nav__icon md-icon"></span>
+        </label>
+      
+      <nav class="md-nav" aria-label="Adavanced" data-md-level="2">
+        <label class="md-nav__title" for="__nav_3_2">
+          <span class="md-nav__icon md-icon"></span>
+          Adavanced
+        </label>
+        <ul class="md-nav__list" data-md-scrollfix>
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../Adavanced/Python-No-Feature-High-Level-Feature/" class="md-nav__link">
+        高级特性
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../Adavanced/Python-No-Feature-Utility-Class/" class="md-nav__link">
+        工具类
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../Adavanced/Python-No-Feature-Functional/" class="md-nav__link">
+        函数式编程
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+      
+        <input class="md-nav__toggle md-toggle" data-md-toggle="__nav_3_2_4" type="checkbox" id="__nav_3_2_4" >
+      
+      
+      
+        
+          
+        
+          
+        
+          
+        
+          
+        
+      
+      
+        <label class="md-nav__link" for="__nav_3_2_4">
+          面向对象
+          <span class="md-nav__icon md-icon"></span>
+        </label>
+      
+      <nav class="md-nav" aria-label="面向对象" data-md-level="3">
+        <label class="md-nav__title" for="__nav_3_2_4">
+          <span class="md-nav__icon md-icon"></span>
+          面向对象
+        </label>
+        <ul class="md-nav__list" data-md-scrollfix>
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../Adavanced/OOP/Python-No-11-Class%26Object/" class="md-nav__link">
+        类和对象
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../Adavanced/OOP/Python-No-Privatisation.md" class="md-nav__link">
+        私有化
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../Adavanced/OOP/Python-No-Magic-Method.md" class="md-nav__link">
+        魔术方法
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../Adavanced/OOP/Python-No-Enum.md" class="md-nav__link">
+        枚举类
+      </a>
+    </li>
+  
+
+            
+          
+        </ul>
+      </nav>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+      
+        <input class="md-nav__toggle md-toggle" data-md-toggle="__nav_3_2_5" type="checkbox" id="__nav_3_2_5" >
+      
+      
+      
+        
+          
+        
+          
+        
+          
+        
+          
+        
+      
+      
+        <label class="md-nav__link" for="__nav_3_2_5">
+          进程线程
+          <span class="md-nav__icon md-icon"></span>
+        </label>
+      
+      <nav class="md-nav" aria-label="进程线程" data-md-level="3">
+        <label class="md-nav__title" for="__nav_3_2_5">
+          <span class="md-nav__icon md-icon"></span>
+          进程线程
+        </label>
+        <ul class="md-nav__list" data-md-scrollfix>
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../Adavanced/Thread/Python-No-15-Abstract/" class="md-nav__link">
+        总叙
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../Adavanced/Thread/Python-No-16-Process/" class="md-nav__link">
+        进程
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../Adavanced/Thread/Python-No-17-Thread/" class="md-nav__link">
+        线程
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../Adavanced/Thread/Python-No-18-Coroutine/" class="md-nav__link">
+        协程
+      </a>
+    </li>
+  
+
+            
+          
+        </ul>
+      </nav>
+    </li>
+  
+
+            
+          
+        </ul>
+      </nav>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+      
+        <input class="md-nav__toggle md-toggle" data-md-toggle="__nav_3_3" type="checkbox" id="__nav_3_3" >
+      
+      
+      
+        
+          
+        
+          
+        
+          
+        
+      
+      
+        <label class="md-nav__link" for="__nav_3_3">
+          Crawler
+          <span class="md-nav__icon md-icon"></span>
+        </label>
+      
+      <nav class="md-nav" aria-label="Crawler" data-md-level="2">
+        <label class="md-nav__title" for="__nav_3_3">
+          <span class="md-nav__icon md-icon"></span>
+          Crawler
+        </label>
+        <ul class="md-nav__list" data-md-scrollfix>
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../Crawler/Python-Crawler-0-Crawler-Abstract/" class="md-nav__link">
+        总叙
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../Crawler/Python-Crawler-1-General-Crawler/" class="md-nav__link">
+        通用爬虫
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../Crawler/Python-Crawler-2-Focued-Crawler/" class="md-nav__link">
+        聚焦爬虫
+      </a>
+    </li>
+  
+
+            
+          
+        </ul>
+      </nav>
+    </li>
+  
+
+            
+          
+        </ul>
+      </nav>
+    </li>
+  
+
+    
+  </ul>
+</nav>
+                  </div>
+                </div>
+              </div>
+            
+            
+              
+              <div class="md-sidebar md-sidebar--secondary" data-md-component="sidebar" data-md-type="toc" >
+                <div class="md-sidebar__scrollwrap">
+                  <div class="md-sidebar__inner">
+                    
+
+
+<nav class="md-nav md-nav--secondary" aria-label="Table of contents">
+  
+  
+  
+  
+    <label class="md-nav__title" for="__toc">
+      <span class="md-nav__icon md-icon"></span>
+      Table of contents
+    </label>
+    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#_1" class="md-nav__link">
+    预定义字符
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#_2" class="md-nav__link">
+    元字符
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#_3" class="md-nav__link">
+    重复匹配
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#_4" class="md-nav__link">
+    贪婪和非贪
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#_5" class="md-nav__link">
+    反向引用
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#_6" class="md-nav__link">
+    位置匹配
+  </a>
+  
+</li>
+      
+    </ul>
+  
+</nav>
+                  </div>
+                </div>
+              </div>
+            
+          
+          <div class="md-content" data-md-component="content">
+            <article class="md-content__inner md-typeset">
+              
+                
+                
+                  <h1>Python【Buildins】re</h1>
+                
+                <p>Python的内置库——正则表达式</p>
+<!--more-->
+
+<p>正则表达式是用来**处理字符串**的，重在处理**规则**</p>
+<p>常用正则</p>
+<ul>
+<li>年份匹配：<code>^((19|20)\d{2})$</code></li>
+<li>手机号码：<code>^1[3456789]\d{9}$</code></li>
+<li>E-mail地址：<code>^[\w-]+(\.[\w-]+)*@[\w-]+(\.[\w-]+)+$</code></li>
+<li>网址URL：<code>http://(/[\w-]+\.)+[\w-]+(/[\w-./?%&amp;=])</code></li>
+</ul>
+<blockquote>
+<p><code>re.findall(goal, source)</code>
+匹配成功 返回一个列表，列表中有<code>goal</code>的字符串，<strong>找到n次就有n个</strong>
+匹配失败 返回一个空列表</p>
+</blockquote>
+<div class="highlight"><pre><span></span><code><span class="o">&gt;&gt;&gt;</span> <span class="c1"># 普通字符正则的匹配</span>
+<span class="o">&gt;&gt;&gt;</span>
+<span class="o">&gt;&gt;&gt;</span> <span class="kn">import</span> <span class="nn">re</span>
+<span class="o">&gt;&gt;&gt;</span> <span class="nb">print</span><span class="p">(</span><span class="n">re</span><span class="o">.</span><span class="n">findall</span><span class="p">(</span><span class="s1">&#39;p&#39;</span><span class="p">,</span> <span class="s1">&#39;python&#39;</span><span class="p">))</span>
+<span class="p">[</span><span class="s1">&#39;p&#39;</span><span class="p">]</span>
+<span class="o">&gt;&gt;&gt;</span> <span class="nb">print</span><span class="p">(</span><span class="n">re</span><span class="o">.</span><span class="n">findall</span><span class="p">(</span><span class="s1">&#39;python&#39;</span><span class="p">,</span> <span class="s1">&#39;I like python&#39;</span><span class="p">))</span>
+<span class="p">[</span><span class="s1">&#39;python&#39;</span><span class="p">]</span>
+<span class="o">&gt;&gt;&gt;</span> <span class="nb">print</span><span class="p">(</span><span class="n">re</span><span class="o">.</span><span class="n">findall</span><span class="p">(</span><span class="s1">&#39;o&#39;</span><span class="p">,</span> <span class="s1">&#39;I love python&#39;</span><span class="p">))</span>
+<span class="p">[</span><span class="s1">&#39;o&#39;</span><span class="p">,</span> <span class="s1">&#39;o&#39;</span><span class="p">]</span>
+<span class="o">&gt;&gt;&gt;</span> <span class="nb">print</span><span class="p">(</span><span class="n">re</span><span class="o">.</span><span class="n">findall</span><span class="p">(</span><span class="s1">&#39;2&#39;</span><span class="p">,</span> <span class="s1">&#39;1234567890abcdefg&#39;</span><span class="p">))</span>
+<span class="p">[</span><span class="s1">&#39;2&#39;</span><span class="p">]</span>
+</code></pre></div>
+<h2 id="_1">预定义字符<a class="headerlink" href="#_1" title="Permanent link">&para;</a></h2>
+<blockquote>
+<p><code>\d</code>、<code>\D</code>、<code>\s</code>、<code>\S</code>、<code>\w</code>、<code>\W</code></p>
+</blockquote>
+<ul>
+<li><code>\d</code>：匹配所有**数字**，<code>0~9</code></li>
+<li><code>\w</code>：匹配包含下划线**字符** <code>[a-z|A-Z|0-9|_]</code></li>
+<li><code>\s</code>：匹配**空白符、制表符、换行符** <code>[\n \t]</code></li>
+</ul>
+<hr />
+<ul>
+<li><code>\D</code>：匹配所有**非数字**，<code>^[0-9]</code></li>
+<li><code>\W</code>：匹配**非正常字符** <code>^[a-z|A-Z|0-9|_]</code></li>
+<li><code>\S</code>：匹配**非空白符、制表符、换行符** <code>^[\n \t]</code></li>
+</ul>
+<hr />
+<ul>
+<li><code>.</code>：除了换行符之外所有字符</li>
+</ul>
+<div class="highlight"><pre><span></span><code><span class="o">&gt;&gt;&gt;</span> <span class="nb">print</span><span class="p">(</span><span class="n">re</span><span class="o">.</span><span class="n">findall</span><span class="p">(</span><span class="sa">r</span><span class="s2">&quot;\d&quot;</span><span class="p">,</span> <span class="s2">&quot;1234657890abcdefg&quot;</span><span class="p">))</span>
+<span class="p">[</span><span class="s1">&#39;1&#39;</span><span class="p">,</span> <span class="s1">&#39;2&#39;</span><span class="p">,</span> <span class="s1">&#39;3&#39;</span><span class="p">,</span> <span class="s1">&#39;4&#39;</span><span class="p">,</span> <span class="s1">&#39;6&#39;</span><span class="p">,</span> <span class="s1">&#39;5&#39;</span><span class="p">,</span> <span class="s1">&#39;7&#39;</span><span class="p">,</span> <span class="s1">&#39;8&#39;</span><span class="p">,</span> <span class="s1">&#39;9&#39;</span><span class="p">,</span> <span class="s1">&#39;0&#39;</span><span class="p">]</span>
+<span class="o">&gt;&gt;&gt;</span> <span class="nb">print</span><span class="p">(</span><span class="n">re</span><span class="o">.</span><span class="n">findall</span><span class="p">(</span><span class="sa">r</span><span class="s2">&quot;\D&quot;</span><span class="p">,</span> <span class="s2">&quot;1234657890abcdefg&quot;</span><span class="p">))</span>
+<span class="p">[</span><span class="s1">&#39;a&#39;</span><span class="p">,</span> <span class="s1">&#39;b&#39;</span><span class="p">,</span> <span class="s1">&#39;c&#39;</span><span class="p">,</span> <span class="s1">&#39;d&#39;</span><span class="p">,</span> <span class="s1">&#39;e&#39;</span><span class="p">,</span> <span class="s1">&#39;f&#39;</span><span class="p">,</span> <span class="s1">&#39;g&#39;</span><span class="p">]</span>
+
+<span class="o">&gt;&gt;&gt;</span> <span class="nb">print</span><span class="p">(</span><span class="n">re</span><span class="o">.</span><span class="n">findall</span><span class="p">(</span><span class="sa">r</span><span class="s2">&quot;\w&quot;</span><span class="p">,</span> <span class="s2">&quot;1234657890abcd_%$#efg&quot;</span><span class="p">))</span>
+<span class="p">[</span><span class="s1">&#39;1&#39;</span><span class="p">,</span> <span class="s1">&#39;2&#39;</span><span class="p">,</span> <span class="s1">&#39;3&#39;</span><span class="p">,</span> <span class="s1">&#39;4&#39;</span><span class="p">,</span> <span class="s1">&#39;6&#39;</span><span class="p">,</span> <span class="s1">&#39;5&#39;</span><span class="p">,</span> <span class="s1">&#39;7&#39;</span><span class="p">,</span> <span class="s1">&#39;8&#39;</span><span class="p">,</span> <span class="s1">&#39;9&#39;</span><span class="p">,</span> <span class="s1">&#39;0&#39;</span><span class="p">,</span> <span class="s1">&#39;a&#39;</span><span class="p">,</span> <span class="s1">&#39;b&#39;</span><span class="p">,</span> <span class="s1">&#39;c&#39;</span><span class="p">,</span> <span class="s1">&#39;d&#39;</span><span class="p">,</span> <span class="s1">&#39;_&#39;</span><span class="p">,</span> <span class="s1">&#39;e&#39;</span><span class="p">,</span> <span class="s1">&#39;f&#39;</span><span class="p">,</span> <span class="s1">&#39;g&#39;</span><span class="p">]</span>
+<span class="o">&gt;&gt;&gt;</span> <span class="nb">print</span><span class="p">(</span><span class="n">re</span><span class="o">.</span><span class="n">findall</span><span class="p">(</span><span class="sa">r</span><span class="s2">&quot;\W&quot;</span><span class="p">,</span> <span class="s2">&quot;1234657890abcd_%$#efg&quot;</span><span class="p">))</span>
+<span class="p">[</span><span class="s1">&#39;%&#39;</span><span class="p">,</span> <span class="s1">&#39;$&#39;</span><span class="p">,</span> <span class="s1">&#39;#&#39;</span><span class="p">]</span>
+
+<span class="o">&gt;&gt;&gt;</span> <span class="nb">print</span><span class="p">(</span><span class="n">re</span><span class="o">.</span><span class="n">findall</span><span class="p">(</span><span class="sa">r</span><span class="s2">&quot;\s&quot;</span><span class="p">,</span> <span class="s2">&quot;1234 657</span><span class="se">\n</span><span class="s2">890ab</span><span class="se">\t</span><span class="s2">cd_%$#efg&quot;</span><span class="p">))</span>
+<span class="p">[</span><span class="s1">&#39; &#39;</span><span class="p">,</span> <span class="s1">&#39;</span><span class="se">\n</span><span class="s1">&#39;</span><span class="p">,</span> <span class="s1">&#39;</span><span class="se">\t</span><span class="s1">&#39;</span><span class="p">]</span>
+<span class="o">&gt;&gt;&gt;</span> <span class="nb">print</span><span class="p">(</span><span class="n">re</span><span class="o">.</span><span class="n">findall</span><span class="p">(</span><span class="sa">r</span><span class="s2">&quot;\S&quot;</span><span class="p">,</span> <span class="s2">&quot;1234 657</span><span class="se">\n</span><span class="s2">890ab</span><span class="se">\t</span><span class="s2">cd_%$#efg&quot;</span><span class="p">))</span>
+<span class="p">[</span><span class="s1">&#39;1&#39;</span><span class="p">,</span> <span class="s1">&#39;2&#39;</span><span class="p">,</span> <span class="s1">&#39;3&#39;</span><span class="p">,</span> <span class="s1">&#39;4&#39;</span><span class="p">,</span> <span class="s1">&#39;6&#39;</span><span class="p">,</span> <span class="s1">&#39;5&#39;</span><span class="p">,</span> <span class="s1">&#39;7&#39;</span><span class="p">,</span> <span class="s1">&#39;8&#39;</span><span class="p">,</span> <span class="s1">&#39;9&#39;</span><span class="p">,</span> <span class="s1">&#39;0&#39;</span><span class="p">,</span> <span class="s1">&#39;a&#39;</span><span class="p">,</span> <span class="s1">&#39;b&#39;</span><span class="p">,</span> <span class="s1">&#39;c&#39;</span><span class="p">,</span> <span class="s1">&#39;d&#39;</span><span class="p">,</span> <span class="s1">&#39;_&#39;</span><span class="p">,</span> <span class="s1">&#39;%&#39;</span><span class="p">,</span> <span class="s1">&#39;$&#39;</span><span class="p">,</span> <span class="s1">&#39;#&#39;</span><span class="p">,</span> <span class="s1">&#39;e&#39;</span><span class="p">,</span> <span class="s1">&#39;f&#39;</span><span class="p">,</span> <span class="s1">&#39;g&#39;</span><span class="p">]</span>
+</code></pre></div>
+<h2 id="_2">元字符<a class="headerlink" href="#_2" title="Permanent link">&para;</a></h2>
+<blockquote>
+<p><code>[]</code>、<code>{n}</code>、<code>^</code>、<code>-</code></p>
+</blockquote>
+<ul>
+<li><code>[]</code>：匹配一个字符，括号内是**或者**的关系</li>
+<li><code>^</code>：取反 (和这些元字符或\d这些预定义字符一起用才是取反，否则和$一起做位置匹配)</li>
+<li><code>-</code>：区间</li>
+<li><code>()</code>：分组，匹配括号内的内容，不要括号两边的内容</li>
+</ul>
+<div class="highlight"><pre><span></span><code><span class="c1"># 区间</span>
+<span class="o">&gt;&gt;&gt;</span> <span class="c1"># 匹配123任意单个字符</span>
+<span class="o">&gt;&gt;&gt;</span> <span class="nb">print</span><span class="p">(</span><span class="n">re</span><span class="o">.</span><span class="n">findall</span><span class="p">(</span><span class="sa">r</span><span class="s2">&quot;[123]&quot;</span><span class="p">,</span> <span class="s2">&quot;1234 657</span><span class="se">\n</span><span class="s2">890ab</span><span class="se">\t</span><span class="s2">cd_%$#efg&quot;</span><span class="p">))</span>
+<span class="p">[</span><span class="s1">&#39;1&#39;</span><span class="p">,</span> <span class="s1">&#39;2&#39;</span><span class="p">,</span> <span class="s1">&#39;3&#39;</span><span class="p">]</span>
+<span class="o">&gt;&gt;&gt;</span> <span class="c1"># 匹配单个数字（\d）或 空格换行制表符（\s）</span>
+<span class="o">&gt;&gt;&gt;</span> <span class="nb">print</span><span class="p">(</span><span class="n">re</span><span class="o">.</span><span class="n">findall</span><span class="p">(</span><span class="sa">r</span><span class="s2">&quot;[\d\s]&quot;</span><span class="p">,</span> <span class="s2">&quot;1234 657</span><span class="se">\n</span><span class="s2">890ab</span><span class="se">\t</span><span class="s2">cd_%$#efg&quot;</span><span class="p">))</span>
+<span class="p">[</span><span class="s1">&#39;1&#39;</span><span class="p">,</span> <span class="s1">&#39;2&#39;</span><span class="p">,</span> <span class="s1">&#39;3&#39;</span><span class="p">,</span> <span class="s1">&#39;4&#39;</span><span class="p">,</span> <span class="s1">&#39; &#39;</span><span class="p">,</span> <span class="s1">&#39;6&#39;</span><span class="p">,</span> <span class="s1">&#39;5&#39;</span><span class="p">,</span> <span class="s1">&#39;7&#39;</span><span class="p">,</span> <span class="s1">&#39;</span><span class="se">\n</span><span class="s1">&#39;</span><span class="p">,</span> <span class="s1">&#39;8&#39;</span><span class="p">,</span> <span class="s1">&#39;9&#39;</span><span class="p">,</span> <span class="s1">&#39;0&#39;</span><span class="p">,</span> <span class="s1">&#39;</span><span class="se">\t</span><span class="s1">&#39;</span><span class="p">]</span>
+
+<span class="c1"># 取反</span>
+<span class="o">&gt;&gt;&gt;</span> <span class="c1"># 匹配单个非数字、非空格换行制表符</span>
+<span class="o">&gt;&gt;&gt;</span> <span class="nb">print</span><span class="p">(</span><span class="n">re</span><span class="o">.</span><span class="n">findall</span><span class="p">(</span><span class="sa">r</span><span class="s2">&quot;[^\d\s]&quot;</span><span class="p">,</span> <span class="s2">&quot;1234 657</span><span class="se">\n</span><span class="s2">890ab</span><span class="se">\t</span><span class="s2">cd_%$#efg&quot;</span><span class="p">))</span>
+<span class="p">[</span><span class="s1">&#39;a&#39;</span><span class="p">,</span> <span class="s1">&#39;b&#39;</span><span class="p">,</span> <span class="s1">&#39;c&#39;</span><span class="p">,</span> <span class="s1">&#39;d&#39;</span><span class="p">,</span> <span class="s1">&#39;_&#39;</span><span class="p">,</span> <span class="s1">&#39;%&#39;</span><span class="p">,</span> <span class="s1">&#39;$&#39;</span><span class="p">,</span> <span class="s1">&#39;#&#39;</span><span class="p">,</span> <span class="s1">&#39;e&#39;</span><span class="p">,</span> <span class="s1">&#39;f&#39;</span><span class="p">,</span> <span class="s1">&#39;g&#39;</span><span class="p">]</span>
+
+<span class="c1"># 范围</span>
+<span class="o">&gt;&gt;&gt;</span> <span class="c1"># 匹配单个1-7之间的数字</span>
+<span class="o">&gt;&gt;&gt;</span> <span class="nb">print</span><span class="p">(</span><span class="n">re</span><span class="o">.</span><span class="n">findall</span><span class="p">(</span><span class="sa">r</span><span class="s2">&quot;[1-7]&quot;</span><span class="p">,</span> <span class="s2">&quot;1234 657</span><span class="se">\n</span><span class="s2">890ab</span><span class="se">\t</span><span class="s2">cd_%$#efg&quot;</span><span class="p">))</span>
+<span class="o">&gt;&gt;&gt;</span> <span class="c1"># 匹配单个a-d之间的字母</span>
+<span class="o">&gt;&gt;&gt;</span> <span class="nb">print</span><span class="p">(</span><span class="n">re</span><span class="o">.</span><span class="n">findall</span><span class="p">(</span><span class="sa">r</span><span class="s2">&quot;[a-d]&quot;</span><span class="p">,</span> <span class="s2">&quot;1234 657</span><span class="se">\n</span><span class="s2">890ab</span><span class="se">\t</span><span class="s2">cd_%$#efg&quot;</span><span class="p">))</span>
+<span class="o">&gt;&gt;&gt;</span> <span class="c1"># 匹配单个 1-7 或 a-d 的字符</span>
+<span class="o">&gt;&gt;&gt;</span> <span class="nb">print</span><span class="p">(</span><span class="n">re</span><span class="o">.</span><span class="n">findall</span><span class="p">(</span><span class="sa">r</span><span class="s2">&quot;[1-7a-d]&quot;</span><span class="p">,</span> <span class="s2">&quot;1234 657</span><span class="se">\n</span><span class="s2">890ab</span><span class="se">\t</span><span class="s2">cd_%$#efg&quot;</span><span class="p">))</span>
+
+<span class="c1"># 分组</span>
+<span class="o">&gt;&gt;&gt;</span> <span class="c1"># 匹配 左边a右边是a或b或c的两个字符</span>
+<span class="o">&gt;&gt;&gt;</span> <span class="nb">print</span><span class="p">(</span><span class="n">re</span><span class="o">.</span><span class="n">findall</span><span class="p">(</span><span class="sa">r</span><span class="s2">&quot;a[abc]&quot;</span><span class="p">,</span> <span class="s2">&quot;aaabacad&quot;</span><span class="p">))</span>
+<span class="p">[</span><span class="s1">&#39;aa&#39;</span><span class="p">,</span> <span class="s1">&#39;ab&#39;</span><span class="p">,</span> <span class="s1">&#39;ac&#39;</span><span class="p">]</span>
+
+<span class="o">&gt;&gt;&gt;</span> <span class="c1"># 第一步，匹配到[&#39;aa&#39;, &#39;ab&#39;, &#39;ac&#39;]</span>
+<span class="o">&gt;&gt;&gt;</span> <span class="c1"># 第二步，不要括号两边的字符，也就是不要a，得到[&#39;a&#39;, &#39;b&#39;, &#39;c&#39;]</span>
+<span class="o">&gt;&gt;&gt;</span> <span class="nb">print</span><span class="p">(</span><span class="n">re</span><span class="o">.</span><span class="n">findall</span><span class="p">(</span><span class="sa">r</span><span class="s2">&quot;a([abc])&quot;</span><span class="p">,</span> <span class="s2">&quot;aaabacad&quot;</span><span class="p">))</span>
+<span class="p">[</span><span class="s1">&#39;a&#39;</span><span class="p">,</span> <span class="s1">&#39;b&#39;</span><span class="p">,</span> <span class="s1">&#39;c&#39;</span><span class="p">]</span>
+</code></pre></div>
+<h2 id="_3">重复匹配<a class="headerlink" href="#_3" title="Permanent link">&para;</a></h2>
+<p>重复匹配默认是贪婪匹配的，会尽量匹配多位</p>
+<ul>
+<li><code>{n}</code>：表示前面的字符重复n次才被匹配成功。<code>a{3}</code>就匹配出：aaa</li>
+<li><code>{n,m}</code>：表示前面的字符至少出现n次，至多出现m次，<strong>逗号左右不能有空格</strong>，贪婪匹配</li>
+<li><code>{n,m}?</code>：表示前面的字符至少出现n次，至多出现m次，<strong>逗号左右不能有空格</strong>，**非**贪婪匹配</li>
+<li><code>{n,}</code>：表示前面的字符至少出现n次，至多出现无穷次</li>
+</ul>
+<hr />
+<ul>
+<li><code>?</code>：相当于<code>{0,1}</code>，表示前面的字符出现0次或1次</li>
+<li><code>+</code>：相当于<code>{1,}</code>，表示前面的字符至少出现1次</li>
+<li><code>*</code>：相当于<code>{0,}</code>，表示前面的字符出现0次或无穷次，贪婪匹配</li>
+<li><code>+?</code>：相当于<code>{1,}?</code>、<code>{1}</code>，表示前面的字符至少出现1次，非贪婪匹配</li>
+<li><code>*?</code>：相当于<code>{0,}?</code>、<code>{0}</code>，表示前面的字符至少出现0次，非贪婪匹配</li>
+</ul>
+<hr />
+<ul>
+<li><code>\</code>：转义符，在需要匹配上面<code>?+*</code>几个符号的时候需要加上斜杠<code>\</code></li>
+</ul>
+<hr />
+<div class="highlight"><pre><span></span><code><span class="c1"># {n}</span>
+
+<span class="o">&gt;&gt;&gt;</span> <span class="c1"># 贪婪匹配连续3位都是数字</span>
+<span class="o">&gt;&gt;&gt;</span> <span class="nb">print</span><span class="p">(</span><span class="n">re</span><span class="o">.</span><span class="n">findall</span><span class="p">(</span><span class="sa">r</span><span class="s2">&quot;\d</span><span class="si">{3}</span><span class="s2">&quot;</span><span class="p">,</span> <span class="s2">&quot;1234567890abcdefg&quot;</span><span class="p">))</span>
+<span class="p">[</span><span class="s1">&#39;123&#39;</span><span class="p">,</span> <span class="s1">&#39;456&#39;</span><span class="p">,</span> <span class="s1">&#39;789&#39;</span><span class="p">]</span>
+<span class="o">&gt;&gt;&gt;</span> <span class="c1"># 贪婪匹配连续2位都是正常字符</span>
+<span class="o">&gt;&gt;&gt;</span> <span class="nb">print</span><span class="p">(</span><span class="n">re</span><span class="o">.</span><span class="n">findall</span><span class="p">(</span><span class="sa">r</span><span class="s2">&quot;\w</span><span class="si">{2}</span><span class="s2">&quot;</span><span class="p">,</span> <span class="s2">&quot;12a3456789b0abcdefg&quot;</span><span class="p">))</span>
+<span class="p">[</span><span class="s1">&#39;12&#39;</span><span class="p">,</span> <span class="s1">&#39;a3&#39;</span><span class="p">,</span> <span class="s1">&#39;45&#39;</span><span class="p">,</span> <span class="s1">&#39;67&#39;</span><span class="p">,</span> <span class="s1">&#39;89&#39;</span><span class="p">,</span> <span class="s1">&#39;b0&#39;</span><span class="p">,</span> <span class="s1">&#39;ab&#39;</span><span class="p">,</span> <span class="s1">&#39;cd&#39;</span><span class="p">,</span> <span class="s1">&#39;ef&#39;</span><span class="p">]</span>
+<span class="o">&gt;&gt;&gt;</span> <span class="c1"># 贪婪匹配至少2位至多4位的数字</span>
+<span class="o">&gt;&gt;&gt;</span> <span class="nb">print</span><span class="p">(</span><span class="n">re</span><span class="o">.</span><span class="n">findall</span><span class="p">(</span><span class="sa">r</span><span class="s2">&quot;\d{2,4}&quot;</span><span class="p">,</span> <span class="s2">&quot;1234567890abcdefg&quot;</span><span class="p">))</span>
+<span class="p">[</span><span class="s1">&#39;1234&#39;</span><span class="p">,</span> <span class="s1">&#39;5678&#39;</span><span class="p">]</span>
+<span class="o">&gt;&gt;&gt;</span> <span class="nb">print</span><span class="p">(</span><span class="n">re</span><span class="o">.</span><span class="n">findall</span><span class="p">(</span><span class="sa">r</span><span class="s2">&quot;\d{2,4}&quot;</span><span class="p">,</span> <span class="s2">&quot;12a3456789b0abcdefg&quot;</span><span class="p">))</span>
+<span class="p">[</span><span class="s1">&#39;12&#39;</span><span class="p">,</span> <span class="s1">&#39;3456&#39;</span><span class="p">,</span> <span class="s1">&#39;789&#39;</span><span class="p">]</span>
+<span class="o">&gt;&gt;&gt;</span> <span class="c1"># 非贪婪匹配至少2位至多4位的数字</span>
+<span class="o">&gt;&gt;&gt;</span> <span class="nb">print</span><span class="p">(</span><span class="n">re</span><span class="o">.</span><span class="n">findall</span><span class="p">(</span><span class="sa">r</span><span class="s2">&quot;\d{2,4}?&quot;</span><span class="p">,</span> <span class="s2">&quot;12a3456789b0abcdefg&quot;</span><span class="p">))</span>
+<span class="p">[</span><span class="s1">&#39;12&#39;</span><span class="p">,</span> <span class="s1">&#39;34&#39;</span><span class="p">,</span> <span class="s1">&#39;56&#39;</span><span class="p">,</span> <span class="s1">&#39;78&#39;</span><span class="p">]</span>
+<span class="o">&gt;&gt;&gt;</span> <span class="c1"># 贪婪匹配出现至少2位的数字</span>
+<span class="o">&gt;&gt;&gt;</span> <span class="nb">print</span><span class="p">(</span><span class="n">re</span><span class="o">.</span><span class="n">findall</span><span class="p">(</span><span class="sa">r</span><span class="s2">&quot;\d{2,}&quot;</span><span class="p">,</span> <span class="s2">&quot;12a3456789b0abcdefg165465165&quot;</span><span class="p">))</span>
+<span class="p">[</span><span class="s1">&#39;12&#39;</span><span class="p">,</span> <span class="s1">&#39;3456789&#39;</span><span class="p">,</span> <span class="s1">&#39;165465165&#39;</span><span class="p">]</span>
+</code></pre></div>
+<div class="highlight"><pre><span></span><code><span class="c1"># ? + *</span>
+
+<span class="o">&gt;&gt;&gt;</span> <span class="c1"># 贪婪匹配0或1个数字，0个也在匹配范围内，所以匹配到非数字的时候是空字符串</span>
+<span class="o">&gt;&gt;&gt;</span> <span class="nb">print</span><span class="p">(</span><span class="n">re</span><span class="o">.</span><span class="n">findall</span><span class="p">(</span><span class="sa">r</span><span class="s2">&quot;\d?&quot;</span><span class="p">,</span> <span class="s2">&quot;12a3456789b0abcde_%&quot;</span><span class="p">))</span>
+<span class="p">[</span><span class="s1">&#39;1&#39;</span><span class="p">,</span> <span class="s1">&#39;2&#39;</span><span class="p">,</span> <span class="s1">&#39;&#39;</span><span class="p">,</span> <span class="s1">&#39;3&#39;</span><span class="p">,</span> <span class="s1">&#39;4&#39;</span><span class="p">,</span> <span class="s1">&#39;5&#39;</span><span class="p">,</span> <span class="s1">&#39;6&#39;</span><span class="p">,</span> <span class="s1">&#39;7&#39;</span><span class="p">,</span> <span class="s1">&#39;8&#39;</span><span class="p">,</span> <span class="s1">&#39;9&#39;</span><span class="p">,</span> <span class="s1">&#39;&#39;</span><span class="p">,</span> <span class="s1">&#39;0&#39;</span><span class="p">,</span> <span class="s1">&#39;&#39;</span><span class="p">,</span> <span class="s1">&#39;&#39;</span><span class="p">,</span> <span class="s1">&#39;&#39;</span><span class="p">,</span> <span class="s1">&#39;&#39;</span><span class="p">,</span> <span class="s1">&#39;&#39;</span><span class="p">,</span> <span class="s1">&#39;&#39;</span><span class="p">,</span> <span class="s1">&#39;&#39;</span><span class="p">,</span> <span class="s1">&#39;&#39;</span><span class="p">]</span>
+<span class="o">&gt;&gt;&gt;</span> <span class="c1"># 贪婪匹配1或n个数字</span>
+<span class="o">&gt;&gt;&gt;</span> <span class="nb">print</span><span class="p">(</span><span class="n">re</span><span class="o">.</span><span class="n">findall</span><span class="p">(</span><span class="sa">r</span><span class="s2">&quot;\d+&quot;</span><span class="p">,</span> <span class="s2">&quot;12a3456789b0abcde_%&quot;</span><span class="p">))</span>
+<span class="p">[</span><span class="s1">&#39;12&#39;</span><span class="p">,</span> <span class="s1">&#39;3456789&#39;</span><span class="p">,</span> <span class="s1">&#39;0&#39;</span><span class="p">]</span>
+<span class="o">&gt;&gt;&gt;</span> <span class="c1"># 非贪匹配1或n个数字</span>
+<span class="o">&gt;&gt;&gt;</span> <span class="nb">print</span><span class="p">(</span><span class="n">re</span><span class="o">.</span><span class="n">findall</span><span class="p">(</span><span class="sa">r</span><span class="s2">&quot;\d+?&quot;</span><span class="p">,</span> <span class="s2">&quot;12a3456789b0abcde_%&quot;</span><span class="p">))</span>
+<span class="p">[</span><span class="s1">&#39;1&#39;</span><span class="p">,</span> <span class="s1">&#39;2&#39;</span><span class="p">,</span> <span class="s1">&#39;3&#39;</span><span class="p">,</span> <span class="s1">&#39;4&#39;</span><span class="p">,</span> <span class="s1">&#39;5&#39;</span><span class="p">,</span> <span class="s1">&#39;6&#39;</span><span class="p">,</span> <span class="s1">&#39;7&#39;</span><span class="p">,</span> <span class="s1">&#39;8&#39;</span><span class="p">,</span> <span class="s1">&#39;9&#39;</span><span class="p">,</span> <span class="s1">&#39;0&#39;</span><span class="p">]</span>
+<span class="o">&gt;&gt;&gt;</span> <span class="c1"># 贪婪匹配1或n个数字</span>
+<span class="o">&gt;&gt;&gt;</span> <span class="nb">print</span><span class="p">(</span><span class="n">re</span><span class="o">.</span><span class="n">findall</span><span class="p">(</span><span class="sa">r</span><span class="s2">&quot;\d*&quot;</span><span class="p">,</span> <span class="s2">&quot;1234567890abcdefg&quot;</span><span class="p">))</span>
+<span class="p">[</span><span class="s1">&#39;1234567890&#39;</span><span class="p">,</span> <span class="s1">&#39;&#39;</span><span class="p">,</span> <span class="s1">&#39;&#39;</span><span class="p">,</span> <span class="s1">&#39;&#39;</span><span class="p">,</span> <span class="s1">&#39;&#39;</span><span class="p">,</span> <span class="s1">&#39;&#39;</span><span class="p">,</span> <span class="s1">&#39;&#39;</span><span class="p">,</span> <span class="s1">&#39;&#39;</span><span class="p">]</span>
+<span class="o">&gt;&gt;&gt;</span> <span class="c1"># 非贪匹配1或n个数字</span>
+<span class="o">&gt;&gt;&gt;</span> <span class="nb">print</span><span class="p">(</span><span class="n">re</span><span class="o">.</span><span class="n">findall</span><span class="p">(</span><span class="sa">r</span><span class="s2">&quot;\d*?&quot;</span><span class="p">,</span> <span class="s2">&quot;1234567890abcdefg&quot;</span><span class="p">))</span>
+<span class="p">[</span><span class="s1">&#39;&#39;</span><span class="p">,</span> <span class="s1">&#39;1&#39;</span><span class="p">,</span> <span class="s1">&#39;&#39;</span><span class="p">,</span> <span class="s1">&#39;2&#39;</span><span class="p">,</span> <span class="s1">&#39;&#39;</span><span class="p">,</span> <span class="s1">&#39;3&#39;</span><span class="p">,</span> <span class="s1">&#39;&#39;</span><span class="p">,</span> <span class="s1">&#39;4&#39;</span><span class="p">,</span> <span class="s1">&#39;&#39;</span><span class="p">,</span> <span class="s1">&#39;5&#39;</span><span class="p">,</span> <span class="s1">&#39;&#39;</span><span class="p">,</span> <span class="s1">&#39;6&#39;</span><span class="p">,</span> <span class="s1">&#39;&#39;</span><span class="p">,</span> <span class="s1">&#39;7&#39;</span><span class="p">,</span> <span class="s1">&#39;&#39;</span><span class="p">,</span> <span class="s1">&#39;8&#39;</span><span class="p">,</span> <span class="s1">&#39;&#39;</span><span class="p">,</span> <span class="s1">&#39;9&#39;</span><span class="p">,</span> <span class="s1">&#39;&#39;</span><span class="p">,</span> <span class="s1">&#39;0&#39;</span><span class="p">,</span> <span class="s1">&#39;&#39;</span><span class="p">,</span> <span class="s1">&#39;&#39;</span><span class="p">,</span> <span class="s1">&#39;&#39;</span><span class="p">,</span> <span class="s1">&#39;&#39;</span><span class="p">,</span> <span class="s1">&#39;&#39;</span><span class="p">,</span> <span class="s1">&#39;&#39;</span><span class="p">,</span> <span class="s1">&#39;&#39;</span><span class="p">,</span> <span class="s1">&#39;&#39;</span><span class="p">]</span>
+</code></pre></div>
+<div class="highlight"><pre><span></span><code><span class="c1"># 转义符</span>
+
+<span class="o">&gt;&gt;&gt;</span> <span class="c1"># 匹配a*b</span>
+<span class="o">&gt;&gt;&gt;</span> <span class="nb">print</span><span class="p">(</span><span class="n">re</span><span class="o">.</span><span class="n">findall</span><span class="p">(</span><span class="sa">r</span><span class="s2">&quot;a\*b&quot;</span><span class="p">,</span> <span class="s2">&quot;aab*ab*aaa*ba*b*a&quot;</span><span class="p">))</span>
+<span class="p">[</span><span class="s1">&#39;a*b&#39;</span><span class="p">,</span> <span class="s1">&#39;a*b&#39;</span><span class="p">]</span>
+<span class="o">&gt;&gt;&gt;</span> <span class="c1"># 匹配b前面至少出现0次a</span>
+<span class="o">&gt;&gt;&gt;</span> <span class="nb">print</span><span class="p">(</span><span class="n">re</span><span class="o">.</span><span class="n">findall</span><span class="p">(</span><span class="sa">r</span><span class="s2">&quot;a*b&quot;</span><span class="p">,</span> <span class="s2">&quot;aab*ab*aaa*ba*b*a&quot;</span><span class="p">))</span>
+<span class="p">[</span><span class="s1">&#39;aab&#39;</span><span class="p">,</span> <span class="s1">&#39;ab&#39;</span><span class="p">,</span> <span class="s1">&#39;b&#39;</span><span class="p">,</span> <span class="s1">&#39;b&#39;</span><span class="p">,</span> <span class="s1">&#39;b&#39;</span><span class="p">,</span> <span class="s1">&#39;b&#39;</span><span class="p">]</span>
+<span class="o">&gt;&gt;&gt;</span> <span class="c1"># 匹配a+b</span>
+<span class="o">&gt;&gt;&gt;</span> <span class="nb">print</span><span class="p">(</span><span class="n">re</span><span class="o">.</span><span class="n">findall</span><span class="p">(</span><span class="sa">r</span><span class="s2">&quot;a\+b&quot;</span><span class="p">,</span> <span class="s2">&quot;&quot;</span><span class="p">))</span>
+<span class="p">[</span><span class="s1">&#39;a+b&#39;</span><span class="p">]</span>
+<span class="o">&gt;&gt;&gt;</span> <span class="c1"># 匹配b前面至少出现1次a</span>
+<span class="nb">print</span><span class="p">(</span><span class="n">re</span><span class="o">.</span><span class="n">findall</span><span class="p">(</span><span class="sa">r</span><span class="s2">&quot;a+b&quot;</span><span class="p">,</span> <span class="s2">&quot;aab*ab*aa?ba*ba*b*a+b&quot;</span><span class="p">))</span>
+<span class="p">[</span><span class="s1">&#39;aab&#39;</span><span class="p">,</span> <span class="s1">&#39;ab&#39;</span><span class="p">]</span>
+<span class="o">&gt;&gt;&gt;</span> <span class="c1"># 匹配a?b</span>
+<span class="nb">print</span><span class="p">(</span><span class="n">re</span><span class="o">.</span><span class="n">findall</span><span class="p">(</span><span class="sa">r</span><span class="s2">&quot;a\?b&quot;</span><span class="p">,</span> <span class="s2">&quot;aab*ab*aa?ba*ba*b*a+b&quot;</span><span class="p">))</span>
+<span class="p">[</span><span class="s1">&#39;a?b&#39;</span><span class="p">]</span>
+<span class="o">&gt;&gt;&gt;</span> <span class="c1"># 匹配b前面至少出现0次至多出现1次a</span>
+<span class="nb">print</span><span class="p">(</span><span class="n">re</span><span class="o">.</span><span class="n">findall</span><span class="p">(</span><span class="sa">r</span><span class="s2">&quot;a?b&quot;</span><span class="p">,</span> <span class="s2">&quot;aab*ab*aa?ba*ba*b*a+b&quot;</span><span class="p">))</span>
+<span class="p">[</span><span class="s1">&#39;ab&#39;</span><span class="p">,</span> <span class="s1">&#39;ab&#39;</span><span class="p">,</span> <span class="s1">&#39;b&#39;</span><span class="p">,</span> <span class="s1">&#39;b&#39;</span><span class="p">,</span> <span class="s1">&#39;b&#39;</span><span class="p">,</span> <span class="s1">&#39;b&#39;</span><span class="p">]</span>
+</code></pre></div>
+<h2 id="_4">贪婪和非贪<a class="headerlink" href="#_4" title="Permanent link">&para;</a></h2>
+<div class="highlight"><pre><span></span><code><span class="o">&gt;&gt;&gt;</span> <span class="c1"># 贪婪匹配 d开头d结尾，中间至少出现1位正常字符</span>
+<span class="o">&gt;&gt;&gt;</span> <span class="nb">print</span><span class="p">(</span><span class="n">re</span><span class="o">.</span><span class="n">findall</span><span class="p">(</span><span class="sa">r</span><span class="s2">&quot;d\w+d&quot;</span><span class="p">,</span> <span class="s2">&quot;dxxxxxxdxxxxxxd&quot;</span><span class="p">))</span>
+<span class="p">[</span><span class="s1">&#39;dxxxxxxdxxxxxxd&#39;</span><span class="p">]</span>
+<span class="o">&gt;&gt;&gt;</span> <span class="c1"># 非贪匹配 d开头d结尾，中间至少出现1位正常字符</span>
+<span class="o">&gt;&gt;&gt;</span> <span class="nb">print</span><span class="p">(</span><span class="n">re</span><span class="o">.</span><span class="n">findall</span><span class="p">(</span><span class="sa">r</span><span class="s2">&quot;d\w+?d&quot;</span><span class="p">,</span> <span class="s2">&quot;dxxxxxxdxxxxxxd&quot;</span><span class="p">))</span>
+<span class="p">[</span><span class="s1">&#39;dxxxxd&#39;</span><span class="p">]</span>
+</code></pre></div>
+<div class="highlight"><pre><span></span><code><span class="o">&gt;&gt;&gt;</span> <span class="n">html</span> <span class="o">=</span> <span class="s2">&quot;&lt;li&gt;Boii&lt;/li&gt;&lt;li&gt;$18&lt;/li&gt;&lt;li&gt;男&lt;/li&gt;&lt;li&gt;i@tcp404.com&lt;/li&gt;&quot;</span>
+
+<span class="o">&gt;&gt;&gt;</span> <span class="c1"># .是除了换行符以外所有字符</span>
+<span class="o">&gt;&gt;&gt;</span> <span class="c1"># 贪婪匹配 &lt;li&gt;开头，&lt;/li&gt;结尾，中间至少一个非换行符的字符，共1个</span>
+<span class="o">&gt;&gt;&gt;</span> <span class="nb">print</span><span class="p">(</span><span class="n">re</span><span class="o">.</span><span class="n">findall</span><span class="p">(</span><span class="sa">r</span><span class="s2">&quot;&lt;li&gt;.+&lt;/li&gt;&quot;</span><span class="p">,</span> <span class="n">html</span><span class="p">))</span>
+<span class="p">[</span><span class="s1">&#39;&lt;li&gt;Boii&lt;/li&gt;&lt;li&gt;$18&lt;/li&gt;&lt;li&gt;男&lt;/li&gt;&lt;li&gt;i@tcp404.com&lt;/li&gt;&#39;</span><span class="p">]</span>
+
+<span class="o">&gt;&gt;&gt;</span> <span class="c1"># 非贪匹配 &lt;li&gt;开头，&lt;/li&gt;结尾，中间至少一个非换行符的字符，共3个</span>
+<span class="o">&gt;&gt;&gt;</span> <span class="nb">print</span><span class="p">(</span><span class="n">re</span><span class="o">.</span><span class="n">findall</span><span class="p">(</span><span class="sa">r</span><span class="s2">&quot;&lt;li&gt;.+?&lt;/li&gt;&quot;</span><span class="p">,</span> <span class="n">html</span><span class="p">))</span>
+<span class="p">[</span><span class="s1">&#39;&lt;li&gt;Boii&lt;/li&gt;&#39;</span><span class="p">,</span> <span class="s1">&#39;&lt;li&gt;$18&lt;/li&gt;&#39;</span><span class="p">,</span> <span class="s1">&#39;&lt;li&gt;男&lt;/li&gt;&#39;</span><span class="p">,</span> <span class="s1">&#39;&lt;li&gt;i@tcp404.com&lt;/li&gt;&#39;</span><span class="p">]</span>
+
+<span class="o">&gt;&gt;&gt;</span> <span class="c1"># 非贪匹配 &lt;li&gt;开头，&lt;/li&gt;结尾，中间至少一个非换行符的字符，且舍去开头结尾，</span>
+<span class="o">&gt;&gt;&gt;</span> <span class="c1"># 即只取&lt;li&gt;&lt;/li&gt;中的内容，共3个</span>
+<span class="o">&gt;&gt;&gt;</span> <span class="nb">print</span><span class="p">(</span><span class="n">re</span><span class="o">.</span><span class="n">findall</span><span class="p">(</span><span class="sa">r</span><span class="s2">&quot;&lt;li&gt;(.+?)&lt;/li&gt;&quot;</span><span class="p">,</span> <span class="n">html</span><span class="p">))</span>
+<span class="p">[</span><span class="s1">&#39;Boii&#39;</span><span class="p">,</span> <span class="s1">&#39;$18&#39;</span><span class="p">,</span> <span class="s1">&#39;男&#39;</span><span class="p">,</span> <span class="s1">&#39;i@tcp404.com&#39;</span><span class="p">]</span>
+</code></pre></div>
+<h2 id="_5">反向引用<a class="headerlink" href="#_5" title="Permanent link">&para;</a></h2>
+<div class="highlight"><pre><span></span><code><span class="o">&gt;&gt;&gt;</span> <span class="n">wordstr</span> <span class="o">=</span> <span class="s2">&quot;&quot;&quot; &#39;hello&#39;, &quot;python&quot;, &#39;love&quot;, &quot;haha&#39; &quot;&quot;&quot;</span>
+
+<span class="c1"># 匹配 开头和结尾都是单引号或双引号，中间至少一个正常字符</span>
+<span class="o">&gt;&gt;&gt;</span> <span class="nb">print</span><span class="p">(</span><span class="n">re</span><span class="o">.</span><span class="n">findall</span><span class="p">(</span><span class="sa">r</span><span class="s2">&quot;[&#39;|</span><span class="se">\&quot;</span><span class="s2">]\w+[&#39;|</span><span class="se">\&quot;</span><span class="s2">]&quot;</span><span class="p">,</span> <span class="n">wordstr</span><span class="p">))</span>
+<span class="p">[</span><span class="s2">&quot;&#39;hello&#39;&quot;</span><span class="p">,</span> <span class="s1">&#39;&quot;python&quot;&#39;</span><span class="p">,</span> <span class="s1">&#39;</span><span class="se">\&#39;</span><span class="s1">love&quot;&#39;</span><span class="p">,</span> <span class="s1">&#39;&quot;haha</span><span class="se">\&#39;</span><span class="s1">&#39;</span><span class="p">]</span>
+
+<span class="c1"># 匹配 开头和结尾都是单引号或双引号，中间至少一个正常字符，舍弃中间</span>
+<span class="c1"># 即 开头和结尾都是单或双引号，中间至少一个正常字符，然后把开头分一组，结尾分一组，中间无分组被舍弃</span>
+<span class="o">&gt;&gt;&gt;</span> <span class="nb">print</span><span class="p">(</span><span class="n">re</span><span class="o">.</span><span class="n">findall</span><span class="p">(</span><span class="sa">r</span><span class="s2">&quot;(&#39;|</span><span class="se">\&quot;</span><span class="s2">)\w+(&#39;|</span><span class="se">\&quot;</span><span class="s2">)&quot;</span><span class="p">,</span> <span class="n">wordstr</span><span class="p">))</span>
+<span class="p">[(</span><span class="s2">&quot;&#39;&quot;</span><span class="p">,</span> <span class="s2">&quot;&#39;&quot;</span><span class="p">),</span> <span class="p">(</span><span class="s1">&#39;&quot;&#39;</span><span class="p">,</span> <span class="s1">&#39;&quot;&#39;</span><span class="p">),</span> <span class="p">(</span><span class="s2">&quot;&#39;&quot;</span><span class="p">,</span> <span class="s1">&#39;&quot;&#39;</span><span class="p">),</span> <span class="p">(</span><span class="s1">&#39;&quot;&#39;</span><span class="p">,</span> <span class="s2">&quot;&#39;&quot;</span><span class="p">)]</span>
+
+<span class="c1"># 匹配 开头和结尾都是单引号或双引号，中间至少一个正常字符，开头一组，中间一组，结尾一组，找到一份则组合成一个元组</span>
+<span class="o">&gt;&gt;&gt;</span> <span class="nb">print</span><span class="p">(</span><span class="n">re</span><span class="o">.</span><span class="n">findall</span><span class="p">(</span><span class="sa">r</span><span class="s2">&quot;(&#39;|</span><span class="se">\&quot;</span><span class="s2">)(\w+)(&#39;|</span><span class="se">\&quot;</span><span class="s2">)&quot;</span><span class="p">,</span> <span class="n">wordstr</span><span class="p">))</span>
+<span class="p">[(</span><span class="s2">&quot;&#39;&quot;</span><span class="p">,</span> <span class="s1">&#39;hello&#39;</span><span class="p">,</span> <span class="s2">&quot;&#39;&quot;</span><span class="p">),</span> <span class="p">(</span><span class="s1">&#39;&quot;&#39;</span><span class="p">,</span> <span class="s1">&#39;python&#39;</span><span class="p">,</span> <span class="s1">&#39;&quot;&#39;</span><span class="p">),</span> <span class="p">(</span><span class="s2">&quot;&#39;&quot;</span><span class="p">,</span> <span class="s1">&#39;love&#39;</span><span class="p">,</span> <span class="s1">&#39;&quot;&#39;</span><span class="p">),</span> <span class="p">(</span><span class="s1">&#39;&quot;&#39;</span><span class="p">,</span> <span class="s1">&#39;haha&#39;</span><span class="p">,</span> <span class="s2">&quot;&#39;&quot;</span><span class="p">)]</span>
+
+<span class="c1"># 匹配 开头是单双引号，中间至少一个正常字符，结尾要与开头对应开头一组那个组相同</span>
+<span class="c1"># 开头一组，中间一组，结尾一组，找到一份则组合成一个元组</span>
+<span class="o">&gt;&gt;&gt;</span> <span class="nb">print</span><span class="p">(</span><span class="n">re</span><span class="o">.</span><span class="n">findall</span><span class="p">(</span><span class="sa">r</span><span class="s2">&quot;(&#39;|</span><span class="se">\&quot;</span><span class="s2">)(\w+)(\1)&quot;</span><span class="p">,</span> <span class="n">wordstr</span><span class="p">))</span>
+<span class="p">[(</span><span class="s2">&quot;&#39;&quot;</span><span class="p">,</span> <span class="s1">&#39;hello&#39;</span><span class="p">,</span> <span class="s2">&quot;&#39;&quot;</span><span class="p">),</span> <span class="p">(</span><span class="s1">&#39;&quot;&#39;</span><span class="p">,</span> <span class="s1">&#39;python&#39;</span><span class="p">,</span> <span class="s1">&#39;&quot;&#39;</span><span class="p">)]</span>
+
+<span class="c1"># 用列表生成式取出每份的1号元素，就得到了内容。</span>
+<span class="o">&gt;&gt;&gt;</span> <span class="n">res</span> <span class="o">=</span> <span class="n">re</span><span class="o">.</span><span class="n">findall</span><span class="p">(</span><span class="sa">r</span><span class="s2">&quot;(&#39;|</span><span class="se">\&quot;</span><span class="s2">)(\w+)(\1)&quot;</span><span class="p">,</span> <span class="n">wordstr</span><span class="p">)</span>
+<span class="o">&gt;&gt;&gt;</span> <span class="n">li</span> <span class="o">=</span> <span class="p">[</span><span class="n">x</span><span class="p">[</span><span class="mi">1</span><span class="p">]</span> <span class="k">for</span> <span class="n">x</span> <span class="ow">in</span> <span class="n">res</span><span class="p">]</span>
+<span class="o">&gt;&gt;&gt;</span> <span class="nb">print</span><span class="p">(</span><span class="n">li</span><span class="p">)</span>
+<span class="p">[</span><span class="s1">&#39;hello&#39;</span><span class="p">,</span> <span class="s1">&#39;python&#39;</span><span class="p">]</span>
+</code></pre></div>
+<div class="highlight"><pre><span></span><code><span class="c1"># 校验密码，同样的字符不能连续出现3次</span>
+
+<span class="o">&gt;&gt;&gt;</span> <span class="nb">print</span><span class="p">(</span><span class="n">re</span><span class="o">.</span><span class="n">findall</span><span class="p">(</span><span class="sa">r</span><span class="s2">&quot;(\w)(\1{2,})&quot;</span><span class="p">,</span> <span class="s2">&quot;44888813abgggs&quot;</span><span class="p">))</span>
+<span class="p">[(</span><span class="s1">&#39;8&#39;</span><span class="p">,</span> <span class="s1">&#39;888&#39;</span><span class="p">),</span> <span class="p">(</span><span class="s1">&#39;g&#39;</span><span class="p">,</span> <span class="s1">&#39;gg&#39;</span><span class="p">)]</span>
+<span class="c1"># 第一个分组(\w)匹配到是4，进入下一个元组，看到\1替换成4，开始匹配重复：4出现至少2次则匹配成功，后面紧跟着只有一个4，所以匹配失败</span>
+<span class="c1"># 接着匹配到(\w)是8，进入下一个分组，看到\1替换成8，从第2个8开始匹配重复：8至少出现2次则匹配成功，除去第一个8被第一个分组取走，还剩3个8，匹配成功，这是贪婪匹配，所以会一直吃下去吃到遇见不是8停止，打包成元组</span>
+<span class="c1"># 接着1匹配失败，3匹配失败，ab都匹配失败</span>
+<span class="c1"># 接着匹配到(\w)是g，进入下一个分组，看到\1替换成g，从第2个g开始匹配重复：g至少出现2次则匹配成功，除去第一个g被第一个分组取走，还剩2个g，匹配成功，这是贪婪匹配，所以会一直吃下去吃到遇见不是g停止，打包成元组...</span>
+
+<span class="n">res</span> <span class="o">=</span> <span class="n">re</span><span class="o">.</span><span class="n">findall</span><span class="p">(</span><span class="sa">r</span><span class="s2">&quot;(\w)(\1{2,})&quot;</span><span class="p">,</span> <span class="s2">&quot;44888813abgggs&quot;</span><span class="p">)</span>
+<span class="n">li</span> <span class="o">=</span> <span class="p">[</span><span class="n">x</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span><span class="o">+</span><span class="n">x</span><span class="p">[</span><span class="mi">1</span><span class="p">]</span> <span class="k">for</span> <span class="n">x</span> <span class="ow">in</span> <span class="n">res</span><span class="p">]</span>
+<span class="nb">print</span><span class="p">(</span><span class="n">li</span><span class="p">)</span>        <span class="c1"># [&#39;8888&#39;, &#39;ggg&#39;]</span>
+</code></pre></div>
+<h2 id="_6">位置匹配<a class="headerlink" href="#_6" title="Permanent link">&para;</a></h2>
+<ul>
+<li><code>^</code>：开头</li>
+<li><code>$</code>：结尾</li>
+</ul>
+<p>这两个经常一起使用，用来限定位置
+常用于检验手机号、用户名、email地址等</p>
+<p>例如匹配手机号
+<div class="highlight"><pre><span></span><code><span class="c1"># 手机位数正常的时候可以匹配成功</span>
+<span class="o">&gt;&gt;&gt;</span> <span class="nb">print</span><span class="p">(</span><span class="n">re</span><span class="o">.</span><span class="n">findall</span><span class="p">(</span><span class="sa">r</span><span class="s2">&quot;\d</span><span class="si">{11}</span><span class="s2">&quot;</span><span class="p">,</span> <span class="s2">&quot;13700001111&quot;</span><span class="p">))</span>
+<span class="p">[</span><span class="s1">&#39;13700001111&#39;</span><span class="p">]</span>
+
+<span class="c1"># 但是手机位数不正常的时候也匹配成功了，所以要加以位置限制</span>
+<span class="o">&gt;&gt;&gt;</span> <span class="nb">print</span><span class="p">(</span><span class="n">re</span><span class="o">.</span><span class="n">findall</span><span class="p">(</span><span class="sa">r</span><span class="s2">&quot;\d</span><span class="si">{11}</span><span class="s2">&quot;</span><span class="p">,</span> <span class="s2">&quot;137000011112233445&quot;</span><span class="p">))</span>
+<span class="p">[</span><span class="s1">&#39;13700001111&#39;</span><span class="p">]</span>
+
+<span class="o">&gt;&gt;&gt;</span> <span class="nb">print</span><span class="p">(</span><span class="n">re</span><span class="o">.</span><span class="n">findall</span><span class="p">(</span><span class="sa">r</span><span class="s2">&quot;^\d</span><span class="si">{11}</span><span class="s2">$&quot;</span><span class="p">,</span> <span class="s2">&quot;13700001111&quot;</span><span class="p">))</span>
+<span class="p">[</span><span class="s1">&#39;13700001111&#39;</span><span class="p">]</span>
+
+<span class="o">&gt;&gt;&gt;</span> <span class="nb">print</span><span class="p">(</span><span class="n">re</span><span class="o">.</span><span class="n">findall</span><span class="p">(</span><span class="sa">r</span><span class="s2">&quot;^\d</span><span class="si">{11}</span><span class="s2">$&quot;</span><span class="p">,</span> <span class="s2">&quot;137000011112233445&quot;</span><span class="p">))</span>
+<span class="p">[]</span>
+</code></pre></div></p>
+                
+                  
+                
+              
+              
+                
+
+
+              
+            </article>
+          </div>
+        </div>
+        
+      </main>
+      
+        
+<footer class="md-footer">
+  
+  <div class="md-footer-meta md-typeset">
+    <div class="md-footer-meta__inner md-grid">
+      <div class="md-footer-copyright">
+        
+          <div class="md-footer-copyright__highlight">
+            Copyright © 2021 [Mr.Boii](https://www.boii.xyz)
+          </div>
+        
+        
+          Made with
+          <a href="https://squidfunk.github.io/mkdocs-material/" target="_blank" rel="noopener">
+            Material for MkDocs
+          </a>
+        
+        
+      </div>
+      
+    </div>
+  </div>
+</footer>
+      
+    </div>
+    <div class="md-dialog" data-md-component="dialog">
+      <div class="md-dialog__inner md-typeset"></div>
+    </div>
+    <script id="__config" type="application/json">{"base": "../../..", "features": ["navigation.tabs", "navigation.indexes"], "translations": {"clipboard.copy": "Copy to clipboard", "clipboard.copied": "Copied to clipboard", "search.config.lang": "en", "search.config.pipeline": "trimmer, stopWordFilter", "search.config.separator": "[\\s\\-]+", "search.placeholder": "Search", "search.result.placeholder": "Type to start searching", "search.result.none": "No matching documents", "search.result.one": "1 matching document", "search.result.other": "# matching documents", "search.result.more.one": "1 more on this page", "search.result.more.other": "# more on this page", "search.result.term.missing": "Missing", "select.version.title": "Select version"}, "search": "../../../assets/javascripts/workers/search.fcfe8b6d.min.js", "version": null}</script>
+    
+    
+      <script src="../../../assets/javascripts/bundle.b1047164.min.js"></script>
+      
+    
+  </body>
+</html>

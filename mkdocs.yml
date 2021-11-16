@@ -1,0 +1,182 @@
+site_name: Boii's Wiki
+site_url: https://www.boii.xyz/wiki
+site_author: Boii
+copyright: Copyright © 2021 [Mr.Boii](https://www.boii.xyz)
+
+nav:
+  - Home: index.md
+  - Golang:
+    - Basic: 
+      - 0.总叙:       Go/Basic/Golang-0-总叙.md
+      - 1.基础:       Go/Basic/Golang-1-基础.md
+      - 2.数据类型:   Go/Basic/Golang-2-数据类型.md 
+      - 3.运算符:     Go/Basic/Golang-3-运算符.md
+      - 4.流程控制:   Go/Basic/Golang-4-流程控制.md 
+      - 5.数组:       Go/Basic/Golang-5-数组.md
+      - 6.slice:     Go/Basic/Golang-6-slice.md
+      - 7.map:       Go/Basic/Golang-7-map.md
+      - 8.函数:       Go/Basic/Golang-8-函数.md 
+      - 9.指针:       Go/Basic/Golang-9-指针.md 
+      - 10.结构体:    Go/Basic/Golang-10-结构体.md
+      - 11.包:        Go/Basic/Golang-11-包.md
+      - 12.接口:      Go/Basic/Golang-12-接口.md
+      - 13.面向对象:   Go/Basic/Golang-13-面向对象.md 
+      - 14.错误与异常: Go/Basic/Golang-14-错误与异常.md 
+      - 15.单元测试:   Go/Basic/Golang-15-单元测试.md 
+      - 类型转换:      Go/Basic/Golang-类型转换.md
+      - Go Module:    Go/Basic/Golang-Go-Module.md
+    - Adavanced:
+      - 16.并发:     Go/Adavanced/Golang-16-并发.md
+      - 17.Channel: Go/Adavanced/Golang-17-Channel.md
+      - 18.并发安全: Go/Adavanced/Golang-18-并发安全.md
+      - 19.反射:     Go/Adavanced/Golang-19-reflect.md
+    - Framework: 
+      - Gin: 
+        - Get start:   Go/Framework/gin/Gin-0-Get-Start.md
+        - 返回数据:      Go/Framework/gin/Gin-1-返回数据.md
+        - 接收请求:      Go/Framework/gin/Gin-2-接收请求.md
+        - 路由组:        Go/Framework/gin/Gin-3-路由组.md
+        - 上传下载重定向: Go/Framework/gin/Gin-4-上传下载重定向.md
+        - 中间件:        Go/Framework/gin/Gin-5-中间件.md
+      # - GORM: 
+    - nil:
+      - 交叉编译:    Go/nil/Golang-nil-交叉编译.md
+      - 选项设计模式: Go/nil/Golang-nil-选项设计模式.md
+
+  - Python:
+    - Basic:
+      - 总叙:     Python/Basic/Python-No-1-Abstract.md 
+      - 基础:     Python/Basic/Python-No-2-Basic.md
+      - 判断和循环: Python/Basic/Python-No-3-Judge&Loop.md
+      - 数据类型:   Python/Basic/Python-No-4-Data-Type.md
+      - 运算符:     Python/Basic/Python-No-5-Operator.md
+      - 函数:       Python/Basic/Python-No-6-Function.md
+      - 错误处理:    Python/Basic/Python-No-7-Error-Handle.md
+      - 调试:       Python/Basic/Python-No-8-Debug.md
+      - 测试:       Python/Basic/Python-No-9-Test.md
+      - 模块:       Python/Basic/Python-No-10-Module.md
+      - File:       Python/Basic/Python-No-19-File.md
+      - IO:         Python/Basic/Python-No-20-IO.md
+    - Adavanced:
+      - 高级特性:   Python/Adavanced/Python-No-Feature-High-Level-Feature.md
+      - 工具类:     Python/Adavanced/Python-No-Feature-Utility-Class.md
+      - 函数式编程:  Python/Adavanced/Python-No-Feature-Functional.md
+      - 面向对象:
+        - 类和对象: Python/Adavanced/OOP/Python-No-11-Class&Object.md
+        - 私有化:   Python/Adavanced/OOP/Python-No-Privatisation.md
+        - 魔术方法: Python/Adavanced/OOP/Python-No-Magic-Method.md
+        - 枚举类:   Python/Adavanced/OOP/Python-No-Enum.md
+      - 进程线程:
+        - 总叙: Python/Adavanced/Thread/Python-No-15-Abstract.md
+        - 进程: Python/Adavanced/Thread/Python-No-16-Process.md
+        - 线程: Python/Adavanced/Thread/Python-No-17-Thread.md
+        - 协程: Python/Adavanced/Thread/Python-No-18-Coroutine.md
+    - Crawler:
+        - 总叙:     Python/Crawler/Python-Crawler-0-Crawler-Abstract.md
+        - 通用爬虫: Python/Crawler/Python-Crawler-1-General-Crawler.md
+        - 聚焦爬虫: Python/Crawler/Python-Crawler-2-Focued-Crawler.md
+theme:
+  name: material
+  logo: _assets/logo/favicon.png
+  favicon: _assets/logo/favicon.png
+  icon:
+    admonition:
+      note: octicons/tag-16
+      abstract: octicons/checklist-16
+      info: octicons/info-16
+      tip: octicons/squirrel-16
+      success: octicons/check-16
+      question: octicons/question-16
+      warning: octicons/alert-16
+      failure: octicons/x-circle-16
+      danger: octicons/zap-16
+      bug: octicons/bug-16
+      example: octicons/beaker-16
+      quote: octicons/quote-16
+
+  palette: # 明亮/黑暗模式
+    - scheme: default
+      toggle:
+        icon: material/lightbulb-outline
+        name: Switch to dark mode
+    - scheme: slate # 
+      toggle:
+        icon: material/lightbulb
+        name: Switch to light mode
+  features: # 横栏导航
+    - navigation.tabs
+    - navigation.indexes
+    - content.code.annotate # 代码注释美化，变成一个圆点，鼠标点击显示注释内容。Ref：https://squidfunk.github.io/mkdocs-material/reference/code-blocks/
+
+# extra:
+#   alternate:
+#     - name: 中文
+#       link: /zh-Hant/
+#       lang: zh-Hant
+#     - name: English
+#       link: /en/ # 
+#       lang: en
+#     - name: Deutsch
+#       link: /de/
+#       lang: de
+
+
+markdown_extensions:
+  - abbr                    # 名词解释支持，Ref：https://squidfunk.github.io/mkdocs-material/reference/abbreviations/
+  - pymdownx.magiclink      # 智能链接支持，Ref：https://facelessuser.github.io/pymdown-extensions/extensions/magiclink/
+  - pymdownx.smartsymbols   # 智能符号支持，Ref：https://facelessuser.github.io/pymdown-extensions/extensions/smartsymbols/
+  - footnotes               # 脚注支持，   Ref：https://squidfunk.github.io/mkdocs-material/reference/footnotes/
+  - meta                    # 文章前部的 font-matter 元数据支持
+
+  # 引用块美化，Ref：https://squidfunk.github.io/mkdocs-material/reference/admonitions/
+  - admonition
+  - pymdownx.details
+
+  - pymdownx.betterem:  # 智能识别加粗和斜体等符号
+      smart_enable: all # [all | none | asterisk | underscore] 全部开，全部关，仅对星号起作用，仅对下划线起作用 
+
+  - pymdownx.arithmatex:  # 对数据公式的支持
+      generic: true
+
+  - toc:
+      permalink: true
+
+
+  # 对上、下标、文本高亮、键盘样式的支持，Ref：https://squidfunk.github.io/mkdocs-material/reference/formatting/#adding-keyboard-keys
+  - pymdownx.critic
+  - pymdownx.caret
+  - pymdownx.keys
+  - pymdownx.mark
+  - pymdownx.tilde
+
+  # 对代码高亮的支持，Ref：https://squidfunk.github.io/mkdocs-material/reference/code-blocks/
+  - pymdownx.highlight
+  - pymdownx.inlinehilite
+  - pymdownx.superfences
+  - pymdownx.snippets
+  - codehilite:
+      guess_lang: false
+      linenums: true    
+
+  # emoji 支持
+  - pymdownx.emoji:
+      emoji_generator: !!python/name:pymdownx.emoji.to_png
+  # - pymdownx.emoji:
+  #     emoji_index: !!python/name:materialx.emoji.twemoji
+  #     emoji_generator: !!python/name:materialx.emoji.to_svg
+
+  # 列表支持，Ref：https://squidfunk.github.io/mkdocs-material/reference/lists/
+  - def_list
+  - pymdownx.tasklist:
+      custom_checkbox: true
+
+
+
+plugins:
+  - search # necessary for search to work
+    # - git-revision-date-localized
+
+extra_javascript:
+  - _assets/js/mathjax.js
+  - https://polyfill.io/v3/polyfill.min.js?features=es6
+  - https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js

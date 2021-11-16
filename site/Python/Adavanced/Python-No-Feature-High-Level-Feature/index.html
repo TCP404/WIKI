@@ -1,0 +1,2827 @@
+
+<!doctype html>
+<html lang="en" class="no-js">
+  <head>
+    
+      <meta charset="utf-8">
+      <meta name="viewport" content="width=device-width,initial-scale=1">
+      
+      
+      
+        <meta name="author" content="Boii">
+      
+      
+        <link rel="canonical" href="https://www.boii.xyz/wiki/Python/Adavanced/Python-No-Feature-High-Level-Feature/">
+      
+      <link rel="icon" href="../../../_assets/logo/favicon.png">
+      <meta name="generator" content="mkdocs-1.2.3, mkdocs-material-7.3.6">
+    
+    
+      
+        <title>Python【Feature】高级特性 - Boii's Wiki</title>
+      
+    
+    
+      <link rel="stylesheet" href="../../../assets/stylesheets/main.a57b2b03.min.css">
+      
+        
+        <link rel="stylesheet" href="../../../assets/stylesheets/palette.3f5d1f46.min.css">
+        
+      
+    
+    
+    
+      
+        
+        <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+        <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Roboto:300,400,400i,700%7CRoboto+Mono&display=fallback">
+        <style>:root{--md-text-font-family:"Roboto";--md-code-font-family:"Roboto Mono"}</style>
+      
+    
+    
+    
+    
+      
+
+
+    
+    
+  </head>
+  
+  
+    
+    
+      
+    
+    
+    
+    
+    <body dir="ltr" data-md-color-scheme="default" data-md-color-primary="" data-md-color-accent="">
+  
+    
+    <script>function __prefix(e){return new URL("../../..",location).pathname+"."+e}function __get(e,t=localStorage){return JSON.parse(t.getItem(__prefix(e)))}</script>
+    
+      <script>var palette=__get("__palette");if(null!==palette&&"object"==typeof palette.color)for(var key in palette.color)document.body.setAttribute("data-md-color-"+key,palette.color[key])</script>
+    
+    <input class="md-toggle" data-md-toggle="drawer" type="checkbox" id="__drawer" autocomplete="off">
+    <input class="md-toggle" data-md-toggle="search" type="checkbox" id="__search" autocomplete="off">
+    <label class="md-overlay" for="__drawer"></label>
+    <div data-md-component="skip">
+      
+        
+        <a href="#slice" class="md-skip">
+          Skip to content
+        </a>
+      
+    </div>
+    <div data-md-component="announce">
+      
+    </div>
+    
+      
+
+<header class="md-header" data-md-component="header">
+  <nav class="md-header__inner md-grid" aria-label="Header">
+    <a href="../../.." title="Boii&#39;s Wiki" class="md-header__button md-logo" aria-label="Boii's Wiki" data-md-component="logo">
+      
+  <img src="../../../_assets/logo/favicon.png" alt="logo">
+
+    </a>
+    <label class="md-header__button md-icon" for="__drawer">
+      <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M3 6h18v2H3V6m0 5h18v2H3v-2m0 5h18v2H3v-2z"/></svg>
+    </label>
+    <div class="md-header__title" data-md-component="header-title">
+      <div class="md-header__ellipsis">
+        <div class="md-header__topic">
+          <span class="md-ellipsis">
+            Boii's Wiki
+          </span>
+        </div>
+        <div class="md-header__topic" data-md-component="header-topic">
+          <span class="md-ellipsis">
+            
+              Python【Feature】高级特性
+            
+          </span>
+        </div>
+      </div>
+    </div>
+    
+      <form class="md-header__option" data-md-component="palette">
+        
+          
+          
+          <input class="md-option" data-md-color-media="" data-md-color-scheme="default" data-md-color-primary="" data-md-color-accent=""  aria-label="Switch to dark mode"  type="radio" name="__palette" id="__palette_1">
+          
+            <label class="md-header__button md-icon" title="Switch to dark mode" for="__palette_2" hidden>
+              <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 2a7 7 0 0 1 7 7c0 2.38-1.19 4.47-3 5.74V17a1 1 0 0 1-1 1H9a1 1 0 0 1-1-1v-2.26C6.19 13.47 5 11.38 5 9a7 7 0 0 1 7-7M9 21v-1h6v1a1 1 0 0 1-1 1h-4a1 1 0 0 1-1-1m3-17a5 5 0 0 0-5 5c0 2.05 1.23 3.81 3 4.58V16h4v-2.42c1.77-.77 3-2.53 3-4.58a5 5 0 0 0-5-5z"/></svg>
+            </label>
+          
+        
+          
+          
+          <input class="md-option" data-md-color-media="" data-md-color-scheme="slate" data-md-color-primary="" data-md-color-accent=""  aria-label="Switch to light mode"  type="radio" name="__palette" id="__palette_2">
+          
+            <label class="md-header__button md-icon" title="Switch to light mode" for="__palette_1" hidden>
+              <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 2a7 7 0 0 0-7 7c0 2.38 1.19 4.47 3 5.74V17a1 1 0 0 0 1 1h6a1 1 0 0 0 1-1v-2.26c1.81-1.27 3-3.36 3-5.74a7 7 0 0 0-7-7M9 21a1 1 0 0 0 1 1h4a1 1 0 0 0 1-1v-1H9v1z"/></svg>
+            </label>
+          
+        
+      </form>
+    
+    
+    
+      <label class="md-header__button md-icon" for="__search">
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M9.5 3A6.5 6.5 0 0 1 16 9.5c0 1.61-.59 3.09-1.56 4.23l.27.27h.79l5 5-1.5 1.5-5-5v-.79l-.27-.27A6.516 6.516 0 0 1 9.5 16 6.5 6.5 0 0 1 3 9.5 6.5 6.5 0 0 1 9.5 3m0 2C7 5 5 7 5 9.5S7 14 9.5 14 14 12 14 9.5 12 5 9.5 5z"/></svg>
+      </label>
+      
+<div class="md-search" data-md-component="search" role="dialog">
+  <label class="md-search__overlay" for="__search"></label>
+  <div class="md-search__inner" role="search">
+    <form class="md-search__form" name="search">
+      <input type="text" class="md-search__input" name="query" aria-label="Search" placeholder="Search" autocapitalize="off" autocorrect="off" autocomplete="off" spellcheck="false" data-md-component="search-query" required>
+      <label class="md-search__icon md-icon" for="__search">
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M9.5 3A6.5 6.5 0 0 1 16 9.5c0 1.61-.59 3.09-1.56 4.23l.27.27h.79l5 5-1.5 1.5-5-5v-.79l-.27-.27A6.516 6.516 0 0 1 9.5 16 6.5 6.5 0 0 1 3 9.5 6.5 6.5 0 0 1 9.5 3m0 2C7 5 5 7 5 9.5S7 14 9.5 14 14 12 14 9.5 12 5 9.5 5z"/></svg>
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M20 11v2H8l5.5 5.5-1.42 1.42L4.16 12l7.92-7.92L13.5 5.5 8 11h12z"/></svg>
+      </label>
+      <nav class="md-search__options" aria-label="Search">
+        
+        <button type="reset" class="md-search__icon md-icon" aria-label="Clear" tabindex="-1">
+          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M19 6.41 17.59 5 12 10.59 6.41 5 5 6.41 10.59 12 5 17.59 6.41 19 12 13.41 17.59 19 19 17.59 13.41 12 19 6.41z"/></svg>
+        </button>
+      </nav>
+      
+    </form>
+    <div class="md-search__output">
+      <div class="md-search__scrollwrap" data-md-scrollfix>
+        <div class="md-search-result" data-md-component="search-result">
+          <div class="md-search-result__meta">
+            Initializing search
+          </div>
+          <ol class="md-search-result__list"></ol>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+    
+    
+  </nav>
+  
+</header>
+    
+    <div class="md-container" data-md-component="container">
+      
+      
+        
+          
+            
+<nav class="md-tabs" aria-label="Tabs" data-md-component="tabs">
+  <div class="md-tabs__inner md-grid">
+    <ul class="md-tabs__list">
+      
+        
+  
+  
+
+
+  <li class="md-tabs__item">
+    <a href="../../.." class="md-tabs__link">
+      Home
+    </a>
+  </li>
+
+      
+        
+  
+  
+
+
+  
+  
+  
+    
+
+  
+  
+  
+    <li class="md-tabs__item">
+      <a href="../../../Go/Basic/Golang-0-%E6%80%BB%E5%8F%99/" class="md-tabs__link">
+        Golang
+      </a>
+    </li>
+  
+
+  
+
+      
+        
+  
+  
+    
+  
+
+
+  
+  
+  
+    
+
+  
+  
+  
+    <li class="md-tabs__item">
+      <a href="../../Basic/Python-No-1-Abstract/" class="md-tabs__link md-tabs__link--active">
+        Python
+      </a>
+    </li>
+  
+
+  
+
+      
+    </ul>
+  </div>
+</nav>
+          
+        
+      
+      <main class="md-main" data-md-component="main">
+        <div class="md-main__inner md-grid">
+          
+            
+              
+              <div class="md-sidebar md-sidebar--primary" data-md-component="sidebar" data-md-type="navigation" >
+                <div class="md-sidebar__scrollwrap">
+                  <div class="md-sidebar__inner">
+                    
+
+  
+
+
+<nav class="md-nav md-nav--primary md-nav--lifted" aria-label="Navigation" data-md-level="0">
+  <label class="md-nav__title" for="__drawer">
+    <a href="../../.." title="Boii&#39;s Wiki" class="md-nav__button md-logo" aria-label="Boii's Wiki" data-md-component="logo">
+      
+  <img src="../../../_assets/logo/favicon.png" alt="logo">
+
+    </a>
+    Boii's Wiki
+  </label>
+  
+  <ul class="md-nav__list" data-md-scrollfix>
+    
+      
+      
+      
+
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../.." class="md-nav__link">
+        Home
+      </a>
+    </li>
+  
+
+    
+      
+      
+      
+
+  
+  
+  
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+      
+        <input class="md-nav__toggle md-toggle" data-md-toggle="__nav_2" type="checkbox" id="__nav_2" >
+      
+      
+      
+        
+          
+        
+          
+        
+          
+        
+          
+        
+      
+      
+        <label class="md-nav__link" for="__nav_2">
+          Golang
+          <span class="md-nav__icon md-icon"></span>
+        </label>
+      
+      <nav class="md-nav" aria-label="Golang" data-md-level="1">
+        <label class="md-nav__title" for="__nav_2">
+          <span class="md-nav__icon md-icon"></span>
+          Golang
+        </label>
+        <ul class="md-nav__list" data-md-scrollfix>
+          
+            
+              
+  
+  
+  
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+      
+        <input class="md-nav__toggle md-toggle" data-md-toggle="__nav_2_1" type="checkbox" id="__nav_2_1" >
+      
+      
+      
+        
+          
+        
+          
+        
+          
+        
+          
+        
+          
+        
+          
+        
+          
+        
+          
+        
+          
+        
+          
+        
+          
+        
+          
+        
+          
+        
+          
+        
+          
+        
+          
+        
+          
+        
+          
+        
+      
+      
+        <label class="md-nav__link" for="__nav_2_1">
+          Basic
+          <span class="md-nav__icon md-icon"></span>
+        </label>
+      
+      <nav class="md-nav" aria-label="Basic" data-md-level="2">
+        <label class="md-nav__title" for="__nav_2_1">
+          <span class="md-nav__icon md-icon"></span>
+          Basic
+        </label>
+        <ul class="md-nav__list" data-md-scrollfix>
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../Go/Basic/Golang-0-%E6%80%BB%E5%8F%99/" class="md-nav__link">
+        0.总叙
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../Go/Basic/Golang-1-%E5%9F%BA%E7%A1%80/" class="md-nav__link">
+        1.基础
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../Go/Basic/Golang-2-%E6%95%B0%E6%8D%AE%E7%B1%BB%E5%9E%8B/" class="md-nav__link">
+        2.数据类型
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../Go/Basic/Golang-3-%E8%BF%90%E7%AE%97%E7%AC%A6/" class="md-nav__link">
+        3.运算符
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../Go/Basic/Golang-4-%E6%B5%81%E7%A8%8B%E6%8E%A7%E5%88%B6/" class="md-nav__link">
+        4.流程控制
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../Go/Basic/Golang-5-%E6%95%B0%E7%BB%84/" class="md-nav__link">
+        5.数组
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../Go/Basic/Golang-6-slice/" class="md-nav__link">
+        6.slice
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../Go/Basic/Golang-7-map/" class="md-nav__link">
+        7.map
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../Go/Basic/Golang-8-%E5%87%BD%E6%95%B0/" class="md-nav__link">
+        8.函数
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../Go/Basic/Golang-9-%E6%8C%87%E9%92%88/" class="md-nav__link">
+        9.指针
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../Go/Basic/Golang-10-%E7%BB%93%E6%9E%84%E4%BD%93/" class="md-nav__link">
+        10.结构体
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../Go/Basic/Golang-11-%E5%8C%85/" class="md-nav__link">
+        11.包
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../Go/Basic/Golang-12-%E6%8E%A5%E5%8F%A3/" class="md-nav__link">
+        12.接口
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../Go/Basic/Golang-13-%E9%9D%A2%E5%90%91%E5%AF%B9%E8%B1%A1/" class="md-nav__link">
+        13.面向对象
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../Go/Basic/Golang-14-%E9%94%99%E8%AF%AF%E4%B8%8E%E5%BC%82%E5%B8%B8/" class="md-nav__link">
+        14.错误与异常
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../Go/Basic/Golang-15-%E5%8D%95%E5%85%83%E6%B5%8B%E8%AF%95/" class="md-nav__link">
+        15.单元测试
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../Go/Basic/Golang-%E7%B1%BB%E5%9E%8B%E8%BD%AC%E6%8D%A2/" class="md-nav__link">
+        类型转换
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../Go/Basic/Golang-Go-Module/" class="md-nav__link">
+        Go Module
+      </a>
+    </li>
+  
+
+            
+          
+        </ul>
+      </nav>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+      
+        <input class="md-nav__toggle md-toggle" data-md-toggle="__nav_2_2" type="checkbox" id="__nav_2_2" >
+      
+      
+      
+        
+          
+        
+          
+        
+          
+        
+          
+        
+      
+      
+        <label class="md-nav__link" for="__nav_2_2">
+          Adavanced
+          <span class="md-nav__icon md-icon"></span>
+        </label>
+      
+      <nav class="md-nav" aria-label="Adavanced" data-md-level="2">
+        <label class="md-nav__title" for="__nav_2_2">
+          <span class="md-nav__icon md-icon"></span>
+          Adavanced
+        </label>
+        <ul class="md-nav__list" data-md-scrollfix>
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../Go/Adavanced/Golang-16-%E5%B9%B6%E5%8F%91/" class="md-nav__link">
+        16.并发
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../Go/Adavanced/Golang-17-Channel/" class="md-nav__link">
+        17.Channel
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../Go/Adavanced/Golang-18-%E5%B9%B6%E5%8F%91%E5%AE%89%E5%85%A8/" class="md-nav__link">
+        18.并发安全
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../Go/Adavanced/Golang-19-reflect/" class="md-nav__link">
+        19.反射
+      </a>
+    </li>
+  
+
+            
+          
+        </ul>
+      </nav>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+      
+        <input class="md-nav__toggle md-toggle" data-md-toggle="__nav_2_3" type="checkbox" id="__nav_2_3" >
+      
+      
+      
+        
+          
+        
+      
+      
+        <label class="md-nav__link" for="__nav_2_3">
+          Framework
+          <span class="md-nav__icon md-icon"></span>
+        </label>
+      
+      <nav class="md-nav" aria-label="Framework" data-md-level="2">
+        <label class="md-nav__title" for="__nav_2_3">
+          <span class="md-nav__icon md-icon"></span>
+          Framework
+        </label>
+        <ul class="md-nav__list" data-md-scrollfix>
+          
+            
+              
+  
+  
+  
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+      
+        <input class="md-nav__toggle md-toggle" data-md-toggle="__nav_2_3_1" type="checkbox" id="__nav_2_3_1" >
+      
+      
+      
+        
+          
+        
+          
+        
+          
+        
+          
+        
+          
+        
+          
+        
+      
+      
+        <label class="md-nav__link" for="__nav_2_3_1">
+          Gin
+          <span class="md-nav__icon md-icon"></span>
+        </label>
+      
+      <nav class="md-nav" aria-label="Gin" data-md-level="3">
+        <label class="md-nav__title" for="__nav_2_3_1">
+          <span class="md-nav__icon md-icon"></span>
+          Gin
+        </label>
+        <ul class="md-nav__list" data-md-scrollfix>
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../Go/Framework/gin/Gin-0-Get-Start/" class="md-nav__link">
+        Get start
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../Go/Framework/gin/Gin-1-%E8%BF%94%E5%9B%9E%E6%95%B0%E6%8D%AE/" class="md-nav__link">
+        返回数据
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../Go/Framework/gin/Gin-2-%E6%8E%A5%E6%94%B6%E8%AF%B7%E6%B1%82/" class="md-nav__link">
+        接收请求
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../Go/Framework/gin/Gin-3-%E8%B7%AF%E7%94%B1%E7%BB%84/" class="md-nav__link">
+        路由组
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../Go/Framework/gin/Gin-4-%E4%B8%8A%E4%BC%A0%E4%B8%8B%E8%BD%BD%E9%87%8D%E5%AE%9A%E5%90%91/" class="md-nav__link">
+        上传下载重定向
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../Go/Framework/gin/Gin-5-%E4%B8%AD%E9%97%B4%E4%BB%B6/" class="md-nav__link">
+        中间件
+      </a>
+    </li>
+  
+
+            
+          
+        </ul>
+      </nav>
+    </li>
+  
+
+            
+          
+        </ul>
+      </nav>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+      
+        <input class="md-nav__toggle md-toggle" data-md-toggle="__nav_2_4" type="checkbox" id="__nav_2_4" >
+      
+      
+      
+        
+          
+        
+          
+        
+      
+      
+        <label class="md-nav__link" for="__nav_2_4">
+          nil
+          <span class="md-nav__icon md-icon"></span>
+        </label>
+      
+      <nav class="md-nav" aria-label="nil" data-md-level="2">
+        <label class="md-nav__title" for="__nav_2_4">
+          <span class="md-nav__icon md-icon"></span>
+          nil
+        </label>
+        <ul class="md-nav__list" data-md-scrollfix>
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../Go/nil/Golang-nil-%E4%BA%A4%E5%8F%89%E7%BC%96%E8%AF%91/" class="md-nav__link">
+        交叉编译
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../Go/nil/Golang-nil-%E9%80%89%E9%A1%B9%E8%AE%BE%E8%AE%A1%E6%A8%A1%E5%BC%8F/" class="md-nav__link">
+        选项设计模式
+      </a>
+    </li>
+  
+
+            
+          
+        </ul>
+      </nav>
+    </li>
+  
+
+            
+          
+        </ul>
+      </nav>
+    </li>
+  
+
+    
+      
+      
+      
+
+  
+  
+    
+  
+  
+    
+    <li class="md-nav__item md-nav__item--active md-nav__item--nested">
+      
+      
+        <input class="md-nav__toggle md-toggle" data-md-toggle="__nav_3" type="checkbox" id="__nav_3" checked>
+      
+      
+      
+        
+          
+        
+          
+        
+          
+        
+      
+      
+        <label class="md-nav__link" for="__nav_3">
+          Python
+          <span class="md-nav__icon md-icon"></span>
+        </label>
+      
+      <nav class="md-nav" aria-label="Python" data-md-level="1">
+        <label class="md-nav__title" for="__nav_3">
+          <span class="md-nav__icon md-icon"></span>
+          Python
+        </label>
+        <ul class="md-nav__list" data-md-scrollfix>
+          
+            
+              
+  
+  
+  
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+      
+        <input class="md-nav__toggle md-toggle" data-md-toggle="__nav_3_1" type="checkbox" id="__nav_3_1" >
+      
+      
+      
+        
+          
+        
+          
+        
+          
+        
+          
+        
+          
+        
+          
+        
+          
+        
+          
+        
+          
+        
+          
+        
+          
+        
+          
+        
+      
+      
+        <label class="md-nav__link" for="__nav_3_1">
+          Basic
+          <span class="md-nav__icon md-icon"></span>
+        </label>
+      
+      <nav class="md-nav" aria-label="Basic" data-md-level="2">
+        <label class="md-nav__title" for="__nav_3_1">
+          <span class="md-nav__icon md-icon"></span>
+          Basic
+        </label>
+        <ul class="md-nav__list" data-md-scrollfix>
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../Basic/Python-No-1-Abstract/" class="md-nav__link">
+        总叙
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../Basic/Python-No-2-Basic/" class="md-nav__link">
+        基础
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../Basic/Python-No-3-Judge%26Loop/" class="md-nav__link">
+        判断和循环
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../Basic/Python-No-4-Data-Type/" class="md-nav__link">
+        数据类型
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../Basic/Python-No-5-Operator/" class="md-nav__link">
+        运算符
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../Basic/Python-No-6-Function/" class="md-nav__link">
+        函数
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../Basic/Python-No-7-Error-Handle/" class="md-nav__link">
+        错误处理
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../Basic/Python-No-8-Debug/" class="md-nav__link">
+        调试
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../Basic/Python-No-9-Test/" class="md-nav__link">
+        测试
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../Basic/Python-No-10-Module/" class="md-nav__link">
+        模块
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../Basic/Python-No-19-File/" class="md-nav__link">
+        File
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../Basic/Python-No-20-IO/" class="md-nav__link">
+        IO
+      </a>
+    </li>
+  
+
+            
+          
+        </ul>
+      </nav>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+    
+  
+  
+    
+    <li class="md-nav__item md-nav__item--active md-nav__item--nested">
+      
+      
+        <input class="md-nav__toggle md-toggle" data-md-toggle="__nav_3_2" type="checkbox" id="__nav_3_2" checked>
+      
+      
+      
+        
+          
+        
+          
+        
+          
+        
+          
+        
+          
+        
+      
+      
+        <label class="md-nav__link" for="__nav_3_2">
+          Adavanced
+          <span class="md-nav__icon md-icon"></span>
+        </label>
+      
+      <nav class="md-nav" aria-label="Adavanced" data-md-level="2">
+        <label class="md-nav__title" for="__nav_3_2">
+          <span class="md-nav__icon md-icon"></span>
+          Adavanced
+        </label>
+        <ul class="md-nav__list" data-md-scrollfix>
+          
+            
+              
+  
+  
+    
+  
+  
+    <li class="md-nav__item md-nav__item--active">
+      
+      <input class="md-nav__toggle md-toggle" data-md-toggle="toc" type="checkbox" id="__toc">
+      
+      
+      
+        <label class="md-nav__link md-nav__link--active" for="__toc">
+          高级特性
+          <span class="md-nav__icon md-icon"></span>
+        </label>
+      
+      <a href="./" class="md-nav__link md-nav__link--active">
+        高级特性
+      </a>
+      
+        
+
+
+<nav class="md-nav md-nav--secondary" aria-label="Table of contents">
+  
+  
+  
+  
+    <label class="md-nav__title" for="__toc">
+      <span class="md-nav__icon md-icon"></span>
+      Table of contents
+    </label>
+    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#slice" class="md-nav__link">
+    切片 Slice
+  </a>
+  
+    <nav class="md-nav" aria-label="切片 Slice">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#_1" class="md-nav__link">
+    索引
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#iteration" class="md-nav__link">
+    迭代 Iteration
+  </a>
+  
+    <nav class="md-nav" aria-label="迭代 Iteration">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#_2" class="md-nav__link">
+    判断是否迭代对象
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#list" class="md-nav__link">
+    迭代 List 列表类型数据
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#dict-" class="md-nav__link">
+    迭代 Dict 键-值对类型数据
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#list-comprehensions" class="md-nav__link">
+    列表生成式 List Comprehensions
+  </a>
+  
+    <nav class="md-nav" aria-label="列表生成式 List Comprehensions">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#_3" class="md-nav__link">
+    列表生成式
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#_4" class="md-nav__link">
+    其他生成式
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#_5" class="md-nav__link">
+    错误示范
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#_6" class="md-nav__link">
+    总结
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#generator" class="md-nav__link">
+    生成器 Generator
+  </a>
+  
+    <nav class="md-nav" aria-label="生成器 Generator">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#_7" class="md-nav__link">
+    普通形式
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#_8" class="md-nav__link">
+    函数形式
+  </a>
+  
+    <nav class="md-nav" aria-label="函数形式">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#_9" class="md-nav__link">
+    实例
+  </a>
+  
+    <nav class="md-nav" aria-label="实例">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#_10" class="md-nav__link">
+    核心算法
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#_11" class="md-nav__link">
+    做成生成器
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#_12" class="md-nav__link">
+    遍历输出
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#_13" class="md-nav__link">
+    完整代码
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#_14" class="md-nav__link">
+    总结
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#iterator" class="md-nav__link">
+    迭代器 Iterator
+  </a>
+  
+    <nav class="md-nav" aria-label="迭代器 Iterator">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#_15" class="md-nav__link">
+    迭代器的本质
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#_16" class="md-nav__link">
+    自定义可迭代类
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#_17" class="md-nav__link">
+    总结
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+    </ul>
+  
+</nav>
+      
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../Python-No-Feature-Utility-Class/" class="md-nav__link">
+        工具类
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../Python-No-Feature-Functional/" class="md-nav__link">
+        函数式编程
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+      
+        <input class="md-nav__toggle md-toggle" data-md-toggle="__nav_3_2_4" type="checkbox" id="__nav_3_2_4" >
+      
+      
+      
+        
+          
+        
+          
+        
+          
+        
+          
+        
+      
+      
+        <label class="md-nav__link" for="__nav_3_2_4">
+          面向对象
+          <span class="md-nav__icon md-icon"></span>
+        </label>
+      
+      <nav class="md-nav" aria-label="面向对象" data-md-level="3">
+        <label class="md-nav__title" for="__nav_3_2_4">
+          <span class="md-nav__icon md-icon"></span>
+          面向对象
+        </label>
+        <ul class="md-nav__list" data-md-scrollfix>
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../OOP/Python-No-11-Class%26Object/" class="md-nav__link">
+        类和对象
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../OOP/Python-No-Privatisation.md" class="md-nav__link">
+        私有化
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../OOP/Python-No-Magic-Method.md" class="md-nav__link">
+        魔术方法
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../OOP/Python-No-Enum.md" class="md-nav__link">
+        枚举类
+      </a>
+    </li>
+  
+
+            
+          
+        </ul>
+      </nav>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+      
+        <input class="md-nav__toggle md-toggle" data-md-toggle="__nav_3_2_5" type="checkbox" id="__nav_3_2_5" >
+      
+      
+      
+        
+          
+        
+          
+        
+          
+        
+          
+        
+      
+      
+        <label class="md-nav__link" for="__nav_3_2_5">
+          进程线程
+          <span class="md-nav__icon md-icon"></span>
+        </label>
+      
+      <nav class="md-nav" aria-label="进程线程" data-md-level="3">
+        <label class="md-nav__title" for="__nav_3_2_5">
+          <span class="md-nav__icon md-icon"></span>
+          进程线程
+        </label>
+        <ul class="md-nav__list" data-md-scrollfix>
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../Thread/Python-No-15-Abstract/" class="md-nav__link">
+        总叙
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../Thread/Python-No-16-Process/" class="md-nav__link">
+        进程
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../Thread/Python-No-17-Thread/" class="md-nav__link">
+        线程
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../Thread/Python-No-18-Coroutine/" class="md-nav__link">
+        协程
+      </a>
+    </li>
+  
+
+            
+          
+        </ul>
+      </nav>
+    </li>
+  
+
+            
+          
+        </ul>
+      </nav>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+      
+        <input class="md-nav__toggle md-toggle" data-md-toggle="__nav_3_3" type="checkbox" id="__nav_3_3" >
+      
+      
+      
+        
+          
+        
+          
+        
+          
+        
+      
+      
+        <label class="md-nav__link" for="__nav_3_3">
+          Crawler
+          <span class="md-nav__icon md-icon"></span>
+        </label>
+      
+      <nav class="md-nav" aria-label="Crawler" data-md-level="2">
+        <label class="md-nav__title" for="__nav_3_3">
+          <span class="md-nav__icon md-icon"></span>
+          Crawler
+        </label>
+        <ul class="md-nav__list" data-md-scrollfix>
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../Crawler/Python-Crawler-0-Crawler-Abstract/" class="md-nav__link">
+        总叙
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../Crawler/Python-Crawler-1-General-Crawler/" class="md-nav__link">
+        通用爬虫
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../Crawler/Python-Crawler-2-Focued-Crawler/" class="md-nav__link">
+        聚焦爬虫
+      </a>
+    </li>
+  
+
+            
+          
+        </ul>
+      </nav>
+    </li>
+  
+
+            
+          
+        </ul>
+      </nav>
+    </li>
+  
+
+    
+  </ul>
+</nav>
+                  </div>
+                </div>
+              </div>
+            
+            
+              
+              <div class="md-sidebar md-sidebar--secondary" data-md-component="sidebar" data-md-type="toc" >
+                <div class="md-sidebar__scrollwrap">
+                  <div class="md-sidebar__inner">
+                    
+
+
+<nav class="md-nav md-nav--secondary" aria-label="Table of contents">
+  
+  
+  
+  
+    <label class="md-nav__title" for="__toc">
+      <span class="md-nav__icon md-icon"></span>
+      Table of contents
+    </label>
+    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#slice" class="md-nav__link">
+    切片 Slice
+  </a>
+  
+    <nav class="md-nav" aria-label="切片 Slice">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#_1" class="md-nav__link">
+    索引
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#iteration" class="md-nav__link">
+    迭代 Iteration
+  </a>
+  
+    <nav class="md-nav" aria-label="迭代 Iteration">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#_2" class="md-nav__link">
+    判断是否迭代对象
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#list" class="md-nav__link">
+    迭代 List 列表类型数据
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#dict-" class="md-nav__link">
+    迭代 Dict 键-值对类型数据
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#list-comprehensions" class="md-nav__link">
+    列表生成式 List Comprehensions
+  </a>
+  
+    <nav class="md-nav" aria-label="列表生成式 List Comprehensions">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#_3" class="md-nav__link">
+    列表生成式
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#_4" class="md-nav__link">
+    其他生成式
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#_5" class="md-nav__link">
+    错误示范
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#_6" class="md-nav__link">
+    总结
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#generator" class="md-nav__link">
+    生成器 Generator
+  </a>
+  
+    <nav class="md-nav" aria-label="生成器 Generator">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#_7" class="md-nav__link">
+    普通形式
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#_8" class="md-nav__link">
+    函数形式
+  </a>
+  
+    <nav class="md-nav" aria-label="函数形式">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#_9" class="md-nav__link">
+    实例
+  </a>
+  
+    <nav class="md-nav" aria-label="实例">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#_10" class="md-nav__link">
+    核心算法
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#_11" class="md-nav__link">
+    做成生成器
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#_12" class="md-nav__link">
+    遍历输出
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#_13" class="md-nav__link">
+    完整代码
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#_14" class="md-nav__link">
+    总结
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#iterator" class="md-nav__link">
+    迭代器 Iterator
+  </a>
+  
+    <nav class="md-nav" aria-label="迭代器 Iterator">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#_15" class="md-nav__link">
+    迭代器的本质
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#_16" class="md-nav__link">
+    自定义可迭代类
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#_17" class="md-nav__link">
+    总结
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+    </ul>
+  
+</nav>
+                  </div>
+                </div>
+              </div>
+            
+          
+          <div class="md-content" data-md-component="content">
+            <article class="md-content__inner md-typeset">
+              
+                
+                
+                  <h1>高级特性</h1>
+                
+                <p>Python的高级特性1</p>
+<!--more-->
+
+<h2 id="slice">切片 Slice<a class="headerlink" href="#slice" title="Permanent link">&para;</a></h2>
+<blockquote>
+<p>[startWith : end : step]
+切片适用于 list、tuple、string
+startWith是包含，end则不包含</p>
+<p>注意：
+切片是从左往右切的
+如果用正索引开始，就要用 正索引 或 逆索引 结束，例如 <code>s[1:5] 或 s[1:-3]</code></p>
+<p>！如果用逆索引开始，就要用 逆索引 结束（<code>s[-1:1]</code> 这样只会返回空字符串，**正确**应该是  <code>s[-5:-1]</code>）
+！逆索引记得不要弄颠倒了。（<code>s[-1:-3]</code> 这样只会返回空字符串，**正确**应该是<code>s[-3:-1]</code>）</p>
+</blockquote>
+<h3 id="_1">索引<a class="headerlink" href="#_1" title="Permanent link">&para;</a></h3>
+<div class="highlight"><pre><span></span><code><span class="o">|</span>  <span class="n">P</span>  <span class="o">|</span>  <span class="n">y</span>  <span class="o">|</span>  <span class="n">t</span>  <span class="o">|</span>  <span class="n">h</span>  <span class="o">|</span>  <span class="n">o</span>  <span class="o">|</span>  <span class="n">n</span>  <span class="o">|</span>
+   <span class="mi">0</span>     <span class="mi">1</span>     <span class="mi">2</span>     <span class="mi">3</span>     <span class="mi">4</span>     <span class="mi">5</span>            <span class="c1"># 从左往右，下标从0开始</span>
+  <span class="o">-</span><span class="mi">6</span>    <span class="o">-</span><span class="mi">5</span>    <span class="o">-</span><span class="mi">4</span>    <span class="o">-</span><span class="mi">3</span>    <span class="o">-</span><span class="mi">2</span>    <span class="o">-</span><span class="mi">1</span>            <span class="c1"># 从右往左，下标从-1开始</span>
+</code></pre></div>
+<div class="highlight"><pre><span></span><code><span class="o">&gt;&gt;&gt;</span> <span class="n">s</span> <span class="o">=</span> <span class="s1">&#39;Python&#39;</span>
+<span class="o">&gt;&gt;&gt;</span> <span class="n">s</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span>
+<span class="s1">&#39;P&#39;</span>
+<span class="o">&gt;&gt;&gt;</span> <span class="n">s</span><span class="p">[</span><span class="mi">0</span><span class="p">:</span><span class="o">-</span><span class="mi">1</span><span class="p">]</span>     <span class="c1"># 结束索引不被截取</span>
+<span class="s1">&#39;Pytho&#39;</span>
+<span class="o">&gt;&gt;&gt;</span> <span class="n">s</span><span class="p">[:</span><span class="mi">5</span><span class="p">]</span>       <span class="c1"># 起始索引可以省略不写，代表从第一位开始截取</span>
+<span class="s1">&#39;Pytho&#39;</span>
+<span class="o">&gt;&gt;&gt;</span> <span class="n">s</span><span class="p">[</span><span class="mi">0</span><span class="p">:]</span>       <span class="c1"># 结束索引可以省略不写，代表截取至最后一位</span>
+<span class="s1">&#39;Python&#39;</span>
+<span class="o">&gt;&gt;&gt;</span> <span class="n">s</span><span class="p">[:]</span>        <span class="c1"># 等于复制了一整个</span>
+<span class="s1">&#39;Python&#39;</span>
+
+<span class="o">&gt;&gt;&gt;</span> <span class="n">s</span><span class="p">[</span><span class="mi">1</span><span class="p">:</span><span class="mi">4</span><span class="p">]</span>
+<span class="s1">&#39;yth&#39;</span>
+<span class="o">&gt;&gt;&gt;</span> <span class="n">s</span><span class="p">[</span><span class="mi">1</span><span class="p">:</span><span class="o">-</span><span class="mi">2</span><span class="p">]</span>
+<span class="s1">&#39;yth&#39;</span>
+<span class="o">&gt;&gt;&gt;</span> <span class="n">s</span><span class="p">[</span><span class="o">-</span><span class="mi">2</span><span class="p">:</span><span class="mi">1</span><span class="p">]</span>     <span class="c1"># 逆索引开始，不能以正索引结束</span>
+<span class="s1">&#39;&#39;</span>
+<span class="o">&gt;&gt;&gt;</span> <span class="n">s</span><span class="p">[</span><span class="o">-</span><span class="mi">5</span><span class="p">:</span><span class="o">-</span><span class="mi">2</span><span class="p">]</span>
+<span class="s1">&#39;yth&#39;</span>
+<span class="o">&gt;&gt;&gt;</span> <span class="n">s</span><span class="p">[</span><span class="o">-</span><span class="mi">2</span><span class="p">:</span><span class="o">-</span><span class="mi">5</span><span class="p">]</span>    <span class="c1"># 只能从左往右切</span>
+<span class="s1">&#39;&#39;</span>
+</code></pre></div>
+<div class="highlight"><pre><span></span><code><span class="o">&gt;&gt;&gt;</span> <span class="n">l</span> <span class="o">=</span> <span class="nb">list</span><span class="p">(</span><span class="nb">range</span><span class="p">(</span><span class="mi">100</span><span class="p">))</span>
+
+<span class="o">&gt;&gt;&gt;</span> <span class="n">l</span><span class="p">[</span><span class="mi">10</span><span class="p">:</span><span class="mi">20</span><span class="p">]</span>
+<span class="p">[</span><span class="mi">10</span><span class="p">,</span> <span class="mi">11</span><span class="p">,</span> <span class="mi">12</span><span class="p">,</span> <span class="mi">13</span><span class="p">,</span> <span class="mi">14</span><span class="p">,</span> <span class="mi">15</span><span class="p">,</span> <span class="mi">16</span><span class="p">,</span> <span class="mi">17</span><span class="p">,</span> <span class="mi">18</span><span class="p">,</span> <span class="mi">19</span><span class="p">]</span>
+
+<span class="o">&gt;&gt;&gt;</span> <span class="n">l</span><span class="p">[</span><span class="mi">10</span><span class="p">:</span><span class="mi">20</span><span class="p">:</span><span class="mi">3</span><span class="p">]</span>
+<span class="p">[</span><span class="mi">10</span><span class="p">,</span> <span class="mi">13</span><span class="p">,</span> <span class="mi">16</span><span class="p">,</span> <span class="mi">19</span><span class="p">]</span>
+
+<span class="o">&gt;&gt;&gt;</span> <span class="n">l</span><span class="p">[</span><span class="mi">80</span><span class="p">::</span><span class="mi">3</span><span class="p">]</span>
+<span class="p">[</span><span class="mi">80</span><span class="p">,</span> <span class="mi">83</span><span class="p">,</span> <span class="mi">86</span><span class="p">,</span> <span class="mi">89</span><span class="p">,</span> <span class="mi">92</span><span class="p">,</span> <span class="mi">95</span><span class="p">,</span> <span class="mi">98</span><span class="p">]</span>
+
+<span class="o">&gt;&gt;&gt;</span> <span class="n">l</span><span class="p">[:</span><span class="mi">10</span><span class="p">:</span><span class="mi">3</span><span class="p">]</span>
+<span class="p">[</span><span class="mi">0</span><span class="p">,</span> <span class="mi">3</span><span class="p">,</span> <span class="mi">6</span><span class="p">,</span> <span class="mi">9</span><span class="p">]</span>
+
+<span class="o">&gt;&gt;&gt;</span> <span class="n">l</span><span class="p">[::</span><span class="mi">10</span><span class="p">]</span>
+<span class="p">[</span><span class="mi">0</span><span class="p">,</span> <span class="mi">10</span><span class="p">,</span> <span class="mi">20</span><span class="p">,</span> <span class="mi">30</span><span class="p">,</span> <span class="mi">40</span><span class="p">,</span> <span class="mi">50</span><span class="p">,</span> <span class="mi">60</span><span class="p">,</span> <span class="mi">70</span><span class="p">,</span> <span class="mi">80</span><span class="p">,</span> <span class="mi">90</span><span class="p">]</span>
+
+<span class="o">&gt;&gt;&gt;</span> <span class="n">l</span><span class="p">[::</span><span class="o">-</span><span class="mi">10</span><span class="p">]</span>
+<span class="p">[</span><span class="mi">99</span><span class="p">,</span> <span class="mi">89</span><span class="p">,</span> <span class="mi">79</span><span class="p">,</span> <span class="mi">69</span><span class="p">,</span> <span class="mi">59</span><span class="p">,</span> <span class="mi">49</span><span class="p">,</span> <span class="mi">39</span><span class="p">,</span> <span class="mi">29</span><span class="p">,</span> <span class="mi">19</span><span class="p">,</span> <span class="mi">9</span><span class="p">]</span>
+</code></pre></div>
+<h2 id="iteration">迭代 Iteration<a class="headerlink" href="#iteration" title="Permanent link">&para;</a></h2>
+<h3 id="_2">判断是否迭代对象<a class="headerlink" href="#_2" title="Permanent link">&para;</a></h3>
+<blockquote>
+<p>可以用过 collections 的 Iterable 类型，用 <code>isinstance()</code>判断 <code>一个对象是否是可迭代对象</code></p>
+</blockquote>
+<div class="highlight"><pre><span></span><code><span class="kn">from</span> <span class="nn">collections</span> <span class="kn">import</span> <span class="n">Iterable</span>
+
+<span class="nb">str</span> <span class="o">=</span> <span class="s1">&#39;abc&#39;</span>
+<span class="n">l</span> <span class="o">=</span> <span class="p">[</span><span class="mi">1</span><span class="p">,</span> <span class="mi">2</span><span class="p">,</span> <span class="mi">3</span><span class="p">]</span>
+<span class="n">t</span> <span class="o">=</span> <span class="p">(</span><span class="mi">1</span><span class="p">,</span> <span class="mi">2</span><span class="p">,</span> <span class="mi">3</span><span class="p">)</span>
+<span class="n">d</span> <span class="o">=</span> <span class="p">{</span><span class="mi">1</span><span class="p">:</span> <span class="mi">1</span><span class="p">,</span> <span class="mi">2</span><span class="p">:</span> <span class="mi">2</span><span class="p">,</span> <span class="mi">3</span><span class="p">:</span> <span class="mi">3</span><span class="p">}</span>
+<span class="n">s</span> <span class="o">=</span> <span class="p">({</span><span class="mi">1</span><span class="p">,</span> <span class="mi">2</span><span class="p">,</span> <span class="mi">3</span><span class="p">})</span>
+
+<span class="nb">print</span><span class="p">(</span><span class="nb">isinstance</span><span class="p">(</span><span class="nb">str</span><span class="p">,</span> <span class="n">Iterable</span><span class="p">))</span>    <span class="c1"># True</span>
+<span class="nb">print</span><span class="p">(</span><span class="nb">isinstance</span><span class="p">(</span><span class="n">l</span><span class="p">,</span> <span class="n">Iterable</span><span class="p">))</span>      <span class="c1"># True</span>
+<span class="nb">print</span><span class="p">(</span><span class="nb">isinstance</span><span class="p">(</span><span class="n">t</span><span class="p">,</span> <span class="n">Iterable</span><span class="p">))</span>      <span class="c1"># True</span>
+<span class="nb">print</span><span class="p">(</span><span class="nb">isinstance</span><span class="p">(</span><span class="n">d</span><span class="p">,</span> <span class="n">Iterable</span><span class="p">))</span>      <span class="c1"># True</span>
+<span class="nb">print</span><span class="p">(</span><span class="nb">isinstance</span><span class="p">(</span><span class="n">s</span><span class="p">,</span> <span class="n">Iterable</span><span class="p">))</span>      <span class="c1"># True</span>
+<span class="nb">print</span><span class="p">(</span><span class="nb">isinstance</span><span class="p">(</span><span class="mi">123</span><span class="p">,</span> <span class="n">Iterable</span><span class="p">))</span>    <span class="c1"># False  整数字面量不是可迭代对象</span>
+</code></pre></div>
+<h3 id="list">迭代 List 列表类型数据<a class="headerlink" href="#list" title="Permanent link">&para;</a></h3>
+<div class="highlight"><pre><span></span><code><span class="n">s</span> <span class="o">=</span> <span class="s1">&#39;abcdefg&#39;</span>
+<span class="k">for</span> <span class="n">value</span> <span class="ow">in</span> <span class="n">s</span><span class="p">:</span>
+    <span class="nb">print</span><span class="p">(</span><span class="n">value</span><span class="p">,</span> <span class="n">end</span><span class="o">=</span><span class="s1">&#39; &#39;</span><span class="p">)</span>
+
+<span class="c1"># Output：</span>
+<span class="n">a</span> <span class="n">b</span> <span class="n">c</span> <span class="n">d</span> <span class="n">e</span> <span class="n">f</span> <span class="n">g</span>
+</code></pre></div>
+<div class="highlight"><pre><span></span><code><span class="c1"># 可以通过 enumerate() 给string，list，tuple 等生成下标</span>
+
+<span class="n">s</span> <span class="o">=</span> <span class="s1">&#39;abcdefg&#39;</span>
+<span class="k">for</span> <span class="n">i</span><span class="p">,</span> <span class="n">value</span> <span class="ow">in</span> <span class="nb">enumerate</span><span class="p">(</span><span class="n">s</span><span class="p">):</span>
+    <span class="nb">print</span><span class="p">(</span><span class="n">i</span><span class="p">,</span> <span class="n">value</span><span class="p">)</span>
+
+<span class="c1"># Output：</span>
+<span class="mi">0</span> <span class="n">a</span>
+<span class="mi">1</span> <span class="n">b</span>
+<span class="mi">2</span> <span class="n">c</span>
+<span class="mi">3</span> <span class="n">d</span>
+<span class="mi">4</span> <span class="n">e</span>
+<span class="mi">5</span> <span class="n">f</span>
+<span class="mi">6</span> <span class="n">g</span>
+</code></pre></div>
+<div class="highlight"><pre><span></span><code><span class="n">l</span> <span class="o">=</span> <span class="p">[</span><span class="s1">&#39;a&#39;</span><span class="p">,</span> <span class="kc">True</span><span class="p">,</span> <span class="p">(</span><span class="mi">1</span><span class="p">,</span> <span class="mi">2</span><span class="p">),</span> <span class="mi">43</span><span class="p">]</span>
+<span class="k">for</span> <span class="n">i</span><span class="p">,</span> <span class="n">value</span> <span class="ow">in</span> <span class="nb">enumerate</span><span class="p">(</span><span class="n">l</span><span class="p">):</span>
+    <span class="nb">print</span><span class="p">(</span><span class="n">i</span><span class="p">,</span> <span class="n">value</span><span class="p">)</span>
+
+<span class="c1"># Output:</span>
+<span class="mi">0</span> <span class="n">a</span>
+<span class="mi">1</span> <span class="kc">True</span>
+<span class="mi">2</span> <span class="p">(</span><span class="mi">1</span><span class="p">,</span> <span class="mi">2</span><span class="p">)</span>
+<span class="mi">3</span> <span class="mi">43</span>
+</code></pre></div>
+<div class="highlight"><pre><span></span><code><span class="c1"># 同时引用两个变量</span>
+<span class="k">for</span> <span class="n">x</span><span class="p">,</span> <span class="n">y</span> <span class="ow">in</span> <span class="p">[(</span><span class="mi">11</span><span class="p">,</span> <span class="mi">12</span><span class="p">),</span> <span class="p">(</span><span class="mi">21</span><span class="p">,</span> <span class="mi">22</span><span class="p">),</span> <span class="p">(</span><span class="mi">31</span><span class="p">,</span> <span class="mi">32</span><span class="p">)]:</span>
+    <span class="nb">print</span><span class="p">(</span><span class="n">x</span><span class="p">,</span> <span class="n">y</span><span class="p">)</span>
+
+<span class="c1"># Output:</span>
+<span class="mi">11</span> <span class="mi">12</span>
+<span class="mi">21</span> <span class="mi">22</span>
+<span class="mi">31</span> <span class="mi">32</span>
+
+<span class="c1">######################################################</span>
+
+<span class="k">for</span> <span class="n">x</span><span class="p">,</span> <span class="n">y</span><span class="p">,</span> <span class="n">z</span> <span class="ow">in</span> <span class="p">[(</span><span class="mi">11</span><span class="p">,</span> <span class="mi">12</span><span class="p">,</span> <span class="mi">13</span><span class="p">),</span> <span class="p">(</span><span class="mi">21</span><span class="p">,</span> <span class="mi">22</span><span class="p">,</span> <span class="mi">23</span><span class="p">),</span> <span class="p">(</span><span class="mi">31</span><span class="p">,</span> <span class="mi">32</span><span class="p">,</span> <span class="mi">33</span><span class="p">)]:</span>
+    <span class="nb">print</span><span class="p">(</span><span class="n">x</span><span class="p">,</span> <span class="n">y</span><span class="p">,</span> <span class="n">z</span><span class="p">)</span>
+
+<span class="c1"># Output:</span>
+<span class="mi">11</span> <span class="mi">12</span> <span class="mi">13</span>
+<span class="mi">21</span> <span class="mi">22</span> <span class="mi">23</span>
+<span class="mi">31</span> <span class="mi">32</span> <span class="mi">33</span>
+</code></pre></div>
+<h3 id="dict-">迭代 Dict 键-值对类型数据<a class="headerlink" href="#dict-" title="Permanent link">&para;</a></h3>
+<blockquote>
+<p>默认情况下，Dict迭代的是key，如果要迭代value，可以用 <code>for value in d.values()</code>
+如果要同时迭代key 和 value， 可以用 <code>for k, v in d.items()</code></p>
+</blockquote>
+<div class="highlight"><pre><span></span><code><span class="n">d</span> <span class="o">=</span> <span class="p">{</span><span class="s1">&#39;a&#39;</span><span class="p">:</span> <span class="s1">&#39;Alice&#39;</span><span class="p">,</span> <span class="s1">&#39;b&#39;</span><span class="p">:</span> <span class="s1">&#39;Boii&#39;</span><span class="p">,</span> <span class="s1">&#39;c&#39;</span><span class="p">:</span> <span class="s1">&#39;Cai&#39;</span><span class="p">}</span>
+<span class="k">for</span> <span class="n">i</span> <span class="ow">in</span> <span class="n">d</span><span class="p">:</span>
+    <span class="nb">print</span><span class="p">(</span><span class="n">i</span><span class="p">)</span>
+
+<span class="c1"># Output:</span>
+<span class="n">a</span>
+<span class="n">b</span>
+<span class="n">c</span>
+
+<span class="c1">#############################################</span>
+
+<span class="n">d</span> <span class="o">=</span> <span class="p">{</span><span class="s1">&#39;a&#39;</span><span class="p">:</span> <span class="s1">&#39;Alice&#39;</span><span class="p">,</span> <span class="s1">&#39;b&#39;</span><span class="p">:</span> <span class="s1">&#39;Boii&#39;</span><span class="p">,</span> <span class="s1">&#39;c&#39;</span><span class="p">:</span> <span class="s1">&#39;Cai&#39;</span><span class="p">}</span>
+<span class="k">for</span> <span class="n">i</span> <span class="ow">in</span> <span class="n">d</span><span class="o">.</span><span class="n">values</span><span class="p">():</span>
+    <span class="nb">print</span><span class="p">(</span><span class="n">i</span><span class="p">)</span>
+
+<span class="c1"># Output:</span>
+<span class="n">Alice</span>
+<span class="n">Boii</span>
+<span class="n">Cai</span>
+
+<span class="c1">#############################################</span>
+
+<span class="n">d</span> <span class="o">=</span> <span class="p">{</span><span class="s1">&#39;a&#39;</span><span class="p">:</span> <span class="s1">&#39;Alice&#39;</span><span class="p">,</span> <span class="s1">&#39;b&#39;</span><span class="p">:</span> <span class="s1">&#39;Boii&#39;</span><span class="p">,</span> <span class="s1">&#39;c&#39;</span><span class="p">:</span> <span class="s1">&#39;Cai&#39;</span><span class="p">}</span>
+<span class="k">for</span> <span class="n">k</span><span class="p">,</span> <span class="n">v</span> <span class="ow">in</span> <span class="n">d</span><span class="o">.</span><span class="n">items</span><span class="p">():</span>
+    <span class="nb">print</span><span class="p">(</span><span class="n">k</span><span class="p">,</span> <span class="s1">&#39;-&#39;</span><span class="p">,</span> <span class="n">v</span><span class="p">)</span>
+
+<span class="c1"># Output:</span>
+<span class="n">a</span> <span class="o">-</span> <span class="n">Alice</span>
+<span class="n">b</span> <span class="o">-</span> <span class="n">Boii</span>
+<span class="n">c</span> <span class="o">-</span> <span class="n">Cai</span>
+</code></pre></div>
+<h2 id="list-comprehensions">列表生成式 List Comprehensions<a class="headerlink" href="#list-comprehensions" title="Permanent link">&para;</a></h2>
+<h3 id="_3">列表生成式<a class="headerlink" href="#_3" title="Permanent link">&para;</a></h3>
+<blockquote>
+<p>[ i-expression <strong>for</strong> i <strong>in</strong> Iterations ]
+[ i-expression <strong>for</strong> i <strong>in</strong> Iterations <strong>if</strong> expression ]
+[ i-expression <strong>if</strong> expression <strong>else</strong> expression <strong>for</strong> i <strong>in</strong> Iterations ]</p>
+</blockquote>
+<p><div class="highlight"><pre><span></span><code><span class="p">[</span> <span class="err">···</span> <span class="k">for</span> <span class="err">···</span> <span class="ow">in</span> <span class="err">···</span> <span class="p">]</span>
+<span class="p">[</span> <span class="err">···</span> <span class="k">for</span> <span class="err">···</span> <span class="ow">in</span> <span class="err">···</span> <span class="k">if</span> <span class="err">···</span> <span class="p">]</span>
+<span class="p">[</span> <span class="err">···</span> <span class="k">if</span> <span class="err">···</span> <span class="k">else</span> <span class="err">···</span> <span class="k">for</span> <span class="err">···</span> <span class="ow">in</span> <span class="err">···</span> <span class="p">]</span>
+</code></pre></div>
+列表生成式是一种非常简洁的语法，可以大幅度的压缩代码
+阅读方式：
+- <code>[i-expression for i in Iterations]</code>
+遍历迭代对象 Iterations，将每个元素 e 放到 i-expression中运算后，作为这个列表 list 的元素
+- <code>[i-expression for i in Iterations if expression]</code>
+遍历迭代对象 Iterations，将每个元素 e 放到 if 中的 expression中运算后，放到 i-expression 中运算，然后作为这个列表 list 的元素
+- <code>[i-expression if expression else expression for i in Iterations]</code>
+遍历迭代对象 Iterations，将每个元素 e 放到 if else 中的 expression中运算后，放到 i-expression 中运算，然后作为这个列表 list 的元素</p>
+<p>for 前的 if else 可以看成三目运算符，这样比较好理解
+1. 三目运算符：True时执行 <strong>if</strong> expression <strong>else</strong> Flase时执行
+2. 对比一下：[ i-expression <strong>if</strong> expression <strong>else</strong> expression for i in Iterations ]
+3. 代入一下：[ True时执行 <strong>if</strong> expression <strong>else</strong> Flase时执行 for i in Iterations ]</p>
+<p><strong>一句话：原本有10个，for...if 后不一定有 10 个， if...else...for 以后有10个，不过可能不尽相同。</strong>
+<strong>两句话：for 前必 else，for 后不else。</strong></p>
+<blockquote>
+<p>注意：i-expression 的<code>计算变量</code>和 for 里的<code>临时变量</code>要相同</p>
+</blockquote>
+<p>普通列表生成式
+<div class="highlight"><pre><span></span><code><span class="c1"># range(1, 11) 生成1~10 [1, 2, 3, 4, 5, 6, 7, 8, 9, 10]</span>
+<span class="c1"># for in 遍历这10个数</span>
+<span class="c1"># 每次遍历都把当前元素拿到 i-expression 即 x * x 做相乘计算</span>
+<span class="c1"># 然后作为列表的元素</span>
+<span class="c1"># 注意 for 的临时变量是 x，i-expression 的变量也是 x，这两个要相同</span>
+
+<span class="c1"># 这里是计算出1~10每个数的平方</span>
+<span class="o">&gt;&gt;&gt;</span> <span class="p">[</span><span class="n">x</span> <span class="o">*</span> <span class="n">x</span> <span class="k">for</span> <span class="n">x</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="mi">1</span><span class="p">,</span> <span class="mi">11</span><span class="p">)]</span>
+<span class="p">[</span><span class="mi">1</span><span class="p">,</span> <span class="mi">4</span><span class="p">,</span> <span class="mi">9</span><span class="p">,</span> <span class="mi">16</span><span class="p">,</span> <span class="mi">25</span><span class="p">,</span> <span class="mi">36</span><span class="p">,</span> <span class="mi">49</span><span class="p">,</span> <span class="mi">64</span><span class="p">,</span> <span class="mi">81</span><span class="p">,</span> <span class="mi">100</span><span class="p">]</span>
+
+
+<span class="c1"># 把一个 List 中所有字符串变小写</span>
+<span class="o">&gt;&gt;&gt;</span> <span class="n">L</span> <span class="o">=</span> <span class="p">[</span><span class="s1">&#39;Hello&#39;</span><span class="p">,</span> <span class="s1">&#39;World&#39;</span><span class="p">,</span> <span class="s1">&#39;IBM&#39;</span><span class="p">,</span> <span class="s1">&#39;Apple&#39;</span><span class="p">]</span>
+<span class="o">&gt;&gt;&gt;</span> <span class="p">[</span><span class="n">s</span><span class="o">.</span><span class="n">lower</span><span class="p">()</span> <span class="k">for</span> <span class="n">s</span> <span class="ow">in</span> <span class="n">L</span><span class="p">]</span>
+<span class="p">[</span><span class="s1">&#39;hello&#39;</span><span class="p">,</span> <span class="s1">&#39;world&#39;</span><span class="p">,</span> <span class="s1">&#39;ibm&#39;</span><span class="p">,</span> <span class="s1">&#39;apple&#39;</span><span class="p">]</span>
+</code></pre></div></p>
+<p>for 里带 if 筛选的列表生成式
+<div class="highlight"><pre><span></span><code><span class="c1"># range(1, 11) 生成1~10 [1, 2, 3, 4, 5, 6, 7, 8, 9, 10]</span>
+<span class="c1"># for in 遍历这10个数</span>
+<span class="c1"># 每次遍历都把当前元素拿到 if 里计算, 得到 [2, 4, 6, 8, 10]</span>
+<span class="c1"># 然后放到 i-expression 即 x * x 做相乘计算得到 [4, 16, 36, 64, 100]</span>
+<span class="c1"># 最后作为列表的元素</span>
+
+<span class="c1"># 这里是筛选出偶数，然后计算平方</span>
+
+<span class="o">&gt;&gt;&gt;</span> <span class="p">[</span><span class="n">x</span> <span class="o">*</span> <span class="n">x</span> <span class="k">for</span> <span class="n">x</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="mi">1</span><span class="p">,</span> <span class="mi">11</span><span class="p">)</span> <span class="k">if</span> <span class="n">x</span> <span class="o">%</span> <span class="mi">2</span> <span class="o">==</span> <span class="mi">0</span><span class="p">]</span>
+<span class="p">[</span><span class="mi">4</span><span class="p">,</span> <span class="mi">16</span><span class="p">,</span> <span class="mi">36</span><span class="p">,</span> <span class="mi">64</span><span class="p">,</span> <span class="mi">100</span><span class="p">]</span>
+</code></pre></div></p>
+<p>双循环的列表生成式
+<div class="highlight"><pre><span></span><code><span class="c1"># 还可以使用双循环，生成全排列</span>
+
+<span class="o">&gt;&gt;&gt;</span> <span class="p">[</span><span class="n">m</span> <span class="o">+</span> <span class="n">n</span> <span class="k">for</span> <span class="n">m</span> <span class="ow">in</span> <span class="s1">&#39;ABC&#39;</span> <span class="k">for</span> <span class="n">n</span> <span class="ow">in</span> <span class="s1">&#39;XYZ&#39;</span><span class="p">]</span>
+<span class="p">[</span><span class="s1">&#39;AX&#39;</span><span class="p">,</span> <span class="s1">&#39;AY&#39;</span><span class="p">,</span> <span class="s1">&#39;AZ&#39;</span><span class="p">,</span> <span class="s1">&#39;BX&#39;</span><span class="p">,</span> <span class="s1">&#39;BY&#39;</span><span class="p">,</span> <span class="s1">&#39;BZ&#39;</span><span class="p">,</span> <span class="s1">&#39;CX&#39;</span><span class="p">,</span> <span class="s1">&#39;CY&#39;</span><span class="p">,</span> <span class="s1">&#39;CZ&#39;</span><span class="p">]</span>
+</code></pre></div></p>
+<p>多变量的列表生成式
+<div class="highlight"><pre><span></span><code><span class="c1"># 一个循环多个变量也是可以的</span>
+<span class="o">&gt;&gt;&gt;</span> <span class="n">d</span> <span class="o">=</span> <span class="p">{</span><span class="s1">&#39;x&#39;</span><span class="p">:</span> <span class="s1">&#39;A&#39;</span><span class="p">,</span> <span class="s1">&#39;y&#39;</span><span class="p">:</span> <span class="s1">&#39;B&#39;</span><span class="p">,</span> <span class="s1">&#39;z&#39;</span><span class="p">:</span> <span class="s1">&#39;C&#39;</span> <span class="p">}</span>
+<span class="o">&gt;&gt;&gt;</span> <span class="p">[</span><span class="n">k</span> <span class="o">+</span> <span class="s1">&#39;-&#39;</span> <span class="o">+</span> <span class="n">v</span> <span class="k">for</span> <span class="n">k</span><span class="p">,</span> <span class="n">v</span> <span class="ow">in</span> <span class="n">d</span><span class="o">.</span><span class="n">items</span><span class="p">()]</span>
+<span class="p">[</span><span class="s1">&#39;y-B&#39;</span><span class="p">,</span> <span class="s1">&#39;x-A&#39;</span><span class="p">,</span> <span class="s1">&#39;z-C&#39;</span><span class="p">]</span>
+</code></pre></div></p>
+<p>for 前带 if 的列表生成式
+<div class="highlight"><pre><span></span><code><span class="c1"># # range(1, 11) 生成1~10 [1, 2, 3, 4, 5, 6, 7, 8, 9, 10]</span>
+<span class="c1"># for in 遍历这10个数</span>
+<span class="c1"># 每次遍历都把当前元素拿到 for 前的 if else三目运算符里计算</span>
+<span class="c1"># x if x % 2 == 0 else -x ,偶数正常输出, 奇数变负数，得到 [-1, 2, -3, 4, -5, 6, -7, 8, -9, 10]</span>
+<span class="c1"># 最后作为列表的元素</span>
+<span class="o">&gt;&gt;&gt;</span> <span class="p">[</span><span class="n">x</span> <span class="k">if</span> <span class="n">x</span> <span class="o">%</span> <span class="mi">2</span> <span class="o">==</span> <span class="mi">0</span> <span class="k">else</span> <span class="o">-</span><span class="n">x</span> <span class="k">for</span> <span class="n">x</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="mi">1</span><span class="p">,</span> <span class="mi">11</span><span class="p">)]</span>
+<span class="p">[</span><span class="o">-</span><span class="mi">1</span><span class="p">,</span> <span class="mi">2</span><span class="p">,</span> <span class="o">-</span><span class="mi">3</span><span class="p">,</span> <span class="mi">4</span><span class="p">,</span> <span class="o">-</span><span class="mi">5</span><span class="p">,</span> <span class="mi">6</span><span class="p">,</span> <span class="o">-</span><span class="mi">7</span><span class="p">,</span> <span class="mi">8</span><span class="p">,</span> <span class="o">-</span><span class="mi">9</span><span class="p">,</span> <span class="mi">10</span><span class="p">]</span>
+
+<span class="c1"># 再稍微改动下</span>
+<span class="c1"># 把 x if x % 2 == 0 else x + 10 看作三目运算符就很好理解</span>
+<span class="o">&gt;&gt;&gt;</span> <span class="p">[</span><span class="n">x</span> <span class="k">if</span> <span class="n">x</span> <span class="o">%</span> <span class="mi">2</span> <span class="o">==</span> <span class="mi">0</span> <span class="k">else</span> <span class="n">x</span> <span class="o">+</span> <span class="mi">10</span> <span class="k">for</span> <span class="n">x</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="mi">1</span><span class="p">,</span> <span class="mi">11</span><span class="p">)]</span>
+<span class="p">[</span><span class="mi">11</span><span class="p">,</span> <span class="mi">2</span><span class="p">,</span> <span class="mi">13</span><span class="p">,</span> <span class="mi">4</span><span class="p">,</span> <span class="mi">15</span><span class="p">,</span> <span class="mi">6</span><span class="p">,</span> <span class="mi">17</span><span class="p">,</span> <span class="mi">8</span><span class="p">,</span> <span class="mi">19</span><span class="p">,</span> <span class="mi">10</span><span class="p">]</span>
+</code></pre></div></p>
+<h3 id="_4">其他生成式<a class="headerlink" href="#_4" title="Permanent link">&para;</a></h3>
+<p>除了列表生成式，还有<code>字典生成式</code>、<code>元组生成式</code>，其实现都是一样的
+<div class="highlight"><pre><span></span><code><span class="p">{</span><span class="n">k</span><span class="p">:</span> <span class="n">v</span> <span class="k">for</span> <span class="n">k</span><span class="p">,</span> <span class="n">v</span> <span class="ow">in</span> <span class="n">d</span><span class="o">.</span><span class="n">items</span><span class="p">()}</span>
+<span class="p">{</span><span class="n">k</span><span class="p">:</span> <span class="n">v</span> <span class="k">for</span> <span class="n">k</span><span class="p">,</span> <span class="n">v</span> <span class="ow">in</span> <span class="n">d</span><span class="o">.</span><span class="n">items</span><span class="p">()</span> <span class="k">if</span> <span class="n">condition</span><span class="p">}</span>
+<span class="p">{</span><span class="n">k</span><span class="p">:</span> <span class="n">v</span> <span class="k">if</span> <span class="n">condition</span> <span class="k">else</span> <span class="n">k</span><span class="p">:</span> <span class="o">-</span><span class="n">v</span> <span class="k">for</span> <span class="n">k</span><span class="p">,</span> <span class="n">v</span> <span class="ow">in</span> <span class="n">d</span><span class="o">.</span><span class="n">items</span><span class="p">()</span> <span class="p">}</span>
+</code></pre></div></p>
+<p>元组生成式 生成一个生成器对象，下面将会讲到。</p>
+<h3 id="_5">错误示范<a class="headerlink" href="#_5" title="Permanent link">&para;</a></h3>
+<div class="highlight"><pre><span></span><code><span class="c1"># for 后 if 加 else</span>
+<span class="o">&gt;&gt;&gt;</span> <span class="p">[</span><span class="n">x</span> <span class="k">for</span> <span class="n">x</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="mi">1</span><span class="p">,</span> <span class="mi">11</span><span class="p">)</span> <span class="k">if</span> <span class="n">x</span> <span class="o">%</span> <span class="mi">2</span> <span class="o">==</span> <span class="mi">0</span> <span class="k">else</span> <span class="mi">0</span><span class="p">]</span>
+  <span class="n">File</span> <span class="s2">&quot;&lt;stdin&gt;&quot;</span><span class="p">,</span> <span class="n">line</span> <span class="mi">1</span>
+    <span class="p">[</span><span class="n">x</span> <span class="k">for</span> <span class="n">x</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="mi">1</span><span class="p">,</span> <span class="mi">11</span><span class="p">)</span> <span class="k">if</span> <span class="n">x</span> <span class="o">%</span> <span class="mi">2</span> <span class="o">==</span> <span class="mi">0</span> <span class="k">else</span> <span class="mi">0</span><span class="p">]</span>
+                                              <span class="o">^</span>
+<span class="ne">SyntaxError</span><span class="p">:</span> <span class="n">invalid</span> <span class="n">syntax</span>
+
+<span class="c1"># for 前 if 不加 else</span>
+<span class="o">&gt;&gt;&gt;</span> <span class="p">[</span><span class="n">x</span> <span class="k">if</span> <span class="n">x</span> <span class="o">%</span> <span class="mi">2</span> <span class="o">==</span> <span class="mi">0</span> <span class="k">for</span> <span class="n">x</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="mi">1</span><span class="p">,</span> <span class="mi">11</span><span class="p">)]</span>
+  <span class="n">File</span> <span class="s2">&quot;&lt;stdin&gt;&quot;</span><span class="p">,</span> <span class="n">line</span> <span class="mi">1</span>
+    <span class="p">[</span><span class="n">x</span> <span class="k">if</span> <span class="n">x</span> <span class="o">%</span> <span class="mi">2</span> <span class="o">==</span> <span class="mi">0</span> <span class="k">for</span> <span class="n">x</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="mi">1</span><span class="p">,</span> <span class="mi">11</span><span class="p">)]</span>
+                     <span class="o">^</span>
+<span class="ne">SyntaxError</span><span class="p">:</span> <span class="n">invalid</span> <span class="n">syntax</span>
+</code></pre></div>
+<h3 id="_6">总结<a class="headerlink" href="#_6" title="Permanent link">&para;</a></h3>
+<ul>
+<li><code>for...in...</code> 最先，<code>if 或 if else</code> 随后，<code>i-expression</code> 最后</li>
+<li><code>for 前 if</code> 必加 else，<code>for 后 if</code> 不加 else</li>
+<li><code>for 前 if</code> 是对 for的输出进行处理，<code>for 后 if</code> 是对for的输出进行控制过滤</li>
+</ul>
+<h2 id="generator">生成器 Generator<a class="headerlink" href="#generator" title="Permanent link">&para;</a></h2>
+<h3 id="_7">普通形式<a class="headerlink" href="#_7" title="Permanent link">&para;</a></h3>
+<p>元组生成式 生成一个生成器对象，通过for或者next遍历,遍历后，原生成器对象就不存在了</p>
+<blockquote>
+<p>( i-expression <strong>for</strong> i <strong>in</strong> Iterations )
+( i-expression <strong>for</strong> i <strong>in</strong> Iterations <strong>if</strong> expression )
+( i-expression <strong>if</strong> expression <strong>else</strong> expression <strong>for</strong> i <strong>in</strong> Iterations )</p>
+</blockquote>
+<div class="highlight"><pre><span></span><code><span class="p">(</span><span class="err">···</span> <span class="k">for</span> <span class="err">···</span> <span class="ow">in</span> <span class="err">···</span> <span class="p">)</span>
+<span class="p">(</span><span class="err">···</span> <span class="k">for</span> <span class="err">···</span> <span class="ow">in</span> <span class="err">···</span> <span class="k">if</span> <span class="err">···</span> <span class="p">)</span>
+<span class="p">(</span><span class="err">···</span> <span class="k">if</span> <span class="err">···</span> <span class="k">else</span> <span class="err">···</span> <span class="k">for</span> <span class="err">···</span> <span class="ow">in</span> <span class="err">···</span> <span class="p">)</span>
+</code></pre></div>
+<p>生成器，是一种一边循环一边计算的机制
+比如现在需要一个<code>1到100W的平方</code>的列表，用列表生成式表示为<code>[ x * x for x in range(1000000)]</code>
+但如果只需要经常访问前面几个元素，则浪费了很大的空间
+而**生成器是保存了一种算法，它不会直接创建100W个数，而是等到调用的时候通过计算获得**
+也就是说：列表生成式是一种缩写，生成器是一种算法</p>
+<blockquote>
+<p>生成器 vs 列表生成式：
+列表生成式 是使用 <code>[]</code>，生成器 是使用 <code>()</code>
+列表生成式是一个列表，可以直接列出所有元素；生成器要用<code>next()</code>或<code>遍历</code>来列出所有元素</p>
+</blockquote>
+<div class="highlight"><pre><span></span><code><span class="o">&gt;&gt;&gt;</span> <span class="n">L</span> <span class="o">=</span> <span class="p">[</span> <span class="n">x</span> <span class="o">*</span> <span class="n">x</span> <span class="k">for</span> <span class="n">x</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="mi">10</span><span class="p">)]</span>
+<span class="o">&gt;&gt;&gt;</span> <span class="n">L</span>
+<span class="p">[</span><span class="mi">0</span><span class="p">,</span> <span class="mi">1</span><span class="p">,</span> <span class="mi">4</span><span class="p">,</span> <span class="mi">9</span><span class="p">,</span> <span class="mi">16</span><span class="p">,</span> <span class="mi">25</span><span class="p">,</span> <span class="mi">36</span><span class="p">,</span> <span class="mi">49</span><span class="p">,</span> <span class="mi">64</span><span class="p">,</span> <span class="mi">81</span><span class="p">]</span>
+
+<span class="o">&gt;&gt;&gt;</span> <span class="n">G</span> <span class="o">=</span> <span class="p">(</span> <span class="n">x</span> <span class="o">*</span> <span class="n">x</span> <span class="k">for</span> <span class="n">x</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="mi">10</span><span class="p">)</span> <span class="p">)</span>
+<span class="o">&gt;&gt;&gt;</span> <span class="n">G</span>
+<span class="o">&lt;</span><span class="n">generator</span> <span class="nb">object</span> <span class="o">&lt;</span><span class="n">genexpr</span><span class="o">&gt;</span> <span class="n">at</span> <span class="mh">0x00000204807D8D60</span><span class="o">&gt;</span>
+<span class="o">&gt;&gt;&gt;</span> <span class="nb">next</span><span class="p">(</span><span class="n">G</span><span class="p">)</span>
+<span class="mi">0</span>
+<span class="o">&gt;&gt;&gt;</span> <span class="nb">next</span><span class="p">(</span><span class="n">G</span><span class="p">)</span>
+<span class="mi">1</span>
+<span class="o">&gt;&gt;&gt;</span> <span class="nb">next</span><span class="p">(</span><span class="n">G</span><span class="p">)</span>
+<span class="mi">4</span>
+<span class="o">&gt;&gt;&gt;</span> <span class="nb">next</span><span class="p">(</span><span class="n">G</span><span class="p">)</span>
+<span class="mi">9</span>
+<span class="o">&gt;&gt;&gt;</span> <span class="nb">next</span><span class="p">(</span><span class="n">G</span><span class="p">)</span>
+<span class="mi">16</span>
+<span class="o">&gt;&gt;&gt;</span> <span class="nb">next</span><span class="p">(</span><span class="n">G</span><span class="p">)</span>
+<span class="mi">25</span>
+<span class="o">&gt;&gt;&gt;</span> <span class="nb">next</span><span class="p">(</span><span class="n">G</span><span class="p">)</span>
+<span class="mi">36</span>
+<span class="o">&gt;&gt;&gt;</span> <span class="nb">next</span><span class="p">(</span><span class="n">G</span><span class="p">)</span>
+<span class="mi">49</span>
+<span class="o">&gt;&gt;&gt;</span> <span class="nb">next</span><span class="p">(</span><span class="n">G</span><span class="p">)</span>
+<span class="mi">64</span>
+<span class="o">&gt;&gt;&gt;</span> <span class="nb">next</span><span class="p">(</span><span class="n">G</span><span class="p">)</span>
+<span class="mi">81</span>
+<span class="o">&gt;&gt;&gt;</span> <span class="nb">next</span><span class="p">(</span><span class="n">G</span><span class="p">)</span>
+<span class="n">Traceback</span> <span class="p">(</span><span class="n">most</span> <span class="n">recent</span> <span class="n">call</span> <span class="n">last</span><span class="p">):</span>
+  <span class="n">File</span> <span class="s2">&quot;&lt;stdin&gt;&quot;</span><span class="p">,</span> <span class="n">line</span> <span class="mi">1</span><span class="p">,</span> <span class="ow">in</span> <span class="o">&lt;</span><span class="n">module</span><span class="o">&gt;</span>
+<span class="ne">StopIteration</span>
+</code></pre></div>
+<p><strong>生成器是算法，是规律，是计算方式</strong>，通过<code>next(G)</code>计算出G的下一个元素的值，直到最后一个元素
+没有更多元素的时候，抛出<code>StopIteration</code>错误
+但是这种不断调用<code>next()</code>的方法显然不科学，</p>
+<p>所以一般都是用<code>for循环</code></p>
+<div class="highlight"><pre><span></span><code><span class="n">G</span> <span class="o">=</span> <span class="p">(</span> <span class="n">x</span> <span class="o">*</span> <span class="n">x</span> <span class="k">for</span> <span class="n">x</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="mi">10</span><span class="p">)</span> <span class="p">)</span>
+<span class="k">for</span> <span class="n">i</span> <span class="ow">in</span> <span class="n">G</span><span class="p">:</span>
+    <span class="nb">print</span><span class="p">(</span><span class="n">i</span><span class="p">,</span> <span class="n">end</span><span class="o">=</span><span class="s1">&#39; &#39;</span><span class="p">)</span>
+
+<span class="c1"># Output:</span>
+<span class="mi">0</span> <span class="mi">1</span> <span class="mi">4</span> <span class="mi">9</span> <span class="mi">16</span> <span class="mi">25</span> <span class="mi">36</span> <span class="mi">49</span> <span class="mi">64</span> <span class="mi">81</span>
+</code></pre></div>
+<h3 id="_8">函数形式<a class="headerlink" href="#_8" title="Permanent link">&para;</a></h3>
+<p>生成器的另一种实现方式是 <code>函数形式</code></p>
+<div class="highlight"><pre><span></span><code><span class="k">def</span> <span class="nf">funcName</span><span class="p">():</span>
+    <span class="n">sth</span>
+    <span class="k">while</span> <span class="kc">True</span><span class="p">:</span>
+        <span class="k">yield</span> <span class="n">sth</span>
+        <span class="n">sth</span>
+</code></pre></div>
+<blockquote>
+<p>普通函数通过<code>return语句</code>返回
+生成器通过<code>yield语句</code>返回，并在下次调用时从<code>yield语句</code>处继续
+<code>yield</code>可以看成<code>return</code>，都是返回一个值出去
+只不过使用<code>yield</code>在下次调用时会从<code>yield</code>处继续。</p>
+</blockquote>
+<h4 id="_9">实例<a class="headerlink" href="#_9" title="Permanent link">&para;</a></h4>
+<p>例如打印杨辉三角
+<div class="highlight"><pre><span></span><code>          1
+         / \
+        1   1
+       / \ / \
+      1   2   1
+     / \ / \ / \
+    1   3   3   1
+   / \ / \ / \ / \
+  1   4   6   4   1
+ / \ / \ / \ / \ / \
+1   5   10  10  5   1
+</code></pre></div>
+期待输出是这样的
+<div class="highlight"><pre><span></span><code># [1]
+# [1, 1]
+# [1, 2, 1]
+# [1, 3, 3, 1]
+# [1, 4, 6, 4, 1]
+# [1, 5, 10, 10, 5, 1]
+# [1, 6, 15, 20, 15, 6, 1]
+# [1, 7, 21, 35, 35, 21, 7, 1]
+# [1, 8, 28, 56, 70, 56, 28, 8, 1]
+# [1, 9, 36, 84, 126, 126, 84, 36, 9, 1]
+</code></pre></div>
+实现思路：
+先看杨辉三角的规律：头尾都是1，中间是上一层<code>第n个</code>+<code>第n+1个</code>，每一层都是list
+而且第一层比较特殊，是 [1]
+可以先把杨辉三角核心的算法搞定。</p>
+<h5 id="_10">核心算法<a class="headerlink" href="#_10" title="Permanent link">&para;</a></h5>
+<p><div class="highlight"><pre><span></span><code><span class="n">L</span> <span class="o">=</span> <span class="p">[</span><span class="mi">1</span><span class="p">]</span>
+<span class="n">L</span> <span class="o">=</span> <span class="p">[</span><span class="mi">1</span><span class="p">]</span> <span class="o">+</span> <span class="p">[</span><span class="n">L</span><span class="p">[</span><span class="n">n</span><span class="p">]</span> <span class="o">+</span> <span class="n">L</span><span class="p">[</span><span class="n">n</span><span class="o">+</span><span class="mi">1</span><span class="p">]</span> <span class="k">for</span> <span class="n">n</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="nb">len</span><span class="p">(</span><span class="n">L</span><span class="p">)</span><span class="o">-</span><span class="mi">1</span><span class="p">)]</span> <span class="o">+</span><span class="p">[</span><span class="mi">1</span><span class="p">]</span>
+</code></pre></div>
+<code>[1] + [L[n] + L[n+1] for n in range(len(L)-1)] +[1]</code> 就是核心算法了
+把他拆开来看，可以发现这个表达式是由中间段加上头尾的 <code>[1]</code> 组成的</p>
+<p>再看中间段 <code>[L[n] + L[n+1] for n in range(len(L)-1)]</code>
+这是一个列表生成式
+<code>range(len(L)-1)</code>会生成 0 1 2 ...</p>
+<p>假设当前为第5层，准备生成 [1, 4, 6, 4, 1]
+当前的 L 是 [1, 3, 3, 1]，那么<code>len(L)</code>则是4，
+<code>range(len(L) - 1)</code>则等价于<code>range(3)</code>,会生成 0 1 2</p>
+<p><code>[L[n] + L[n+1] for n in range(len(L)-1)]</code>则等价于
+<code>[L[0]+L[1], L[1]+L[2], L[2]+L[3]]</code> 则等价于
+<code>[  1 + 3,     3 + 3,     3 + 1  ]</code>则等价于
+<code>[4, 6, 4]</code> 正好就是中间段
+再加上头尾两个 [1]： <code>[1, 4, 6, 4, 1]</code></p>
+<h5 id="_11">做成生成器<a class="headerlink" href="#_11" title="Permanent link">&para;</a></h5>
+<p>因为第一层 特殊，所以用小括号列表生成式<code>()</code>做不出来，改用函数形式</p>
+<div class="highlight"><pre><span></span><code><span class="k">def</span> <span class="nf">triangles</span><span class="p">():</span>
+    <span class="n">L</span> <span class="o">=</span> <span class="p">[</span><span class="mi">1</span><span class="p">]</span>
+    <span class="k">while</span> <span class="kc">True</span><span class="p">:</span>
+        <span class="k">yield</span> <span class="n">L</span>
+        <span class="n">L</span> <span class="o">=</span> <span class="p">[</span><span class="mi">1</span><span class="p">]</span> <span class="o">+</span> <span class="p">[</span><span class="n">L</span><span class="p">[</span><span class="n">x</span><span class="p">]</span><span class="o">+</span><span class="n">L</span><span class="p">[</span><span class="n">x</span><span class="o">+</span><span class="mi">1</span><span class="p">]</span> <span class="k">for</span> <span class="n">x</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="nb">len</span><span class="p">(</span><span class="n">L</span><span class="p">)</span><span class="o">-</span><span class="mi">1</span><span class="p">)]</span> <span class="o">+</span> <span class="p">[</span><span class="mi">1</span><span class="p">]</span>
+</code></pre></div>
+<p>第一次迭代生成器triangles时，会执行 <code>L = [1]</code>，然后进入循环，遇到<code>yield L</code>把L返回出去</p>
+<p>第二次迭代生成器triangles时，会从<code>yield L</code>处继续，
+然后执行核心算法 <code>L = [1] + [L[x]+L[x+1] for x in range(len(L)-1)] + [1]</code>
+之后继续循环，又遇到<code>yield L</code>，把更新过的 L 返回出去</p>
+<p>接着第三次，第四次...</p>
+<p>其实有点类似 C 语言中被<code>static</code>修饰的局部变量，函数调用完不会被销毁，程序结束才销毁</p>
+<h5 id="_12">遍历输出<a class="headerlink" href="#_12" title="Permanent link">&para;</a></h5>
+<div class="highlight"><pre><span></span><code><span class="k">for</span> <span class="n">n</span><span class="p">,</span> <span class="n">t</span> <span class="ow">in</span> <span class="nb">enumerate</span><span class="p">(</span><span class="n">triangles</span><span class="p">()):</span>
+    <span class="n">results</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="n">t</span><span class="p">)</span>
+    <span class="n">n</span> <span class="o">+=</span> <span class="mi">1</span>
+    <span class="k">if</span> <span class="n">n</span> <span class="o">==</span> <span class="mi">10</span><span class="p">:</span>
+        <span class="k">break</span>
+</code></pre></div>
+<p>生成器也是一个可迭代对象，所以可以用 <code>for...in...</code>来迭代输出
+<code>enumerate()</code>赋予了对应的下标
+这个生成器可以无限循环下去，可以获得无穷层，这里打印10层作为示范即可</p>
+<p>最后可以得到期待输出：</p>
+<div class="highlight"><pre><span></span><code><span class="p">[</span><span class="mi">1</span><span class="p">]</span>
+<span class="p">[</span><span class="mi">1</span><span class="p">,</span> <span class="mi">1</span><span class="p">]</span>
+<span class="p">[</span><span class="mi">1</span><span class="p">,</span> <span class="mi">2</span><span class="p">,</span> <span class="mi">1</span><span class="p">]</span>
+<span class="p">[</span><span class="mi">1</span><span class="p">,</span> <span class="mi">3</span><span class="p">,</span> <span class="mi">3</span><span class="p">,</span> <span class="mi">1</span><span class="p">]</span>
+<span class="p">[</span><span class="mi">1</span><span class="p">,</span> <span class="mi">4</span><span class="p">,</span> <span class="mi">6</span><span class="p">,</span> <span class="mi">4</span><span class="p">,</span> <span class="mi">1</span><span class="p">]</span>
+<span class="p">[</span><span class="mi">1</span><span class="p">,</span> <span class="mi">5</span><span class="p">,</span> <span class="mi">10</span><span class="p">,</span> <span class="mi">10</span><span class="p">,</span> <span class="mi">5</span><span class="p">,</span> <span class="mi">1</span><span class="p">]</span>
+<span class="p">[</span><span class="mi">1</span><span class="p">,</span> <span class="mi">6</span><span class="p">,</span> <span class="mi">15</span><span class="p">,</span> <span class="mi">20</span><span class="p">,</span> <span class="mi">15</span><span class="p">,</span> <span class="mi">6</span><span class="p">,</span> <span class="mi">1</span><span class="p">]</span>
+<span class="p">[</span><span class="mi">1</span><span class="p">,</span> <span class="mi">7</span><span class="p">,</span> <span class="mi">21</span><span class="p">,</span> <span class="mi">35</span><span class="p">,</span> <span class="mi">35</span><span class="p">,</span> <span class="mi">21</span><span class="p">,</span> <span class="mi">7</span><span class="p">,</span> <span class="mi">1</span><span class="p">]</span>
+<span class="p">[</span><span class="mi">1</span><span class="p">,</span> <span class="mi">8</span><span class="p">,</span> <span class="mi">28</span><span class="p">,</span> <span class="mi">56</span><span class="p">,</span> <span class="mi">70</span><span class="p">,</span> <span class="mi">56</span><span class="p">,</span> <span class="mi">28</span><span class="p">,</span> <span class="mi">8</span><span class="p">,</span> <span class="mi">1</span><span class="p">]</span>
+<span class="p">[</span><span class="mi">1</span><span class="p">,</span> <span class="mi">9</span><span class="p">,</span> <span class="mi">36</span><span class="p">,</span> <span class="mi">84</span><span class="p">,</span> <span class="mi">126</span><span class="p">,</span> <span class="mi">126</span><span class="p">,</span> <span class="mi">84</span><span class="p">,</span> <span class="mi">36</span><span class="p">,</span> <span class="mi">9</span><span class="p">,</span> <span class="mi">1</span><span class="p">]</span>
+</code></pre></div>
+<h5 id="_13">完整代码<a class="headerlink" href="#_13" title="Permanent link">&para;</a></h5>
+<div class="highlight"><pre><span></span><code><span class="k">def</span> <span class="nf">triangles</span><span class="p">():</span>
+    <span class="n">L</span> <span class="o">=</span> <span class="p">[</span><span class="mi">1</span><span class="p">]</span>
+    <span class="k">while</span> <span class="kc">True</span><span class="p">:</span>
+        <span class="k">yield</span> <span class="n">L</span>
+        <span class="n">L</span> <span class="o">=</span> <span class="p">[</span><span class="mi">1</span><span class="p">]</span> <span class="o">+</span> <span class="p">[</span><span class="n">L</span><span class="p">[</span><span class="n">x</span><span class="p">]</span><span class="o">+</span><span class="n">L</span><span class="p">[</span><span class="n">x</span><span class="o">+</span><span class="mi">1</span><span class="p">]</span> <span class="k">for</span> <span class="n">x</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="nb">len</span><span class="p">(</span><span class="n">L</span><span class="p">)</span><span class="o">-</span><span class="mi">1</span><span class="p">)]</span> <span class="o">+</span> <span class="p">[</span><span class="mi">1</span><span class="p">]</span>
+
+
+<span class="n">results</span> <span class="o">=</span> <span class="p">[]</span>
+<span class="k">for</span> <span class="n">n</span><span class="p">,</span> <span class="n">t</span> <span class="ow">in</span> <span class="nb">enumerate</span><span class="p">(</span><span class="n">triangles</span><span class="p">()):</span>
+    <span class="n">results</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="n">t</span><span class="p">)</span>
+    <span class="n">n</span> <span class="o">+=</span> <span class="mi">1</span>
+    <span class="k">if</span> <span class="n">n</span> <span class="o">==</span> <span class="mi">10</span><span class="p">:</span>
+        <span class="k">break</span>
+
+<span class="k">for</span> <span class="n">t</span> <span class="ow">in</span> <span class="n">results</span><span class="p">:</span>
+    <span class="nb">print</span><span class="p">(</span><span class="n">t</span><span class="p">)</span>
+
+<span class="k">if</span> <span class="n">results</span> <span class="o">==</span> <span class="p">[</span>
+    <span class="p">[</span><span class="mi">1</span><span class="p">],</span>
+    <span class="p">[</span><span class="mi">1</span><span class="p">,</span> <span class="mi">1</span><span class="p">],</span>
+    <span class="p">[</span><span class="mi">1</span><span class="p">,</span> <span class="mi">2</span><span class="p">,</span> <span class="mi">1</span><span class="p">],</span>
+    <span class="p">[</span><span class="mi">1</span><span class="p">,</span> <span class="mi">3</span><span class="p">,</span> <span class="mi">3</span><span class="p">,</span> <span class="mi">1</span><span class="p">],</span>
+    <span class="p">[</span><span class="mi">1</span><span class="p">,</span> <span class="mi">4</span><span class="p">,</span> <span class="mi">6</span><span class="p">,</span> <span class="mi">4</span><span class="p">,</span> <span class="mi">1</span><span class="p">],</span>
+    <span class="p">[</span><span class="mi">1</span><span class="p">,</span> <span class="mi">5</span><span class="p">,</span> <span class="mi">10</span><span class="p">,</span> <span class="mi">10</span><span class="p">,</span> <span class="mi">5</span><span class="p">,</span> <span class="mi">1</span><span class="p">],</span>
+    <span class="p">[</span><span class="mi">1</span><span class="p">,</span> <span class="mi">6</span><span class="p">,</span> <span class="mi">15</span><span class="p">,</span> <span class="mi">20</span><span class="p">,</span> <span class="mi">15</span><span class="p">,</span> <span class="mi">6</span><span class="p">,</span> <span class="mi">1</span><span class="p">],</span>
+    <span class="p">[</span><span class="mi">1</span><span class="p">,</span> <span class="mi">7</span><span class="p">,</span> <span class="mi">21</span><span class="p">,</span> <span class="mi">35</span><span class="p">,</span> <span class="mi">35</span><span class="p">,</span> <span class="mi">21</span><span class="p">,</span> <span class="mi">7</span><span class="p">,</span> <span class="mi">1</span><span class="p">],</span>
+    <span class="p">[</span><span class="mi">1</span><span class="p">,</span> <span class="mi">8</span><span class="p">,</span> <span class="mi">28</span><span class="p">,</span> <span class="mi">56</span><span class="p">,</span> <span class="mi">70</span><span class="p">,</span> <span class="mi">56</span><span class="p">,</span> <span class="mi">28</span><span class="p">,</span> <span class="mi">8</span><span class="p">,</span> <span class="mi">1</span><span class="p">],</span>
+    <span class="p">[</span><span class="mi">1</span><span class="p">,</span> <span class="mi">9</span><span class="p">,</span> <span class="mi">36</span><span class="p">,</span> <span class="mi">84</span><span class="p">,</span> <span class="mi">126</span><span class="p">,</span> <span class="mi">126</span><span class="p">,</span> <span class="mi">84</span><span class="p">,</span> <span class="mi">36</span><span class="p">,</span> <span class="mi">9</span><span class="p">,</span> <span class="mi">1</span><span class="p">]</span>
+<span class="p">]:</span>
+    <span class="nb">print</span><span class="p">(</span><span class="s1">&#39;测试通过!&#39;</span><span class="p">)</span>
+<span class="k">else</span><span class="p">:</span>
+    <span class="nb">print</span><span class="p">(</span><span class="s1">&#39;测试失败!&#39;</span><span class="p">)</span>
+</code></pre></div>
+<h3 id="_14">总结<a class="headerlink" href="#_14" title="Permanent link">&para;</a></h3>
+<p>普通形式-生成器：把列表生成式的<code>[]</code>换成<code>()</code> 
+函数形式-生成器：函数中带<code>yield</code>，下一次调用时会从<code>yield</code>处继续</p>
+<h2 id="iterator">迭代器 Iterator<a class="headerlink" href="#iterator" title="Permanent link">&para;</a></h2>
+<blockquote>
+<p>可以被<code>next()</code>函数调用并不断返回下一个值的对象称为迭代**器**：<code>Iterator</code>。</p>
+<p>可迭代**对象**：
+可以直接作用于 for 循环的对象统称为可迭代**对象**<code>Iterable</code>
+可迭代**对象**<code>Iterable</code>：
+1. List、Tuple、Dict、Set、String；
+2. 生成器Generator、带<code>yield</code>的Generator Function</p>
+<p>可以用<code>isinstance(obj, Iterable)</code>判断是否是可迭代**对象**</p>
+<p>迭代**器**：
+不但可以作用于 for 循环，还可以被<code>next()</code>函数调用并不断返回下一个值则称为迭代**器**：<code>Iterator</code>。
+生成器Generator、带<code>yield</code>的Generator Function就是迭代**器**
+可以用<code>isinstance(obj, Iterator)</code>判断是否是迭代**器**</p>
+</blockquote>
+<p>所以：Generator、Generator Function 既是 <code>Iterator</code>，也是 <code>Iterable</code>
+而 List、Tuple、Dict、Set、String 仅仅只是 <code>Iterable</code>，<strong>但是</strong>，使用<code>iter()</code>函数可以使他们变成迭代**器**<code>Iterator</code></p>
+<div class="highlight"><pre><span></span><code><span class="o">&gt;&gt;&gt;</span> <span class="nb">isinstance</span><span class="p">(</span><span class="nb">iter</span><span class="p">([]),</span> <span class="n">Iterator</span><span class="p">)</span>
+<span class="kc">True</span>
+<span class="o">&gt;&gt;&gt;</span> <span class="nb">isinstance</span><span class="p">(</span><span class="nb">iter</span><span class="p">(</span><span class="s1">&#39;Boii&#39;</span><span class="p">),</span> <span class="n">Iterator</span><span class="p">)</span>
+<span class="kc">True</span>
+</code></pre></div>
+<h3 id="_15">迭代器的本质<a class="headerlink" href="#_15" title="Permanent link">&para;</a></h3>
+<p>Python的<code>Iterator对象</code>表示的是一个数据流，<code>Iterator对象</code>可以被<code>next()函数</code>调用并不断返回下一个数据，直到没有数据时抛出<code>StopIteration</code>错误。
+可以把这个数据流看做是一个有序序列，但我们却不能提前知道序列的长度
+只能不断通过<code>next()函数</code>实现按需计算下一个数据，所以<code>Iterator</code>的计算是**惰性**的，只有在需要返回下一个数据时它才会计算</p>
+<h3 id="_16">自定义可迭代类<a class="headerlink" href="#_16" title="Permanent link">&para;</a></h3>
+<p>只要类中实现了<code>__iter__()</code>方法，这个类的对象就是可迭代**对象**<code>Iterable</code>。
+只要类中实现了<code>__iter__()</code>和<code>__next__()</code>方法，这个类就是个迭代**器**<code>Iteratorn</code>。</p>
+<p><code>__iter__()</code>方法必须返回一个迭代**器**。
+那么代码就是这样子：</p>
+<p><div class="highlight"><pre><span></span><code><span class="c1"># 1. 创建一个类</span>
+<span class="k">class</span> <span class="nc">Classmate</span><span class="p">:</span>
+    <span class="k">def</span> <span class="fm">__init__</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">names</span> <span class="o">=</span> <span class="nb">list</span><span class="p">()</span>
+
+    <span class="k">def</span> <span class="nf">add</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">value</span><span class="p">):</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">names</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="n">value</span><span class="p">)</span>
+
+    <span class="c1"># 2. 实现__iter__方法，返回一个迭代器</span>
+    <span class="k">def</span> <span class="fm">__iter__</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
+        <span class="sd">&quot;&quot;&quot;只有实现了__iter__方法，才能可迭代&quot;&quot;&quot;</span>
+        <span class="k">return</span> <span class="n">ClassmateIterator</span><span class="p">(</span><span class="bp">self</span><span class="p">)</span>  <span class="c1"># __iter__ 必须返回一个迭代器对象</span>
+
+
+<span class="c1"># 3. 创建一个迭代器</span>
+<span class="k">class</span> <span class="nc">ClassmateIterator</span><span class="p">:</span>
+    <span class="sd">&quot;&quot;&quot;实现了__iter__和__next__方法，才是一个迭代器&quot;&quot;&quot;</span>
+    <span class="k">def</span> <span class="fm">__init__</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">obj</span><span class="p">):</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">obj</span> <span class="o">=</span> <span class="n">obj</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">current_num</span> <span class="o">=</span> <span class="mi">0</span>
+
+    <span class="c1"># 4. 迭代器需要实现 __iter__, __next__方法</span>
+    <span class="k">def</span> <span class="fm">__iter__</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
+        <span class="k">pass</span>
+
+    <span class="k">def</span> <span class="fm">__next__</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
+        <span class="sd">&quot;&quot;&quot;实现了__iter__和__next__方法，才是一个迭代器&quot;&quot;&quot;</span>
+        <span class="k">if</span> <span class="bp">self</span><span class="o">.</span><span class="n">current_num</span> <span class="o">&lt;</span> <span class="nb">len</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">obj</span><span class="o">.</span><span class="n">names</span><span class="p">):</span>
+            <span class="n">res</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">obj</span><span class="o">.</span><span class="n">names</span><span class="p">[</span><span class="bp">self</span><span class="o">.</span><span class="n">current_num</span><span class="p">]</span>
+            <span class="bp">self</span><span class="o">.</span><span class="n">current_num</span> <span class="o">+=</span> <span class="mi">1</span>
+            <span class="k">return</span> <span class="n">res</span>
+        <span class="k">else</span><span class="p">:</span>
+            <span class="k">raise</span> <span class="ne">StopIteration</span>
+
+
+<span class="k">if</span> <span class="vm">__name__</span> <span class="o">==</span> <span class="s1">&#39;__main__&#39;</span><span class="p">:</span>
+    <span class="n">clsm</span> <span class="o">=</span> <span class="n">Classmate</span><span class="p">()</span>
+    <span class="n">clsm</span><span class="o">.</span><span class="n">add</span><span class="p">(</span><span class="mi">123</span><span class="p">)</span>
+    <span class="n">clsm</span><span class="o">.</span><span class="n">add</span><span class="p">(</span><span class="mi">456</span><span class="p">)</span>
+    <span class="n">clsm</span><span class="o">.</span><span class="n">add</span><span class="p">(</span><span class="mi">789</span><span class="p">)</span>
+
+    <span class="c1"># 通过循环检查classmate对象是否可迭代</span>
+    <span class="k">for</span> <span class="n">i</span> <span class="ow">in</span> <span class="n">clsm</span><span class="p">:</span>
+        <span class="nb">print</span><span class="p">(</span><span class="n">i</span><span class="p">)</span>
+
+<span class="o">--------------------------------------------------</span>
+
+<span class="c1"># Output:</span>
+<span class="mi">123</span>
+<span class="mi">456</span>
+<span class="mi">789</span>
+</code></pre></div>
+总结起来就是：
+创建一个类并实现<code>__iter__()</code>方法去返回一个迭代器
+创建一个类并实现<code>__iter__()</code>和<code>__next__()</code>方法，使其成为迭代器。</p>
+<p>这样看起来好像为了实现一个迭代器又生成了一个迭代器
+既然我是想造一个迭代器，<code>__iter__()</code>方法有需要返回一个迭代器对象，那我返回自己不行吗？</p>
+<p>可以！
+<div class="highlight"><pre><span></span><code><span class="c1"># 1. 创建一个类</span>
+<span class="k">class</span> <span class="nc">Classmate</span><span class="p">:</span>
+    <span class="k">def</span> <span class="fm">__init__</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">names</span> <span class="o">=</span> <span class="nb">list</span><span class="p">()</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">current_num</span> <span class="o">=</span> <span class="mi">0</span>
+
+    <span class="k">def</span> <span class="nf">add</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">value</span><span class="p">):</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">names</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="n">value</span><span class="p">)</span>
+
+    <span class="c1"># 2. 实现__iter__方法，返回一个迭代器</span>
+    <span class="k">def</span> <span class="fm">__iter__</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
+        <span class="sd">&quot;&quot;&quot;只有实现了__iter__方法，才能可迭代&quot;&quot;&quot;</span>
+        <span class="k">return</span> <span class="bp">self</span>  <span class="c1"># __iter__ 必须返回一个迭代器对象，这里就返回自己就行</span>
+
+    <span class="c1"># 3. 实现__next__方法，这个方法会在外部使用next(Iterator)时调用。</span>
+    <span class="k">def</span> <span class="fm">__next__</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
+        <span class="sd">&quot;&quot;&quot;实现了__iter__和__next__方法，才是一个迭代器&quot;&quot;&quot;</span>
+        <span class="k">if</span> <span class="bp">self</span><span class="o">.</span><span class="n">current_num</span> <span class="o">&lt;</span> <span class="nb">len</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">names</span><span class="p">):</span>
+            <span class="n">res</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">names</span><span class="p">[</span><span class="bp">self</span><span class="o">.</span><span class="n">current_num</span><span class="p">]</span>
+            <span class="bp">self</span><span class="o">.</span><span class="n">current_num</span> <span class="o">+=</span> <span class="mi">1</span>
+            <span class="k">return</span> <span class="n">res</span>
+        <span class="k">else</span><span class="p">:</span>
+            <span class="k">raise</span> <span class="ne">StopIteration</span>
+
+
+<span class="k">if</span> <span class="vm">__name__</span> <span class="o">==</span> <span class="s1">&#39;__main__&#39;</span><span class="p">:</span>
+    <span class="n">clsm</span> <span class="o">=</span> <span class="n">Classmate</span><span class="p">()</span>
+    <span class="n">clsm</span><span class="o">.</span><span class="n">add</span><span class="p">(</span><span class="mi">123</span><span class="p">)</span>
+    <span class="n">clsm</span><span class="o">.</span><span class="n">add</span><span class="p">(</span><span class="mi">456</span><span class="p">)</span>
+    <span class="n">clsm</span><span class="o">.</span><span class="n">add</span><span class="p">(</span><span class="mi">789</span><span class="p">)</span>
+
+    <span class="c1"># 通过循环检查classmate对象是否可迭代</span>
+    <span class="k">for</span> <span class="n">i</span> <span class="ow">in</span> <span class="n">clsm</span><span class="p">:</span>
+        <span class="nb">print</span><span class="p">(</span><span class="n">i</span><span class="p">)</span>
+
+<span class="o">--------------------------------------------------</span>
+
+<span class="c1"># Output:</span>
+<span class="mi">123</span>
+<span class="mi">456</span>
+<span class="mi">789</span>
+</code></pre></div></p>
+<h3 id="_17">总结<a class="headerlink" href="#_17" title="Permanent link">&para;</a></h3>
+<ol>
+<li>可迭代对象和迭代器，通过函数<code>iter()</code>转换</li>
+<li>迭代器：数据流，变长，惰性的 </li>
+<li>继承关系：Iterable&gt;Iterator&gt;Generator(参考python doc)</li>
+<li>Iterable：list、tuple、dict、set、str、Iterator、Generator等</li>
+<li>Iterator转化成Iterator：Iterator=iter(Iterable)</li>
+<li>自定义迭代类时必须实现<code>__iter__()</code>和<code>__next__()</code>方法</li>
+<li><code>__iter__()</code>方法必须返回一个迭代器</li>
+</ol>
+                
+                  
+                
+              
+              
+                
+
+
+              
+            </article>
+          </div>
+        </div>
+        
+      </main>
+      
+        
+<footer class="md-footer">
+  
+    <nav class="md-footer__inner md-grid" aria-label="Footer">
+      
+        
+        <a href="../../Basic/Python-No-20-IO/" class="md-footer__link md-footer__link--prev" aria-label="Previous: IO" rel="prev">
+          <div class="md-footer__button md-icon">
+            <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M20 11v2H8l5.5 5.5-1.42 1.42L4.16 12l7.92-7.92L13.5 5.5 8 11h12z"/></svg>
+          </div>
+          <div class="md-footer__title">
+            <div class="md-ellipsis">
+              <span class="md-footer__direction">
+                Previous
+              </span>
+              IO
+            </div>
+          </div>
+        </a>
+      
+      
+        
+        <a href="../Python-No-Feature-Utility-Class/" class="md-footer__link md-footer__link--next" aria-label="Next: 工具类" rel="next">
+          <div class="md-footer__title">
+            <div class="md-ellipsis">
+              <span class="md-footer__direction">
+                Next
+              </span>
+              工具类
+            </div>
+          </div>
+          <div class="md-footer__button md-icon">
+            <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M4 11v2h12l-5.5 5.5 1.42 1.42L19.84 12l-7.92-7.92L10.5 5.5 16 11H4z"/></svg>
+          </div>
+        </a>
+      
+    </nav>
+  
+  <div class="md-footer-meta md-typeset">
+    <div class="md-footer-meta__inner md-grid">
+      <div class="md-footer-copyright">
+        
+          <div class="md-footer-copyright__highlight">
+            Copyright © 2021 [Mr.Boii](https://www.boii.xyz)
+          </div>
+        
+        
+          Made with
+          <a href="https://squidfunk.github.io/mkdocs-material/" target="_blank" rel="noopener">
+            Material for MkDocs
+          </a>
+        
+        
+      </div>
+      
+    </div>
+  </div>
+</footer>
+      
+    </div>
+    <div class="md-dialog" data-md-component="dialog">
+      <div class="md-dialog__inner md-typeset"></div>
+    </div>
+    <script id="__config" type="application/json">{"base": "../../..", "features": ["navigation.tabs", "navigation.indexes"], "translations": {"clipboard.copy": "Copy to clipboard", "clipboard.copied": "Copied to clipboard", "search.config.lang": "en", "search.config.pipeline": "trimmer, stopWordFilter", "search.config.separator": "[\\s\\-]+", "search.placeholder": "Search", "search.result.placeholder": "Type to start searching", "search.result.none": "No matching documents", "search.result.one": "1 matching document", "search.result.other": "# matching documents", "search.result.more.one": "1 more on this page", "search.result.more.other": "# more on this page", "search.result.term.missing": "Missing", "select.version.title": "Select version"}, "search": "../../../assets/javascripts/workers/search.fcfe8b6d.min.js", "version": null}</script>
+    
+    
+      <script src="../../../assets/javascripts/bundle.b1047164.min.js"></script>
+      
+    
+  </body>
+</html>

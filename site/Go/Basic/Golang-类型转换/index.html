@@ -1,0 +1,2505 @@
+
+<!doctype html>
+<html lang="en" class="no-js">
+  <head>
+    
+      <meta charset="utf-8">
+      <meta name="viewport" content="width=device-width,initial-scale=1">
+      
+      
+      
+        <meta name="author" content="Boii">
+      
+      
+        <link rel="canonical" href="https://www.boii.xyz/wiki/Go/Basic/Golang-%E7%B1%BB%E5%9E%8B%E8%BD%AC%E6%8D%A2/">
+      
+      <link rel="icon" href="../../../_assets/logo/favicon.png">
+      <meta name="generator" content="mkdocs-1.2.3, mkdocs-material-7.3.6">
+    
+    
+      
+        <title>Golang [nil] 类型转换 - Boii's Wiki</title>
+      
+    
+    
+      <link rel="stylesheet" href="../../../assets/stylesheets/main.a57b2b03.min.css">
+      
+        
+        <link rel="stylesheet" href="../../../assets/stylesheets/palette.3f5d1f46.min.css">
+        
+      
+    
+    
+    
+      
+        
+        <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+        <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Roboto:300,400,400i,700%7CRoboto+Mono&display=fallback">
+        <style>:root{--md-text-font-family:"Roboto";--md-code-font-family:"Roboto Mono"}</style>
+      
+    
+    
+    
+    
+      
+
+
+    
+    
+  </head>
+  
+  
+    
+    
+      
+    
+    
+    
+    
+    <body dir="ltr" data-md-color-scheme="default" data-md-color-primary="" data-md-color-accent="">
+  
+    
+    <script>function __prefix(e){return new URL("../../..",location).pathname+"."+e}function __get(e,t=localStorage){return JSON.parse(t.getItem(__prefix(e)))}</script>
+    
+      <script>var palette=__get("__palette");if(null!==palette&&"object"==typeof palette.color)for(var key in palette.color)document.body.setAttribute("data-md-color-"+key,palette.color[key])</script>
+    
+    <input class="md-toggle" data-md-toggle="drawer" type="checkbox" id="__drawer" autocomplete="off">
+    <input class="md-toggle" data-md-toggle="search" type="checkbox" id="__search" autocomplete="off">
+    <label class="md-overlay" for="__drawer"></label>
+    <div data-md-component="skip">
+      
+        
+        <a href="#_1" class="md-skip">
+          Skip to content
+        </a>
+      
+    </div>
+    <div data-md-component="announce">
+      
+    </div>
+    
+      
+
+<header class="md-header" data-md-component="header">
+  <nav class="md-header__inner md-grid" aria-label="Header">
+    <a href="../../.." title="Boii&#39;s Wiki" class="md-header__button md-logo" aria-label="Boii's Wiki" data-md-component="logo">
+      
+  <img src="../../../_assets/logo/favicon.png" alt="logo">
+
+    </a>
+    <label class="md-header__button md-icon" for="__drawer">
+      <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M3 6h18v2H3V6m0 5h18v2H3v-2m0 5h18v2H3v-2z"/></svg>
+    </label>
+    <div class="md-header__title" data-md-component="header-title">
+      <div class="md-header__ellipsis">
+        <div class="md-header__topic">
+          <span class="md-ellipsis">
+            Boii's Wiki
+          </span>
+        </div>
+        <div class="md-header__topic" data-md-component="header-topic">
+          <span class="md-ellipsis">
+            
+              Golang [nil] 类型转换
+            
+          </span>
+        </div>
+      </div>
+    </div>
+    
+      <form class="md-header__option" data-md-component="palette">
+        
+          
+          
+          <input class="md-option" data-md-color-media="" data-md-color-scheme="default" data-md-color-primary="" data-md-color-accent=""  aria-label="Switch to dark mode"  type="radio" name="__palette" id="__palette_1">
+          
+            <label class="md-header__button md-icon" title="Switch to dark mode" for="__palette_2" hidden>
+              <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 2a7 7 0 0 1 7 7c0 2.38-1.19 4.47-3 5.74V17a1 1 0 0 1-1 1H9a1 1 0 0 1-1-1v-2.26C6.19 13.47 5 11.38 5 9a7 7 0 0 1 7-7M9 21v-1h6v1a1 1 0 0 1-1 1h-4a1 1 0 0 1-1-1m3-17a5 5 0 0 0-5 5c0 2.05 1.23 3.81 3 4.58V16h4v-2.42c1.77-.77 3-2.53 3-4.58a5 5 0 0 0-5-5z"/></svg>
+            </label>
+          
+        
+          
+          
+          <input class="md-option" data-md-color-media="" data-md-color-scheme="slate" data-md-color-primary="" data-md-color-accent=""  aria-label="Switch to light mode"  type="radio" name="__palette" id="__palette_2">
+          
+            <label class="md-header__button md-icon" title="Switch to light mode" for="__palette_1" hidden>
+              <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 2a7 7 0 0 0-7 7c0 2.38 1.19 4.47 3 5.74V17a1 1 0 0 0 1 1h6a1 1 0 0 0 1-1v-2.26c1.81-1.27 3-3.36 3-5.74a7 7 0 0 0-7-7M9 21a1 1 0 0 0 1 1h4a1 1 0 0 0 1-1v-1H9v1z"/></svg>
+            </label>
+          
+        
+      </form>
+    
+    
+    
+      <label class="md-header__button md-icon" for="__search">
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M9.5 3A6.5 6.5 0 0 1 16 9.5c0 1.61-.59 3.09-1.56 4.23l.27.27h.79l5 5-1.5 1.5-5-5v-.79l-.27-.27A6.516 6.516 0 0 1 9.5 16 6.5 6.5 0 0 1 3 9.5 6.5 6.5 0 0 1 9.5 3m0 2C7 5 5 7 5 9.5S7 14 9.5 14 14 12 14 9.5 12 5 9.5 5z"/></svg>
+      </label>
+      
+<div class="md-search" data-md-component="search" role="dialog">
+  <label class="md-search__overlay" for="__search"></label>
+  <div class="md-search__inner" role="search">
+    <form class="md-search__form" name="search">
+      <input type="text" class="md-search__input" name="query" aria-label="Search" placeholder="Search" autocapitalize="off" autocorrect="off" autocomplete="off" spellcheck="false" data-md-component="search-query" required>
+      <label class="md-search__icon md-icon" for="__search">
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M9.5 3A6.5 6.5 0 0 1 16 9.5c0 1.61-.59 3.09-1.56 4.23l.27.27h.79l5 5-1.5 1.5-5-5v-.79l-.27-.27A6.516 6.516 0 0 1 9.5 16 6.5 6.5 0 0 1 3 9.5 6.5 6.5 0 0 1 9.5 3m0 2C7 5 5 7 5 9.5S7 14 9.5 14 14 12 14 9.5 12 5 9.5 5z"/></svg>
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M20 11v2H8l5.5 5.5-1.42 1.42L4.16 12l7.92-7.92L13.5 5.5 8 11h12z"/></svg>
+      </label>
+      <nav class="md-search__options" aria-label="Search">
+        
+        <button type="reset" class="md-search__icon md-icon" aria-label="Clear" tabindex="-1">
+          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M19 6.41 17.59 5 12 10.59 6.41 5 5 6.41 10.59 12 5 17.59 6.41 19 12 13.41 17.59 19 19 17.59 13.41 12 19 6.41z"/></svg>
+        </button>
+      </nav>
+      
+    </form>
+    <div class="md-search__output">
+      <div class="md-search__scrollwrap" data-md-scrollfix>
+        <div class="md-search-result" data-md-component="search-result">
+          <div class="md-search-result__meta">
+            Initializing search
+          </div>
+          <ol class="md-search-result__list"></ol>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+    
+    
+  </nav>
+  
+</header>
+    
+    <div class="md-container" data-md-component="container">
+      
+      
+        
+          
+            
+<nav class="md-tabs" aria-label="Tabs" data-md-component="tabs">
+  <div class="md-tabs__inner md-grid">
+    <ul class="md-tabs__list">
+      
+        
+  
+  
+
+
+  <li class="md-tabs__item">
+    <a href="../../.." class="md-tabs__link">
+      Home
+    </a>
+  </li>
+
+      
+        
+  
+  
+    
+  
+
+
+  
+  
+  
+    
+
+  
+  
+  
+    <li class="md-tabs__item">
+      <a href="../Golang-0-%E6%80%BB%E5%8F%99/" class="md-tabs__link md-tabs__link--active">
+        Golang
+      </a>
+    </li>
+  
+
+  
+
+      
+        
+  
+  
+
+
+  
+  
+  
+    
+
+  
+  
+  
+    <li class="md-tabs__item">
+      <a href="../../../Python/Basic/Python-No-1-Abstract/" class="md-tabs__link">
+        Python
+      </a>
+    </li>
+  
+
+  
+
+      
+    </ul>
+  </div>
+</nav>
+          
+        
+      
+      <main class="md-main" data-md-component="main">
+        <div class="md-main__inner md-grid">
+          
+            
+              
+              <div class="md-sidebar md-sidebar--primary" data-md-component="sidebar" data-md-type="navigation" >
+                <div class="md-sidebar__scrollwrap">
+                  <div class="md-sidebar__inner">
+                    
+
+  
+
+
+<nav class="md-nav md-nav--primary md-nav--lifted" aria-label="Navigation" data-md-level="0">
+  <label class="md-nav__title" for="__drawer">
+    <a href="../../.." title="Boii&#39;s Wiki" class="md-nav__button md-logo" aria-label="Boii's Wiki" data-md-component="logo">
+      
+  <img src="../../../_assets/logo/favicon.png" alt="logo">
+
+    </a>
+    Boii's Wiki
+  </label>
+  
+  <ul class="md-nav__list" data-md-scrollfix>
+    
+      
+      
+      
+
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../.." class="md-nav__link">
+        Home
+      </a>
+    </li>
+  
+
+    
+      
+      
+      
+
+  
+  
+    
+  
+  
+    
+    <li class="md-nav__item md-nav__item--active md-nav__item--nested">
+      
+      
+        <input class="md-nav__toggle md-toggle" data-md-toggle="__nav_2" type="checkbox" id="__nav_2" checked>
+      
+      
+      
+        
+          
+        
+          
+        
+          
+        
+          
+        
+      
+      
+        <label class="md-nav__link" for="__nav_2">
+          Golang
+          <span class="md-nav__icon md-icon"></span>
+        </label>
+      
+      <nav class="md-nav" aria-label="Golang" data-md-level="1">
+        <label class="md-nav__title" for="__nav_2">
+          <span class="md-nav__icon md-icon"></span>
+          Golang
+        </label>
+        <ul class="md-nav__list" data-md-scrollfix>
+          
+            
+              
+  
+  
+    
+  
+  
+    
+    <li class="md-nav__item md-nav__item--active md-nav__item--nested">
+      
+      
+        <input class="md-nav__toggle md-toggle" data-md-toggle="__nav_2_1" type="checkbox" id="__nav_2_1" checked>
+      
+      
+      
+        
+          
+        
+          
+        
+          
+        
+          
+        
+          
+        
+          
+        
+          
+        
+          
+        
+          
+        
+          
+        
+          
+        
+          
+        
+          
+        
+          
+        
+          
+        
+          
+        
+          
+        
+          
+        
+      
+      
+        <label class="md-nav__link" for="__nav_2_1">
+          Basic
+          <span class="md-nav__icon md-icon"></span>
+        </label>
+      
+      <nav class="md-nav" aria-label="Basic" data-md-level="2">
+        <label class="md-nav__title" for="__nav_2_1">
+          <span class="md-nav__icon md-icon"></span>
+          Basic
+        </label>
+        <ul class="md-nav__list" data-md-scrollfix>
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../Golang-0-%E6%80%BB%E5%8F%99/" class="md-nav__link">
+        0.总叙
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../Golang-1-%E5%9F%BA%E7%A1%80/" class="md-nav__link">
+        1.基础
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../Golang-2-%E6%95%B0%E6%8D%AE%E7%B1%BB%E5%9E%8B/" class="md-nav__link">
+        2.数据类型
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../Golang-3-%E8%BF%90%E7%AE%97%E7%AC%A6/" class="md-nav__link">
+        3.运算符
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../Golang-4-%E6%B5%81%E7%A8%8B%E6%8E%A7%E5%88%B6/" class="md-nav__link">
+        4.流程控制
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../Golang-5-%E6%95%B0%E7%BB%84/" class="md-nav__link">
+        5.数组
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../Golang-6-slice/" class="md-nav__link">
+        6.slice
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../Golang-7-map/" class="md-nav__link">
+        7.map
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../Golang-8-%E5%87%BD%E6%95%B0/" class="md-nav__link">
+        8.函数
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../Golang-9-%E6%8C%87%E9%92%88/" class="md-nav__link">
+        9.指针
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../Golang-10-%E7%BB%93%E6%9E%84%E4%BD%93/" class="md-nav__link">
+        10.结构体
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../Golang-11-%E5%8C%85/" class="md-nav__link">
+        11.包
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../Golang-12-%E6%8E%A5%E5%8F%A3/" class="md-nav__link">
+        12.接口
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../Golang-13-%E9%9D%A2%E5%90%91%E5%AF%B9%E8%B1%A1/" class="md-nav__link">
+        13.面向对象
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../Golang-14-%E9%94%99%E8%AF%AF%E4%B8%8E%E5%BC%82%E5%B8%B8/" class="md-nav__link">
+        14.错误与异常
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../Golang-15-%E5%8D%95%E5%85%83%E6%B5%8B%E8%AF%95/" class="md-nav__link">
+        15.单元测试
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+    
+  
+  
+    <li class="md-nav__item md-nav__item--active">
+      
+      <input class="md-nav__toggle md-toggle" data-md-toggle="toc" type="checkbox" id="__toc">
+      
+      
+        
+      
+      
+        <label class="md-nav__link md-nav__link--active" for="__toc">
+          类型转换
+          <span class="md-nav__icon md-icon"></span>
+        </label>
+      
+      <a href="./" class="md-nav__link md-nav__link--active">
+        类型转换
+      </a>
+      
+        
+
+
+<nav class="md-nav md-nav--secondary" aria-label="Table of contents">
+  
+  
+  
+    
+  
+  
+    <label class="md-nav__title" for="__toc">
+      <span class="md-nav__icon md-icon"></span>
+      Table of contents
+    </label>
+    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#_2" class="md-nav__link">
+    简单的转换
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#strconv" class="md-nav__link">
+    strconv 包
+  </a>
+  
+    <nav class="md-nav" aria-label="strconv 包">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#string-int-atoi" class="md-nav__link">
+    string -&gt; int : Atoi()
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#int-string-itoa" class="md-nav__link">
+    int -&gt; string : Itoa()
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#string-t-parset" class="md-nav__link">
+    string -&gt; T : ParseT()
+  </a>
+  
+    <nav class="md-nav" aria-label="string -&gt; T : ParseT()">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#parseboolstr-string" class="md-nav__link">
+    ParseBool(str string)
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#parseints-string-base-int-bitsize-int" class="md-nav__link">
+    ParseInt(s string, base int, bitSize int)
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#parseuints-string-base-int-bitsize-int" class="md-nav__link">
+    ParseUint(s string, base int, bitSize int)
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#parsefloats-string-bitsize-int" class="md-nav__link">
+    ParseFloat(s string, bitSize int)
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#parsecomplexs-string-bitsize-int" class="md-nav__link">
+    ParseComplex(s string, bitSize int)
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#t-string-formatt" class="md-nav__link">
+    T -&gt; string : FormatT()
+  </a>
+  
+    <nav class="md-nav" aria-label="T -&gt; string : FormatT()">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#formatbool" class="md-nav__link">
+    FormatBool
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#formatint" class="md-nav__link">
+    FormatInt
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#formatuint" class="md-nav__link">
+    FormatUint
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#formatfloat" class="md-nav__link">
+    FormatFloat
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#formatcomplex" class="md-nav__link">
+    FormatComplex
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#t-string-append-to-slice-appendt" class="md-nav__link">
+    T -&gt; string &amp; append to slice : AppendT()
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#_3" class="md-nav__link">
+    类型断言
+  </a>
+  
+    <nav class="md-nav" aria-label="类型断言">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#type-assertion" class="md-nav__link">
+    Type Assertion
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#type-switch" class="md-nav__link">
+    Type Switch
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+    </ul>
+  
+</nav>
+      
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../Golang-Go-Module/" class="md-nav__link">
+        Go Module
+      </a>
+    </li>
+  
+
+            
+          
+        </ul>
+      </nav>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+      
+        <input class="md-nav__toggle md-toggle" data-md-toggle="__nav_2_2" type="checkbox" id="__nav_2_2" >
+      
+      
+      
+        
+          
+        
+          
+        
+          
+        
+          
+        
+      
+      
+        <label class="md-nav__link" for="__nav_2_2">
+          Adavanced
+          <span class="md-nav__icon md-icon"></span>
+        </label>
+      
+      <nav class="md-nav" aria-label="Adavanced" data-md-level="2">
+        <label class="md-nav__title" for="__nav_2_2">
+          <span class="md-nav__icon md-icon"></span>
+          Adavanced
+        </label>
+        <ul class="md-nav__list" data-md-scrollfix>
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../Adavanced/Golang-16-%E5%B9%B6%E5%8F%91/" class="md-nav__link">
+        16.并发
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../Adavanced/Golang-17-Channel/" class="md-nav__link">
+        17.Channel
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../Adavanced/Golang-18-%E5%B9%B6%E5%8F%91%E5%AE%89%E5%85%A8/" class="md-nav__link">
+        18.并发安全
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../Adavanced/Golang-19-reflect/" class="md-nav__link">
+        19.反射
+      </a>
+    </li>
+  
+
+            
+          
+        </ul>
+      </nav>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+      
+        <input class="md-nav__toggle md-toggle" data-md-toggle="__nav_2_3" type="checkbox" id="__nav_2_3" >
+      
+      
+      
+        
+          
+        
+      
+      
+        <label class="md-nav__link" for="__nav_2_3">
+          Framework
+          <span class="md-nav__icon md-icon"></span>
+        </label>
+      
+      <nav class="md-nav" aria-label="Framework" data-md-level="2">
+        <label class="md-nav__title" for="__nav_2_3">
+          <span class="md-nav__icon md-icon"></span>
+          Framework
+        </label>
+        <ul class="md-nav__list" data-md-scrollfix>
+          
+            
+              
+  
+  
+  
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+      
+        <input class="md-nav__toggle md-toggle" data-md-toggle="__nav_2_3_1" type="checkbox" id="__nav_2_3_1" >
+      
+      
+      
+        
+          
+        
+          
+        
+          
+        
+          
+        
+          
+        
+          
+        
+      
+      
+        <label class="md-nav__link" for="__nav_2_3_1">
+          Gin
+          <span class="md-nav__icon md-icon"></span>
+        </label>
+      
+      <nav class="md-nav" aria-label="Gin" data-md-level="3">
+        <label class="md-nav__title" for="__nav_2_3_1">
+          <span class="md-nav__icon md-icon"></span>
+          Gin
+        </label>
+        <ul class="md-nav__list" data-md-scrollfix>
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../Framework/gin/Gin-0-Get-Start/" class="md-nav__link">
+        Get start
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../Framework/gin/Gin-1-%E8%BF%94%E5%9B%9E%E6%95%B0%E6%8D%AE/" class="md-nav__link">
+        返回数据
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../Framework/gin/Gin-2-%E6%8E%A5%E6%94%B6%E8%AF%B7%E6%B1%82/" class="md-nav__link">
+        接收请求
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../Framework/gin/Gin-3-%E8%B7%AF%E7%94%B1%E7%BB%84/" class="md-nav__link">
+        路由组
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../Framework/gin/Gin-4-%E4%B8%8A%E4%BC%A0%E4%B8%8B%E8%BD%BD%E9%87%8D%E5%AE%9A%E5%90%91/" class="md-nav__link">
+        上传下载重定向
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../Framework/gin/Gin-5-%E4%B8%AD%E9%97%B4%E4%BB%B6/" class="md-nav__link">
+        中间件
+      </a>
+    </li>
+  
+
+            
+          
+        </ul>
+      </nav>
+    </li>
+  
+
+            
+          
+        </ul>
+      </nav>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+      
+        <input class="md-nav__toggle md-toggle" data-md-toggle="__nav_2_4" type="checkbox" id="__nav_2_4" >
+      
+      
+      
+        
+          
+        
+          
+        
+      
+      
+        <label class="md-nav__link" for="__nav_2_4">
+          nil
+          <span class="md-nav__icon md-icon"></span>
+        </label>
+      
+      <nav class="md-nav" aria-label="nil" data-md-level="2">
+        <label class="md-nav__title" for="__nav_2_4">
+          <span class="md-nav__icon md-icon"></span>
+          nil
+        </label>
+        <ul class="md-nav__list" data-md-scrollfix>
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../nil/Golang-nil-%E4%BA%A4%E5%8F%89%E7%BC%96%E8%AF%91/" class="md-nav__link">
+        交叉编译
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../nil/Golang-nil-%E9%80%89%E9%A1%B9%E8%AE%BE%E8%AE%A1%E6%A8%A1%E5%BC%8F/" class="md-nav__link">
+        选项设计模式
+      </a>
+    </li>
+  
+
+            
+          
+        </ul>
+      </nav>
+    </li>
+  
+
+            
+          
+        </ul>
+      </nav>
+    </li>
+  
+
+    
+      
+      
+      
+
+  
+  
+  
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+      
+        <input class="md-nav__toggle md-toggle" data-md-toggle="__nav_3" type="checkbox" id="__nav_3" >
+      
+      
+      
+        
+          
+        
+          
+        
+          
+        
+      
+      
+        <label class="md-nav__link" for="__nav_3">
+          Python
+          <span class="md-nav__icon md-icon"></span>
+        </label>
+      
+      <nav class="md-nav" aria-label="Python" data-md-level="1">
+        <label class="md-nav__title" for="__nav_3">
+          <span class="md-nav__icon md-icon"></span>
+          Python
+        </label>
+        <ul class="md-nav__list" data-md-scrollfix>
+          
+            
+              
+  
+  
+  
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+      
+        <input class="md-nav__toggle md-toggle" data-md-toggle="__nav_3_1" type="checkbox" id="__nav_3_1" >
+      
+      
+      
+        
+          
+        
+          
+        
+          
+        
+          
+        
+          
+        
+          
+        
+          
+        
+          
+        
+          
+        
+          
+        
+          
+        
+          
+        
+      
+      
+        <label class="md-nav__link" for="__nav_3_1">
+          Basic
+          <span class="md-nav__icon md-icon"></span>
+        </label>
+      
+      <nav class="md-nav" aria-label="Basic" data-md-level="2">
+        <label class="md-nav__title" for="__nav_3_1">
+          <span class="md-nav__icon md-icon"></span>
+          Basic
+        </label>
+        <ul class="md-nav__list" data-md-scrollfix>
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../Python/Basic/Python-No-1-Abstract/" class="md-nav__link">
+        总叙
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../Python/Basic/Python-No-2-Basic/" class="md-nav__link">
+        基础
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../Python/Basic/Python-No-3-Judge%26Loop/" class="md-nav__link">
+        判断和循环
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../Python/Basic/Python-No-4-Data-Type/" class="md-nav__link">
+        数据类型
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../Python/Basic/Python-No-5-Operator/" class="md-nav__link">
+        运算符
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../Python/Basic/Python-No-6-Function/" class="md-nav__link">
+        函数
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../Python/Basic/Python-No-7-Error-Handle/" class="md-nav__link">
+        错误处理
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../Python/Basic/Python-No-8-Debug/" class="md-nav__link">
+        调试
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../Python/Basic/Python-No-9-Test/" class="md-nav__link">
+        测试
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../Python/Basic/Python-No-10-Module/" class="md-nav__link">
+        模块
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../Python/Basic/Python-No-19-File/" class="md-nav__link">
+        File
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../Python/Basic/Python-No-20-IO/" class="md-nav__link">
+        IO
+      </a>
+    </li>
+  
+
+            
+          
+        </ul>
+      </nav>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+      
+        <input class="md-nav__toggle md-toggle" data-md-toggle="__nav_3_2" type="checkbox" id="__nav_3_2" >
+      
+      
+      
+        
+          
+        
+          
+        
+          
+        
+          
+        
+          
+        
+      
+      
+        <label class="md-nav__link" for="__nav_3_2">
+          Adavanced
+          <span class="md-nav__icon md-icon"></span>
+        </label>
+      
+      <nav class="md-nav" aria-label="Adavanced" data-md-level="2">
+        <label class="md-nav__title" for="__nav_3_2">
+          <span class="md-nav__icon md-icon"></span>
+          Adavanced
+        </label>
+        <ul class="md-nav__list" data-md-scrollfix>
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../Python/Adavanced/Python-No-Feature-High-Level-Feature/" class="md-nav__link">
+        高级特性
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../Python/Adavanced/Python-No-Feature-Utility-Class/" class="md-nav__link">
+        工具类
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../Python/Adavanced/Python-No-Feature-Functional/" class="md-nav__link">
+        函数式编程
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+      
+        <input class="md-nav__toggle md-toggle" data-md-toggle="__nav_3_2_4" type="checkbox" id="__nav_3_2_4" >
+      
+      
+      
+        
+          
+        
+          
+        
+          
+        
+          
+        
+      
+      
+        <label class="md-nav__link" for="__nav_3_2_4">
+          面向对象
+          <span class="md-nav__icon md-icon"></span>
+        </label>
+      
+      <nav class="md-nav" aria-label="面向对象" data-md-level="3">
+        <label class="md-nav__title" for="__nav_3_2_4">
+          <span class="md-nav__icon md-icon"></span>
+          面向对象
+        </label>
+        <ul class="md-nav__list" data-md-scrollfix>
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../Python/Adavanced/OOP/Python-No-11-Class%26Object/" class="md-nav__link">
+        类和对象
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../Python/Adavanced/OOP/Python-No-Privatisation.md" class="md-nav__link">
+        私有化
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../Python/Adavanced/OOP/Python-No-Magic-Method.md" class="md-nav__link">
+        魔术方法
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../Python/Adavanced/OOP/Python-No-Enum.md" class="md-nav__link">
+        枚举类
+      </a>
+    </li>
+  
+
+            
+          
+        </ul>
+      </nav>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+      
+        <input class="md-nav__toggle md-toggle" data-md-toggle="__nav_3_2_5" type="checkbox" id="__nav_3_2_5" >
+      
+      
+      
+        
+          
+        
+          
+        
+          
+        
+          
+        
+      
+      
+        <label class="md-nav__link" for="__nav_3_2_5">
+          进程线程
+          <span class="md-nav__icon md-icon"></span>
+        </label>
+      
+      <nav class="md-nav" aria-label="进程线程" data-md-level="3">
+        <label class="md-nav__title" for="__nav_3_2_5">
+          <span class="md-nav__icon md-icon"></span>
+          进程线程
+        </label>
+        <ul class="md-nav__list" data-md-scrollfix>
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../Python/Adavanced/Thread/Python-No-15-Abstract/" class="md-nav__link">
+        总叙
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../Python/Adavanced/Thread/Python-No-16-Process/" class="md-nav__link">
+        进程
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../Python/Adavanced/Thread/Python-No-17-Thread/" class="md-nav__link">
+        线程
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../Python/Adavanced/Thread/Python-No-18-Coroutine/" class="md-nav__link">
+        协程
+      </a>
+    </li>
+  
+
+            
+          
+        </ul>
+      </nav>
+    </li>
+  
+
+            
+          
+        </ul>
+      </nav>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+      
+        <input class="md-nav__toggle md-toggle" data-md-toggle="__nav_3_3" type="checkbox" id="__nav_3_3" >
+      
+      
+      
+        
+          
+        
+          
+        
+          
+        
+      
+      
+        <label class="md-nav__link" for="__nav_3_3">
+          Crawler
+          <span class="md-nav__icon md-icon"></span>
+        </label>
+      
+      <nav class="md-nav" aria-label="Crawler" data-md-level="2">
+        <label class="md-nav__title" for="__nav_3_3">
+          <span class="md-nav__icon md-icon"></span>
+          Crawler
+        </label>
+        <ul class="md-nav__list" data-md-scrollfix>
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../Python/Crawler/Python-Crawler-0-Crawler-Abstract/" class="md-nav__link">
+        总叙
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../Python/Crawler/Python-Crawler-1-General-Crawler/" class="md-nav__link">
+        通用爬虫
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../Python/Crawler/Python-Crawler-2-Focued-Crawler/" class="md-nav__link">
+        聚焦爬虫
+      </a>
+    </li>
+  
+
+            
+          
+        </ul>
+      </nav>
+    </li>
+  
+
+            
+          
+        </ul>
+      </nav>
+    </li>
+  
+
+    
+  </ul>
+</nav>
+                  </div>
+                </div>
+              </div>
+            
+            
+              
+              <div class="md-sidebar md-sidebar--secondary" data-md-component="sidebar" data-md-type="toc" >
+                <div class="md-sidebar__scrollwrap">
+                  <div class="md-sidebar__inner">
+                    
+
+
+<nav class="md-nav md-nav--secondary" aria-label="Table of contents">
+  
+  
+  
+    
+  
+  
+    <label class="md-nav__title" for="__toc">
+      <span class="md-nav__icon md-icon"></span>
+      Table of contents
+    </label>
+    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#_2" class="md-nav__link">
+    简单的转换
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#strconv" class="md-nav__link">
+    strconv 包
+  </a>
+  
+    <nav class="md-nav" aria-label="strconv 包">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#string-int-atoi" class="md-nav__link">
+    string -&gt; int : Atoi()
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#int-string-itoa" class="md-nav__link">
+    int -&gt; string : Itoa()
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#string-t-parset" class="md-nav__link">
+    string -&gt; T : ParseT()
+  </a>
+  
+    <nav class="md-nav" aria-label="string -&gt; T : ParseT()">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#parseboolstr-string" class="md-nav__link">
+    ParseBool(str string)
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#parseints-string-base-int-bitsize-int" class="md-nav__link">
+    ParseInt(s string, base int, bitSize int)
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#parseuints-string-base-int-bitsize-int" class="md-nav__link">
+    ParseUint(s string, base int, bitSize int)
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#parsefloats-string-bitsize-int" class="md-nav__link">
+    ParseFloat(s string, bitSize int)
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#parsecomplexs-string-bitsize-int" class="md-nav__link">
+    ParseComplex(s string, bitSize int)
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#t-string-formatt" class="md-nav__link">
+    T -&gt; string : FormatT()
+  </a>
+  
+    <nav class="md-nav" aria-label="T -&gt; string : FormatT()">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#formatbool" class="md-nav__link">
+    FormatBool
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#formatint" class="md-nav__link">
+    FormatInt
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#formatuint" class="md-nav__link">
+    FormatUint
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#formatfloat" class="md-nav__link">
+    FormatFloat
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#formatcomplex" class="md-nav__link">
+    FormatComplex
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#t-string-append-to-slice-appendt" class="md-nav__link">
+    T -&gt; string &amp; append to slice : AppendT()
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#_3" class="md-nav__link">
+    类型断言
+  </a>
+  
+    <nav class="md-nav" aria-label="类型断言">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#type-assertion" class="md-nav__link">
+    Type Assertion
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#type-switch" class="md-nav__link">
+    Type Switch
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+    </ul>
+  
+</nav>
+                  </div>
+                </div>
+              </div>
+            
+          
+          <div class="md-content" data-md-component="content">
+            <article class="md-content__inner md-typeset">
+              
+                
+                
+                <p>类型转换的三种方式</p>
+<!--more-->
+
+<h1 id="_1">类型转换<a class="headerlink" href="#_1" title="Permanent link">&para;</a></h1>
+<p><strong>Go 不会对数据进行隐式转换，只能显式的手动转换</strong></p>
+<h2 id="_2">简单的转换<a class="headerlink" href="#_2" title="Permanent link">&para;</a></h2>
+<div class="highlight"><pre><span></span><code><span class="nx">T</span><span class="p">(</span><span class="nx">expression</span><span class="p">)</span>
+</code></pre></div>
+<p>eg：
+<div class="highlight"><pre><span></span><code><span class="nb">int</span><span class="p">(</span><span class="nx">time</span><span class="p">.</span><span class="nx">Now</span><span class="p">().</span><span class="nx">Weekday</span><span class="p">())</span>    <span class="c1">// 星期转int</span>
+<span class="nb">int</span><span class="p">(</span><span class="nx">time</span><span class="p">.</span><span class="nx">now</span><span class="p">().</span><span class="nx">Month</span><span class="p">())</span>      <span class="c1">// 月份转int</span>
+
+<span class="kd">var</span> <span class="nx">a</span> <span class="kt">float32</span>
+<span class="nx">a</span> <span class="p">=</span> <span class="mf">3.14</span>
+<span class="nx">b</span> <span class="o">:=</span> <span class="nb">int</span><span class="p">(</span><span class="nx">a</span><span class="p">)</span>     <span class="c1">// float32 转 int</span>
+</code></pre></div>
+注意：这种方式不是所有数据类型都能转换的。
+1. 例如 string 类型的 <code>"Boii"</code> 转 int 就会失败
+2. 低精度转高精度时是安全的，高精度转低精度则会丢失精度，例如 float64转float32
+3. 不能对 int、float 同 string 互转，跨大类型转换，可以使用 <code>strconv 包</code> 提供的函数</p>
+<h2 id="strconv">strconv 包<a class="headerlink" href="#strconv" title="Permanent link">&para;</a></h2>
+<p>strconv 包提供了基本数据类型之间的类型转换功能。</p>
+<h3 id="string-int-atoi">string -&gt; int : Atoi()<a class="headerlink" href="#string-int-atoi" title="Permanent link">&para;</a></h3>
+<p>将 string 转换为 int：Atoi()</p>
+<p>Atoi() 函数签名：
+<div class="highlight"><pre><span></span><code><span class="kd">func</span> <span class="nx">Atoi</span><span class="p">(</span><span class="nx">s</span> <span class="kt">string</span><span class="p">)</span> <span class="p">(</span><span class="kt">int</span><span class="p">,</span> <span class="kt">error</span><span class="p">)</span>
+</code></pre></div>
+由于 string 有可能无法转换为 int，所以提供了两个返回值
+- 第一个是转换成 int 的值
+- 第二个是返回是否转换成功</p>
+<p>eg：
+<div class="highlight"><pre><span></span><code><span class="c1">// success</span>
+<span class="nx">i</span><span class="p">,</span> <span class="nx">err</span> <span class="o">:=</span> <span class="nx">strconv</span><span class="p">.</span><span class="nx">Atoi</span><span class="p">(</span><span class="s">&quot;3&quot;</span><span class="p">)</span>
+<span class="nx">fmt</span><span class="p">.</span><span class="nx">Print</span><span class="p">(</span><span class="nx">i</span> <span class="o">+</span> <span class="mi">5</span><span class="p">)</span>    <span class="c1">// 8</span>
+
+<span class="c1">// fail</span>
+<span class="nx">i</span><span class="p">,</span> <span class="nx">err</span> <span class="o">:=</span> <span class="nx">strconv</span><span class="p">.</span><span class="nx">Atoi</span><span class="p">(</span><span class="s">&quot;a&quot;</span><span class="p">)</span>
+<span class="k">if</span> <span class="nx">err</span> <span class="o">!=</span> <span class="kc">nil</span> <span class="p">{</span>
+    <span class="nx">fmt</span><span class="p">.</span><span class="nx">Print</span><span class="p">(</span><span class="s">&quot;Converted FAILED!&quot;</span><span class="p">)</span>
+<span class="p">}</span>
+</code></pre></div></p>
+<h3 id="int-string-itoa">int -&gt; string : Itoa()<a class="headerlink" href="#int-string-itoa" title="Permanent link">&para;</a></h3>
+<div class="highlight"><pre><span></span><code><span class="kd">func</span> <span class="nx">Itoa</span><span class="p">(</span><span class="nx">i</span> <span class="kt">int</span><span class="p">)</span> <span class="kt">string</span>
+</code></pre></div>
+<p>eg：
+<div class="highlight"><pre><span></span><code><span class="nx">a</span> <span class="o">:=</span> <span class="nx">strconv</span><span class="p">.</span><span class="nx">Itoa</span><span class="p">(</span><span class="mi">18</span><span class="p">)</span>
+<span class="nx">fmt</span><span class="p">.</span><span class="nx">Println</span><span class="p">(</span><span class="nx">a</span><span class="p">)</span>         <span class="c1">// 18</span>
+<span class="nx">fmt</span><span class="p">.</span><span class="nx">Printf</span><span class="p">(</span><span class="s">&quot;%T \n&quot;</span><span class="p">,</span> <span class="nx">a</span><span class="p">)</span> <span class="c1">// string</span>
+</code></pre></div></p>
+<h3 id="string-t-parset">string -&gt; T : ParseT()<a class="headerlink" href="#string-t-parset" title="Permanent link">&para;</a></h3>
+<p>Parse 类函数用于将字符转转换为给定类型的值</p>
+<h4 id="parseboolstr-string">ParseBool(str string)<a class="headerlink" href="#parseboolstr-string" title="Permanent link">&para;</a></h4>
+<p>eg：
+<div class="highlight"><pre><span></span><code><span class="nx">b</span><span class="p">,</span> <span class="nx">err</span> <span class="o">:=</span> <span class="nx">strconv</span><span class="p">.</span><span class="nx">ParseBool</span><span class="p">(</span><span class="s">&quot;true&quot;</span><span class="p">)</span>
+<span class="k">if</span> <span class="nx">err</span> <span class="o">==</span> <span class="kc">nil</span> <span class="p">{</span>
+    <span class="nx">fmt</span><span class="p">.</span><span class="nx">Println</span><span class="p">(</span><span class="nx">b</span><span class="p">)</span> <span class="c1">// true</span>
+<span class="p">}</span>
+</code></pre></div>
+ParseBool 的内部实现非常简单</p>
+<div class="highlight"><pre><span></span><code><span class="kd">func</span> <span class="nx">ParseBool</span><span class="p">(</span><span class="nx">str</span> <span class="kt">string</span><span class="p">)</span> <span class="p">(</span><span class="kt">bool</span><span class="p">,</span> <span class="kt">error</span><span class="p">)</span> <span class="p">{</span>
+    <span class="k">switch</span> <span class="nx">str</span> <span class="p">{</span>
+    <span class="k">case</span> <span class="s">&quot;1&quot;</span><span class="p">,</span> <span class="s">&quot;t&quot;</span><span class="p">,</span> <span class="s">&quot;T&quot;</span><span class="p">,</span> <span class="s">&quot;true&quot;</span><span class="p">,</span> <span class="s">&quot;TRUE&quot;</span><span class="p">,</span> <span class="s">&quot;True&quot;</span><span class="p">:</span>
+        <span class="k">return</span> <span class="kc">true</span><span class="p">,</span> <span class="kc">nil</span>
+    <span class="k">case</span> <span class="s">&quot;0&quot;</span><span class="p">,</span> <span class="s">&quot;f&quot;</span><span class="p">,</span> <span class="s">&quot;F&quot;</span><span class="p">,</span> <span class="s">&quot;false&quot;</span><span class="p">,</span> <span class="s">&quot;FALSE&quot;</span><span class="p">,</span> <span class="s">&quot;False&quot;</span><span class="p">:</span>
+        <span class="k">return</span> <span class="kc">false</span><span class="p">,</span> <span class="kc">nil</span>
+    <span class="p">}</span>
+    <span class="k">return</span> <span class="kc">false</span><span class="p">,</span> <span class="nx">syntaxError</span><span class="p">(</span><span class="s">&quot;ParseBool&quot;</span><span class="p">,</span> <span class="nx">str</span><span class="p">)</span>
+<span class="p">}</span>
+</code></pre></div>
+<h4 id="parseints-string-base-int-bitsize-int">ParseInt(s string, base int, bitSize int)<a class="headerlink" href="#parseints-string-base-int-bitsize-int" title="Permanent link">&para;</a></h4>
+<ul>
+<li>s：要解析 int 的字符串</li>
+<li>base：指定字符串中数字的进制（2到36），如果为0，会从字符串前置判断：<ul>
+<li><code>0b</code>代表2进制</li>
+<li><code>0o</code>代表8进制</li>
+<li><code>0x</code>代表16进制</li>
+<li>否则是10进制。</li>
+</ul>
+</li>
+<li>bitSize：指定结果必须能无溢出赋值的整数类型，0、8、16、32、64 分别代表 int、int8、int16、int32、int64</li>
+</ul>
+<p>eg：
+<div class="highlight"><pre><span></span><code><span class="nx">i</span><span class="p">,</span> <span class="nx">err</span> <span class="o">:=</span> <span class="nx">strconv</span><span class="p">.</span><span class="nx">ParseInt</span><span class="p">(</span><span class="s">&quot;-C&quot;</span><span class="p">,</span> <span class="mi">16</span><span class="p">,</span> <span class="mi">0</span><span class="p">)</span>
+<span class="k">if</span> <span class="nx">err</span> <span class="o">==</span> <span class="kc">nil</span> <span class="p">{</span>
+    <span class="nx">fmt</span><span class="p">.</span><span class="nx">Println</span><span class="p">(</span><span class="nx">i</span><span class="p">)</span>         <span class="c1">// -12</span>
+    <span class="nx">fmt</span><span class="p">.</span><span class="nx">Printf</span><span class="p">(</span><span class="s">&quot;%T \n&quot;</span><span class="p">,</span> <span class="nx">i</span><span class="p">)</span> <span class="c1">// int64</span>
+<span class="p">}</span>
+</code></pre></div>
+十六进制中，C代表12，例子中传递的是 -C ，也就是-12</p>
+<h4 id="parseuints-string-base-int-bitsize-int">ParseUint(s string, base int, bitSize int)<a class="headerlink" href="#parseuints-string-base-int-bitsize-int" title="Permanent link">&para;</a></h4>
+<p>和 Parseuint 一样，不过是针对 无符号整型的，如果传递一个有符号的数字字符串，会转换失败</p>
+<p>eg：
+<div class="highlight"><pre><span></span><code><span class="c1">// success</span>
+<span class="nx">u</span><span class="p">,</span> <span class="nx">err</span> <span class="o">:=</span> <span class="nx">strconv</span><span class="p">.</span><span class="nx">ParseUint</span><span class="p">(</span><span class="s">&quot;45&quot;</span><span class="p">,</span> <span class="mi">7</span><span class="p">,</span> <span class="mi">0</span><span class="p">)</span>
+<span class="k">if</span> <span class="nx">err</span> <span class="o">==</span> <span class="kc">nil</span> <span class="p">{</span>
+    <span class="nx">fmt</span><span class="p">.</span><span class="nx">Println</span><span class="p">(</span><span class="nx">u</span><span class="p">)</span>         <span class="c1">// 33</span>
+    <span class="nx">fmt</span><span class="p">.</span><span class="nx">Printf</span><span class="p">(</span><span class="s">&quot;%T \n&quot;</span><span class="p">,</span> <span class="nx">u</span><span class="p">)</span> <span class="c1">// uint64</span>
+<span class="p">}</span>
+
+<span class="c1">// fail</span>
+<span class="nx">u</span><span class="p">,</span> <span class="nx">err</span> <span class="o">:=</span> <span class="nx">strconv</span><span class="p">.</span><span class="nx">ParseUint</span><span class="p">(</span><span class="s">&quot;-10&quot;</span><span class="p">,</span> <span class="mi">10</span><span class="p">,</span> <span class="mi">0</span><span class="p">)</span>
+<span class="k">if</span> <span class="nx">err</span> <span class="o">!=</span> <span class="kc">nil</span> <span class="p">{</span>
+    <span class="nx">fmt</span><span class="p">.</span><span class="nx">Print</span><span class="p">(</span><span class="s">&quot;Converted FAILED!&quot;</span><span class="p">)</span>
+<span class="p">}</span>
+</code></pre></div>
+7进制的 45 等于 10进制的33</p>
+<h4 id="parsefloats-string-bitsize-int">ParseFloat(s string, bitSize int)<a class="headerlink" href="#parsefloats-string-bitsize-int" title="Permanent link">&para;</a></h4>
+<ul>
+<li>s：要解析成 float 的字符串，</li>
+<li>bitSize：指定了期望的接收类型，32是float32（返回值可以不改变精确值的赋值给float32），64是float64。</li>
+</ul>
+<p>eg：
+<div class="highlight"><pre><span></span><code><span class="nx">f</span><span class="p">,</span> <span class="nx">err</span> <span class="o">:=</span> <span class="nx">strconv</span><span class="p">.</span><span class="nx">ParseFloat</span><span class="p">(</span><span class="s">&quot;3.14&quot;</span><span class="p">,</span> <span class="mi">64</span><span class="p">)</span>
+<span class="k">if</span> <span class="nx">err</span> <span class="o">==</span> <span class="kc">nil</span> <span class="p">{</span>
+    <span class="nx">fmt</span><span class="p">.</span><span class="nx">Println</span><span class="p">(</span><span class="nx">f</span><span class="p">)</span>         <span class="c1">// 3.14</span>
+    <span class="nx">fmt</span><span class="p">.</span><span class="nx">Printf</span><span class="p">(</span><span class="s">&quot;%T \n&quot;</span><span class="p">,</span> <span class="nx">f</span><span class="p">)</span> <span class="c1">// float64</span>
+<span class="p">}</span>
+</code></pre></div>
+bitSize 表示位数，只能填 64或32，不过 ParseFloat 只能接收64位类型的浮点数，即使 bitSize 你填32，依然会返回一个 float64 类型的数据给你，因为其内部实现是调用了一个 <code>atof32()</code> 的函数，然后 <code>return float64(f)</code></p>
+<div class="highlight"><pre><span></span><code><span class="kd">func</span> <span class="nx">ParseFloat</span><span class="p">(</span><span class="nx">s</span> <span class="kt">string</span><span class="p">,</span> <span class="nx">bitSize</span> <span class="kt">int</span><span class="p">)</span> <span class="p">(</span><span class="kt">float64</span><span class="p">,</span> <span class="kt">error</span><span class="p">)</span> <span class="p">{</span>
+    <span class="nx">f</span><span class="p">,</span> <span class="nx">n</span><span class="p">,</span> <span class="nx">err</span> <span class="o">:=</span> <span class="nx">parseFloatPrefix</span><span class="p">(</span><span class="nx">s</span><span class="p">,</span> <span class="nx">bitSize</span><span class="p">)</span>
+    <span class="k">if</span> <span class="nx">err</span> <span class="o">==</span> <span class="kc">nil</span> <span class="o">&amp;&amp;</span> <span class="nx">n</span> <span class="o">!=</span> <span class="nb">len</span><span class="p">(</span><span class="nx">s</span><span class="p">)</span> <span class="p">{</span>
+        <span class="k">return</span> <span class="mi">0</span><span class="p">,</span> <span class="nx">syntaxError</span><span class="p">(</span><span class="nx">fnParseFloat</span><span class="p">,</span> <span class="nx">s</span><span class="p">)</span>
+    <span class="p">}</span>
+    <span class="k">return</span> <span class="nx">f</span><span class="p">,</span> <span class="nx">err</span>
+<span class="p">}</span>
+
+<span class="kd">func</span> <span class="nx">parseFloatPrefix</span><span class="p">(</span><span class="nx">s</span> <span class="kt">string</span><span class="p">,</span> <span class="nx">bitSize</span> <span class="kt">int</span><span class="p">)</span> <span class="p">(</span><span class="kt">float64</span><span class="p">,</span> <span class="kt">int</span><span class="p">,</span> <span class="kt">error</span><span class="p">)</span> <span class="p">{</span>
+    <span class="k">if</span> <span class="nx">bitSize</span> <span class="o">==</span> <span class="mi">32</span> <span class="p">{</span>
+        <span class="nx">f</span><span class="p">,</span> <span class="nx">n</span><span class="p">,</span> <span class="nx">err</span> <span class="o">:=</span> <span class="nx">atof32</span><span class="p">(</span><span class="nx">s</span><span class="p">)</span>
+        <span class="k">return</span> <span class="nb">float64</span><span class="p">(</span><span class="nx">f</span><span class="p">),</span> <span class="nx">n</span><span class="p">,</span> <span class="nx">err</span>
+    <span class="p">}</span>
+    <span class="k">return</span> <span class="nx">atof64</span><span class="p">(</span><span class="nx">s</span><span class="p">)</span>
+<span class="p">}</span>
+</code></pre></div>
+<h4 id="parsecomplexs-string-bitsize-int">ParseComplex(s string, bitSize int)<a class="headerlink" href="#parsecomplexs-string-bitsize-int" title="Permanent link">&para;</a></h4>
+<ul>
+<li>s：要解析成 float 的字符串，</li>
+<li>bitSize：指定了期望的接收类型，64是complex64（返回值可以不改变精确值的赋值给float32），128是complex128。</li>
+</ul>
+<p>eg：
+<div class="highlight"><pre><span></span><code><span class="nx">c</span><span class="p">,</span> <span class="nx">err</span> <span class="o">:=</span> <span class="nx">strconv</span><span class="p">.</span><span class="nx">ParseComplex</span><span class="p">(</span><span class="s">&quot;3+4i&quot;</span><span class="p">,</span> <span class="mi">128</span><span class="p">)</span>
+<span class="k">if</span> <span class="nx">err</span> <span class="o">==</span> <span class="kc">nil</span> <span class="p">{</span>
+    <span class="nx">fmt</span><span class="p">.</span><span class="nx">Println</span><span class="p">(</span><span class="nx">c</span><span class="p">)</span>         <span class="c1">// (3+4i)</span>
+    <span class="nx">fmt</span><span class="p">.</span><span class="nx">Printf</span><span class="p">(</span><span class="s">&quot;%T \n&quot;</span><span class="p">,</span> <span class="nx">c</span><span class="p">)</span> <span class="c1">// complex128</span>
+<span class="p">}</span>
+</code></pre></div></p>
+<h3 id="t-string-formatt">T -&gt; string : FormatT()<a class="headerlink" href="#t-string-formatt" title="Permanent link">&para;</a></h3>
+<p>FormatT 系列函数用于将 T 类型数据转成字符串</p>
+<h4 id="formatbool">FormatBool<a class="headerlink" href="#formatbool" title="Permanent link">&para;</a></h4>
+<p>函数签名：
+<div class="highlight"><pre><span></span><code><span class="nx">FormatBool</span><span class="p">(</span><span class="nx">b</span> <span class="kt">bool</span><span class="p">)</span> <span class="kt">string</span>
+</code></pre></div></p>
+<p>eg：
+<div class="highlight"><pre><span></span><code><span class="nx">b</span> <span class="o">:=</span> <span class="nx">strconv</span><span class="p">.</span><span class="nx">FormatBool</span><span class="p">(</span><span class="kc">true</span><span class="p">)</span>
+<span class="nx">fmt</span><span class="p">.</span><span class="nx">Println</span><span class="p">(</span><span class="nx">b</span><span class="p">)</span> <span class="c1">// true</span>
+</code></pre></div></p>
+<h4 id="formatint">FormatInt<a class="headerlink" href="#formatint" title="Permanent link">&para;</a></h4>
+<p>函数签名：
+<div class="highlight"><pre><span></span><code><span class="nx">FormatInt</span><span class="p">(</span><span class="nx">i</span> <span class="kt">int64</span><span class="p">,</span> <span class="nx">base</span> <span class="kt">int</span><span class="p">)</span> <span class="kt">string</span>
+</code></pre></div>
+- i：要转成字符串的数字，必须是 int64 类型
+- base：要转成什么进制再转字符串</p>
+<p>eg：
+<div class="highlight"><pre><span></span><code><span class="nx">i1</span> <span class="o">:=</span> <span class="nx">strconv</span><span class="p">.</span><span class="nx">FormatInt</span><span class="p">(</span><span class="mi">31</span><span class="p">,</span> <span class="mi">16</span><span class="p">)</span>
+<span class="nx">fmt</span><span class="p">.</span><span class="nx">Println</span><span class="p">(</span><span class="nx">i1</span><span class="p">)</span> <span class="c1">// 1f ,将 10进制的31 转成 16进制的1f 然后转成字符串返回</span>
+
+<span class="nx">i2</span> <span class="o">:=</span> <span class="nx">strconv</span><span class="p">.</span><span class="nx">FormatInt</span><span class="p">(</span><span class="o">-</span><span class="mh">0x1E</span><span class="p">,</span> <span class="mi">8</span><span class="p">)</span>
+<span class="nx">fmt</span><span class="p">.</span><span class="nx">Println</span><span class="p">(</span><span class="nx">i2</span><span class="p">)</span> <span class="c1">// -36, 将 16进制的-1E 转成 8进制的-36 然后转成字符串返回</span>
+</code></pre></div></p>
+<h4 id="formatuint">FormatUint<a class="headerlink" href="#formatuint" title="Permanent link">&para;</a></h4>
+<p>函数签名：
+<div class="highlight"><pre><span></span><code><span class="nx">FormatUint</span><span class="p">(</span><span class="nx">i</span> <span class="kt">uint64</span><span class="p">,</span> <span class="nx">base</span> <span class="kt">int</span><span class="p">)</span> <span class="kt">string</span>
+</code></pre></div>
+- i：要转成字符串的数字，必须是 uint64 类型
+- base：要转成什么进制再转字符串</p>
+<p>eg：
+<div class="highlight"><pre><span></span><code><span class="nx">u</span> <span class="o">:=</span> <span class="nx">strconv</span><span class="p">.</span><span class="nx">FormatUint</span><span class="p">(</span><span class="mi">12</span><span class="p">,</span> <span class="mi">8</span><span class="p">)</span>
+<span class="nx">fmt</span><span class="p">.</span><span class="nx">Println</span><span class="p">(</span><span class="nx">u</span><span class="p">)</span> <span class="c1">// 14, 将 10进制的12 转成 8进制的14 然后转成字符串返回</span>
+</code></pre></div></p>
+<h4 id="formatfloat">FormatFloat<a class="headerlink" href="#formatfloat" title="Permanent link">&para;</a></h4>
+<p>函数签名：
+<div class="highlight"><pre><span></span><code><span class="nx">FormatFloat</span><span class="p">(</span><span class="nx">f</span> <span class="kt">float64</span><span class="p">,</span> <span class="nx">fmt</span> <span class="kt">byte</span><span class="p">,</span> <span class="nx">prec</span><span class="p">,</span> <span class="nx">bitSize</span> <span class="kt">int</span><span class="p">)</span> <span class="kt">string</span>
+</code></pre></div>
+- f：要转成字符串的浮点数
+- fmt：['f', 'b', 'e', 'E', 'g', 'G']；表示格式
+    - f：000.000
+    - b：000p±000 二进制指数
+    - e：0.0000e±00 十进制指数
+    - E：0.0000E±00 十进制指数
+    - g：指数很大时用e格式，不大时用f格式
+    - G：指数很大时用E格式，不大时用f格式
+- prec：
+    - 对于 f格式、e格式、E格式：控制小数点后位数
+    - 对于 g格式、G格式：控制中数字个数
+    - 为-1时，代表使用最少数量的、但又必需的数字来表示f
+- bitSize：表示浮点数来源类型（32：float32、64：float64）</p>
+<p>eg：
+<div class="highlight"><pre><span></span><code><span class="nx">v</span> <span class="o">:=</span> <span class="mf">4.12345678</span>
+
+<span class="nx">ff64</span> <span class="o">:=</span> <span class="nx">strconv</span><span class="p">.</span><span class="nx">FormatFloat</span><span class="p">(</span><span class="nx">v</span><span class="p">,</span> <span class="sc">&#39;f&#39;</span><span class="p">,</span> <span class="mi">30</span><span class="p">,</span> <span class="mi">64</span><span class="p">)</span>
+<span class="nx">ff32</span> <span class="o">:=</span> <span class="nx">strconv</span><span class="p">.</span><span class="nx">FormatFloat</span><span class="p">(</span><span class="nx">v</span><span class="p">,</span> <span class="sc">&#39;f&#39;</span><span class="p">,</span> <span class="mi">30</span><span class="p">,</span> <span class="mi">32</span><span class="p">)</span>
+<span class="nx">fb</span> <span class="o">:=</span> <span class="nx">strconv</span><span class="p">.</span><span class="nx">FormatFloat</span><span class="p">(</span><span class="nx">v</span><span class="p">,</span> <span class="sc">&#39;b&#39;</span><span class="p">,</span> <span class="mi">10</span><span class="p">,</span> <span class="mi">32</span><span class="p">)</span>
+<span class="nx">fe</span> <span class="o">:=</span> <span class="nx">strconv</span><span class="p">.</span><span class="nx">FormatFloat</span><span class="p">(</span><span class="nx">v</span><span class="p">,</span> <span class="sc">&#39;e&#39;</span><span class="p">,</span> <span class="o">-</span><span class="mi">1</span><span class="p">,</span> <span class="mi">32</span><span class="p">)</span>
+<span class="nx">fe10</span> <span class="o">:=</span> <span class="nx">strconv</span><span class="p">.</span><span class="nx">FormatFloat</span><span class="p">(</span><span class="nx">v</span><span class="p">,</span> <span class="sc">&#39;e&#39;</span><span class="p">,</span> <span class="mi">10</span><span class="p">,</span> <span class="mi">32</span><span class="p">)</span>
+<span class="nx">fg</span> <span class="o">:=</span> <span class="nx">strconv</span><span class="p">.</span><span class="nx">FormatFloat</span><span class="p">(</span><span class="nx">v</span><span class="p">,</span> <span class="sc">&#39;g&#39;</span><span class="p">,</span> <span class="mi">10</span><span class="p">,</span> <span class="mi">32</span><span class="p">)</span>
+
+<span class="nx">fmt</span><span class="p">.</span><span class="nx">Println</span><span class="p">(</span><span class="nx">ff64</span><span class="p">)</span> <span class="c1">// 4.123456779999999710639713157434</span>
+<span class="nx">fmt</span><span class="p">.</span><span class="nx">Println</span><span class="p">(</span><span class="nx">ff32</span><span class="p">)</span> <span class="c1">// 4.123456954956054687500000000000</span>
+<span class="nx">fmt</span><span class="p">.</span><span class="nx">Println</span><span class="p">(</span><span class="nx">fb</span><span class="p">)</span>   <span class="c1">// 8647516p-21</span>
+<span class="nx">fmt</span><span class="p">.</span><span class="nx">Println</span><span class="p">(</span><span class="nx">fe</span><span class="p">)</span>   <span class="c1">// 4.123457e+00</span>
+<span class="nx">fmt</span><span class="p">.</span><span class="nx">Println</span><span class="p">(</span><span class="nx">fe10</span><span class="p">)</span> <span class="c1">// 4.1234569550e+00</span>
+<span class="nx">fmt</span><span class="p">.</span><span class="nx">Println</span><span class="p">(</span><span class="nx">fg</span><span class="p">)</span>   <span class="c1">// 4.123456955</span>
+</code></pre></div></p>
+<h4 id="formatcomplex">FormatComplex<a class="headerlink" href="#formatcomplex" title="Permanent link">&para;</a></h4>
+<p>函数签名：
+<div class="highlight"><pre><span></span><code><span class="nx">FormatComplex</span><span class="p">(</span><span class="nx">c</span> <span class="kt">complex128</span><span class="p">,</span> <span class="nx">fmt</span> <span class="kt">byte</span><span class="p">,</span> <span class="nx">prec</span><span class="p">,</span> <span class="nx">bitSize</span> <span class="kt">int</span><span class="p">)</span> <span class="kt">string</span>
+</code></pre></div>
+- f：要转成字符串的复数
+- fmt：['f', 'b', 'e', 'E', 'g', 'G']；表示格式
+    - f：000.000
+    - b：000p±000 二进制指数
+    - e：0.0000e±00 十进制指数
+    - E：0.0000E±00 十进制指数
+    - g：指数很大时用e格式，不大时用f格式
+    - G：指数很大时用E格式，不大时用f格式
+- prec：
+    - 对于 f格式、e格式、E格式：控制小数点后位数
+    - 对于 g格式、G格式：控制中数字个数
+    - 为-1时，代表使用最少数量的、但又必需的数字来表示f
+- bitSize：表示复数来源类型（64：complex64、128：complex128）</p>
+<p>eg：
+<div class="highlight"><pre><span></span><code><span class="nx">c</span> <span class="o">:=</span> <span class="nx">strconv</span><span class="p">.</span><span class="nx">FormatComplex</span><span class="p">(</span><span class="mi">3</span><span class="o">+</span><span class="m">8i</span><span class="p">,</span> <span class="sc">&#39;e&#39;</span><span class="p">,</span> <span class="mi">10</span><span class="p">,</span> <span class="mi">64</span><span class="p">)</span>
+<span class="nx">fmt</span><span class="p">.</span><span class="nx">Println</span><span class="p">(</span><span class="nx">c</span><span class="p">)</span>  <span class="c1">// (3.0000000000e+00+8.0000000000e+00i)</span>
+</code></pre></div></p>
+<h3 id="t-string-append-to-slice-appendt">T -&gt; string &amp; append to slice : AppendT()<a class="headerlink" href="#t-string-append-to-slice-appendt" title="Permanent link">&para;</a></h3>
+<p>AppendT 系列函数用于将 T 转成字符串后 append 到一个 切片 slice 中</p>
+<div class="highlight"><pre><span></span><code><span class="kn">package</span> <span class="nx">main</span>
+
+<span class="kn">import</span> <span class="p">(</span>
+    <span class="s">&quot;fmt&quot;</span>
+    <span class="s">&quot;strconv&quot;</span>
+<span class="p">)</span>
+
+<span class="kd">func</span> <span class="nx">main</span><span class="p">()</span> <span class="p">{</span>
+    <span class="c1">// 声明一个slice</span>
+    <span class="nx">b10</span> <span class="o">:=</span> <span class="p">[]</span><span class="nb">byte</span><span class="p">(</span><span class="s">&quot;int (base 10):&quot;</span><span class="p">)</span>
+
+    <span class="c1">// 将转换为10进制的string，追加到slice中</span>
+    <span class="nx">b10</span> <span class="p">=</span> <span class="nx">strconv</span><span class="p">.</span><span class="nx">AppendInt</span><span class="p">(</span><span class="nx">b10</span><span class="p">,</span> <span class="o">-</span><span class="mi">42</span><span class="p">,</span> <span class="mi">10</span><span class="p">)</span>
+    <span class="nx">fmt</span><span class="p">.</span><span class="nx">Println</span><span class="p">(</span><span class="nb">string</span><span class="p">(</span><span class="nx">b10</span><span class="p">))</span>    <span class="c1">// int (base 10):-42</span>
+
+    <span class="nx">b16</span> <span class="o">:=</span> <span class="p">[]</span><span class="nb">byte</span><span class="p">(</span><span class="s">&quot;int (base 16):&quot;</span><span class="p">)</span>
+    <span class="nx">b16</span> <span class="p">=</span> <span class="nx">strconv</span><span class="p">.</span><span class="nx">AppendInt</span><span class="p">(</span><span class="nx">b16</span><span class="p">,</span> <span class="o">-</span><span class="mi">42</span><span class="p">,</span> <span class="mi">16</span><span class="p">)</span>
+    <span class="nx">fmt</span><span class="p">.</span><span class="nx">Println</span><span class="p">(</span><span class="nb">string</span><span class="p">(</span><span class="nx">b16</span><span class="p">))</span>    <span class="c1">// int (base 16):-2a</span>
+<span class="p">}</span>
+</code></pre></div>
+<h2 id="_3">类型断言<a class="headerlink" href="#_3" title="Permanent link">&para;</a></h2>
+<p>类型断言分两种形式：<code>Type Assertion</code> 和 <code>Type Switch</code>。</p>
+<h3 id="type-assertion">Type Assertion<a class="headerlink" href="#type-assertion" title="Permanent link">&para;</a></h3>
+<p><div class="highlight"><pre><span></span><code><span class="nx">expression</span><span class="p">.(</span><span class="nx">Type</span><span class="p">)</span>
+</code></pre></div>
+eg：
+<div class="highlight"><pre><span></span><code><span class="nx">t</span> <span class="o">:=</span> <span class="nx">i</span><span class="p">.(</span><span class="nx">T</span><span class="p">)</span>
+<span class="nx">t</span><span class="p">,</span> <span class="nx">ok</span> <span class="o">:=</span> <span class="nx">i</span><span class="p">.(</span><span class="nx">T</span><span class="p">)</span>
+</code></pre></div></p>
+<p>Type Assertion 的作用有两个：</p>
+<ol>
+<li>检查 <code>i</code> 是否为 nil</li>
+<li>检查 <code>i</code> 的值是否为 T 类型</li>
+</ol>
+<p>使用方式有两种:</p>
+<ol>
+<li><code>t := i.(T)</code>：<ul>
+<li><strong>说明</strong>：可以断言一个接口对象 <code>i</code> 的值不是 <em>nil</em>，并且值是 T 类型。</li>
+<li><strong>断言成功</strong>：返回 <code>i</code> 的值给 <code>t</code></li>
+<li><strong>断言失败</strong>：引发 <code>panic</code></li>
+</ul>
+</li>
+<li><code>t, ok := i.(T)</code><ul>
+<li><strong>说明</strong>：可以断言一个接口对象 <code>i</code> 的值不是 <em>nil</em>，并且值是 T 类型。</li>
+<li><strong>断言成功</strong>：返回 <code>i</code> 的值给 <code>t</code>，<code>ok</code> 的值置为 <em>true</em></li>
+<li><strong>断言失败</strong>：返回 <code>T</code> 的零值给 <code>t</code>，<code>ok</code> 的值置为 <em>false</em></li>
+</ul>
+</li>
+</ol>
+<p>eg：</p>
+<ol>
+<li>
+<p><code>t := i.(T)</code>
+    <div class="highlight"><pre><span></span><code><span class="kd">func</span> <span class="nx">main</span><span class="p">()</span> <span class="p">{</span>
+    <span class="kd">var</span> <span class="nx">i</span> <span class="kd">interface</span><span class="p">{}</span> <span class="p">=</span> <span class="mi">10</span>
+    <span class="nx">t1</span> <span class="o">:=</span> <span class="nx">i</span><span class="p">.(</span><span class="kt">int</span><span class="p">)</span>
+    <span class="nx">fmt</span><span class="p">.</span><span class="nx">Println</span><span class="p">(</span><span class="nx">t1</span><span class="p">)</span>    <span class="c1">// 10</span>
+
+    <span class="nx">fmt</span><span class="p">.</span><span class="nx">Println</span><span class="p">(</span><span class="s">&quot;+++++++++++++++++++++&quot;</span><span class="p">)</span>
+
+    <span class="nx">t2</span> <span class="o">:=</span> <span class="nx">i</span><span class="p">.(</span><span class="kt">string</span><span class="p">)</span>    <span class="c1">// 这里会引发 panic</span>
+    <span class="nx">fmt</span><span class="p">.</span><span class="nx">Println</span><span class="p">(</span><span class="nx">t2</span><span class="p">)</span>
+
+<span class="p">}</span>
+<span class="c1">// --------------------------------------</span>
+<span class="c1">// Output:</span>
+<span class="mi">10</span>
+<span class="o">+++++++++++++++++++++</span>
+<span class="nx">panic</span><span class="p">:</span> <span class="kd">interface</span> <span class="nx">conversion</span><span class="p">:</span> <span class="kd">interface</span> <span class="p">{}</span> <span class="nx">is</span> <span class="kt">int</span><span class="p">,</span> <span class="nx">not</span> <span class="kt">string</span>
+</code></pre></div></p>
+<p>接口值为 nil 时，断言会引发 panic
+<div class="highlight"><pre><span></span><code><span class="kd">func</span> <span class="nx">main</span><span class="p">()</span> <span class="p">{</span>
+    <span class="kd">var</span> <span class="nx">i</span> <span class="kd">interface</span><span class="p">{}</span>    <span class="c1">// i 的值为 nil</span>
+    <span class="nx">t</span> <span class="o">:=</span> <span class="nx">i</span><span class="p">.(</span><span class="kd">interface</span><span class="p">{})</span> <span class="c1">// 这里会引发 panic</span>
+    <span class="nx">fmt</span><span class="p">.</span><span class="nx">Println</span><span class="p">(</span><span class="nx">t</span><span class="p">)</span>
+<span class="p">}</span>
+<span class="c1">// --------------------------------------</span>
+<span class="c1">// Output:</span>
+<span class="nx">panic</span><span class="p">:</span> <span class="kd">interface</span> <span class="nx">conversion</span><span class="p">:</span> <span class="kd">interface</span> <span class="nx">is</span> <span class="kc">nil</span><span class="p">,</span> <span class="nx">not</span> <span class="kd">interface</span> <span class="p">{}</span>
+</code></pre></div>
+2. <code>t, ok := i.(T)</code>
+<div class="highlight"><pre><span></span><code><span class="kd">func</span> <span class="nx">main</span><span class="p">()</span> <span class="p">{</span>
+    <span class="kd">var</span> <span class="nx">i1</span> <span class="kd">interface</span><span class="p">{}</span> <span class="p">=</span> <span class="mi">10</span>
+
+    <span class="nx">t1</span><span class="p">,</span> <span class="nx">ok</span> <span class="o">:=</span> <span class="nx">i1</span><span class="p">.(</span><span class="kd">interface</span><span class="p">{})</span>
+    <span class="nx">fmt</span><span class="p">.</span><span class="nx">Printf</span><span class="p">(</span><span class="s">&quot;t1: %d, %v\n&quot;</span><span class="p">,</span> <span class="nx">t1</span><span class="p">,</span> <span class="nx">ok</span><span class="p">)</span> <span class="c1">// t1: 10, true</span>
+    <span class="nx">t2</span><span class="p">,</span> <span class="nx">ok</span> <span class="o">:=</span> <span class="nx">i1</span><span class="p">.(</span><span class="kt">int</span><span class="p">)</span>
+    <span class="nx">fmt</span><span class="p">.</span><span class="nx">Printf</span><span class="p">(</span><span class="s">&quot;t2: %v, %v\n&quot;</span><span class="p">,</span> <span class="nx">t2</span><span class="p">,</span> <span class="nx">ok</span><span class="p">)</span> <span class="c1">// t2: 10, true</span>
+    <span class="nx">t3</span><span class="p">,</span> <span class="nx">ok</span> <span class="o">:=</span> <span class="nx">i1</span><span class="p">.(</span><span class="kt">string</span><span class="p">)</span>
+    <span class="nx">fmt</span><span class="p">.</span><span class="nx">Printf</span><span class="p">(</span><span class="s">&quot;t3: %v, %v\n&quot;</span><span class="p">,</span> <span class="nx">t3</span><span class="p">,</span> <span class="nx">ok</span><span class="p">)</span> <span class="c1">// t3: , false</span>
+
+    <span class="kd">var</span> <span class="nx">i2</span> <span class="kd">interface</span><span class="p">{}</span>
+    <span class="nx">t4</span><span class="p">,</span> <span class="nx">ok</span> <span class="o">:=</span> <span class="nx">i2</span><span class="p">.(</span><span class="kd">interface</span><span class="p">{})</span>
+    <span class="nx">fmt</span><span class="p">.</span><span class="nx">Printf</span><span class="p">(</span><span class="s">&quot;t4: %v, %v\n&quot;</span><span class="p">,</span> <span class="nx">t4</span><span class="p">,</span> <span class="nx">ok</span><span class="p">)</span> <span class="c1">// t4: &lt;nil&gt;, false</span>
+
+    <span class="nx">i2</span> <span class="p">=</span> <span class="s">&quot;Boii&quot;</span>
+    <span class="nx">t5</span><span class="p">,</span> <span class="nx">ok</span> <span class="o">:=</span> <span class="nx">i2</span><span class="p">.(</span><span class="kt">int</span><span class="p">)</span>
+    <span class="nx">fmt</span><span class="p">.</span><span class="nx">Printf</span><span class="p">(</span><span class="s">&quot;t5: %v, %v\n&quot;</span><span class="p">,</span> <span class="nx">t5</span><span class="p">,</span> <span class="nx">ok</span><span class="p">)</span> <span class="c1">// t5: 0, false</span>
+    <span class="nx">t6</span><span class="p">,</span> <span class="nx">ok</span> <span class="o">:=</span> <span class="nx">i2</span><span class="p">.(</span><span class="kt">string</span><span class="p">)</span>
+    <span class="nx">fmt</span><span class="p">.</span><span class="nx">Printf</span><span class="p">(</span><span class="s">&quot;t6: %v, %v\n&quot;</span><span class="p">,</span> <span class="nx">t6</span><span class="p">,</span> <span class="nx">ok</span><span class="p">)</span> <span class="c1">// t6: Boii, true</span>
+<span class="p">}</span>
+<span class="c1">// --------------------------------------</span>
+<span class="c1">// Output:</span>
+<span class="nx">t1</span><span class="p">:</span> <span class="mi">10</span><span class="p">,</span> <span class="kc">true</span>
+<span class="nx">t2</span><span class="p">:</span> <span class="mi">10</span><span class="p">,</span> <span class="kc">true</span>
+<span class="nx">t3</span><span class="p">:</span> <span class="p">,</span> <span class="kc">false</span>
+<span class="nx">t4</span><span class="p">:</span> <span class="p">&lt;</span><span class="kc">nil</span><span class="p">&gt;,</span> <span class="kc">false</span>
+<span class="nx">t5</span><span class="p">:</span> <span class="mi">0</span><span class="p">,</span> <span class="kc">false</span>
+<span class="nx">t6</span><span class="p">:</span> <span class="nx">Boii</span><span class="p">,</span> <span class="kc">true</span>
+</code></pre></div>
+虽然 <code>t3、t4、t5</code> 断言失败，但没有引发 <code>panic</code></p>
+</li>
+</ol>
+<h3 id="type-switch">Type Switch<a class="headerlink" href="#type-switch" title="Permanent link">&para;</a></h3>
+<p>上面的方式适合 断言指定一种类型，如果需要断言 接口对象 <code>i</code> 是多种类型中的一种，则需要用 Type Switch。</p>
+<p><div class="highlight"><pre><span></span><code><span class="k">switch</span> <span class="nx">t</span> <span class="o">:=</span> <span class="nx">接口对象</span><span class="p">.(</span><span class="kd">type</span><span class="p">)</span> <span class="p">{</span>
+    <span class="k">case</span> <span class="nx">T1</span><span class="p">:</span>  <span class="o">...</span>
+    <span class="k">case</span> <span class="nx">T2</span><span class="p">:</span>  <span class="o">...</span>
+    <span class="k">case</span> <span class="kc">nil</span><span class="p">:</span> <span class="o">...</span>
+    <span class="k">default</span><span class="p">:</span> <span class="o">...</span>
+<span class="p">}</span>
+</code></pre></div>
+<code>接口对象.(type)</code> 中的 <code>.(type)</code> 是固定格式，不要修改。</p>
+<p><div class="highlight"><pre><span></span><code><span class="kd">func</span> <span class="nx">typeSwitch</span><span class="p">(</span><span class="nx">i</span> <span class="kd">interface</span><span class="p">{})</span> <span class="p">{</span>
+    <span class="k">switch</span> <span class="nx">t</span> <span class="o">:=</span> <span class="nx">i</span><span class="p">.(</span><span class="kd">type</span><span class="p">)</span> <span class="p">{</span>
+    <span class="k">case</span> <span class="kt">int</span><span class="p">:</span>
+        <span class="nx">fmt</span><span class="p">.</span><span class="nx">Println</span><span class="p">(</span><span class="nx">t</span><span class="p">,</span> <span class="s">&quot;is int.&quot;</span><span class="p">)</span>
+    <span class="k">case</span> <span class="kt">string</span><span class="p">:</span>
+        <span class="nx">fmt</span><span class="p">.</span><span class="nx">Println</span><span class="p">(</span><span class="nx">t</span><span class="p">,</span> <span class="s">&quot;is string.&quot;</span><span class="p">)</span>
+    <span class="k">case</span> <span class="kt">float64</span><span class="p">:</span>
+        <span class="nx">fmt</span><span class="p">.</span><span class="nx">Println</span><span class="p">(</span><span class="nx">t</span><span class="p">,</span> <span class="s">&quot;is float64&quot;</span><span class="p">)</span>
+    <span class="k">case</span> <span class="kc">nil</span><span class="p">:</span>
+        <span class="nx">fmt</span><span class="p">.</span><span class="nx">Println</span><span class="p">(</span><span class="nx">t</span><span class="p">,</span> <span class="s">&quot;is nil&quot;</span><span class="p">)</span>
+    <span class="k">default</span><span class="p">:</span>
+        <span class="nx">fmt</span><span class="p">.</span><span class="nx">Println</span><span class="p">(</span><span class="nx">t</span><span class="p">,</span> <span class="s">&quot;啥也不是&quot;</span><span class="p">)</span>
+    <span class="p">}</span>
+<span class="p">}</span>
+
+
+<span class="kd">func</span> <span class="nx">main</span><span class="p">()</span> <span class="p">{</span>
+    <span class="kd">var</span> <span class="nx">i</span> <span class="kd">interface</span><span class="p">{}</span>
+    <span class="nx">typeSwitch</span><span class="p">(</span><span class="nx">i</span><span class="p">)</span>      <span class="c1">// &lt;nil&gt; is nil</span>
+    <span class="nx">typeSwitch</span><span class="p">(</span><span class="s">&quot;Boii&quot;</span><span class="p">)</span> <span class="c1">// Boii is string.</span>
+    <span class="nx">typeSwitch</span><span class="p">(</span><span class="mf">3.14</span><span class="p">)</span>   <span class="c1">// 3.14 is float64</span>
+    <span class="nx">typeSwitch</span><span class="p">(</span><span class="kc">true</span><span class="p">)</span>   <span class="c1">// true 啥也不是</span>
+<span class="p">}</span>
+</code></pre></div>
+<code>t</code> 是什么类型就走什么分支，<code>t</code> 是 nil 就走 <code>case nil</code> 分支，没有一个满足就走 <code>default</code> 分支。
+<code>default</code> 分支是可选的。</p>
+                
+                  
+                
+              
+              
+                
+
+
+              
+            </article>
+          </div>
+        </div>
+        
+      </main>
+      
+        
+<footer class="md-footer">
+  
+    <nav class="md-footer__inner md-grid" aria-label="Footer">
+      
+        
+        <a href="../Golang-15-%E5%8D%95%E5%85%83%E6%B5%8B%E8%AF%95/" class="md-footer__link md-footer__link--prev" aria-label="Previous: 15.单元测试" rel="prev">
+          <div class="md-footer__button md-icon">
+            <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M20 11v2H8l5.5 5.5-1.42 1.42L4.16 12l7.92-7.92L13.5 5.5 8 11h12z"/></svg>
+          </div>
+          <div class="md-footer__title">
+            <div class="md-ellipsis">
+              <span class="md-footer__direction">
+                Previous
+              </span>
+              15.单元测试
+            </div>
+          </div>
+        </a>
+      
+      
+        
+        <a href="../Golang-Go-Module/" class="md-footer__link md-footer__link--next" aria-label="Next: Go Module" rel="next">
+          <div class="md-footer__title">
+            <div class="md-ellipsis">
+              <span class="md-footer__direction">
+                Next
+              </span>
+              Go Module
+            </div>
+          </div>
+          <div class="md-footer__button md-icon">
+            <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M4 11v2h12l-5.5 5.5 1.42 1.42L19.84 12l-7.92-7.92L10.5 5.5 16 11H4z"/></svg>
+          </div>
+        </a>
+      
+    </nav>
+  
+  <div class="md-footer-meta md-typeset">
+    <div class="md-footer-meta__inner md-grid">
+      <div class="md-footer-copyright">
+        
+          <div class="md-footer-copyright__highlight">
+            Copyright © 2021 [Mr.Boii](https://www.boii.xyz)
+          </div>
+        
+        
+          Made with
+          <a href="https://squidfunk.github.io/mkdocs-material/" target="_blank" rel="noopener">
+            Material for MkDocs
+          </a>
+        
+        
+      </div>
+      
+    </div>
+  </div>
+</footer>
+      
+    </div>
+    <div class="md-dialog" data-md-component="dialog">
+      <div class="md-dialog__inner md-typeset"></div>
+    </div>
+    <script id="__config" type="application/json">{"base": "../../..", "features": ["navigation.tabs", "navigation.indexes"], "translations": {"clipboard.copy": "Copy to clipboard", "clipboard.copied": "Copied to clipboard", "search.config.lang": "en", "search.config.pipeline": "trimmer, stopWordFilter", "search.config.separator": "[\\s\\-]+", "search.placeholder": "Search", "search.result.placeholder": "Type to start searching", "search.result.none": "No matching documents", "search.result.one": "1 matching document", "search.result.other": "# matching documents", "search.result.more.one": "1 more on this page", "search.result.more.other": "# more on this page", "search.result.term.missing": "Missing", "select.version.title": "Select version"}, "search": "../../../assets/javascripts/workers/search.fcfe8b6d.min.js", "version": null}</script>
+    
+    
+      <script src="../../../assets/javascripts/bundle.b1047164.min.js"></script>
+      
+    
+  </body>
+</html>
