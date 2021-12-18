@@ -1,26 +1,3 @@
----
-title: 'Gin [4-上传下载重定向]'
-seotitle: 'Gin [4-上传下载重定向]'
-pin: false
-tags:
-  - gin
-  - 上传
-  - 下载
-  - 重定向
-categories:
-  - Golang
-  - Framework
-headimg: 'https://cdn.jsdelivr.net/gh/TCP404/Picgo/blog/cover/Gin.png'
-thumbnail: 'https://cdn.jsdelivr.net/gh/TCP404/Picgo/blog/thumbnail/gin.png'
-abbrlink: 64ec0a72
-date: 2021-07-19 18:11:34
-updated: 2021-07-19 18:11:34
----
-
-上传、下载和重定向
-
-<!--more-->
-
 # 上传下载和重定向
 
 文件上传是后端开发中很常见的需求。
@@ -31,135 +8,140 @@ updated: 2021-07-19 18:11:34
 
 ## 单个文件上传
 
-### 前端部分
+!!! note ""
+    === "前端部分"
 
-```html
-<!DOCTYPE html>
-<html lang="zh-CN">
-<head>
-    <meta charset="UTF-8">
-</head>
-<body>
+        ```html
+        <!DOCTYPE html>
+        <html lang="zh-CN">
+        <head>
+            <meta charset="UTF-8">
+        </head>
+        <body>
 
-    <form action="/upload" method="post" enctype="multipart/form-data">
-        <input type="file" name="f1"/>
-        <input type="submit" value="上传"/>
-    </form>
+            <form action="/upload" method="post" enctype="multipart/form-data">
+                <input type="file" name="f1"/>
+                <input type="submit" value="上传"/>
+            </form>
 
-</body>
-</html>
-```
-![](https://cdn.jsdelivr.net/gh/TCP404/Picgo/blog/illustration-pic/Go/vx_images/6000782296428.png)
-前端需要用一个表单来进行上传，这里我们设置了表单提交的请求方式为 POST。
+        </body>
+        </html>
+        ```
 
-注意一定要指定编码类型 `enctype="multipart/form-data"`
+        ![](https://cdn.jsdelivr.net/gh/TCP404/Picgo/blog/illustration-pic/Go/vx_images/6000782296428.png)
 
-上传文件后点击上传按钮会向 `http://localhost:9090/upload` 这个路径发起POST请求。
+        前端需要用一个表单来进行上传，这里我们设置了表单提交的请求方式为 POST。
 
-### 后端部分
+        注意一定要指定编码类型 `enctype="multipart/form-data"`
 
-```go
-func main() {
-    r := gin.Default()
+        上传文件后点击上传按钮会向 `http://localhost:9090/upload` 这个路径发起POST请求。
 
-    r.POST("/upload", func(c *gin.Context) {
-        // 从请求中读取文件
-        f, _ := c.FormFile("f1")
-        // 保存文件
-        c.SaveUploadedFile(f, "./" + f.Filename)
-        // 给客户端返回上传成功的消息
-        c.JSON(200, gin.H{"code": 2003, "msg": "上传成功"})
-    })
+    === "后端部分"
 
-    r.Run(":9090")
-}
-```
-后端的处理主要分3步：
+        ```go
+        func main() {
+            r := gin.Default()
 
-1. 从请求中读取文件
-2. 保存文件
-3. 给客户端返回上传成功的消息
+            r.POST("/upload", func(c *gin.Context) {
+                // 从请求中读取文件
+                f, _ := c.FormFile("f1")
+                // 保存文件
+                c.SaveUploadedFile(f, "./" + f.Filename)
+                // 给客户端返回上传成功的消息
+                c.JSON(200, gin.H{"code": 2003, "msg": "上传成功"})
+            })
 
-通过 `gin.FormFile()` 可以获取前端上传的文件，参数是 `<input />` 标签的 `name` 属性，通过参数可以定位到上传的任何一个文件。
+            r.Run(":9090")
+        }
+        ```
+        后端的处理主要分3步：
 
-获取到文件后可以保存在数据库中，或者通过 `gin.SaveUploadedFile()` 将文件保存在某个位置，只需要将文件对象 `f` 和 路径作为参数传入即可。
+        1. 从请求中读取文件
+        2. 保存文件
+        3. 给客户端返回上传成功的消息
 
-最后给客户端返回一条上传成功的消息。
+        通过 `gin.FormFile()` 可以获取前端上传的文件，参数是 `<input />` 标签的 `name` 属性，通过参数可以定位到上传的任何一个文件。
 
+        获取到文件后可以保存在数据库中，或者通过 `gin.SaveUploadedFile()` 将文件保存在某个位置，只需要将文件对象 `f` 和 路径作为参数传入即可。
 
-### 测试
-![上传文件](https://cdn.jsdelivr.net/gh/TCP404/Picgo/blog/illustration-pic/Go/vx_images/1762924054854.png)
-
-![上传成功](https://cdn.jsdelivr.net/gh/TCP404/Picgo/blog/illustration-pic/Go/vx_images/5500107717484.png)
-
-![成功保存](https://cdn.jsdelivr.net/gh/TCP404/Picgo/blog/illustration-pic/Go/vx_images/5880663088309.png)
+        最后给客户端返回一条上传成功的消息。
 
 
-#### 使用 Postman
+    === "测试"
 
-使用 PostMan 时需要给 Header 添加一个属性 `Content-Type: multipart/form-data`
+        ![上传文件](https://cdn.jsdelivr.net/gh/TCP404/Picgo/blog/illustration-pic/Go/vx_images/1762924054854.png)
 
-![](https://cdn.jsdelivr.net/gh/TCP404/Picgo/blog/illustration-pic/Go/vx_images/3692804942610.png)
+        ![上传成功](https://cdn.jsdelivr.net/gh/TCP404/Picgo/blog/illustration-pic/Go/vx_images/5500107717484.png)
 
-然后在 Body 中的 form-data 中上传数据
+        ![成功保存](https://cdn.jsdelivr.net/gh/TCP404/Picgo/blog/illustration-pic/Go/vx_images/5880663088309.png)
 
-![](https://cdn.jsdelivr.net/gh/TCP404/Picgo/blog/illustration-pic/Go/vx_images/1504988688338.png)
+    === "使用 Postman"
 
-#### 使用 curl 命令
+        使用 PostMan 时需要给 Header 添加一个属性 `Content-Type: multipart/form-data`
 
-```bash
-curl -X POST http://localhost:9090/upload \
-  -F "file=@/xx/xx/xxx.zip" \
-  -H "Content-Type: multipart/form-data"
-```
+        ![](https://cdn.jsdelivr.net/gh/TCP404/Picgo/blog/illustration-pic/Go/vx_images/3692804942610.png)
+
+        然后在 Body 中的 form-data 中上传数据
+
+        ![](https://cdn.jsdelivr.net/gh/TCP404/Picgo/blog/illustration-pic/Go/vx_images/1504988688338.png)
+
+    === "使用 curl 命令"
+
+        ```bash
+        curl -X POST http://localhost:9090/upload \
+        -F "file=@/xx/xx/xxx.zip" \
+        -H "Content-Type: multipart/form-data"
+        ```
 
 ## 多个文件上传
 
-### 前端部分
-```html
-<!DOCTYPE html>
-<html lang="zh-CN">
+!!! note ""
+    === "前端部分"
 
-<head>
-    <meta charset="UTF-8">
-</head>
+        ```html
+        <!DOCTYPE html>
+        <html lang="zh-CN">
 
-<body>
-    <form action="/upload_multi" method="post" enctype="multipart/form-data">
+        <head>
+            <meta charset="UTF-8">
+        </head>
 
-        <input type="file" name="files" multiple>
-        <input type="submit" value="上传">
+        <body>
+            <form action="/upload_multi" method="post" enctype="multipart/form-data">
 
-    </form>
+                <input type="file" name="files" multiple>
+                <input type="submit" value="上传">
 
-</body>
+            </form>
 
-</html>
-```
+        </body>
 
-### 后端部分
+        </html>
+        ```
 
-```go
-func main() {
-    r := gin.Default()
+    === "后端部分"
 
-    r.POST("/upload", func(c *gin.Context) {
-        // 从请求中读取文件
-        form, _ := c.MultipartForm()
-        files := form.File["files"]
+        ```go
+        func main() {
+            r := gin.Default()
 
-        // 逐个保存文件
-        for _, file := range files {
-            c.SaveUploadedFile(f, "./"+f.Filename)
+            r.POST("/upload", func(c *gin.Context) {
+                // 从请求中读取文件
+                form, _ := c.MultipartForm()
+                files := form.File["files"]
+
+                // 逐个保存文件
+                for _, file := range files {
+                    c.SaveUploadedFile(f, "./"+f.Filename)
+                }
+
+                // 给客户端返回上传成功的消息
+                c.JSON(200, gin.H{"code": 2003, "msg": "上传成功"})
+            })
+
+            r.Run(":9090")
         }
-
-        // 给客户端返回上传成功的消息
-        c.JSON(200, gin.H{"code": 2003, "msg": "上传成功"})
-    })
-
-    r.Run(":9090")
-}
-```
+        ```
 
 单个文件上传和多个文件上传只有一点点区别
 
@@ -172,17 +154,17 @@ func main() {
 
 gin 默认上传的文件大小最大为 32Mb，如果要调小或调大，可以设置 `gin.Engine.MaxMultipartMemory`
 
-eg：
+!!! example
 
-```go
-func main() {
-    r := gin.Default()
-    // 为 multipart forms 设置较高的内存限制 (默认是 32 MiB)
-        r.MaxMultipartMemory = 2 << 30;    // 2*2^30 byte = 2Gb
+    ```go
+    func main() {
+        r := gin.Default()
+        // 为 multipart forms 设置较高的内存限制 (默认是 32 MiB)
+            r.MaxMultipartMemory = 2 << 30;    // 2*2^30 byte = 2Gb
 
-    r.Run(":9090")
-}
-```
+        r.Run(":9090")
+    }
+    ```
 
 ## 下载文件
 
@@ -231,8 +213,10 @@ func main() {
 }
 ```
 
-> 注意！`c.File(path)` 中的参数 path 最好是绝对路径，可以使用 `path.Join(路径, 文件名)` 来得到绝对路径。
-> 处理不好 path 参数容易出错。
+!!! warning "注意"
+    `c.File(path)` 中的参数 path 最好是绝对路径，可以使用 `path.Join(路径, 文件名)` 来得到绝对路径。
+
+    处理不好 path 参数容易出错。
 
 ## 重定向 和 转发
 
@@ -255,63 +239,65 @@ func main() {
 ![重定向和转发](https://cdn.jsdelivr.net/gh/TCP404/Picgo/blog/illustration-pic/Go/vx_images/3628459928845.png)
 
 
-### 重定向
+=== "重定向"
 
-```go
-c.Redirect(http.StatusMovedPermanently, "重定向的路径")
-```
+    ```go
+    c.Redirect(http.StatusMovedPermanently, "重定向的路径")
+    ```
 
-eg：
-```go
-func main() {
-    r := gin.Default()
+    eg：
 
-    r.GET("/index", func(c *gin.Context) {
-        c.JSON(http.StatusOK, gin.H{ "msg": c.FullPath() })
-    })
+    ```go
+    func main() {
+        r := gin.Default()
 
-    // 重定向到站内其他路由
-    r.GET("/redirect", func(c *gin.Context) {
-        c.Redirect(http.StatusMovedPermanently, "/index")
-    })
+        r.GET("/index", func(c *gin.Context) {
+            c.JSON(http.StatusOK, gin.H{ "msg": c.FullPath() })
+        })
 
-    // 重定向到站外链接
-    r.GET("/redirect2", func(c *gin.Context) {
-        c.Redirect(http.StatusMovedPermanently, "https://www.boii.xyz")
-    })
+        // 重定向到站内其他路由
+        r.GET("/redirect", func(c *gin.Context) {
+            c.Redirect(http.StatusMovedPermanently, "/index")
+        })
 
-    r.Run(":9090")
-}
-```
+        // 重定向到站外链接
+        r.GET("/redirect2", func(c *gin.Context) {
+            c.Redirect(http.StatusMovedPermanently, "https://www.boii.xyz")
+        })
 
-![重定向到站内](https://cdn.jsdelivr.net/gh/TCP404/Picgo/blog/illustration-pic/Go/vx_images/5296060724295.png)
+        r.Run(":9090")
+    }
+    ```
 
-![重定向到站外](https://cdn.jsdelivr.net/gh/TCP404/Picgo/blog/illustration-pic/Go/vx_images/3265866644390.png)
+    ![重定向到站内](https://cdn.jsdelivr.net/gh/TCP404/Picgo/blog/illustration-pic/Go/vx_images/5296060724295.png)
 
-### 转发
+    ![重定向到站外](https://cdn.jsdelivr.net/gh/TCP404/Picgo/blog/illustration-pic/Go/vx_images/3265866644390.png)
 
-```go
-c.Request.URL.Path = "转发的目标路径"
-```
+=== "转发"
 
-eg：
-```go
-func main() {
-    r := gin.Default()
+    ```go
+    c.Request.URL.Path = "转发的目标路径"
+    ```
 
-    r.GET("/index", func(c *gin.Context) {
-        c.JSON(http.StatusOK, gin.H{ "msg": c.FullPath() })
-    })
+    eg：
 
-    // 转发到站内其他路由
-    r.GET("/forward", func(c *gin.Context) { // URL 不会改变
-        c.Request.URL.Path = "/index"    // 修改请求的目标路径
-        r.HandleContext(c)
-    })
+    ```go
+    func main() {
+        r := gin.Default()
 
-    r.Run(":9090")
-}
-```
+        r.GET("/index", func(c *gin.Context) {
+            c.JSON(http.StatusOK, gin.H{ "msg": c.FullPath() })
+        })
 
-![转发到站内](https://cdn.jsdelivr.net/gh/TCP404/Picgo/blog/illustration-pic/Go/vx_images/623353626862.png)
+        // 转发到站内其他路由
+        r.GET("/forward", func(c *gin.Context) { // URL 不会改变
+            c.Request.URL.Path = "/index"    // 修改请求的目标路径
+            r.HandleContext(c)
+        })
+
+        r.Run(":9090")
+    }
+    ```
+
+    ![转发到站内](https://cdn.jsdelivr.net/gh/TCP404/Picgo/blog/illustration-pic/Go/vx_images/623353626862.png)
 

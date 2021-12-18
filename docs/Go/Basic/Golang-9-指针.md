@@ -1,21 +1,3 @@
----
-title: 'Golang [基础] 9-指针'
-seotitle: 'Golang [基础] 9-指针'
-pin: false
-tags:
-  - Golang
-categories: [Golang, Basic]
-headimg: 'https://cdn.jsdelivr.net/gh/TCP404/Picgo/blog/cover/go2.png'
-thumbnail: 'https://cdn.jsdelivr.net/gh/TCP404/Picgo/blog/thumbnail/golang.png'
-abbrlink: 237b56c2
-date: 2021-07-17 11:28:14
-updated: 2021-07-17 11:28:14
----
-
-指针的创建与使用
-
-<!--more-->
-
 # 9-指针
 
 区别于C/C++中的指针，Go中的指针不能进行偏移和运算，是安全指针，
@@ -25,16 +7,16 @@ updated: 2021-07-17 11:28:14
 
 Go 中的指针操作非常简单：`&`取地址符、`*`根据地址取值。
 
+!!! warning
+    **指针是值类型！！！**
+
 ## 定义指针、指针取地址
-
-{% note warning, **注意：指针是值类型！！！** %}
-
 ```go
-var identifier *T
-var identifier *T = &variable
-identifier := &variable
+var idn *T
+var idn *T = &variable
+idn := &variable
 ```
-`identifier`：指针名、`T`指针基类型、`*T`某类型指针、`variable`：变量、`&variable`：取变量地址
+`idn`：指针名、`T`指针基类型、`*T`某类型指针、`variable`：变量、`&variable`：取变量地址
 
 Go 中的值类型（int、float、bool、string、数组、struct结构体）都有对应类型指针，如 `*int、*float、*string、*bool、*[5]int`。
 
@@ -181,40 +163,39 @@ new 函数会开辟一块空间，然后把这块空间的地址返回出去，�
 
 - 以下为错误示例：
 
-```go
-func main() {
-    var i *int
-    fmt.Println(i)
-    *i = 10    // 这里会引发 panic
-}
+    ```go
+    func main() {
+        var i *int
+        fmt.Println(i)
+        *i = 10    // 这里会引发 panic
+    }
 
-// ------------------------------------
-// Output:
-<nil>
-panic: runtime error: invalid memory address or nil pointer dereference
-[signal 0xc0000005 code=0x1 addr=0x0 pc=0x97581b]
+    // ------------------------------------
+    // Output:
+    <nil>
+    panic: runtime error: invalid memory address or nil pointer dereference
+    [signal 0xc0000005 code=0x1 addr=0x0 pc=0x97581b]
 
-goroutine 1 [running]:
-main.main()
-    e:/---CODE/GO/src/Hello/main.go:23 +0x7b
-exit status 2
-```
-从上面例子可以看到，声明了一个指针，默认值为 `nil`。
-在没有分配内存的情况下去使用指针，会导致 `panic`。
+    goroutine 1 [running]:
+    main.main()
+        e:/---CODE/GO/src/Hello/main.go:23 +0x7b
+    exit status 2
+    ```
+    从上面例子可以看到，声明了一个指针，默认值为 `nil`。
+    在没有分配内存的情况下去使用指针，会导致 `panic`。
 
 
 - 以下为正确示例：
-
-```go
-func main() {
-    var i *int 		    // 声明一个指针变量
-    fmt.Println(i)	    // <nil> | 默认值为 nil
-    i = new(int)	    // 给这个指针分配内存
-    *i = 10			    // 存个值进去
-    fmt.Println(i)	    // 0xc000012098 | 已经有内存空间了
-    fmt.Println(*i)     // 10 | 正常~~
-}
-```
+    ```go
+    func main() {
+        var i *int 		    // 声明一个指针变量
+        fmt.Println(i)	    // <nil> | 默认值为 nil
+        i = new(int)	    // 给这个指针分配内存
+        *i = 10			    // 存个值进去
+        fmt.Println(i)	    // 0xc000012098 | 已经有内存空间了
+        fmt.Println(*i)     // 10 | 正常~~
+    }
+    ```
 
 ### make
 make 也是用于分配内存，但是只能用于`slice切片、map字典、chan通道`的内存创建，而且它返回的类型 就是这三个类型本身，因为这三种类型就是引用类型，所以没必要返回他们的指针了。
@@ -241,5 +222,5 @@ func main() {
 ```
 
 ### new 和 make 的区别
-- new 返回的是**指针**，make返回的是**类型本身**
-- new 可以给所有类型的**指针开辟空间**，make 只能用于 `slice、map、chan`的**初始化**
+- new 返回的是 **指针**，make返回的是 **类型本身**
+- new 可以给所有类型的 **指针开辟空间**，make 只能用于 `slice、map、chan`的 **初始化**

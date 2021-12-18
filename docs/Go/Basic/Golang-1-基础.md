@@ -1,21 +1,3 @@
----
-title: 'Golang [基础] 1-基础'
-seotitle: 'Golang [基础] 1-基础'
-pin: false
-tags:
-  - Golang
-categories: [Golang, Basic]
-headimg: 'https://cdn.jsdelivr.net/gh/TCP404/Picgo/blog/cover/go2.png'
-thumbnail: 'https://cdn.jsdelivr.net/gh/TCP404/Picgo/blog/thumbnail/golang.png'
-abbrlink: 7b9344b7
-date: 2021-07-17 10:20:39
-updated: 2021-07-17 10:20:39
----
-
-基础语法
-
-<!--more-->
-
 # 1-基础
 
 ## 标识符
@@ -83,7 +65,8 @@ var num1, num2, num3 int
 
 ### 初始化
 
-> go 声明变量时，会自动对变量对应的内存区域进行初始化，每个变量都会被初始化成默认值。
+!!! note
+    go 声明变量时，会自动对变量对应的内存区域进行初始化，每个变量都会被初始化成默认值。
 
 eg：整型和浮点型变量默认值是 `0`，字符串变量默认值是 `空字符串`，布尔类型变量默认值是`false`，切片、函数、指针变量默认是 `nil`。
 
@@ -106,11 +89,12 @@ var age  int    = 18
 var name, age = "Boii", 18
 ```
 
-> Go 语言具有的这种特性，使得交换两个变量非常方便，可以简单地使用 `a, b = b, a` 完成交换两个变量的值。
+!!! tip
+    Go 语言具有的这种特性，使得交换两个变量非常方便，可以简单地使用 `a, b = b, a` 完成交换两个变量的值。
 
 ### 类型推导
 
-类型推导指的是**没有显示的写明类型，编译器会通过等号右边的值来推导出类型**，然后完成初始化工作。
+类型推导指的是 **没有显示的写明类型，编译器会通过等号右边的值来推导出类型**，然后完成初始化工作。
 
 ```go
 var name = "Boii"
@@ -179,6 +163,7 @@ func main() {
 
 常量是程序运行期间不会改变的那些值。
 变量声明是用 `var`，常量声明是用 `const`
+
 **常量在定义的时候必须赋值**
 
 ```go
@@ -211,12 +196,15 @@ const (
 
 ### iota
 
-`iota` 是go语言中的**常量计数器**，只能在常量的表达式中使用。
+`iota` 是go语言中的 **常量计数器**，只能在常量的表达式中使用。
 
 `iota` 在const 关键字出现时将被重置为 **0**。
-const 中每新增一行常量声明，将使 `iota +1`
-iota 可理解为const 块中的行索引
-使用iota能简化定义，在枚举时很方便
+
+const 中每新增一行常量声明，将使 `iota +1`。
+
+iota 可理解为const 块中的行索引。
+
+使用iota能简化定义，在枚举时很方便。
 
 ```go
 const (
@@ -276,32 +264,39 @@ func main() {
 
 - 多个 `iota` 定义在一行
 
-```go
-const (
-    a, b = iota + 1, iota + 2 //1,2
-    c, d                      //2,3
-    e, f                      //3,4
-)
+    ```go
+    const (
+        a, b = iota + 1, iota + 2 //1,2
+        c, d                      //2,3
+        e, f                      //3,4
+    )
 
-func main() {
-    fmt.Println(a, b, c, d, e, f)
-}
+    func main() {
+        fmt.Println(a, b, c, d, e, f)
+    }
 
-// ----------------------------------------
-// Output:
-1 2 2 3 3 4
-```
+    // ----------------------------------------
+    // Output:
+    1 2 2 3 3 4
+    ```
 
 - iota 只有在新起一行才会自增
 - iota 只有遇到新的 const 才会重置
 - iota 是从 0 开始的。 
 
 ## 值类型和引用类型
+<figure markdown> 
+
+  ![ j = i ](https://cdn.jsdelivr.net/gh/TCP404/Picgo/blog/illustration-pic/Go/IMG/20201115104832899_3842.png){ align=left }
+  <figcaption>j = i</figcaption>
+</figure>
 
 **值类型**：`int float bool string 指针`，使用这些类型的变量直接指向存在内存中的值，存储在栈中。
-j = i
-![ j = i ](https://cdn.jsdelivr.net/gh/TCP404/Picgo/blog/illustration-pic/Go/IMG/20201115104832899_3842.png)
+
+<figure markdown> 
+
+  ![ r1 = r2 ](https://cdn.jsdelivr.net/gh/TCP404/Picgo/blog/illustration-pic/Go/IMG/20201115104853017_32412.png){ align=left }
+  <figcaption>r1 =  r2</figcaption>
+</figure>
 
 **引用类型**：`slices、maps、channel`，被引用的变量会存储在堆中，以便垃圾回收。
-r1 = r2
-![ r1 = r2 ](https://cdn.jsdelivr.net/gh/TCP404/Picgo/blog/illustration-pic/Go/IMG/20201115104853017_32412.png)

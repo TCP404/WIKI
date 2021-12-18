@@ -25,14 +25,14 @@ nav:
       - 15.单元测试:   Go/Basic/Golang-15-单元测试.md 
       - 类型转换:      Go/Basic/Golang-类型转换.md
       - Go Module:    Go/Basic/Golang-Go-Module.md
-    - Adavanced:
-      - 16.并发:     Go/Adavanced/Golang-16-并发.md
-      - 17.Channel: Go/Adavanced/Golang-17-Channel.md
-      - 18.并发安全: Go/Adavanced/Golang-18-并发安全.md
-      - 19.反射:     Go/Adavanced/Golang-19-reflect.md
+    - Advanced:
+      - 16.并发:     Go/Advanced/Golang-16-并发.md
+      - 17.Channel: Go/Advanced/Golang-17-Channel.md
+      - 18.并发安全: Go/Advanced/Golang-18-并发安全.md
+      - 19.反射:     Go/Advanced/Golang-19-reflect.md
     - Framework: 
       - Gin: 
-        - Get start:   Go/Framework/gin/Gin-0-Get-Start.md
+        - Get start:    Go/Framework/gin/Gin-0-Get-Start.md
         - 返回数据:      Go/Framework/gin/Gin-1-返回数据.md
         - 接收请求:      Go/Framework/gin/Gin-2-接收请求.md
         - 路由组:        Go/Framework/gin/Gin-3-路由组.md
@@ -57,29 +57,29 @@ nav:
       - 模块:       Python/Basic/Python-No-10-Module.md
       - File:       Python/Basic/Python-No-19-File.md
       - IO:         Python/Basic/Python-No-20-IO.md
-    - Adavanced:
-      - 高级特性:   Python/Adavanced/Python-No-Feature-High-Level-Feature.md
-      - 工具类:     Python/Adavanced/Python-No-Feature-Utility-Class.md
-      - 函数式编程:  Python/Adavanced/Python-No-Feature-Functional.md
+    - Advanced:
+      - 高级特性:   Python/Advanced/Python-No-Feature-High-Level-Feature.md
+      - 工具类:     Python/Advanced/Python-No-Feature-Utility-Class.md
+      - 函数式编程:  Python/Advanced/Python-No-Feature-Functional.md
       - 面向对象:
-        - 类和对象: Python/Adavanced/OOP/Python-No-11-Class&Object.md
-        - 私有化:   Python/Adavanced/OOP/Python-No-12-Privatisation.md
-        - 魔术方法: Python/Adavanced/OOP/Python-No-13-Magic-Method.md
-        - 枚举类:   Python/Adavanced/OOP/Python-No-14-Enum.md
+        - 类和对象: Python/Advanced/OOP/Python-No-11-Class&Object.md
+        - 私有化:   Python/Advanced/OOP/Python-No-12-Privatization.md
+        - 魔术方法: Python/Advanced/OOP/Python-No-13-Magic-Method.md
+        - 枚举类:   Python/Advanced/OOP/Python-No-14-Enum.md
       - 进程线程:
-        - 总叙: Python/Adavanced/Thread/Python-No-15-Abstract.md
-        - 进程: Python/Adavanced/Thread/Python-No-16-Process.md
-        - 线程: Python/Adavanced/Thread/Python-No-17-Thread.md
-        - 协程: Python/Adavanced/Thread/Python-No-18-Coroutine.md
-    - Buildins:
-      - json: Python/Buildins/Python-No-Buildins-json.md
-      - re:   Python/Buildins/Python-No-Buildins-re.md
+        - 总叙: Python/Advanced/Thread/Python-No-15-Abstract.md
+        - 进程: Python/Advanced/Thread/Python-No-16-Process.md
+        - 线程: Python/Advanced/Thread/Python-No-17-Thread.md
+        - 协程: Python/Advanced/Thread/Python-No-18-Coroutine.md
+    - Builtin:
+      - json: Python/Builtin/Python-No-Builtin-json.md
+      - re:   Python/Builtin/Python-No-Builtin-re.md
     - Type: 
       - string: Python/Type/Python-No-Type-String.md
     - Crawler:
       - 总叙:     Python/Crawler/Python-Crawler-0-Crawler-Abstract.md
       - 通用爬虫: Python/Crawler/Python-Crawler-1-General-Crawler.md
-      - 聚焦爬虫: Python/Crawler/Python-Crawler-2-Focued-Crawler.md
+      - 聚焦爬虫: Python/Crawler/Python-Crawler-2-Focused-Crawler.md
 
 theme:
   name: material
@@ -87,18 +87,18 @@ theme:
   favicon: _assets/logo/favicon.png
   icon:
     admonition:
-      note: octicons/tag-16
-      abstract: octicons/checklist-16
-      info: octicons/info-16
-      tip: octicons/squirrel-16
-      success: octicons/check-16
-      question: octicons/question-16
-      warning: octicons/alert-16
-      failure: octicons/x-circle-16
-      danger: octicons/zap-16
-      bug: octicons/bug-16
-      example: octicons/beaker-16
-      quote: octicons/quote-16
+      note: fontawesome/solid/sticky-note
+      abstract: fontawesome/solid/book
+      info: fontawesome/solid/info-circle
+      tip: fontawesome/solid/bullhorn
+      success: fontawesome/solid/check
+      question: fontawesome/solid/question-circle
+      warning: fontawesome/solid/exclamation-triangle
+      failure: fontawesome/solid/bomb
+      danger: fontawesome/solid/skull
+      bug: fontawesome/solid/robot
+      example: fontawesome/solid/flask
+      quote: fontawesome/solid/quote-left
 
   palette: # 明亮/黑暗模式
     - scheme: default
@@ -109,12 +109,14 @@ theme:
       toggle:
         icon: material/lightbulb
         name: Switch to light mode
-  features: # 横栏导航
-    - navigation.tabs
+  features: 
+    - navigation.tabs       # 横栏导航
     - navigation.indexes
     - content.code.annotate # 代码注释美化，变成一个圆点，鼠标点击显示注释内容。Ref：https://squidfunk.github.io/mkdocs-material/reference/code-blocks/
-
+    - content.tabs.link
 markdown_extensions:
+  - attr_list
+  - md_in_html
   - abbr                    # 名词解释支持，Ref：https://squidfunk.github.io/mkdocs-material/reference/abbreviations/
   - pymdownx.magiclink      # 智能链接支持，Ref：https://facelessuser.github.io/pymdown-extensions/extensions/magiclink/
   - pymdownx.smartsymbols   # 智能符号支持，Ref：https://facelessuser.github.io/pymdown-extensions/extensions/smartsymbols/
@@ -126,13 +128,17 @@ markdown_extensions:
   - pymdownx.details
 
   - pymdownx.betterem:  # 智能识别加粗和斜体等符号
-      smart_enable: all # [all | none | asterisk | underscore] 全部开，全部关，仅对星号起作用，仅对下划线起作用 
+      smart_enable: all # [all 全部开| none 全部关| asterisk 仅对星号起作用| underscore 仅对下划线起作用] 
 
   - pymdownx.arithmatex:  # 对数据公式的支持
       generic: true
 
   - toc:
       permalink: true
+
+  - pymdownx.superfences
+  - pymdownx.tabbed:
+      alternate_style: true 
 
 
   # 对上、下标、文本高亮、键盘样式的支持，Ref：https://squidfunk.github.io/mkdocs-material/reference/formatting/#adding-keyboard-keys

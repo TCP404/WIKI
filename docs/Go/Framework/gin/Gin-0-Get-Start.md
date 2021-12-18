@@ -1,26 +1,3 @@
----
-title: 'Gin [0-Get Start]'
-seotitle: 'Gin [0-Get Start]'
-icons:
-  - fas fa-fire red
-  - fas fa-star yellow
-pin: false
-tags:
-  - gin
-categories:
-  - Golang
-  - Framework
-headimg: 'https://cdn.jsdelivr.net/gh/TCP404/Picgo/blog/cover/Gin.png'
-thumbnail: 'https://cdn.jsdelivr.net/gh/TCP404/Picgo/blog/thumbnail/gin.png'
-abbrlink: 451cd62
-date: 2021-07-19 18:12:21
-updated: 2021-07-19 18:12:21
----
-
-Hello Gin.
-
-<!--more-->
-
 # GetStart
 
 ## 要求
@@ -35,15 +12,15 @@ Hello Gin.
 
 1. 下载并安装 gin：
 
-```bash
-$ go get -u github.com/gin-gonic/gin
-```
+  ```bash
+  $ go get -u github.com/gin-gonic/gin
+  ```
 
 2. 在代码中引入
-```go
-import "github.com/gin-gonic/gin"
-import "net/http"
-```
+  ```go
+  import "github.com/gin-gonic/gin"
+  import "net/http"
+  ```
 
 ## 开始
 
@@ -68,9 +45,11 @@ func main() {
             "msg": "Hello Gin!",
         })
     })
-    app.Run()    // 默认运行在 8080 端口
+    app.Run()    // (1)
 }
 ```
+
+1. 默认运行在 8080 端口
 
 然后执行 `go run demo.go` 命令运行代码：
 ```bash

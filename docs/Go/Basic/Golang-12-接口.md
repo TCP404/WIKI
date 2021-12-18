@@ -1,33 +1,15 @@
----
-title: 'Golang [基础] 12-接口'
-seotitle: 'Golang [基础] 12-接口'
-pin: false
-tags:
-  - Golang
-categories: [Golang, Basic]
-headimg: https://cdn.jsdelivr.net/gh/TCP404/Picgo/blog/cover/go2.png
-thumbnail: https://cdn.jsdelivr.net/gh/TCP404/Picgo/blog/thumbnail/golang.png
-abbrlink: 19a13983
-date: 2021-07-17 11:39:55
-updated: 2021-07-17 11:39:55
----
-
-接口的创建与使用
-
-<!--more-->
-
-
 # 12-接口
 
 Go 中的接口 `interface `是一种类型，一种抽象的类型。
 
-`interface` 是一组方法的集合，是 `dack-type programming` 的一种体现。
+`interface` 是一组方法的集合，是 `duck-type programming` 的一种体现。
 接口做的事情就像是定义一个协议（规则），只要一台机器具有洗衣服和甩干的功能，我就称其为洗衣机。
 接口不关心属性（数据），只关心行为（方法）。
 
 **只要一个结构体 X 实现了接口 A 中所有的方法，就称这个结构体 X 为接口 A 的实现类，称结构体 X 实现了接口 A。还可称结构体 X 是 A 类型。**
 
-{% note warning, **为了保护你的Go语言职业生涯，请牢记接口（interface）是一种类型。** %}
+!!! warning
+    **为了保护你的Go语言职业生涯，请牢记接口（interface）是一种类型。**
 
 ## 定义接口
 
@@ -42,18 +24,23 @@ type identifier interface {
 }
 ```
 `identifier`：接口名，命名时按照规范应该加上 `er`，如 有字符串功能的 `Stringer`、有读取功能的 `Reader`。
+
 `methodName`：方法名
 
-eg：
-```go
-type USBer interface {
-    start()
-    end()
-}
-```
+`param`: 方法参数，非必填
+
+`return`: 方法返回值，非必填
+
+!!! example
+    ```go
+    type USBer interface {
+        start()
+        end()
+    }
+    ```
 
 ## 实现接口
-实现接口：
+
 ```go
 // 定义一个接口
 type USBer interface {
@@ -97,11 +84,10 @@ func main() {
 }
 ```
 
-{% noteblock warning %}
-注意，
-接口变量使用之前，需要先赋一个实现类对象。
-接口变量可以调用接口中的方法，但不可以调用实现类的属性和方法
-{% endnoteblock %}
+!!! warning 
+    注意，
+    接口变量使用之前，需要先赋一个实现类对象。
+    接口变量可以调用接口中的方法，但不可以调用实现类的属性和方法
 
 ```go
 package main
@@ -189,32 +175,31 @@ fmt.Println(t3)    // 100
 fmt.Println(t4)    // [1 2 3]
 ```
 
-{% noteblock info %}
-空接口的作用在于 **任意类型**。
-当我们想要接受一个任意类型的参数，或者定义一个接收任意类型的容器，都可以使用空接口来代替。
+!!! info
+    空接口的作用在于 **任意类型**。
+    当我们想要接受一个任意类型的参数，或者定义一个接收任意类型的容器，都可以使用空接口来代替。
 
-```go
-func test (a interface{}) {
-    ...
-}
+    ```go
+    func test (a interface{}) {
+        ...
+    }
 
-test("string")
-test(123)
-test([]int{1, 2, 3, 4})
-```
+    test("string")
+    test(123)
+    test([]int{1, 2, 3, 4})
+    ```
 
-```go
-a := []interface{}{1, 3, "str", true}
-fmt.Println(a)    // {1 3 str true}
+    ```go
+    a := []interface{}{1, 3, "str", true}
+    fmt.Println(a)    // {1 3 str true}
 
-type T interface{}
-b := []T{1, 3, "str", true}
-fmt.Println(b)    // {1 3 str true}
-```
-{% endnoteblock %}
+    type T interface{}
+    b := []T{1, 3, "str", true}
+    fmt.Println(b)    // {1 3 str true}
+    ```
 
 ## 接口嵌套
-接口中不仅可以定义方法签名，还可以定义其他的接口。这种方式我们称为**接口嵌套**。
+接口中不仅可以定义方法签名，还可以定义其他的接口。这种方式我们称为 **接口嵌套**。
 
 ```go
 // 接口A
@@ -290,75 +275,79 @@ func main() {
 
 设 定义了一个接口A，还有两个结构体 X、Y，两个结构体都实现了接口A，当一个函数或方法想要接收 X 或 Y 两种类型时，可以将形参设置为 接口A 类型，这样传递的时候不管是 X 的对象还是 Y 的对象都可以传递进来。
 
-【Q】：那如果在方法或函数里，我需要确定到底是 X 还是 Y 怎么办？
+!!! faq
+    【Q】：那如果在方法或函数里，我需要确定到底是 X 还是 Y 怎么办？
 
-```go
-type A interface {
-    aMethod()
-}
-
-type X struct {
-    name string
-    age  int
-}
-
-type Y struct {
-    name string
-    sex  string
-}
-
-// 实现接口A
-func (x X) aMethod() {
-    fmt.Println("I am ", x)
-}
-
-func (y Y) aMethod() {
-    fmt.Println("I am", y)
-}
-
-// 定义一个接收 X 和 Y 对象的函数
-func test(a A) {
-    a.aMethod()
-}
-```
-
-【A】：这时候我们需要用到接口类型断言来确定传进来的到底是 x 还是 y。
-
-- 方式1：
-    1. `instance := 接口对象.(实际类型)`，这种不安全，会引发 panic()
-    2. `instance, ok := 接口对象.(实际类型)`，这种就安全。接口对象是实际类型时，ok 为 true
-- 方式2：switch
     ```go
-    switch instance := 接口对象.(type) {
-    case 实际类型1: ...
-    case 实际类型2: ...
-    ...
+    type A interface {
+        aMethod()
+    }
+
+    type X struct {
+        name string
+        age  int
+    }
+
+    type Y struct {
+        name string
+        sex  string
+    }
+
+    // 实现接口A
+    func (x X) aMethod() {
+        fmt.Println("I am ", x)
+    }
+
+    func (y Y) aMethod() {
+        fmt.Println("I am", y)
+    }
+
+    // 定义一个接收 X 和 Y 对象的函数
+    func test(a A) {
+        a.aMethod()
     }
     ```
 
-于是在 `test()` 函数中我们可以这样写：
-```go
-func test (a A) {
-    if ins, ok := a.(X); ok {
-        fmt.Println(ins.age)
-    } else if ins, ok := a.(Y); ok {
-        fmt.Println(ins.sex)
-    }
-}
-```
+    【A】：这时候我们需要用到接口类型断言来确定传进来的到底是 x 还是 y。
 
-或者这样写：
-```go
-// 定义一个接收 X 和 Y 对象的函数
-func test(a A) {
-    switch ins := a.(type) {
-    case X:
-        fmt.Println(ins.age)
-    case Y:
-        fmt.Println(ins.sex)
+    - 方式1：
+
+        1. `instance := 接口对象.(实际类型)`，这种不安全，会引发 panic()
+        2. `instance, ok := 接口对象.(实际类型)`，这种就安全。接口对象是实际类型时，ok 为 true
+    
+    - 方式2：switch
+
+        ```go
+        switch instance := 接口对象.(type) {
+        case 实际类型1: ...
+        case 实际类型2: ...
+        ...
+        }
+        ```
+
+    于是在 `test()` 函数中我们可以这样写：
+    ```go
+    func test (a A) {
+        if ins, ok := a.(X); ok {
+            fmt.Println(ins.age)
+        } else if ins, ok := a.(Y); ok {
+            fmt.Println(ins.sex)
+        }
     }
-}
-```
+    ```
+
+    或者这样写：
+    ```go
+    // 定义一个接收 X 和 Y 对象的函数
+    func test(a A) {
+        switch ins := a.(type) {
+        case X:
+            fmt.Println(ins.age)
+        case Y:
+            fmt.Println(ins.sex)
+        }
+    }
+    ```
 
 ## 值类型实现 VS 指针类型实现
 
@@ -399,7 +388,7 @@ func main() {
 ```
 在使用值类型实现接口之后，不管是 `X 结构体类型` 还是 `*X 结构体指针类型`，都可以赋值给该接口变量。
 因为在 Go 语言中有对指针类型变量求值的语法糖，X 指针 `&x` 内部会自动求值。
-`var a2 Aer = &x` 会变成 `var a2 Aer = *(&x)`。
+`#!go var a2 Aer = &x` 会变成 `#!go var a2 Aer = *(&x)`。
 
 而 Y 是用指针类型实现的，所以只能传递指针 `&y` 给 Aer 接口变量。
 
@@ -484,7 +473,8 @@ type S struct {			// 结构体 S
 
 在结构体中匿名嵌入别的结构体相当于继承了这个结构体，是一种 `is-a` 的关系，上面的写法表明了：
 
->   结构体 `S` is a `Ier` 类型。
+!!! note ""
+    结构体 `S` is a `Ier` 类型。
 
 这样写，可以将结构体变量 `s1` 赋值给接口变量 `ier1`，但**无法调用接口中的方法**，因为结构体 `S` 没有实现。当然如果结构体 `S` 实现了方法，还是可以调用的。
 
@@ -498,10 +488,10 @@ func main() {
 }
 ```
 
->   由此我们也可以这么理解：
->
->   当一个结构体 `S` 实现了接口 `Ier` 中的所有方法，
->   相当于隐式地在 `S` 中嵌入一个匿名字段 `Ier`，
->   使得 `S is a Ier`，
->   于是结构体变量 `s1` 可以赋值给接口变量 `ier1`，可以调用接口方法。
+!!! note "由此我们也可以这么理解："
+ 
+    当一个结构体 `S` 实现了接口 `Ier` 中的所有方法，
+    相当于隐式地在 `S` 中嵌入一个匿名字段 `Ier`，
+    使得 `S is a Ier`，
+    于是结构体变量 `s1` 可以赋值给接口变量 `ier1`，可以调用接口方法。
 

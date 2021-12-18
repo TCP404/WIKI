@@ -1,26 +1,3 @@
----
-title: 'Gin [5-中间件]'
-seotitle: 'Gin [5-中间件]'
-pin: false
-tags:
-  - gin
-  - 中间件
-  - 拦截器
-  - 监视器
-categories:
-  - Golang
-  - Framework
-headimg: 'https://cdn.jsdelivr.net/gh/TCP404/Picgo/blog/cover/Gin.png'
-thumbnail: 'https://cdn.jsdelivr.net/gh/TCP404/Picgo/blog/thumbnail/gin.png'
-abbrlink: a55bf0d2
-date: 2021-07-19 18:11:45
-updated: 2021-07-19 18:11:45
----
-
-中间件的创建和使用
-
-<!--more-->
-
 # 中间件
 
 用在 `客户端` 与 `服务端` 之间的插件，我们称之为 `中间件`。
@@ -43,9 +20,7 @@ func (group *RouterGroup) GET(relativePath string, handlers ...HandlerFunc) IRou
 
 对于这个 `HandlerFunc`，源码中是这样定义的：
 
-```go
-//gin.go
-
+```go title="github.com/gin-gonic/gin/gin.go"
 // HandlerFunc defines the handler used by gin middleware as return value.
 type HandlerFunc func(*Context)
 ```
@@ -122,44 +97,44 @@ func main() {
 
 而组外的其他路由并不一定会执行 timer。
 
-eg：
 
-```go
-// 定义一个中间件
-func timer(c *gin.Context) {
-    start := time.Now()
-    c.Next()
-    end := time.Since(start)
-    fmt.Println(end)
-}
-
-func main() {
-    r := gin.Default()
-
-    userG := r.Group("/user")    // 定义一个路由组 userG
-    userG.Use(timer)             // 绑定 timer 中间件
-    {
-        // 以下两个路由会执行 timer 中间件
-        userG.POST("/register", Register)
-        userG.POST("/login", Login)
+!!! example
+    ```go
+    // 定义一个中间件
+    func timer(c *gin.Context) {
+        start := time.Now()
+        c.Next()
+        end := time.Since(start)
+        fmt.Println(end)
     }
 
-    // 定义一个路由组 boogG
-    bookG := r.Group("/book")
-    {
-        // 以下两个路由不会执行 timer 中间件
-        bookG.GET("/search/:id", SearchBook)
-        bookG.DELETE("/remove/:id", RemoveBook)
+    func main() {
+        r := gin.Default()
+
+        userG := r.Group("/user")    // 定义一个路由组 userG
+        userG.Use(timer)             // 绑定 timer 中间件
+        {
+            // 以下两个路由会执行 timer 中间件
+            userG.POST("/register", Register)
+            userG.POST("/login", Login)
+        }
+
+        // 定义一个路由组 boogG
+        bookG := r.Group("/book")
+        {
+            // 以下两个路由不会执行 timer 中间件
+            bookG.GET("/search/:id", SearchBook)
+            bookG.DELETE("/remove/:id", RemoveBook)
+        }
+
+        r.Run(":9090")
     }
+    ...
+    ```
 
-    r.Run(":9090")
-}
-...
-```
+    ![](https://cdn.jsdelivr.net/gh/TCP404/Picgo/blog/illustration-pic/Go/vx_images/1537822060392.png)
 
-![](https://cdn.jsdelivr.net/gh/TCP404/Picgo/blog/illustration-pic/Go/vx_images/1537822060392.png)
-
-可以清楚看到，请求 /user 组下的路径时，调用了 timer 打印了时间，而请求 /book 组时没有。
+    可以清楚看到，请求 /user 组下的路径时，调用了 timer 打印了时间，而请求 /book 组时没有。
 
 
 ## 中间链（职责链模式）
@@ -183,54 +158,54 @@ func main() {
 ![](https://cdn.jsdelivr.net/gh/TCP404/Picgo/blog/illustration-pic/Go/vx_images/77417672863.png)
 
 
-eg：
+???+ example
 
-```go
-// 中间件1
-func m1(c *gin.Context) {
-    fmt.Println("m1 in...")
-    c.Next()
-    fmt.Println("m1 out...")
-}
+    ```go
+    // 中间件1
+    func m1(c *gin.Context) {
+        fmt.Println("m1 in...")
+        c.Next()
+        fmt.Println("m1 out...")
+    }
 
-// 中间件2
-func m2(c *gin.Context) {
-    fmt.Println("m2 in...")
-    c.Next()
-    fmt.Println("m2 out...")
-}
+    // 中间件2
+    func m2(c *gin.Context) {
+        fmt.Println("m2 in...")
+        c.Next()
+        fmt.Println("m2 out...")
+    }
 
-// 首页处理函数
-func indexHandler(c *gin.Context) {
-    fmt.Println("Index handler in...")
+    // 首页处理函数
+    func indexHandler(c *gin.Context) {
+        fmt.Println("Index handler in...")
 
-    c.JSON(http.StatusOK, gin.H{
-        "msg": "Here is index.",
-    })
-    c.Next()
-    fmt.Println("Index handler out...")
-}
-
-
-func main() {
-    r := gin.Default()
-
-    r.GET("/", m1, m2, indexHandler)    // 依次局部注册三个中间件
-
-    r.Run(":9090")
-}
-```
-
-![](https://cdn.jsdelivr.net/gh/TCP404/Picgo/blog/illustration-pic/Go/vx_images/2607899532868.png)
+        c.JSON(http.StatusOK, gin.H{
+            "msg": "Here is index.",
+        })
+        c.Next()
+        fmt.Println("Index handler out...")
+    }
 
 
-三个 `HandlerFunc` 的注册顺序依次是 `m1、m2、indexHandler`
+    func main() {
+        r := gin.Default()
 
-每个都调用了 `c.Next()`，
+        r.GET("/", m1, m2, indexHandler)    // 依次局部注册三个中间件
 
-所以他们的执行流应该是：
+        r.Run(":9090")
+    }
+    ```
 
-![](https://cdn.jsdelivr.net/gh/TCP404/Picgo/blog/illustration-pic/Go/vx_images/3247650618373.png)
+    ![](https://cdn.jsdelivr.net/gh/TCP404/Picgo/blog/illustration-pic/Go/vx_images/2607899532868.png)
+
+
+    三个 `HandlerFunc` 的注册顺序依次是 `m1、m2、indexHandler`
+
+    每个都调用了 `c.Next()`，
+
+    所以他们的执行流应该是：
+
+    ![](https://cdn.jsdelivr.net/gh/TCP404/Picgo/blog/illustration-pic/Go/vx_images/3247650618373.png)
 
 
 ### c.Abort()
@@ -240,54 +215,54 @@ func main() {
 `c.Next()` 调用下一个 HandlerFunc;
 `c.Abort()` 阻止调用下一个 HandlerFunc。一旦阻止了，则后面不管有多少个 HandlerFunc，它们都没有机会执行了。
 
-eg：
+???+ example
 
-```go
-// 中间件1
-func m1(c *gin.Context) {
-    fmt.Println("m1 in...")
-    c.Next()
-    fmt.Println("m1 out...")
-}
+    ```go
+    // 中间件1
+    func m1(c *gin.Context) {
+        fmt.Println("m1 in...")
+        c.Next()
+        fmt.Println("m1 out...")
+    }
 
-// 中间件2
-func m2(c *gin.Context) {
-    fmt.Println("m2 in...")
-    c.Abort()    // 阻止调用后面的 HandlerFunc
-    fmt.Println("m2 out...")
-}
+    // 中间件2
+    func m2(c *gin.Context) {
+        fmt.Println("m2 in...")
+        c.Abort()    // 阻止调用后面的 HandlerFunc
+        fmt.Println("m2 out...")
+    }
 
-// 中间件3
-func m3(c *gin.Context) {
-    fmt.Println("m3 in...")
-    c.Next()
-    fmt.Println("m3 out...")
-}
+    // 中间件3
+    func m3(c *gin.Context) {
+        fmt.Println("m3 in...")
+        c.Next()
+        fmt.Println("m3 out...")
+    }
 
-// 首页处理函数
-func indexHandler(c *gin.Context) {
-    fmt.Println("Index handler in...")
+    // 首页处理函数
+    func indexHandler(c *gin.Context) {
+        fmt.Println("Index handler in...")
 
-    c.JSON(http.StatusOK, gin.H{
-        "msg": "Here is index.",
-    })
-    c.Next()
-    fmt.Println("Index handler out...")
-}
+        c.JSON(http.StatusOK, gin.H{
+            "msg": "Here is index.",
+        })
+        c.Next()
+        fmt.Println("Index handler out...")
+    }
 
 
-func main() {
-    r := gin.Default()
+    func main() {
+        r := gin.Default()
 
-    r.GET("/", m1, m2, m3, indexHandler)    // 依次局部注册四个中间件
+        r.GET("/", m1, m2, m3, indexHandler)    // 依次局部注册四个中间件
 
-    r.Run(":9090")
-}
-```
+        r.Run(":9090")
+    }
+    ```
 
-![](https://cdn.jsdelivr.net/gh/TCP404/Picgo/blog/illustration-pic/Go/vx_images/2547203825659.png)
+    ![](https://cdn.jsdelivr.net/gh/TCP404/Picgo/blog/illustration-pic/Go/vx_images/2547203825659.png)
 
-在 `m2` 的时候调用了 `c.Abort()`，所以后面的 `m3、indexHandler` 都没有机会执行了。
+    在 `m2` 的时候调用了 `c.Abort()`，所以后面的 `m3、indexHandler` 都没有机会执行了。
 
 ## 中间件之间数据传递
 
@@ -299,41 +274,40 @@ func main() {
 
 在这里的获取要注意执行流的问题，如果第2个中间件执行 `c.Set()`，但是在第1个中间件就执行了 `c.Get()`，那会什么都拿不到。
 
-eg：
+???+ example
+    ```go
+    // 中间件1
+    func m1(c *gin.Context) {
+        fmt.Println("m1 in...")
+        c.Set("k", 123)    // 设置数据
+        c.Next()
+        fmt.Println("m1 out...")
+    }
 
-```go
-// 中间件1
-func m1(c *gin.Context) {
-    fmt.Println("m1 in...")
-    c.Set("k", 123)    // 设置数据
-    c.Next()
-    fmt.Println("m1 out...")
-}
+    // 首页处理函数
+    func indexHandler(c *gin.Context) {
+        fmt.Println("Index handler in...")
 
-// 首页处理函数
-func indexHandler(c *gin.Context) {
-    fmt.Println("Index handler in...")
+        fmt.Println(c.MustGet("k"))    // 获取数据
 
-    fmt.Println(c.MustGet("k"))    // 获取数据
+        c.JSON(http.StatusOK, gin.H{
+            "msg": "Here is index.",
+        })
 
-    c.JSON(http.StatusOK, gin.H{
-        "msg": "Here is index.",
-    })
-
-    fmt.Println("Index handler out...")
-}
+        fmt.Println("Index handler out...")
+    }
 
 
-func main() {
-    r := gin.Default()
+    func main() {
+        r := gin.Default()
 
-    r.GET("/", m1, indexHandler)
+        r.GET("/", m1, indexHandler)
 
-    r.Run(":9090")
-}
-```
+        r.Run(":9090")
+    }
+    ```
 
-![](https://cdn.jsdelivr.net/gh/TCP404/Picgo/blog/illustration-pic/Go/vx_images/1886277063287.png)
+    ![](https://cdn.jsdelivr.net/gh/TCP404/Picgo/blog/illustration-pic/Go/vx_images/1886277063287.png)
 
 ## 默认中间件
 

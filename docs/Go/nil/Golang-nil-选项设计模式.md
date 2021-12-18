@@ -1,28 +1,3 @@
----
-title: 'Golang [nil] 选项设计模式'
-seotitle: 'Golang [nil] 选项设计模式'
-pin: false
-tags:
-  - Golang
-  - 选项设计模式
-  - Function Option
-  - 生成器模式
-  - Builder 模式
-  - 函数式编程
-categories:
-  - Golang
-  - nil
-headimg: 'https://cdn.jsdelivr.net/gh/TCP404/Picgo/blog/cover/go2.png'
-thumbnail: 'https://cdn.jsdelivr.net/gh/TCP404/Picgo/blog/thumbnail/golang.png'
-abbrlink: f0e2800f
-date: 2021-07-28 16:20:43
-updated: 2021-07-28 16:20:43
----
-
-用函数式编程的方法解决多成员结构体的初始化问题
-
-<!--more-->
-
 # 选项设计模式
 
 在编写程序时，经常会遇到这样一类场景：
