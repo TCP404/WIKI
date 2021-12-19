@@ -1,6 +1,11 @@
 site_name: Boii's Wiki
 site_url: https://wiki.boii.xyz
 site_author: Boii
+repo_url: https://github.com/TCP404/WIKI/
+repo_name: GitHub
+remote_branch: gh-pages
+remote_name: origin
+dev_addr: 127.0.0.1:8000
 copyright: Copyright © 2021 [Mr.Boii](https://www.boii.xyz)
 
 nav:
@@ -94,6 +99,7 @@ nav:
           - 2-函数、数组、重定向: Linux/Shell/Shell-2-函数、数组、重定向.md
           - 3-表达式: Linux/Shell/Shell-3-表达式.md
           - 4-字符串处理: Linux/Shell/Shell-4-字符串处理.md
+
 theme:
   name: material
   logo: _assets/logo/favicon.png
@@ -127,6 +133,7 @@ theme:
     - navigation.indexes
     - content.code.annotate # 代码注释美化，变成一个圆点，鼠标点击显示注释内容。Ref：https://squidfunk.github.io/mkdocs-material/reference/code-blocks/
     - content.tabs.link
+
 markdown_extensions:
   - attr_list
   - md_in_html
@@ -172,9 +179,9 @@ markdown_extensions:
   # emoji 支持
   - pymdownx.emoji:
       emoji_generator: !!python/name:pymdownx.emoji.to_png
-  # - pymdownx.emoji:
-  #     emoji_index: !!python/name:materialx.emoji.twemoji
-  #     emoji_generator: !!python/name:materialx.emoji.to_svg
+#   - pymdownx.emoji:
+    #   emoji_index: !!python/name:materialx.emoji.twemoji
+    #   emoji_generator: !!python/name:materialx.emoji.to_svg
 
   # 列表支持，Ref：https://squidfunk.github.io/mkdocs-material/reference/lists/
   - def_list
@@ -189,3 +196,4 @@ extra_javascript:
   - _assets/js/mathjax.js
   - https://polyfill.io/v3/polyfill.min.js?features=es6
   - https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js
+
