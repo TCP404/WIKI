@@ -1,22 +1,3 @@
----
-title: 'Golang [基础] 0-总叙'
-seotitle: 'Golang [基础] 0-总叙'
-pin: false
-tags:
-  - Golang
-categories: [Golang, Basic]
-headimg: https://cdn.jsdelivr.net/gh/TCP404/Picgo/blog/cover/go2.png
-thumbnail: https://cdn.jsdelivr.net/gh/TCP404/Picgo/blog/thumbnail/golang.png
-abbrlink: 913ad9ee
-date: 2021-07-17 10:11:51
-updated: 2021-07-17 10:11:51
----
-
-Go 是一门好语言吗？
-
-<!--more-->
-
-
 # 0-总叙
 
 ## 特性
@@ -34,7 +15,7 @@ Go 是一门好语言吗？
 
 ## 环境变量
 
-- **GOROOT**：Go的安装位置，默认`$HOME/go`
+- **GOROOT**：Go的安装位置，默认 `#!shell $HOME/go`
 - **GOPATH**：工作目录，在这下面写代码
 - **GOBIN**：编译器和链接器的安装位置，默认 `$GOROOT/bin`
 - **GOOS**：运行Go的操作系统；
@@ -49,26 +30,30 @@ Go 是一门好语言吗？
 ```go
 // src/Hello/main.go
 
-package main    // 声明 mian 包，表明当前是一个可执行程序
+package main    // (1) 
 
-import "fmt"    // 导入内置 fmt 包
+import "fmt"    // (2)
 
-func main() {    // main 函数，程序执行入口
-    fmt.Println("Hello World!")    // 在终端打印 Hello World！
+func main() {    // (3)
+    fmt.Println("Hello World!")    // (4)
 }
 ```
 
-1.  `package main` 定义了包名。必须在源文件中非注释的第一行指明这个文件属于哪个包，如：package main。
-     package main表示一个可独立执行的程序，**每个 Go 应用程序都包含一个名为 main 的包**。
-2.  `import "fmt"` 告诉 Go 编译器这个程序需要使用 fmt 包（的函数，或其他元素），fmt 包实现了格式化 IO（输入/输出）的函数。
-3.  `func main()` 是程序开始执行的函数。main 函数是每一个可执行程序所必须包含的，一般来说都是在启动后第一个执行的函数（如果有 init() 函数则会先执行 init() 函数）。
-4.  `fmt.Println(...)` 可以将字符串输出到控制台，并在最后自动增加换行字符 \n。使用 fmt.Print("hello, world\n") 可以得到相同的结果。
+1. `package main` 定义了包名。必须在源文件中非注释的第一行指明这个文件属于哪个包，如：package main。
+   package main 表示一个可独立执行的程序，**每个 Go 应用程序都包含一个名为 main 的包**。
+2. `import "fmt"` 告诉 Go 编译器这个程序需要使用 fmt 包（的函数，或其他元素），fmt 包实现了格式化 IO（输入/输出）的函数。
+3. `func main()` 是程序开始执行的函数。main 函数是每一个可执行程序所必须包含的，一般来说都是在启动后第一个执行的函数（如果有 init() 函数则会先执行 init() 函数）。
+4. `fmt.Println(...)` 可以将字符串输出到控制台，并在最后自动增加换行字符 \n。使用 fmt.Print("hello, world\n") 可以得到相同的结果。
+
+注意：
 
 - 在 Go 中，左大括号不能单独一行，这会编译不了
 - 对缩进没有要求，可以用 `go fmt 文件名.go` 命令将文件格式化
 - 每个语句独占一行，不需要加分号
 - 大部分语句只能写在 {} 内， {} 外只能做一些声明变量、函数、结构体的工作。
-- 变量声明了不使用也是**不允许**的
+- 变量声明了不使用也是 **不允许** 的
+
+
 
 ### 运行
 

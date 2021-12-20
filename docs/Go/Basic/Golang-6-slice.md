@@ -1,25 +1,8 @@
----
-title: 'Golang [基础] 6-slice'
-seotitle: 'Golang [基础] 6-slice'
-pin: false
-tags:
-  - Golang
-categories: [Golang, Basic]
-headimg: 'https://cdn.jsdelivr.net/gh/TCP404/Picgo/blog/cover/go2.png'
-thumbnail: 'https://cdn.jsdelivr.net/gh/TCP404/Picgo/blog/thumbnail/golang.png'
-abbrlink: 6642a673
-date: 2021-07-17 11:16:55
-updated: 2021-07-17 11:16:55
----
-
-
-<!--more-->
-
 # 6-切片
 > 切片是一个拥有相同数据类型元素的可变长度的序列。
 
-数组是**固定**长度，切片是**可变**长度
-数组是**值类型**，切片是**引用类型**
+数组是 **固定** 长度，切片是 **可变** 长度
+数组是 **值类型**，切片是 **引用类型**
 
 数组有很多局限性，切片非常灵活，支持自动扩容
 
@@ -27,34 +10,37 @@ updated: 2021-07-17 11:16:55
 
 ## 创建切片
 
-> **注意：切片是引用类型！！！**
+!!! warning "注意"
+    **切片是引用类型！！！**
 
 ```go
 // 切片
-var identifier []type
-var identifier = []type{initial value}
-identifier := []type{initial value}
+var idn []T
+var idn = []T{initial value}
+idn := []T{initial value}
 
 // 数组
-var identifier [len]type
-var identifier = [...]type{initial value}
+var idn [len]T
+var idn = [...]T{initial value}
 ```
-`identifier`：切片名、`type`：切片数据类型
+`idn`：切片名、`T`：切片数据类型
 
-> 区别于数组，切片在定义时不用填写 len。
-> 它和初始化数组时省略 len 不同，数组省略 len 时要写 `...`，切片啥也不用写。
+区别于数组，切片在定义时不用填写 len。
+
+它和初始化数组时省略 len 不同，数组省略 len 时要写 `...`，切片啥也不用写。
 
 
-```go
-func main() {
-    var a []string				 // 声明一个字符串切片
-    var b = []int{1, 2, 3, 4, 5} // 声明一个整型切片,并初始化
-    c := []bool{false, true}	 // 声明一个布尔型切片,并初始化
-    fmt.Println(a)				 // []
-    fmt.Println(b)				 // [1 2 3 4 5]
-    fmt.Println(c)				 // [false, true]
-}
-```
+!!! example
+    ```go
+    func main() {
+        var a []string				 // 声明一个字符串切片
+        var b = []int{1, 2, 3, 4, 5} // 声明一个整型切片,并初始化
+        c := []bool{false, true}	 // 声明一个布尔型切片,并初始化
+        fmt.Println(a)				 // []
+        fmt.Println(b)				 // [1 2 3 4 5]
+        fmt.Println(c)				 // [false, true]
+    }
+    ```
 
 Slice 的创建方式有三种：
 
@@ -76,10 +62,10 @@ s3 := make([]int, 10, 20)	// 3. 通过关键字 make 创建
 
 切片底层是数组，当底层数组不够的时候，切片就会扩容。
 
-上面的定义是创建一个匿名数组，让切片指向这个匿名数组，下面是基于数组定义切片
-```go
-identifier := array[start_with:end:max]
-```
+上面的定义是创建一个匿名数组，让切片指向这个匿名数组，
+
+下面是基于数组定义切片: `#!go idn := array[start_with:end:max]`
+
 
 ```go
 func main() {
@@ -109,44 +95,44 @@ func main() {
 
 ![指定数组定义切片](https://cdn.jsdelivr.net/gh/TCP404/Picgo/blog/illustration-pic/Go/IMG/20201117165353576_15789.png)
 
-{% noteblock yellow %}
 容量指的是从接片第一个元素到底层数组的最后一个元素
+
 例如上面第三张图中：
 
-```go
-arr := [8]int{55, 56, 57, 58, 59, 60, 61, 62}
-c := arr[3:6]
+!!! example 
+    ```go
+    arr := [8]int{55, 56, 57, 58, 59, 60, 61, 62}
+    c := arr[3:6]
 
-len(c)    // 3
-cap(c)    // 5
-```
-{% endnoteblock %}
+    len(c)    // 3
+    cap(c)    // 5
+    ```
 
 
 ### 使用make()创建
 
-如果需要**动态**的创建一个切片，可以使用内置的`make()`函数
+如果需要 **动态** 的创建一个切片，可以使用内置的`make()`函数
 基本语法为：
 
 ```go
-make([]type, len, cap)
+make([]T, len, cap)
 
-var identifier []type = make([]type, len, cap)
-identifier := make([]type, len, cap)
+var idn []T = make([]T, len, cap)
+idn := make([]T, len, cap)
 ```
-`type`：切片数据类型、`len`：长度、`cap`：容量
+`T`：切片数据类型、`len`：长度、`cap`：容量
 cap 可以不填，默认和 len 相同
 
 ```go
 func main() {
     // make函数构造切片
-    // make([]type, len, cap)
+    // make([]T, len, cap)
 
     d := make([]int, 4, 10) // 构造一个整型切片，填充5个元素，最大容量10
-    fmt.Println(d)         // [0 0 0 0]
-    fmt.Printf("%T \n", d) // []int
-    fmt.Println(len(d))    // 4
-    fmt.Println(cap(d))    // 10
+    fmt.Println(d)          // [0 0 0 0]
+    fmt.Printf("%T \n", d)  // []int
+    fmt.Println(len(d))     // 4
+    fmt.Println(cap(d))     // 10
 }
 ```
 
@@ -159,16 +145,18 @@ func fn(a int, b int) []int {
 
 ## 切片是引用类型
 ### 判空
-检查切片是否为空，不能用 `s == nil`，而是应该使用 `len(s) == 0`
-> 切片是一种引用类型，当它被声明的时候，没有指向任何数组，包括匿名数组也没有，此时切片中指针为 `nil`
-```go
-var s []int    // s == nil
-```
 
-当切片被初始化的时候，它就指向了一个数组，这时切片中的指针不为 `nil`。
-```go
-var s = []int{}    // s != nil
-```
+检查切片是否为空，不能用 `s == nil`，而是应该使用 `len(s) == 0`
+!!! note
+    切片是一种引用类型，当它被声明的时候，没有指向任何数组，包括匿名数组也没有，此时切片中指针为 `nil`
+    ```go
+    var s []int    // s == nil
+    ```
+
+    当切片被初始化的时候，它就指向了一个数组，这时切片中的指针不为 `nil`。
+    ```go
+    var s = []int{}    // s != nil
+    ```
 
 ### 切片不能直接比较
 切片是一种引用类型，我们不能用 `==` 操作符来判断两个切片是否含有全部相等元素。
@@ -186,15 +174,17 @@ s3 := make([]int, 0) //len(s3)=0; cap(s3)=0; s3!=nil
 
 ### 切片的拷贝赋值
 下面的代码中演示了拷贝前后两个变量共享底层数组，对一个切片的修改会影响另一个切片的内容，这点需要特别注意。
-```go
-func main() {
-    s1 := make([]int, 3) //[0 0 0]
-    s2 := s1             //将s1直接赋值给s2，s1和s2共用一个底层数组
-    s2[0] = 100
-    fmt.Println(s1) //[100 0 0]
-    fmt.Println(s2) //[100 0 0]
-}
-```
+
+!!! example
+    ```go
+    func main() {
+        s1 := make([]int, 3) //[0 0 0]
+        s2 := s1             //将s1直接赋值给s2，s1和s2共用一个底层数组
+        s2[0] = 100
+        fmt.Println(s1) //[100 0 0]
+        fmt.Println(s2) //[100 0 0]
+    }
+    ```
 
 ## 切片遍历
 切片的遍历方式和数组是一致的，支持索引遍历和`for range`遍历。
@@ -227,17 +217,19 @@ func main() {
 }
 ```
 
-> `append()` 第二个参数也可以是另一个切片，不过记得加上 `...`
-```go
-func main() {
-    s2 := []int{55, 56, 57}
-    s = append(s, s2...)
-}
-```
+`append()` 第二个参数也可以是另一个切片，不过记得加上 `...`
+
+!!! example
+    ```go
+    func main() {
+        s2 := []int{55, 56, 57}
+        s = append(s, s2...)
+    }
+    ```
 
 **注意：** 通过var声明的零值切片可以在 `append()` 函数直接使用，无需初始化。
 ```go
-// 正确
+// √ 正确
 var s []int
 s = append(s, 1, 2, 3)
 
@@ -291,16 +283,27 @@ func main() {
 
 ## [:] 语法
 
-这里需要说明一下，无论任何语言的 `[:]` 语法都是左闭右开的，用数学表达就是 $[start, end)$。
+!!! note 
+    这里需要说明一下，无论任何语言的 `[:]` 语法都是左闭右开的，用数学表达就是 $[start, end)$，因为这样写起来会很方便。
 
-在 Python 中，``[:]``的语法规则是 `[low:high:step]`；
+    举个例子：当我想要基于某个数组，从下标 2 切到末尾结束，那么写起来就是这样的：
+    ```go
+    var arr [8]{0, 1, 2, 3, 4, 5, 6, 7}
+    s := arr[2:len(arr)]
+    ```
+    因为下标是从 0 开始的，而 len() 的计算是从 1 开始的，也就是说数组 arr 的长度是 8，下标是从 0 ~ 7.
+
+    那么 `#!go s:= arr[2:len(arr)]` 就相当于 `#!go s := arr[2:8]`。
+
+    下标是  8 就已经越界了，但是 `[:]` 语法是左闭右开，所以就是取 arr 的下标 2 到下标 7。
+
+在 Python 中，`[:]`的语法规则是 `[low:high:step]`；
 
 而在 Golang 中则是 `[low:high:max]`，其规则是：
 
-`0 <= low <= len(arr) <= high <= max <= cap(arr)`。
+`#!go 0 <= low <= len(arr) <= high <= max <= cap(arr)`。
 
 - `low `的取值在 `0 至 底层结构长度`，取底层结构长度时为空切片
-
 - `high`的取值在`low 至 max`，取 low 时为空切片
 - `max`的取值在`high 至 底层结构容量`，取 high 时新切片 len==cap
 
@@ -394,8 +397,10 @@ a = append([]T{x}, a...)
 
 ## 总结
 
-**切片和数组**之间有那么点像数据库中的 **基本表和视图**。
+**切片和数组** 之间有那么点像数据库中的 **基本表和视图**。
+
 基本表是存储数据定义和数据的，视图只存储数据定义。所以基本表改变时视图也改变。
+
 数组是存储定义和数据的，切片只存储定义。所以数组元素改变时切片也改变。
 
 这个例子可能不是很贴切，但联系一下这句话：数组是值类型，切片是引用类型。

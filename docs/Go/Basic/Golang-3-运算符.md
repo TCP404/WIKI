@@ -1,21 +1,3 @@
----
-title: 'Golang [基础] 3-运算符'
-seotitle: 'Golang [基础] 3-运算符'
-pin: false
-tags:
-  - Golang
-categories: [Golang, Basic]
-headimg: 'https://cdn.jsdelivr.net/gh/TCP404/Picgo/blog/cover/go2.png'
-thumbnail: 'https://cdn.jsdelivr.net/gh/TCP404/Picgo/blog/thumbnail/golang.png'
-abbrlink: 5d7d558a
-date: 2021-07-17 10:25:53
-updated: 2021-07-17 10:25:53
----
-
-内置操作符
-
-<!--more-->
-
 # 运算符
 
 ## 官方定义的所有运算符

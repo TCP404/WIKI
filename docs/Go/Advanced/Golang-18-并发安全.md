@@ -1,22 +1,4 @@
----
-title: 'Golang [进阶] 18-并发安全'
-seotitle: 'Golang [进阶] 18-并发安全'
-pin: false
-tags:
-  - Golang
-categories: [Golang, Adavanced]
-headimg: 'https://cdn.jsdelivr.net/gh/TCP404/Picgo/blog/cover/go2.png'
-thumbnail: 'https://cdn.jsdelivr.net/gh/TCP404/Picgo/blog/thumbnail/golang.png'
-abbrlink: 65501a4c
-date: 2021-07-19 17:49:00
-updated: 2021-07-19 17:49:00
----
-
-并发安全
-
-<!--more-->
-
-# 1-并发安全
+# 并发安全
 ![串行、并行、并发](https://cdn.jsdelivr.net/gh/TCP404/Picgo/blog/illustration-pic/Go/IMG/20210210160730868_457.png)
 
 ## 竞态

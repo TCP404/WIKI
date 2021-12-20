@@ -1,55 +1,40 @@
----
-title: 'Golang [nil] 交叉编译'
-seotitle: 'Golang [nil] 交叉编译'
-pin: false
-tags:
-  - Golang
-  - 交叉编译
-  - 条件编译
-categories: [Golang, nil]
-headimg: https://cdn.jsdelivr.net/gh/TCP404/Picgo/blog/cover/go2.png
-thumbnail: https://cdn.jsdelivr.net/gh/TCP404/Picgo/blog/thumbnail/golang.png
-abbrlink: c8f1d592
-date: 2021-07-27 12:42:33
-updated: 2021-07-27 12:42:33
----
+# 交叉编译
 
-编译多平台程序的必备技能
-
-<!--more-->
-## 交叉编译
-
+## 命令行交叉编译
 Golang 支持交叉编译，可以在一个平台上生成另一个平台的可执行程序。
 
-Mac 下编译 Linux 和 Windows 64位可执行程序
+=== "Mac"
+    Mac 下编译 Linux 和 Windows 64位可执行程序
+   
+    ```shell
+    CGO_ENABLED=0 GOOS=linux GOARCH=amd64 go build main.go
+    CGO_ENABLED=0 GOOS=windows GOARCH=amd64 go build main.go12
+    ```
 
-```shell
-CGO_ENABLED=0 GOOS=linux GOARCH=amd64 go build main.go
-CGO_ENABLED=0 GOOS=windows GOARCH=amd64 go build main.go12
-```
+=== "Linux"
+    Linux 下编译 Mac 和 Windows 64位可执行程序
 
-Linux 下编译 Mac 和 Windows 64位可执行程序
+    ```shell
+    CGO_ENABLED=0 GOOS=darwin GOARCH=amd64 go build main.go
+    CGO_ENABLED=0 GOOS=windows GOARCH=amd64 go build main.go12
+    ```
 
-```shell
-CGO_ENABLED=0 GOOS=darwin GOARCH=amd64 go build main.go
-CGO_ENABLED=0 GOOS=windows GOARCH=amd64 go build main.go12
-```
+=== "Windows"
+    Windows 下编译 Mac 和 Linux 64位可执行程序
 
-Windows 下编译 Mac 和 Linux 64位可执行程序
+    ```cmd
+    SET CGO_ENABLED=0
+    SET GOOS=darwin
+    SET GOARCH=amd64
+    go build main.go
 
-```cmd
-SET CGO_ENABLED=0
-SET GOOS=darwin
-SET GOARCH=amd64
-go build main.go
+    SET CGO_ENABLED=0
+    SET GOOS=linux
+    SET GOARCH=amd64
+    go build main.go
+    ```
 
-SET CGO_ENABLED=0
-SET GOOS=linux
-SET GOARCH=amd64
-go build main.go
-```
-
-上面的命令编译 64 位可执行程序，也可以使用 386 编译 32 位可执行程序。
+上面的命令编译 64 位可执行程序，也可以使用 `GOARCH=386` 编译 32 位可执行程序。
 
 
 
@@ -88,54 +73,58 @@ package sort
 5. `//` 后面必须留一个空格
 6. `+build` 是关键字，声明这是一个编译注释
 7. 逻辑关系:
-   1. `!`: 非（感叹号）
-   2. `,`: 与（逗号）
-   3. `  `: 或（空格）
+    - `!`: 非（感叹号）
+    - `,`: 与（逗号）
+    - `  `: 或（空格）
 8. $GOOS 取值：
-   1. darwin
-   2. dragonfly
-   3. freebsd
-   4. linux
-   5. netbsd
-   6. openbsd
-   7. plan9
-   8. solaris
-   9. windows
+    - darwin
+    - dragonfly
+    - freebsd
+    - linux
+    - netbsd
+    - openbsd
+    - plan9
+    - solaris
+    - windows
 9. $GOARCH 取值：
-   1. 386
-   2. amd64
-   3. arm
+    - 386
+    - amd64
+    - arm
 
-> GOOS 和 GOARCH 的取值可以通过命令 `go tool dist list` 查看
+!!! note ""
+    GOOS 和 GOARCH 的取值可以通过命令 `go tool dist list` 查看
 
-#### 示例
-```go
-// +build A,B !C,D 
+!!! example
 
-代表编译此文件需符合 (A且B) 或 ((非C)且D) 。
-```
+    ```go
+    // +build A,B !C,D 
 
-```go
-// +build !windows,arm
-代表此文件在 系统不是windows，并且处理器架构是arm时编译
-```
+    代表编译此文件需符合 (A且B) 或 ((非C)且D) 。
+    ```
+
+    ```go
+    // +build !windows,arm
+    代表此文件在 系统不是windows，并且处理器架构是arm时编译
+    ```
 
 ### 文件后缀
+
 通过在文件名后加上 `_$GOOS.go` 的方式也可以实现条件编译。
 
 后缀有3种形式：
+
 1. `_$GOOS.go`
 2. `_$GOARCH.go`
 3. `_$GOOS_$GOARCH.go`
 
-#### 示例
+!!! example
 
-```
-color_windows.go    // 该文件仅在编译 windows 可执行文件时编译
-color_linux.go      // 该文件仅在编译 linux 可执行文件时编译
-color_darwin.go     // 该文件仅在编译 darwin 可执行文件时编译
-color_linux_arm.go  // 该文件仅在编译 linux 可执行文件时，且处理器架构为 arm 时编译
-```
+    ```
+    color_windows.go    // 该文件仅在编译 windows 可执行文件时编译
+    color_linux.go      // 该文件仅在编译 linux 可执行文件时编译
+    color_darwin.go     // 该文件仅在编译 darwin 可执行文件时编译
+    color_linux_arm.go  // 该文件仅在编译 linux 可执行文件时，且处理器架构为 arm 时编译
+    ```
 
 ### 如何选择
 如果是排除某一两个平台的情况
@@ -179,7 +168,7 @@ _file.cfg
 
 主要改变：
 
-1. `// +build` 改成 `//go:build`，双斜杠后**没有**空格！！
+1. `// +build` 改成 `//go:build`，双斜杠后 🚫 **没有** 空格！！
 
 2. 一个文件只能有一行构建语句。（旧版可以多行）
 

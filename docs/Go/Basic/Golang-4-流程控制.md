@@ -170,6 +170,7 @@ func main() {
 ```
 
 switch 中的 case 默认不会穿透，执行完这个 case 之后就跳出switch，但是可以使用 `fallthrough` 击穿 case。
+
 `fallthrough` 语句可以执行满足条件的 case 的下一个 case，这是为了兼容 C 语言中的 case 设计的。
 
 ```go
@@ -236,9 +237,10 @@ for 循环可以通过 `break、continue、return、panic`语句强制退出循�
 使用 `for range` 可以遍历数组、切片、字符串、map 和通道channel。
 
 通过 `for range` 遍历的返回值有以下规律：
-1. 数组、切片、字符串 返回**索引**和**值**
-2. map 返回**键**和**值**
-3. 通道 channel 只返回**通道内的值**
+
+1. 数组、切片、字符串 返回 **索引** 和 **值**
+2. map 返回 **键** 和 **值**
+3. 通道 channel 只返回 **通道内的值**
 
 基本语法为：
 ```go
@@ -267,32 +269,52 @@ func main() {
 第 5 位 x 的值为 0
 ```
 
-**注意：** `val` 始终为`iter`中对应索引的值拷贝，因此它一般只具有只读性质，对它所做的任何修改都不会影响到集合中原有的值。如果 `val` 为指针，则会产生指针的拷贝，依旧可以修改集合中的原值。
+!!! warning "注意"
+    `val` 始终为`iter`中对应索引的值拷贝，因此它一般只具有只读性质，对它所做的任何修改都不会影响到集合中原有的值。如果 `val` 为指针，则会产生指针的拷贝，依旧可以修改集合中的原值。
 
-eg：
-```go
-func main() {
-    a, b, c := 1, 2, 3
-    d, e, f := 4, 5, 6
-
-    pointer := [3]*int{&a, &b, &c}
-    valuer := [3]int{d, e, f}
-
-    fmt.Println(a, b, c) // 1 2 3
-    fmt.Println(d, e, f) // 4 5 6
-
-    for _, p := range pointer {
-        *p = *p + 10
+    可以这么理解：
+    ```go
+    for i, val := range iter {
+        ...
     }
 
-    for _, v := range valuer {
-        v = v + 1
+    // 等价于
+    var val someType
+    for i, val = range iter {
+        ...
     }
 
-    fmt.Println(a, b, c) // 11 12 13
-    fmt.Println(d, e, f) // 4 5 6
-}
-```
+    // 等价于
+    var val someType
+    for i := 0; i < len(iter); i++ {
+        val...
+    }
+    ```
+
+    eg：
+    ```go
+    func main() {
+        a, b, c := 1, 2, 3
+        d, e, f := 4, 5, 6
+
+        pointer := [3]*int{&a, &b, &c}
+        valuer := [3]int{d, e, f}
+
+        fmt.Println(a, b, c) // 1 2 3
+        fmt.Println(d, e, f) // 4 5 6
+
+        for _, p := range pointer {
+            *p = *p + 10
+        }
+
+        for _, v := range valuer {
+            v = v + 1
+        }
+
+        fmt.Println(a, b, c) // 11 12 13
+        fmt.Println(d, e, f) // 4 5 6
+    }
+    ```
 
 
 
@@ -343,6 +365,8 @@ L:
 ```
 
 如果您必须使用 goto，应当只使用正序的标签（**标签位于 goto 语句之后**），但注意标签和 goto 语句之间不能出现定义新变量的语句，否则会导致编译失败。
+
+当然如果使用逆序的标签（**标签位于 goto 语句之前**）也是可以的，编译器并没有限制，例如 Gin 框架的路由中的实现就是逆序的。
 
 ### break、continue
 

@@ -1,28 +1,11 @@
----
-title: 'Golang [基础] 15-单元测试'
-seotitle: 'Golang [基础] 15-单元测试'
-pin: false
-tags:
-  - Golang
-categories: [Golang, Basic]
-headimg: 'https://cdn.jsdelivr.net/gh/TCP404/Picgo/blog/cover/go2.png'
-thumbnail: 'https://cdn.jsdelivr.net/gh/TCP404/Picgo/blog/thumbnail/golang.png'
-abbrlink: d0d1ce
-date: 2021-07-17 11:52:53
-updated: 2021-07-17 11:52:53
----
-
-单元测试的创建与使用
-
-<!--more-->
-
 # 单元测试
 
 Golang 的单元测试依赖 `go test` 命令，编写测试代码和编写普通代码一样，只需要遵循一定的规则即可。
 
 `go test` 命令是一个按照一定约定和组织的测试代码的驱动程序。
 
-> 所有以 `_text.go` 为后缀的源代码文件都是 `go test` 测试的一部分，不会被 `go build` 编译到可执行文件中；
+!!! note ""
+    所有以 `_text.go` 为后缀的源代码文件都是 `go test` 测试的一部分，不会被 `go build` 编译到可执行文件中；
 
 测试文件 `xxx_test.go` 中有三种类型函数：`单元测试函数`、`基准测试函数`、`示例函数`.
 

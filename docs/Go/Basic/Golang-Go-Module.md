@@ -1,27 +1,15 @@
----
-title: 'Golang [nil] Go Module'
-seotitle: 'Golang [nil] Go Module'
-pin: false
-tags:
-  - Golang
-categories: [Golang, Basic]
-headimg: 'https://cdn.jsdelivr.net/gh/TCP404/Picgo/blog/cover/go2.png'
-thumbnail: 'https://cdn.jsdelivr.net/gh/TCP404/Picgo/blog/thumbnail/golang.png'
-abbrlink: 5bdd8b42
-date: 2021-07-19 23:28:48
-updated: 2021-07-19 23:28:48
----
-
-开启 Go Module 来管理你的模块
-
-<!--more-->
-
 # Go Module
 
 ## 启用 GO111MODULE
 **版本要求：go 1.11+，1.13起默认开启**
 
-启用 go module 支持首先要设置环境变量，有三个可选值：{% span blue, auto %}、{% span green, on %}、{% span red, off %}，默认是 {% span blue, auto %}。
+启用 go module 支持首先要设置环境变量，有三个可选值：
+
+- auto
+- on
+- off
+
+默认是 auto
 
 1. `GO111MODULE=off` 禁用模块支持，编译时会从 `GOPATH` 和 `vendor` 文件夹中查找包。
 2. `GO111MODULE=on` 开启模块支持，编译时会忽略 `GOPATH` 和 `vendor` 文件夹，只根据 `go.mod` 下载依赖。
@@ -32,10 +20,15 @@ updated: 2021-07-19 23:28:48
 使用 go module 管理依赖后会在项目根目录下生成两个文件 `go.mod` 和 `go.sum`。
 
 开启方式：
-- windows：在环境变量中添加一条值
+
+=== "Windows"
+    在环境变量中添加一条值
+
     ![](https://cdn.jsdelivr.net/gh/TCP404/Picgo/blog/illustration-pic/Go/IMG/20210217115631352_20287.png)
 
-- Linux：直接执行命令到 `/etc/profile` 或 `$HOME/.profile`
+=== "Linux"
+    直接执行命令到 `/etc/profile` 或 `$HOME/.profile`
+
     ```shell
     $ echo "export GO111MODULE=auto" >> /etc/profile
     ```
@@ -188,65 +181,68 @@ replace bad/thing v1.4.5 => good/thing v1.4.5
 
 ![Go Modules 分支](https://cdn.jsdelivr.net/gh/TCP404/Picgo/blog/illustration-pic/Go/IMG/20210217145532595_1214.png)
 
-> 参考 [Go Modules 详解](https://juejin.cn/post/6844903872054427656)
+!!! note ""
+    参考 [Go Modules 详解](https://juejin.cn/post/6844903872054427656)
 
 
 ## 在项目中使用 go module
 
 
 
-### 既有项目
-如果需要对一个已经存在的项目启用 `go module`，可以按照以下步骤操作：
+=== "既有项目"
+    如果需要对一个已经存在的项目启用 `go module`，可以按照以下步骤操作：
 
-1. 在项目目录下执行 `go mod init`，生成一个go.mod文件。
-2. 执行 `go get`，查找并记录当前项目的依赖，同时生成一个go.sum记录每个依赖库的版本和哈希值。
+    1. 在项目目录下执行 `go mod init`，生成一个go.mod文件。
+    2. 执行 `go get`，查找并记录当前项目的依赖，同时生成一个go.sum记录每个依赖库的版本和哈希值。
 
-### 新项目
-对于一个新创建的项目，我们可以在项目文件夹下按照以下步骤操作：
+=== "新项目"
+    对于一个新创建的项目，我们可以在项目文件夹下按照以下步骤操作：
 
-1. 执行 `go mod init 项目名` 命令，在当前项目文件夹下创建一个 `go.mod` 文件。
-2. 手动编辑 `go.mod` 中的 require 依赖项或执行 `go get` 自动发现、维护依赖。
-3. 如果没反应，可以试试 `go mod tidy`
+    1. 执行 `go mod init 项目名` 命令，在当前项目文件夹下创建一个 `go.mod` 文件。
+    2. 手动编辑 `go.mod` 中的 require 依赖项或执行 `go get` 自动发现、维护依赖。
+    3. 如果没反应，可以试试 `go mod tidy`
 
 
 ## VSCode-go 的坑
 
-### 开启 GOMODULE 就报错
-> 报错信息：`found module "golang.org/x/tools" twice in the workspace`
+=== "开启 GOMODULE 就报错"
 
-一开始的时候我是在 VSC 里建了一个工作区，把 GOPATH 所在目录添加在工作区里，然后开启 GO111MODULE=auto，结果就一直报错。
-后来**新建一个工作区**，把自己放项目的文件夹添加到工作区，就没事了。
+    !!! note ""
+        报错信息：`found module "golang.org/x/tools" twice in the workspace`
 
+    一开始的时候我是在 VSC 里建了一个工作区，把 GOPATH 所在目录添加在工作区里，然后开启 GO111MODULE=auto，结果就一直报错。
 
-我的 GOPATH：`GOPATH=E:\---CODE\GO\root`
+    后来 **新建一个工作区**，把自己放项目的文件夹添加到工作区，就没事了。
 
-GOPATH 放进去的工作区：
-![](https://cdn.jsdelivr.net/gh/TCP404/Picgo/blog/illustration-pic/Go/IMG/20210216232600109_13119.png)
+    我的 GOPATH：`GOPATH=E:\---CODE\GO\root`
 
-
-没有 GOPATH 的工作区
-
-![](https://cdn.jsdelivr.net/gh/TCP404/Picgo/blog/illustration-pic/Go/IMG/20210216232836076_13857.png)
-
-相安无事
+    GOPATH 放进去的工作区：
+    ![](https://cdn.jsdelivr.net/gh/TCP404/Picgo/blog/illustration-pic/Go/IMG/20210216232600109_13119.png)
 
 
-### go tools 下载失败
+    没有 GOPATH 的工作区
 
-解决办法：把 GOPROXY 改到 [https://goproxy.cn](https://goproxy.cn)。阿里云那个有时候不行，官网被墙。
-我试了只有这个地址一次过。
+    ![](https://cdn.jsdelivr.net/gh/TCP404/Picgo/blog/illustration-pic/Go/IMG/20210216232836076_13857.png)
 
-- 第一步：修改环境变量 GOPROXY
-    ![](https://cdn.jsdelivr.net/gh/TCP404/Picgo/blog/illustration-pic/Go/IMG/20210216233219520_22889.png)
-
-- 第二步：确保 GOPATH 下有`bin`、`pkg`、`src` 三个目录
-
-- 第三步：在 VSC 中按下 `Ctrl+Shift+P` 唤醒快捷命令行，输入：`Go:install/Update Tools`，回车。
-    ![](https://cdn.jsdelivr.net/gh/TCP404/Picgo/blog/illustration-pic/Go/IMG/20210216232958058_14544.png)
+    相安无事
 
 
-- 第四步：全选，然后点击 OK 开始下载
-    ![](https://cdn.jsdelivr.net/gh/TCP404/Picgo/blog/illustration-pic/Go/IMG/20210216233135419_18930.png)
+=== "go tools 下载失败"
 
-- 第四步：丝滑顺畅一次过
-    ![](https://cdn.jsdelivr.net/gh/TCP404/Picgo/blog/illustration-pic/Go/IMG/20210216233350018_30494.png)
+    解决办法：把 GOPROXY 改到 [https://goproxy.cn](https://goproxy.cn)。阿里云那个有时候不行，官网被墙。
+    我试了只有这个地址一次过。
+
+    - 第一步：修改环境变量 GOPROXY
+        ![](https://cdn.jsdelivr.net/gh/TCP404/Picgo/blog/illustration-pic/Go/IMG/20210216233219520_22889.png)
+
+    - 第二步：确保 GOPATH 下有`bin`、`pkg`、`src` 三个目录
+
+    - 第三步：在 VSC 中按下 `Ctrl+Shift+P` 唤醒快捷命令行，输入：`Go:install/Update Tools`，回车。
+        ![](https://cdn.jsdelivr.net/gh/TCP404/Picgo/blog/illustration-pic/Go/IMG/20210216232958058_14544.png)
+
+
+    - 第四步：全选，然后点击 OK 开始下载
+        ![](https://cdn.jsdelivr.net/gh/TCP404/Picgo/blog/illustration-pic/Go/IMG/20210216233135419_18930.png)
+
+    - 第四步：丝滑顺畅一次过
+        ![](https://cdn.jsdelivr.net/gh/TCP404/Picgo/blog/illustration-pic/Go/IMG/20210216233350018_30494.png)

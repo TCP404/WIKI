@@ -1,24 +1,3 @@
----
-title: 'Gin [3-路由组]'
-seotitle: 'Gin [3-路由组]'
-pin: false
-tags:
-  - gin
-  - 路由
-categories:
-  - Golang
-  - Framework
-headimg: 'https://cdn.jsdelivr.net/gh/TCP404/Picgo/blog/cover/Gin.png'
-thumbnail: 'https://cdn.jsdelivr.net/gh/TCP404/Picgo/blog/thumbnail/gin.png'
-abbrlink: 2c48000c
-date: 2021-07-19 18:11:18
-updated: 2021-07-19 18:11:18
----
-
-路由和路由组的创建和实现
-
-<!--more-->
-
 # 路由组
 
 开发中常常会遇到一种需求：
@@ -42,56 +21,58 @@ updated: 2021-07-19 18:11:18
 
 ## 示例
 
-```go
-// main.go
-func main() {
-    r := gin.Default()
-    // 创建 /user 路由组
-    userG := r.Group("/user")
-    // {} 是书写规范
-    {
-        userG.POST("/register", Register)
-        userG.POST("/login", Login)
+???+ example 
+
+    ```go
+    // main.go
+    func main() {
+        r := gin.Default()
+        // 创建 /user 路由组
+        userG := r.Group("/user")
+        // {} 是书写规范
+        {
+            userG.POST("/register", Register)
+            userG.POST("/login", Login)
+        }
+
+        // 创建 /book 路由组
+        bookG := r.Group("/book")
+        {
+            bookG.GET("/search/:id", SearchBook)
+            bookG.DELETE("/remove/:id", RemoveBook)
+        }
+
+        r.Run(":9090")
     }
 
-    // 创建 /book 路由组
-    bookG := r.Group("/book")
-    {
-        bookG.GET("/search/:id", SearchBook)
-        bookG.DELETE("/remove/:id", RemoveBook)
+    // routes.go
+    type UserInfo struct {
+        User string `form:"user"`
+        Pass string `form:"pass"`
     }
 
-    r.Run(":9090")
-}
+    func Register(c *gin.Context) {
+        var u UserInfo
+        c.ShouldBind(&u)
+        c.JSON(http.StatusOK, gin.H{ "msg": "Hello " + u.User })
+    }
 
-// routes.go
-type UserInfo struct {
-    User string `form:"user"`
-    Pass string `form:"pass"`
-}
+    func Login(c *gin.Context) {
+        var u UserInfo
+        c.ShouldBind(&u)
+        c.JSON(http.StatusOK, gin.H{ "msg": "Hello " + u.User })
+    }
 
-func Register(c *gin.Context) {
-    var u UserInfo
-    c.ShouldBind(&u)
-    c.JSON(http.StatusOK, gin.H{ "msg": "Hello " + u.User })
-}
+    func SearchBook(c *gin.Context) {
+        bookID := c.Param("id")
+        c.JSON(http.StatusOK, gin.H{ "msg": "ID " + bookID })
+    }
 
-func Login(c *gin.Context) {
-    var u UserInfo
-    c.ShouldBind(&u)
-    c.JSON(http.StatusOK, gin.H{ "msg": "Hello " + u.User })
-}
-
-func SearchBook(c *gin.Context) {
-    bookID := c.Param("id")
-    c.JSON(http.StatusOK, gin.H{ "msg": "ID " + bookID })
-}
-
-func RemoveBook(c *gin.Context) {
-    bookID := c.Param("id")
-    c.JSON(http.StatusOK, gin.H{ "msg": "ID " + bookID + "was removed." })
-}
-```
+    func RemoveBook(c *gin.Context) {
+        bookID := c.Param("id")
+        c.JSON(http.StatusOK, gin.H{ "msg": "ID " + bookID + "was removed." })
+    }
+    ```
 
 
 首先通过 `gin.Group()` 传入组的共同前缀，例如上面的 `/user`、`/book`，获得一个路由组对象
@@ -99,6 +80,7 @@ func RemoveBook(c *gin.Context) {
 然后就可以像之前一样的去绑定各个子路由了。之前的 `GET()`、`POST()` 等方法同样适用。
 
 效果：
+
 ![](https://cdn.jsdelivr.net/gh/TCP404/Picgo/blog/illustration-pic/Go/vx_images/3664825137700.png)
 
 

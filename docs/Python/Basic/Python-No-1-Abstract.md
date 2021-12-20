@@ -1,18 +1,4 @@
----
-title: Python【No-1】总叙
-tags: Python
-categories:
-  - Python
-  - 基础
-thumbnail: 'https://cdn.jsdelivr.net/gh/TCP404/Picgo/blog/thumbnail/python.png'
-abbrlink: 15463
-date: 2020-07-02 10:41:48
----
-
-关于Python
-
-<!--more-->
-
+# 总叙
 
 - 语言哲学： 简洁
 - 类型：解释型语言、动态语言、面向对象（一切皆对象）
@@ -41,35 +27,41 @@ date: 2020-07-02 10:41:48
 ## 命令行模式 & 交互模式
 ### 命令行模式
 
-┌──────────────────────────────────────┐
-│Command Prompt                                               - □ x │
-├──────────────────────────────────────┤
-│Microsoft Windows [Version 10.0.0]                              │
-│(c) 2015 Microsoft Corporation. All rights reserved.       │
-│                                                                                    │
-│C:\> _                                                                           │
-│                                                                                    │
-└──────────────────────────────────────┘
+```shell
+┌───────────────────────--------------------───────────────┐
+│Command Prompt                                      - □ x │
+├─────────────────────────────────────--------------------─┤
+│Microsoft Windows [Version 10.0.0]                        │
+│(c) 2015 Microsoft Corporation. All rights reserved.      │
+│                                                          │
+│C:\> _                                                    │
+│                                                          │
+└─────────────────────────────────────--------------------─┘
+```
+
 
 > 可以切换到文件所在目录下，然后输入 `python 文件名.py` 来执行python文件
 
 
 ### Python交互模式
 
-┌────────────────────────────────────────┐
-│Command Prompt - python                                     - □ x │
-├────────────────────────────────────────┤
-│Microsoft Windows [Version 10.0.0]                                  │
-│(c) 2015 Microsoft Corporation. All rights reserved.           │
-│                                                                                        │
-│C:\> python                                                                     │
-│Python 3.7 ... on win32                                                     │
-│Type "help", ... for more information.                                │
-│>>> 100 + 200                                                                │
-│300                                                                                  │
-│>>> _                                                                              │
-│                                                                                        │
-└────────────────────────────────────────┘
+```shell
+┌──────────────────────────────----------------──────────┐
+│Command Prompt - python                           - □ x │
+├─────────────────────────────----------------───────────┤
+│Microsoft Windows [Version 10.0.0]                      │
+│(c) 2015 Microsoft Corporation. All rights reserved.    │
+│                                                        │
+│C:\> python                                             │
+│Python 3.7 ... on win32                                 │
+│Type "help", ... for more information.                  │
+│>>> 100 + 200                                           │
+│300                                                     │
+│>>> _                                                   │
+│                                                        │
+└──────────────────────────────────----------------──────┘
+```
+
 
 > 输入 `python` 进入交互模式， 输入 `exit()` 或 `quit()` 退出交互模式
 
@@ -83,16 +75,18 @@ date: 2020-07-02 10:41:48
 - [x] Mac
 
 前提：
-> 1)  在hello.py文件的第一行加上一个特殊的注释 `#!/usr/bin/env python3` ， 如
-> ```python
-> #!/usr/bin/env python3
->
-> print("Hello World!")
-> ```
-> 2)  通过命令给hello.py文件执行权限
-> ```shell
-> $ chmod a+x hello.py
-> ```
+
+!!! note ""
+    1)  在hello.py文件的第一行加上一个特殊的注释 `#!/usr/bin/env python3` ， 如
+    ```python
+    #!/usr/bin/env python3
+   
+    print("Hello World!")
+    ```
+    2)  通过命令给hello.py文件执行权限
+    ```shell
+    $ chmod a+x hello.py
+    ```
 
 ## 中文编码
 > Python2 默认编码格式是：ASCII，使用中文会出错

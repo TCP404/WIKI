@@ -1,63 +1,56 @@
----
-title: 'Golang [进阶] 17-Channel'
-seotitle: 'Golang [进阶] 17-Channel'
-pin: false
-tags:
-  - Golang
-categories: [Golang, Adavanced]
-headimg: 'https://cdn.jsdelivr.net/gh/TCP404/Picgo/blog/cover/go2.png'
-thumbnail: 'https://cdn.jsdelivr.net/gh/TCP404/Picgo/blog/thumbnail/golang.png'
-abbrlink: e3c7a27f
-date: 2021-07-19 17:28:33
-updated: 2021-07-19 17:28:33
----
+# channel
 
-不要通过共享内存来通信，而应该通过通信来共享内存
-
-<!--more-->
-
-# 1-channel
-
-{% note warning, **注意：通道 channel 是引用类型！！！** %}
+!!! warning
+    **通道 channel 是引用类型！！！**
 
 **`channel` 的作用**：
 单纯的并发执行函数的没有意义的。函数间需要交换数据才能体现并发执行的意义。
 就像 OS 的并发性和共享性，没有并发谈不上共享，没有共享并发没有意义。
 所以 `channel` 就是用在 `goroutine` 之间的通信上的。
 
-> Communicate through shared memory rather than through shared memory.  ----- Golang
->
-> Golang 提倡**通过通信共享内存而不是通过共享内存实现通信**。
+!!! note ""
+    Communicate through shared memory rather than through shared memory.  ----- Golang
+
+    Golang 提倡 **通过通信共享内存而不是通过共享内存实现通信**。
 
 `goroutine` 是程序并发的执行体，`channel` 就是它们之间的通信管道。
+
 `channel` 有时候简写为：`chan`，遵循 **FIFO 先进先出** 的规则，保证了收发数据的顺序。
+
 每一个 `chan` 都是一个具体类型的管道，即声明 `channel` 时需要为其指定元素类型。
 
 ## 创建 channel
 ```go
-var identifier chan T
-identifier = make(chan T[, size])
+var idn chan T
+idn = make(chan T[, size])
 
-identifier := make(chan T[, size])    // 短声明
+idn := make(chan T[, size])    // 短声明
 ```
 
 1. `chan` 的创建需要 `make()` 分配内存才能使用。单纯的声明时，默认值为 `nil`。
 2. 分配内存时可以指定通道大小，也就是这条管子的容量。
 
-```go
-func main() {
-    var ch chan int          // 声明通道变量
-    fmt.Println(ch)          // nil
-    ch = make(chan int)      // 无缓冲区，分配内存
-    fmt.Println(ch)          // 0xc0000d4000
+!!! example
+    ```go
+    func main() {
+        var ch chan int          // 声明通道变量
+        fmt.Println(ch)          // nil
+        ch = make(chan int)      // 无缓冲区，分配内存
+        fmt.Println(ch)          // 0xc0000d4000
 
-    ch2 := make(chan int, 2) // 有缓冲区
-    fmt.Println(ch2)         // 0xc0000d5000
-}
-```
+        ch2 := make(chan int, 2) // 有缓冲区
+        fmt.Println(ch2)         // 0xc0000d5000
+    }
+    ```
 
-对于无缓冲的通道：一次发送、一次接收，都是阻塞的
-对于有缓冲的通道：**发送**->缓冲区满了，才会阻塞；**接收**->缓冲区空了，才会阻塞。
+对于无缓冲的通道：
+
+- 一次发送、一次接收，都是阻塞的
+
+对于有缓冲的通道：
+
+- **发送**->缓冲区满了，才会阻塞；
+- **接收**->缓冲区空了，才会阻塞。
 
 无缓冲通道就好像快递员送快递，只能当面送给你，你签收之前他就一直阻塞在那里。
 有缓冲通道就好像有了快递柜，放到快递柜里等你自己来拿。快递柜满了快递员也只能等着，阻塞在那里。
@@ -70,7 +63,12 @@ func main() {
 ch := make(chan int)
 ```
 
-{% note info, 发送和接收有点容易混淆，可以这么记：**左发右收、左写右读**。通道在左边：向通道发送；通道在右边：从通道接收 %}
+!!! info 
+    发送和接收有点容易混淆，可以这么记：**左发右收、左写右读**。
+    
+    通道在左边：向通道发送；
+
+    通道在右边：从通道接收
 
 ### 发送
 将一个值发送到通道中（通道写入一个值）。
@@ -103,7 +101,9 @@ close(ch)
 
 #### 判断通道是否被关闭
 `x, ok := <-ch`
-从通道中接收值时，会返回两个值：一个是数据，一个是通道开启状态。通道被关闭后 `ok` 为 `false`。
+从通道中接收值时，会返回两个值：1️⃣ 一个是数据，2️⃣ 一个是通道开启状态。
+
+通道被关闭后 `ok` 为 `false`。
 
 ```go
 func main() {
@@ -131,10 +131,10 @@ func main() {
 ### 单向通道
 有时候我们会将通道作为参数在多个任务函数之间传递，通常我们在不同的任务函数中使用通道都会对其进行限制，如只能发送或接收。
 
-上面介绍的都是**双向通道**，接下来我们使用**单向通道**可以处理这种情况（**单向通道**也常用于参数）。
+上面介绍的都是 **双向通道**，接下来我们使用 **单向通道** 可以处理这种情况（**单向通道** 也常用于参数）。
 
-- **`<-chan T`** 是一个**只读**单向通道，只能从通道中读取数据，通道可以执行**接收**操作但不能执行发送操作。
-- **`chan<- T`** 是一个**只写**单项通道，只能向通道中写入数据，通道可以执行**发送**操作但不能执行读取操作。
+- **`<-chan T`** 是一个 **只读** 单向通道，只能从通道中读取数据，通道可以执行 **接收** 操作但不能执行发送操作。
+- **`chan<- T`** 是一个 **只写** 单项通道，只能向通道中写入数据，通道可以执行 **发送** 操作但不能执行读取操作。
 - 在函数传参及任何赋值操作中可以将双向通道转换为单向通道，但反过来不可以。
 
 ```go
@@ -229,49 +229,57 @@ select {
 - 如果没有通道可用，default 情况将被执行。
     - 如果没有 default，select 将会阻塞，直到某个通道可以运行；Golang 不会重新对 channel 或 值进行求值。
 
+!!! example
+    ```go
+    func main() {
+        ch := make(chan int)
 
-```go
-func main() {
-    ch := make(chan int)
+        go func() {
+            ch <- 10
+            fmt.Println("数据已写入")
+        }()
 
-    go func() {
-        ch <- 10
-        fmt.Println("数据已写入")
-    }()
-
-    select {
-    case x := <-ch:
-        fmt.Println("数据已读出:", x)
-    default:
-        fmt.Println("default..")
+        select {
+        case x := <-ch:
+            fmt.Println("数据已读出:", x)
+        default:
+            fmt.Println("default..")
+        }
     }
-}
-// ---------------------------------------
-// Output:
-default..
-```
+    ```
+
+    _输出_:
+
+    ```shell
+    default..
+    ```
+
 由于 `goroutine` 来不及启动完成，`select` 就执行了，此时 `case` 不满足，所以运行 `default`。
 如果 `select` 之前睡眠一下，给 `goroutine` 点时间，就可以运行到 `case` 了。
 
-```go
-func main() {
-    ch := make(chan int)
+!!! example
+    ```go
+    func main() {
+        ch := make(chan int)
 
-    go func() {
-        ch <- 10
-        fmt.Println("数据已写入")
-    }()
+        go func() {
+            ch <- 10
+            fmt.Println("数据已写入")
+        }()
 
-    time.Sleep(500 * time.Millisecond)
-    select {
-    case x := <-ch:
-        fmt.Println("数据已读出:", x)
-    default:
-        fmt.Println("default..")
+        time.Sleep(500 * time.Millisecond)
+        select {
+        case x := <-ch:
+            fmt.Println("数据已读出:", x)
+        default:
+            fmt.Println("default..")
+        }
     }
-}
-// ---------------------------------------
-// Output:
-数据已写入
-数据已读出: 10
-```
+    ```
+
+    _输出_:
+
+    ```shell
+    数据已写入
+    数据已读出: 10
+    ```

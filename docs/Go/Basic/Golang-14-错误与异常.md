@@ -1,42 +1,27 @@
----
-title: 'Golang [基础] 14-错误与异常'
-seotitle: 'Golang [基础] 14-错误与异常'
-pin: false
-tags:
-  - Golang
-categories: [Golang, Basic]
-headimg: 'https://cdn.jsdelivr.net/gh/TCP404/Picgo/blog/cover/go2.png'
-thumbnail: 'https://cdn.jsdelivr.net/gh/TCP404/Picgo/blog/thumbnail/golang.png'
-abbrlink: b2fbd54c
-date: 2021-07-17 11:47:17
-updated: 2021-07-17 11:47:17
----
-
-错误与异常的处理
-
-<!--more-->
-
 # 错误与异常
 
-> 意料之中的叫**错误**
-> 意料之外的叫**异常**
->
-> 错误：是指可能出现问题的地方出现了问题，比如打开一个文件时失败，这种情况是在意料之中的。
-> 异常：是指不应该出现问题的地方出现了问题，比如引用了空指针，这种情况在人们的意料之外。
-> 所以错误是业务过程的一部分，而异常不是。
+!!! info 
+    意料之中的叫 **错误**
+    意料之外的叫 **异常**
+
+    错误：是指可能出现问题的地方出现了问题，比如打开一个文件时失败，这种情况是在意料之中的。
+
+    异常：是指不应该出现问题的地方出现了问题，比如引用了空指针，这种情况在人们的意料之外。
+
+    所以错误是业务过程的一部分，而异常不是。
 
 ## 错误
-> Go 中错误是一种类型。
-> 错误用内置的 `error`类型表示。和 `int、float64` 是等价的。
-> 
-> `error` 是一个接口，接口是一种类型，所以说 `error` 是一种类型。
-> 
-> ```go
-> type error interface {
-> 	Error() string
-> }
-> ```
-> `error`类型可以存储错误值，从函数中返回等等。
+Go 中错误是一种类型。
+错误用内置的 `error`类型表示。和 `int、float64` 是等价的。
+
+`error` 是一个接口，接口是一种类型，所以说 `error` 是一种类型。
+
+```go
+type error interface {
+	Error() string
+}
+```
+`error`类型可以存储错误值，从函数中返回等等。
 
 
 
@@ -62,7 +47,7 @@ func main() {
 ### 抛出错误
 
 在编写桩模块供人调用时，我们不知道调用者会传进来什么参数，所以我们需要对传进来的参数做判断。
-如果发生错误我们需要进行处理，或者**抛出错误**。
+如果发生错误我们需要进行处理，或者 **抛出错误**。
 
 要抛出错误，那得先会创建错误。
 
@@ -80,35 +65,35 @@ fmt.Errorf(string, ...interface{})
 这两种方式区别在于：
 `fmt.Errorf()` 可以使用格式化字符来返回错误信息，而 `errors.New()` 不能。
 
-eg：
+!!! example
 
-1. `errors.New()`：
-    ```go
-    func div(a, b float64) (float64, error) {
-        if b == 0 {
-            return 0, errors.New("除数小于0")
+    === "errors.New()"
+        ```go
+        func div(a, b float64) (float64, error) {
+            if b == 0 {
+                return 0, errors.New("除数小于0")
+            }
+            return a / b, nil
         }
-        return a / b, nil
-    }
-    ```
-    调用的效果：
-    ```go
-    fmt.Println(div(10, 0))    // 除数小于0
-    ```
+        ```
+        调用的效果：
+        ```go
+        fmt.Println(div(10, 0))    // 除数小于0
+        ```
 
-2. `fmt.Errorf()`：
-    ```go
-    func div(a, b float64) (float64, error) {
-        if b == 0 {
-            return 0, fmt.Errorf("错误码: [%d] \t 除数小于0", 100)
+    === "fmt.Errorf()"
+        ```go
+        func div(a, b float64) (float64, error) {
+            if b == 0 {
+                return 0, fmt.Errorf("错误码: [%d] \t 除数小于0", 100)
+            }
+            return a / b, nil
         }
-        return a / b, nil
-    }
-    ```
-    调用的效果：
-    ```go
-    fmt.Println(div(10, 0))    // 0 错误码: [100]          除数小于0
-    ```
+        ```
+        调用的效果：
+        ```go
+        fmt.Println(div(10, 0))    // 0 错误码: [100]          除数小于0
+        ```
 
 ### 捕获错误
 当我们写驱动模块的时候，在调用桩模块时有可能返回错误，我们可以通过判断 最后一个返回值 err （最后一个返回值返回错误类型，这是约定俗成的）来判断是否有返回错误。
@@ -135,65 +120,65 @@ func main() {
 
 其中第一步和第二步是必选的，第三步是可选的。
 
-eg：
+!!! example 
 
-自定义错误
-```go
-// 创建一个结构体
-type dataError struct {
-    Err    string
-    height int
-    weight int
-    age    int
-}
-// 实现 error 接口，使 dataError 成为 error 类型
-func (d *dataError) Error() string { return d.Err }
+    === "自定义错误"
+        ```go
+        // 创建一个结构体
+        type dataError struct {
+            Err    string
+            height int
+            weight int
+            age    int
+        }
+        // 实现 error 接口，使 dataError 成为 error 类型
+        func (d *dataError) Error() string { return d.Err }
 
-// 定义其他方法
-func (d *dataError) heightNegativeError() bool { return d.height < 0 }
-func (d *dataError) weightNegativeError() bool { return d.weight < 0 }
-func (d *dataError) ageNegativeError() bool { return d.age <= 0 }
-```
-抛出错误
-```go
-type status = bool
+        // 定义其他方法
+        func (d *dataError) heightNegativeError() bool { return d.height < 0 }
+        func (d *dataError) weightNegativeError() bool { return d.weight < 0 }
+        func (d *dataError) ageNegativeError() bool { return d.age <= 0 }
+        ```
+    === "抛出错误"
+        ```go
+        type status = bool
 
-const (
-    SUCCESS = true  // SUCCESS 验证通过
-    FAIL    = false	// FAIL    验证未通过
-)
+        const (
+            SUCCESS = true  // SUCCESS 验证通过
+            FAIL    = false	// FAIL    验证未通过
+        )
 
-type Person struct {
-    height int
-    weight int
-    age    int
-}
-// 验证不通过时，抛出错误
-func variety(p Person) (status, error) {
-    if p.height < 0 || p.weight < 0 || p.age < 0 {
-        return FAIL, &dataError{"数据有误", p.height, p.weight, p.age}    // 抛出错误
-    }
-    return SUCCESS, nil
-}
-```
-捕获错误
-```go
-func main() {
-    p := Person{178, 120, -18}
-    s, err := variety(p)
+        type Person struct {
+            height int
+            weight int
+            age    int
+        }
+        // 验证不通过时，抛出错误
+        func variety(p Person) (status, error) {
+            if p.height < 0 || p.weight < 0 || p.age < 0 {
+                return FAIL, &dataError{"数据有误", p.height, p.weight, p.age}    // 抛出错误
+            }
+            return SUCCESS, nil
+        }
+        ```
+    === "捕获错误"
+        ```go
+        func main() {
+            p := Person{178, 120, -18}
+            s, err := variety(p)
 
-    if err != nil {    // 捕获错误
-        fmt.Println("Error:", err)
-        return
-    }
-    fmt.Println(s, p)
-}
-```
-输出结果：
-```shell
-$ go run main.go
-Error: 数据有误
-```
+            if err != nil {    // 捕获错误
+                fmt.Println("Error:", err)
+                return
+            }
+            fmt.Println(s, p)
+        }
+        ```
+    === "输出结果"
+        ```shell
+        $ go run main.go
+        Error: 数据有误
+        ```
 
 
 如果捕获到了错误，而我们又想进一步判断是什么错误，需要用到 **类型断言**。
@@ -266,43 +251,44 @@ func panic(v interface{})
 ```
 `panic` 中接受一个任何类型的参数，可以传递一个错误消息的字符串，也可以传递一个错误码。
 
-eg：
-```go
-func fn() {
-    fmt.Println("start")
-    defer fmt.Println(1)
-    defer fmt.Println(2)
+!!! example
+    ```go
+    func fn() {
+        fmt.Println("start")
+        defer fmt.Println(1)
+        defer fmt.Println(2)
 
-    panic(100)
+        panic(100)
 
-    defer fmt.Println(3)
-    fmt.Println("end")
-}
+        defer fmt.Println(3)
+        fmt.Println("end")
+    }
 
-func main() {
-    defer fmt.Println("main defer...")
-    fn()
-    fmt.Println("After fn()...")
-}
+    func main() {
+        defer fmt.Println("main defer...")
+        fn()
+        fmt.Println("After fn()...")
+    }
 
-// ---------------------
-// Output:
-start
-2
-1
-main defer...
-panic: 100
+    // ---------------------
+    // Output:
+    start
+    2
+    1
+    main defer...
+    panic: 100
 
-goroutine 1 [running]:
-main.fn()    e:/---CODE/GO/root/src/boii.xyz/study/Helloworld/main.go:19 +0x166
-main.main()  e:/---CODE/GO/root/src/boii.xyz/study/Helloworld/main.go:26 +0x27
-exit status 2
-```
+    goroutine 1 [running]:
+    main.fn()    e:/---CODE/GO/root/src/boii.xyz/study/HelloWorld/main.go:19 +0x166
+    main.main()  e:/---CODE/GO/root/src/boii.xyz/study/HelloWorld/main.go:26 +0x27
+    exit status 2
+    ```
 可以看出发生 `panic` 之后，在 `panic` 之前 `defer` 的代码依然会逆序执行，然后回到调用处。
 上面的例子执行完 `fn()` 中 `defer` 函数后，便返回了 `main()` 函数，
 接着执行 早在调用 `fn()` 之前就 `defer` 的 打印语句，然后就终止程序了。
 
-{% note done, 结论：`defer函数`的执行 优先于 `panic` %}
+!!! summary "结论"
+    `defer函数`的执行 优先于 `panic`
 
 ### recover
 
@@ -316,95 +302,99 @@ exit status 2
 
 简而言之，go中可以抛出一个 `panic`的异常，然后在 `defer` 中通过 `recover` 捕获这个异常，然后正常处理。
 
-{% noteblock warning %}
-Q：为什么 `recover` 需要 `defer` 修饰？
-A：因为发生 `panic` 后，只会执行 `defer` 修饰的函数，然后返回函数调用处。
-      而 `recover` 是专门用来恢复 `panic` 的，所以必须用  `defer` 修饰 `recover`，
-      且 `recover` 需放置在出现或可能出现 `panic` 的地方**之前**，否则一旦发生 `panic`，程序控制流就开始往回走，`panic` 下   方的任何代码包括 `defer` 修饰的地方也不会执行，这样就捕获不到 `panic` 了。
-{% endnoteblock %}
+!!! faq
+    Q：为什么 `recover` 需要 `defer` 修饰？
+
+    A：因为发生 `panic` 后，只会执行 `defer` 修饰的函数，然后返回函数调用处。
+        而 `recover` 是专门用来恢复 `panic` 的，所以必须用  `defer` 修饰 `recover`，
+        且 `recover` 需放置在出现或可能出现 `panic` 的地方 **之前**，否则一旦发生 `panic`，程序控制流就开始往回走，`panic` 下方的任何代码包括 `defer` 修饰的地方也不会执行，这样就捕获不到 `panic` 了。
 
 
-eg：
-发生数组下标越界，没有 `recover`时
-```go
-func traverse(a [5]int) {
-    for i := 0; i <= 5; i++ {
-        fmt.Println(a[i])
-    }
-    fmt.Println("under for")
-}
 
-func main() {
-    defer fmt.Println("main defer...")
+!!! example 
+    发生数组下标越界
 
-    a := [5]int{1, 2, 3, 4, 5}
-    traverse(a)
-
-    fmt.Println("After div()...")
-}
-// ---------------------
-// Output:
-1
-2
-3
-4
-5
-main defer...
-panic: runtime error: index out of range [5] with length 5
-
-goroutine 1 [running]:
-main.traverse(0x1, 0x2, 0x3, 0x4, 0x5)
-        e:/---CODE/GO/root/src/boii.xyz/study/Helloworld/main.go:17 +0xbe
-main.main()
-        e:/---CODE/GO/root/src/boii.xyz/study/Helloworld/main.go:25 +0x105
-exit status 2
-```
-最后的 `exit status 2`说明程序是非正常退出的。
-
-下面是使用了 `recover` 的效果
-```go
-func traverse(a [5]int) {
-    defer func() {
-        if msg := recover(); msg != nil {
-            fmt.Println(msg)
+    === "没有 recover时"
+        ```go
+        func traverse(a [5]int) {
+            for i := 0; i <= 5; i++ {
+                fmt.Println(a[i])
+            }
+            fmt.Println("under for")
         }
-    }()
-    for i := 0; i <= 5; i++ {    // 这里会发生数组下标越界，引发panic
-        fmt.Println(a[i])
-    }
-    fmt.Println("under for")
-}
 
-func main() {
-    defer fmt.Println("main defer...")
+        func main() {
+            defer fmt.Println("main defer...")
 
-    a := [5]int{1, 2, 3, 4, 5}
-    traverse(a)
+            a := [5]int{1, 2, 3, 4, 5}
+            traverse(a)
 
-    fmt.Println("After div()...")
-}
-// ---------------------
-// Output:
-1
-2
-3
-4
-5
-runtime error: index out of range [5] with length 5
-After div()...
-main defer...
-```
+            fmt.Println("After div()...")
+        }
+        ```
+        输出： 
+        ```shell
+        1
+        2
+        3
+        4
+        5
+        main defer...
+        panic: runtime error: index out of range [5] with length 5
+
+        goroutine 1 [running]:
+        main.traverse(0x1, 0x2, 0x3, 0x4, 0x5)
+                e:/---CODE/GO/root/src/boii.xyz/study/HelloWorld/main.go:17 +0xbe
+        main.main()
+                e:/---CODE/GO/root/src/boii.xyz/study/HelloWorld/main.go:25 +0x105
+        exit status 2
+        ```
+        最后的 `exit status 2`说明程序是非正常退出的。
+
+    === "使用了 recover 的效果"
+
+        ```go
+        func traverse(a [5]int) {
+            defer func() {
+                if msg := recover(); msg != nil {
+                    fmt.Println(msg)
+                }
+            }()
+            for i := 0; i <= 5; i++ {    // 这里会发生数组下标越界，引发panic
+                fmt.Println(a[i])
+            }
+            fmt.Println("under for")
+        }
+
+        func main() {
+            defer fmt.Println("main defer...")
+
+            a := [5]int{1, 2, 3, 4, 5}
+            traverse(a)
+
+            fmt.Println("After div()...")
+        }
+        ```
+        输出：
+        ```shell
+        1
+        2
+        3
+        4
+        5
+        runtime error: index out of range [5] with length 5
+        After div()...
+        main defer...
+        ```
 
 可以看到，发生数组下标越界时，程序会引发 `panic`，然后开始执行 `defer` 函数；
 在 `defer` 函数里遇到了 `recover`，使得程序恢复正常运行，打印了错误信息后，回到主函数继续执行
 但是我们会发现虽然被 `recover` 恢复了，但是 for 循环下面的 语句依然不会执行。
 
-{% noteblock done %}
-结论：
-`recover` 必须用 `defer` 修饰
-`recover` 必须放在可能引发 `panic` 的地方之前
-即使 `recover` 了，在函数里，引发 `panic` 的地方下面那些代码依然没有机会运行。
-{% endnoteblock %}
+!!! summary "结论"
+    `recover` 必须用 `defer` 修饰
+    `recover` 必须放在可能引发 `panic` 的地方之前
+    即使 `recover` 了，在函数里，引发 `panic` 的地方下面那些代码依然没有机会运行。
 
 ![](https://cdn.jsdelivr.net/gh/TCP404/Picgo/blog/illustration-pic/Go/IMG/20210207173528135_25602.png)
 
