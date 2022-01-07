@@ -44,6 +44,18 @@ nav:
               - 上传下载重定向: Go/Framework/gin/Gin-4-上传下载重定向.md
               - 中间件: Go/Framework/gin/Gin-5-中间件.md
         # - GORM:
+      - Standard Library:
+          - 0-time: Go/StdLib/0-time-时间与日期.md
+          - 1-random: Go/StdLib/1-random-随机数.md
+          - 2-flag: Go/StdLib/2-flag-命令行解析.md
+          - 3-log: Go/StdLib/3-log-日志服务.md
+          - 4-fmt: Go/StdLib/4-fmt-格式化.md
+          - 5-strings: Go/StdLib/5-strings-字符串操作.md
+          - 6-json: Go/StdLib/6-json.md
+          - File & IO:
+              - IO: Go/StdLib/File&IO/io.md
+              - Bufio: Go/StdLib/File&IO/bufio.md
+          - net:
       - nil:
           - 交叉编译: Go/nil/Golang-nil-交叉编译.md
           - 选项设计模式: Go/nil/Golang-nil-选项设计模式.md
@@ -93,7 +105,7 @@ nav:
           - 文件系统: Linux/Basic/文件系统.md
           - Command1: Linux/Basic/Command1.md
           - Command2: Linux/Basic/Command2.md
-          - 1.md: Linux/Basic/1.md 
+          - 1.md: Linux/Basic/1.md
       - Shell:
           - 1-基本语法: Linux/Shell/Shell-1-基本语法.md
           - 2-函数、数组、重定向: Linux/Shell/Shell-2-函数、数组、重定向.md
@@ -137,11 +149,11 @@ theme:
 markdown_extensions:
   - attr_list
   - md_in_html
-  - abbr                  # 名词解释支持，Ref：https://squidfunk.github.io/mkdocs-material/reference/abbreviations/
-  - pymdownx.magiclink    # 智能链接支持，Ref：https://facelessuser.github.io/pymdown-extensions/extensions/magiclink/
+  - abbr # 名词解释支持，Ref：https://squidfunk.github.io/mkdocs-material/reference/abbreviations/
+  - pymdownx.magiclink # 智能链接支持，Ref：https://facelessuser.github.io/pymdown-extensions/extensions/magiclink/
   - pymdownx.smartsymbols # 智能符号支持，Ref：https://facelessuser.github.io/pymdown-extensions/extensions/smartsymbols/
-  - footnotes             # 脚注支持，   Ref：https://squidfunk.github.io/mkdocs-material/reference/footnotes/
-  - meta                  # 文章前部的 font-matter 元数据支持
+  - footnotes # 脚注支持，   Ref：https://squidfunk.github.io/mkdocs-material/reference/footnotes/
+  - meta # 文章前部的 font-matter 元数据支持
 
   # 引用块美化，Ref：https://squidfunk.github.io/mkdocs-material/reference/admonitions/
   - admonition
@@ -179,9 +191,9 @@ markdown_extensions:
   # emoji 支持
   - pymdownx.emoji:
       emoji_generator: !!python/name:pymdownx.emoji.to_png
-#   - pymdownx.emoji:
-    #   emoji_index: !!python/name:materialx.emoji.twemoji
-    #   emoji_generator: !!python/name:materialx.emoji.to_svg
+  #   - pymdownx.emoji:
+  #   emoji_index: !!python/name:materialx.emoji.twemoji
+  #   emoji_generator: !!python/name:materialx.emoji.to_svg
 
   # 列表支持，Ref：https://squidfunk.github.io/mkdocs-material/reference/lists/
   - def_list
@@ -196,4 +208,3 @@ extra_javascript:
   - _assets/js/mathjax.js
   - https://polyfill.io/v3/polyfill.min.js?features=es6
   - https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js
-
