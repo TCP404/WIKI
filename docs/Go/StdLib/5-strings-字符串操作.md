@@ -61,13 +61,19 @@ func LastIndexByte(s string, c byte) int
 func LastIndexFunc(s string, f func(rune) bool) int
 ```
 
-位置：Index 系列 返回主串 s 中**第一个**子串 substr 的下标，匹配不到返回 -1。LastIndex 系列返回主串 s 中**最后一个**子串 substr 的下标，匹配不到返回 -1。
+位置：
 
--   Index、LastIndex：严格匹配子串，必须子串 substr 每个字符都匹配上才匹配成功；
--   IdexAny、LastIndexAny：非严格匹配子串，只要子串 substr 有一个能匹配上的就匹配成功；
--   IndexByte、LastIndexByte：匹配 ASCII 字符；
--   IndexRune：匹配 Unicode 字符；
--   IndexFunc、LastIndexFunc：匹配主串中满足 f(c) 条件的字符。也就是把子串换成某个字符群。
+Index 系列 返回主串 s 中 **第一个** 子串 substr 的下标，匹配不到返回 -1。
+
+LastIndex 系列返回主串 s 中 **最后一个** 子串 substr 的下标，匹配不到返回 -1。
+
+
+
+- Index、LastIndex：严格匹配子串，必须子串 substr 每个字符都匹配上才匹配成功；
+- IdexAny、LastIndexAny：非严格匹配子串，只要子串 substr 有一个能匹配上的就匹配成功；
+- IndexByte、LastIndexByte：匹配 ASCII 字符；
+- IndexRune：匹配 Unicode 字符；
+- IndexFunc、LastIndexFunc：匹配主串中满足 f(c) 条件的字符。也就是把子串换成某个字符群。
 
 ```go
 strings.Index("chicken", "ken")			// 4
@@ -100,7 +106,7 @@ strings.IndexRune("chicken", 'd')		// -1
 
 
 f := func(c rune) bool {
-	return unicode.Is(unicode.Han, c)
+    return unicode.Is(unicode.Han, c)
 }
 strings.IndexFunc("Hello, 世界", f)	   // 7
 strings.IndexFunc("Hello, world", f)	// -1
@@ -229,7 +235,7 @@ func TrimRightFunc(s string, f func(rune) bool) string
 
     ```go
     func f (r rune) bool {
-    	return !unicode.IsLetter(r) && !unicode.IsNumber(r)
+        return !unicode.IsLetter(r) && !unicode.IsNumber(r)
     }
     
     strings.TrimFunc("¡¡¡Hello, Gophers!!!", f)	// Hello, Gophers

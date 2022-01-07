@@ -53,7 +53,9 @@ log.Println("This is a message.")
 2021/03/01 08:42:49 main.go:17: This is a message.
 ```
 
-> SetFlags 只控制输出的信息，不控制输出的顺序和格式。
+!!! tip
+
+    SetFlags 只控制输出的信息，不控制输出的顺序和格式。
 
 ### 配置日志前缀
 `log` 库还提供了日志前缀相关的两个方法。
@@ -65,17 +67,21 @@ func SetPrefix(prefix string)
 `Prefix` 函数返回前缀，没有设置前缀时会返回空字符串
 `SetPrefix`函数用于设置输出前缀。
 
-eg：
-```go
-log.SetPrefix("[Boii] ")
+!!! example
 
+    ```go
+    log.SetPrefix("[Boii] ")
 
-log.SetFlags(log.Lshortfile | log.Lmsgprefix | log.Ltime | log.Ldate)
-log.Println("This is a message.") // 2021/03/01 08:54:23 main.go:20: [Boii] This is a message.
+    log.SetFlags(log.Lshortfile | log.Lmsgprefix | log.Ltime | log.Ldate)
+    log.Println("This is a message.") 
+    // Output:
+    // 2021/03/01 08:54:23 main.go:20: [Boii] This is a message.
 
-log.SetFlags(log.Lshortfile | log.Ltime | log.Ldate)
-log.Println("This is a message.") // [Boii] 2021/03/01 08:54:23 main.go:22: This is a message.
-```
+    log.SetFlags(log.Lshortfile | log.Ltime | log.Ldate)
+    log.Println("This is a message.") 
+    // Output:
+    // [Boii] 2021/03/01 08:54:23 main.go:22: This is a message.
+    ```
 
 ### 配置日志输出位置
 日志默认是输出到控制台，通过 `SetOutput` 函数可以设置标准 logger 的输出目的地，比如设置输出到日志文件中。
@@ -123,14 +129,15 @@ func New(out io.Writer, prefix string, flag int) *Logger
 ```
 `New`构造函数需要三个参数：输出位置、前缀、Flag。
 
-eg：
-```go
-logger := log.New(os.Stdout, "[Boii] ", log.Lshortfile | log.Lmsgprefix | log.Ltime | log.Ldate)
-logger.Println("logger Println.")
+!!! example
 
-// Output: 
-2021/03/01 09:54:13 main.go:34: [Boii] logger Println.
-```
+    ```go
+    logger := log.New(os.Stdout, "[Boii] ", log.Lshortfile | log.Lmsgprefix | log.Ltime | log.Ldate)
+    logger.Println("logger Println.")
+
+    // Output: 
+    2021/03/01 09:54:13 main.go:34: [Boii] logger Println.
+    ```
 
 ## 使用 logger
 

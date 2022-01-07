@@ -55,7 +55,7 @@ nav:
           - File & IO:
               - IO: Go/StdLib/File&IO/io.md
               - Bufio: Go/StdLib/File&IO/bufio.md
-          - net:
+          # - net:
       - nil:
           - 交叉编译: Go/nil/Golang-nil-交叉编译.md
           - 选项设计模式: Go/nil/Golang-nil-选项设计模式.md
@@ -147,6 +147,12 @@ theme:
     - content.tabs.link
 
 markdown_extensions:
+  - pymdownx.highlight:
+      anchor_linenums: true
+  - pymdownx.inlinehilite
+  - pymdownx.snippets
+  - pymdownx.superfences
+
   - attr_list
   - md_in_html
   - abbr # 名词解释支持，Ref：https://squidfunk.github.io/mkdocs-material/reference/abbreviations/
@@ -180,7 +186,11 @@ markdown_extensions:
   - pymdownx.tilde
 
   # 对代码高亮的支持，Ref：https://squidfunk.github.io/mkdocs-material/reference/code-blocks/
-  - pymdownx.highlight
+  - pymdownx.highlight:
+      anchor_linenums: true
+  - pymdownx.inlinehilite
+  - pymdownx.snippets
+  - pymdownx.superfences
   - pymdownx.inlinehilite
   - pymdownx.superfences
   - pymdownx.snippets

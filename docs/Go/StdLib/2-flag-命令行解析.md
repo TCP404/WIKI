@@ -2,7 +2,7 @@
 
 flag 包专门用来解析命令行.
 
-命令行最简单的组成，例如著名的系统提速命令：`rm -rf /*`，
+命令行最简单的组成，例如著名的系统提速命令：`#!bash rm -rf /*`，
 这条命令行由 **命令**、**flag，或称 opetion**、**参数** 组成。
 
 ![系统提速命令](https://cdn.jsdelivr.net/gh/TCP404/Picgo/blog/illustration-pic/Go/vx_images/1623225138578.png)
@@ -67,7 +67,8 @@ args[6] is i
 ## flag
 
 flag 包提供了 `T()`系列、`TVar()`系列。
-- `T()`系列基本格式：`flag.T(参数名, 默认值, 帮助信息) *T`
+
+- `T()`系列基本格式：`#!go flag.T(参数名, 默认值, 帮助信息) *T`
 - 具体有以下几种：
     - **flag.Bool()**
     - **flag.String()**
@@ -77,7 +78,7 @@ flag 包提供了 `T()`系列、`TVar()`系列。
     - **flag.Float64()**
     - **flag.Uint()**
     - **flag.Uint64()**
-- `TVar()`系列基本格式：`flag.StringVar(&T, 参数名, 默认值, 帮助信息)`
+- `TVar()`系列基本格式：`#!go flag.StringVar(&T, 参数名, 默认值, 帮助信息)`
 - 具体有以下几种：
     - **flag.BoolVar()**
     - **flag.StringVar()**
@@ -91,35 +92,38 @@ flag 包提供了 `T()`系列、`TVar()`系列。
     - `T()`系列返回一个 T型指针，需要一个变量去承接
     - `TVar()`系列不返回，变量是作为参数传进去的。
 
-eg：
-```go
-func main() {
-    // T() 系列
-    name := flag.String("n", "Boii", "请输入名字")
+!!! example
 
-    // TVar() 系列
-    var sex string
-    flag.StringVar(&sex, "s", "男", "请输入性别")
+    ```go
+    func main() {
+        // T() 系列
+        name := flag.String("n", "Boii", "请输入名字")
 
-    flag.Parse()    // 得调用 Parse 才能解析命令行参数
+        // TVar() 系列
+        var sex string
+        flag.StringVar(&sex, "s", "男", "请输入性别")
 
-    fmt.Println("name is", *name)
-    fmt.Println("sex is", sex)
-}
-```
+        flag.Parse()    // 得调用 Parse 才能解析命令行参数
 
-运行：
-```bash
-$ go build -o flag_args
+        fmt.Println("name is", *name)
+        fmt.Println("sex is", sex)
+    }
+    ```
 
-$ ./flag_args -n Eva -s=女
+    运行：
 
-name is Eva
-sex is 女
-```
+    ```bash
+    $ go build -o flag_args
+
+    $ ./flag_args -n Eva -s=女
+
+    name is Eva
+    sex is 女
+    ```
 
 ### flag.Parse
 `T()` 系列函数 和 `TVar()` 系列函数的作用的将参数和变量绑定起来（即注册），通过变量可以获取参数的值，真正的解析是 `Prase()` 函数。
+
 `flag.Parse()` 从`os.Args[1:]`中解析注册的flag。必须在所有flag都注册好而未访问其值时执行。未注册却使用flag -help时，会返回ErrHelp。
 
 
@@ -174,27 +178,32 @@ Usage of ./flag_args:
 ### 其他函数
 
 ```go
-// Args returns the non-flag command-line arguments. 返回不是使用 flag 的参数切片
-func flag.Args() []string {}
+// Args returns the non-flag command-line arguments. 
+func flag.Args() []string {}    // (1)
 
-// NFlag returns the number of command-line flags that have been set. 返回使用 flag 的参数的数量
-func NFlag() int {}
+// NFlag returns the number of command-line flags that have been set.
+func NFlag() int {} //(2)
 
-// NArg is the number of arguments remaining after flags have been processed. 返回使用 flag 参数外剩下参数的数量
-// 即 NArg = 参数总数 - NFlag
-func flag.NArg() int {}
+// NArg is the number of arguments remaining after flags have been processed.
+func flag.NArg() int {} //(3)
 ```
 
-eg：
-```go
-// ./flag_args nn ss na nf nc
-// ./flag_args -n nn ss na nf nc
-// ./flag_args -n nn -s=ss na nf nc
-fmt.Println(flag.Arg(0))  // nn					ss				na
-fmt.Println(flag.Args())  // [nn ss na nf nc]  [ss na nf nc]   [na nf]	返回命令行参数后的其他参数
-fmt.Println(flag.NArg())  // 5					4				3		返回命令行参数后的其他参数个数
-fmt.Println(flag.NFlag()) // 0					1				2		返回使用的命令行参数个数
-```
+1. 返回不是使用 flag 的参数切片
+2. 返回使用 flag 的参数的数量
+3. 返回使用 flag 参数外剩下参数的数量，即 NArg = 参数总数 - NFlag
+
+!!! example
+
+    ```go
+    // ./flag_args nn ss na nf nc
+    // ./flag_args -n nn ss na nf nc
+    // ./flag_args -n nn -s=ss na nf nc
+    fmt.Println(flag.Arg(0))  // nn					ss				na
+    fmt.Println(flag.Args())  // [nn ss na nf nc]  [ss na nf nc]   [na nf]	返回命令行参数后的其他参数
+    fmt.Println(flag.NArg())  // 5					4				3		返回命令行参数后的其他参数个数
+    fmt.Println(flag.NFlag()) // 0					1				2		返回使用的命令行参数个数
+    ```
+
 ## 其他命令解析库
 
 `flag` 是官方的库，出自Google，但是并不是最好的，有些局限性，而同门师弟 `pflag` 却做的更好，且兼容 `flag`，也被应用的更加广泛。

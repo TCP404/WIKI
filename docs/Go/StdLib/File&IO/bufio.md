@@ -4,12 +4,14 @@
 
 io操作本身效率并不低，低的是频繁访问本地磁盘的文件。所以 `bufio` 就提供了缓冲区（分配一块内存），读写都是先在缓冲区中，最后再读写进文件，从而降低访问本地磁盘的次数，提高效率。
 
-第一次读取的时候，会从本地磁盘将数据读取到缓冲区中，之后第二次第三次读取就会直接从缓冲区读取，避免了每次都去访问本地磁盘。
-第一次写入的时候，会将数据先写入到缓冲区，等到缓冲区写满了或者手动刷新，才会把数据写入到本地磁盘上的文件中。
+- 第一次读取的时候，会从本地磁盘将数据读取到缓冲区中，之后第二次第三次读取就会直接从缓冲区读取，避免了每次都去访问本地磁盘。
+
+- 第一次写入的时候，会将数据先写入到缓冲区，等到缓冲区写满了或者手动刷新，才会把数据写入到本地磁盘上的文件中。
 
 这种缓冲区的设计非常适合 `I/O密集型` 的程序。
 
 ## 导包
+
 ```go
 import "bufio"
 ```
@@ -17,6 +19,7 @@ import "bufio"
 ## bufio 原理
 
 在读取的时候，如果用于存放数据的 `[]byte` 大小超过缓冲区大小，实际上缓冲区是不起作用的。写入同理。
+
 ```go
 func main() {
     f, err := os.Open("abc.txt")
@@ -82,23 +85,26 @@ func (b *Reader) ReadString(delim byte) (string, error) {}             // 遇到
 func (b *Reader) ReadSlice(delim byte) (line []byte, err error) {}
 ```
 
-eg：
-```go
-func main() {
-    f, err := os.Open("abc.txt")
-    if err != nil {
-        log.Fatal(err)
-    }
-    defer f.Close()
+!!!example
 
-    buf := bufio.NewReader(f)
-    s, err, := buf.ReadString("\n")    // 遇到第一个换行符时停止读取
-    fmt.Println(s)    // Hello World
-}
-```
+    ```go
+    func main() {
+        f, err := os.Open("abc.txt")
+        if err != nil {
+            log.Fatal(err)
+        }
+        defer f.Close()
+
+        buf := bufio.NewReader(f)
+        s, err, := buf.ReadString("\n")    // 遇到第一个换行符时停止读取
+        fmt.Println(s)    // Hello World
+    }
+    ```
 
 ## 写入
+
 方法签名：
+
 ```go
 func NewWriter(w io.Writer) *Writer {}                // 创建一个 bufio.Writer 对象，默认缓冲区大小 4096 byte
 func NewWriterSize(w io.Writer, size int) *Writer {}  // 创建一个 bufio.Writer 对象，指定缓冲区大小 size byte
@@ -109,22 +115,24 @@ func (b *Writer) WriteRune(r rune) (size int, err error) {}    // 写入一个 r
 func (b *Writer) WriteString(s string) (int, error) {}         // 写入一个字符串，返回写入的字节数和错误
 ```
 
-eg：
-```go
-func main() {
-    f, err := os.OpenFile("abc.txt", os.O_WRONLY, 0777)
-    if err != nil {
-        log.Fatal(err)
-    }
-    defer f.Close()
+!!!example
 
-    buf := bufio.NewWriter(f)
-    size, err := buf.WriteRune('牛')
-    fmt.Println(size)    // 3
-}
-```
+    ```go
+    func main() {
+        f, err := os.OpenFile("abc.txt", os.O_WRONLY, 0777)
+        if err != nil {
+            log.Fatal(err)
+        }
+        defer f.Close()
+
+        buf := bufio.NewWriter(f)
+        size, err := buf.WriteRune('牛')
+        fmt.Println(size)    // 3
+    }
+    ```
 
 `bufio.Writer` 还有一些工具方法：
+
 ```go
 func (b *Writer) Size() int {}            // 返回缓冲区的大小
 func (b *Writer) Available() int {}       // 返回缓冲区当前 可用 的大小

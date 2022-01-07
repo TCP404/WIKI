@@ -26,18 +26,18 @@ func Printf(format string, a ...interface{}) (n int, err error)
 func Println(a ...interface{}) (n int, err error)
 ```
 
-eg：
+!!!example
 
-```go
-import "fmt"
+    ```go
+    import "fmt"
 
-func main() {
-    name := "Boii"
-    fmt.Print("Hello Boii.")			// Hello Boii.
-    fmt.Printf("Hello %s.\n", name)		// Hello Boii.
-    fmt.Println("Hello " + name + ".")	// Hello Boii.
-}
-```
+    func main() {
+        name := "Boii"
+        fmt.Print("Hello Boii.")			// Hello Boii.
+        fmt.Printf("Hello %s.\n", name)		// Hello Boii.
+        fmt.Println("Hello " + name + ".")	// Hello Boii.
+    }
+    ```
 
 ### Fprint 系列
 
@@ -57,27 +57,27 @@ func Fprintf(w io.Writer, format string, a ...interface{}) (n int, err error)
 func Fprintln(w io.Writer, a ...interface{}) (n int, err error)
 ```
 
-eg：
+!!!example
 
-```go
-import (
-    "fmt"
-	"os"
-)
+    ```go
+    import (
+        "fmt"
+        "os"
+    )
 
-func main() {
-    // 打开文件
-    f, _ := os.OpenFile("./test.txt", os.O_CREATE | os.O_WRONLY | os.O_APPEND, 0644)
-    name := "Boii"
-    // 向文件写入内容
-    fmt.Fprint(f, "Hello Boii.")
-    fmt.Fprintf(f, "Hello %s.", boii)
-    fmt.Fprintln(f, "Hello " + name + ".")
-    
-    // 向标准输出写入内容
-    fmt.Fprinln(os.Stdout, "Stdout print: Hello Boii.")
-}
-```
+    func main() {
+        // 打开文件
+        f, _ := os.OpenFile("./test.txt", os.O_CREATE | os.O_WRONLY | os.O_APPEND, 0644)
+        name := "Boii"
+        // 向文件写入内容
+        fmt.Fprint(f, "Hello Boii.")
+        fmt.Fprintf(f, "Hello %s.", boii)
+        fmt.Fprintln(f, "Hello " + name + ".")
+        
+        // 向标准输出写入内容
+        fmt.Fprinln(os.Stdout, "Stdout print: Hello Boii.")
+    }
+    ```
 
 
 
@@ -99,19 +99,19 @@ func Sprintf(format string, a ...interface{}) string
 func Sprintln(a ...interface{}) string
 ```
 
-eg：
+!!!example
 
-```go
-import "fmt"
+    ```go
+    import "fmt"
 
-func main() {
-    name := "Boii"
-    s1 := fmt.Sprint("Hello Boii.")
-    s2 := fmt.Sprintf("Hello %s.", name)
-    s3 := fmt.Sprintln("Hello " + name + ".")
-    fmt.Println(s1, s2, s3)	// Hello Boii.Hello Boii.Hello Boii.
-}
-```
+    func main() {
+        name := "Boii"
+        s1 := fmt.Sprint("Hello Boii.")
+        s2 := fmt.Sprintf("Hello %s.", name)
+        s3 := fmt.Sprintln("Hello " + name + ".")
+        fmt.Println(s1, s2, s3)	// Hello Boii.Hello Boii.Hello Boii.
+    }
+    ```
 
 ### Errorf
 
@@ -123,11 +123,11 @@ Errorf 函数根据 format 参数生成格式化字符串并返回一个包含�
 func Errorf(format string, a ...interface{}) error
 ```
 
-eg：
+!!!example
 
-```go
-err := fmt.Errorf("这是错误信息。")
-```
+    ```go
+    err := fmt.Errorf("这是错误信息。")
+    ```
 
 
 
@@ -153,75 +153,75 @@ func Scanf(format string, a ...interface{}) (n int, err error)
 func Scanln(a ...interface{}) (n int, err error)
 ```
 
-eg：Scan
+!!! example "Scan"
 
-```go
-import "fmt"
+    ```go
+    import "fmt"
 
-func main() {
-    var name string
-    var age  int
-    
-    fmt.Scan(&name, &age)
-    fmt.Printf("输入内容 name： %s， age： %d\n", name, age)
-}
-```
+    func main() {
+        var name string
+        var age  int
+        
+        fmt.Scan(&name, &age)
+        fmt.Printf("输入内容 name： %s， age： %d\n", name, age)
+    }
+    ```
 
-输入时，通过空格分隔。
+    输入时，通过空格分隔。
 
-```bash
-$ ./demo
-Boii 18
-输入内容 name： Boii， age： 18
-```
-
-
-
-eg：Scanf
-
-```go
-import "fmt"
-
-func main() {
-    var name string
-    var age  int
-    
-    fmt.Scanf("1: %s; 2: %d", &name, &age)
-    fmt.Printf("输入内容 name： %s， age： %d\n", name, age)
-}
-```
-
-输入时，需要按照既定格式输入。
-
-```bash
-$ ./demo
-1: Boii; 2: 18
-输入内容 name： Boii， age： 18
-```
+    ```bash
+    $ ./demo
+    Boii 18
+    输入内容 name： Boii， age： 18
+    ```
 
 
 
-eg：Scanln
+!!! example "Scanf"
 
-````go
-import "fmt"
+    ```go
+    import "fmt"
 
-func main() {
-    var name string
-    var age  int
-    
-    fmt.Scanln(&name, &age)
-    fmt.Printf("输入内容 name： %s， age： %d\n", name, age)
-}
-````
+    func main() {
+        var name string
+        var age  int
+        
+        fmt.Scanf("1: %s; 2: %d", &name, &age)
+        fmt.Printf("输入内容 name： %s， age： %d\n", name, age)
+    }
+    ```
 
-输入时，通过空格分隔，遇到回车结束扫描。
+    输入时，需要按照既定格式输入。
 
-```bash
-$ ./demo
-Boii 18
-输入内容 name： Boii， age： 18
-```
+    ```bash
+    $ ./demo
+    1: Boii; 2: 18
+    输入内容 name： Boii， age： 18
+    ```
+
+
+
+!!!example "Scanln"
+
+    ```go
+    import "fmt"
+
+    func main() {
+        var name string
+        var age  int
+        
+        fmt.Scanln(&name, &age)
+        fmt.Printf("输入内容 name： %s， age： %d\n", name, age)
+    }
+    ```
+
+    输入时，通过空格分隔，遇到回车结束扫描。
+
+    ```bash
+    $ ./demo
+    Boii 18
+    输入内容 name： Boii， age： 18
+    ```
 
 ## Fscan 系列
 
@@ -235,57 +235,57 @@ func Fscanln(r io.Reader, a ...interface{}) (n int, err error)
 func Fscanf(r io.Reader, format string, a ...interface{}) (n int, err error)
 ```
 
-eg：
+!!!example
 
-```go
-import (
-    "fmt"
-    "os"
-    "strings"
-)
-  
-// Calling main
-func main() {
-  
-    // Declaring some type of variables
-    var (
-        i int
-        b bool
-        s string
-        f float32
+    ```go
+    import (
+        "fmt"
+        "os"
+        "strings"
     )
-      
-    // Calling the NewReader() function to
-    // specify some type of texts.
-    // variable "r" contains the scanned texts
-    r := strings.NewReader("46 true 3.4 GeeksforGeeks")
-      
-    // Calling the Fscan() function to receive 
-    // the scanned texts
-    n, err := fmt.Fscan(r, &i, &b, &f, &s)
-      
-    // If the above function returns an error then
-    // below statement will be executed
-    if err != nil {
-        fmt.Fprintf(os.Stderr, "Fscanf: %v\n", err)
+    
+    // Calling main
+    func main() {
+    
+        // Declaring some type of variables
+        var (
+            i int
+            b bool
+            s string
+            f float32
+        )
+        
+        // Calling the NewReader() function to
+        // specify some type of texts.
+        // variable "r" contains the scanned texts
+        r := strings.NewReader("46 true 3.4 GeeksforGeeks")
+        
+        // Calling the Fscan() function to receive 
+        // the scanned texts
+        n, err := fmt.Fscan(r, &i, &b, &f, &s)
+        
+        // If the above function returns an error then
+        // below statement will be executed
+        if err != nil {
+            fmt.Fprintf(os.Stderr, "Fscanf: %v\n", err)
+        }
+        
+        // Printing each type of scanned texts
+        fmt.Println(i, b, f, s)
+        
+        // It returns the number of items 
+        // successfully scanned
+        fmt.Println(n)
     }
-      
-    // Printing each type of scanned texts
-    fmt.Println(i, b, f, s)
-      
-    // It returns the number of items 
-    // successfully scanned
-    fmt.Println(n)
-}
-```
+    ```
 
-输出：
+    输出：
 
-```bash
-$ ./demo
-46 true 3.4 GeeksforGeeks
-4
-```
+    ```bash
+    $ ./demo
+    46 true 3.4 GeeksforGeeks
+    4
+    ```
 
 
 
@@ -299,38 +299,38 @@ func Sscanln(str string, a ...interface{}) (n int, err error)
 func Sscanf(str string, format string, a ...interface{}) (n int, err error)
 ```
 
-eg：
+!!!example
 
-```go
-// Importing fmt
-import (
-    "fmt"
-)
-  
-// Calling main
-func main() {
-  
-    // Declaring two variables
-    var name string
-    var alphabet_count int
-  
-    // Calling the Sscan() function which
-    // returns the number of elements
-    // successfully scanned and error if
-    // it persists
-    n, _ := fmt.Sscan("GFG 3", &name, &alphabet_count)
-  
-    // Printing the number of elements and each elements also
-    fmt.Printf("%d: %s, %d\n", n, name, alphabet_count)
-}
-```
+    ```go
+    // Importing fmt
+    import (
+        "fmt"
+    )
+    
+    // Calling main
+    func main() {
+    
+        // Declaring two variables
+        var name string
+        var alphabet_count int
+    
+        // Calling the Sscan() function which
+        // returns the number of elements
+        // successfully scanned and error if
+        // it persists
+        n, _ := fmt.Sscan("GFG 3", &name, &alphabet_count)
+    
+        // Printing the number of elements and each elements also
+        fmt.Printf("%d: %s, %d\n", n, name, alphabet_count)
+    }
+    ```
 
-输出：
+    输出：
 
-```bash
-$ ./demo
-2: GFG, 3
-```
+    ```bash
+    $ ./demo
+    2: GFG, 3
+    ```
 
 ## 格式化占位符
 
@@ -346,21 +346,21 @@ printf 系列函数都支持 format 格式化参数，但是占位符非常多�
 | %T     | 打印值的类型                       |
 | %%     | 打印百分号                         |
 
-eg：
+!!!example
 
-```go
-import "fmt"
+    ```go
+    import "fmt"
 
-func main() {
-	type Person struct{ name string }
-	s := Person{"Boii"}
-	fmt.Printf("%v \n", s)  // 默认格式： {Boii}
-	fmt.Printf("%+v \n", s) // 添加字段名： {name:Boii}
-	fmt.Printf("%#v \n", s) // Go格式： main.Person{name:"Boii"}
-	fmt.Printf("%T \n", s)  // 类型： main.Person
-	fmt.Printf("%% \n")     // 百分号： %
-}
-```
+    func main() {
+        type Person struct{ name string }
+        s := Person{"Boii"}
+        fmt.Printf("%v \n", s)  // 默认格式： {Boii}
+        fmt.Printf("%+v \n", s) // 添加字段名： {name:Boii}
+        fmt.Printf("%#v \n", s) // Go格式： main.Person{name:"Boii"}
+        fmt.Printf("%T \n", s)  // 类型： main.Person
+        fmt.Printf("%% \n")     // 百分号： %
+    }
+    ```
 
 
 
@@ -383,23 +383,25 @@ func main() {
 | %U     | 打印值的Unicode格式                                          |
 | %q     | 打印值的对应字面值，用单括号因起来，必要时会采用安全的转义表示 |
 
-```go
-import (
-	"fmt"
-)
+!!! example
 
-func main() {
-	n := 75
-	fmt.Printf("%b \n", n) // 1001011
-	fmt.Printf("%o \n", n) // 113
-	fmt.Printf("%d \n", n) // 75
-	fmt.Printf("%x \n", n) // 4b
-	fmt.Printf("%X \n", n) // 4B
-	fmt.Printf("%c \n", n) // K
-	fmt.Printf("%U \n", n) // U+004B
-	fmt.Printf("%q \n", n) // 'k'
-}
-```
+    ```go
+    import (
+        "fmt"
+    )
+
+    func main() {
+        n := 75
+        fmt.Printf("%b \n", n) // 1001011
+        fmt.Printf("%o \n", n) // 113
+        fmt.Printf("%d \n", n) // 75
+        fmt.Printf("%x \n", n) // 4b
+        fmt.Printf("%X \n", n) // 4B
+        fmt.Printf("%c \n", n) // K
+        fmt.Printf("%U \n", n) // U+004B
+        fmt.Printf("%q \n", n) // 'k'
+    }
+    ```
 
 
 
@@ -415,22 +417,22 @@ func main() {
 | %g     | 根据实际情况采用%e或%f格式（以获得更简洁、准确的输出） |
 | %G     | 根据实际情况采用%E或%F格式（以获得更简洁、准确的输出） |
 
-eg：
+!!!example
 
-```go
-import "fmt"
+    ```go
+    import "fmt"
 
-func main() {
-	f := 123456789123.456789123456789
-	fmt.Printf("%b \n", f) // 8090864131994864p-16
-	fmt.Printf("%e \n", f) // 1.234568e+11
-	fmt.Printf("%E \n", f) // 1.234568E+11
-	fmt.Printf("%f \n", f) // 123456789123.456787
-	fmt.Printf("%F \n", f) // 1123456789123.456787
-	fmt.Printf("%g \n", f) // 1.2345678912345679e+11
-	fmt.Printf("%G \n", f) // 1.2345678912345679E+11
-}
-```
+    func main() {
+        f := 123456789123.456789123456789
+        fmt.Printf("%b \n", f) // 8090864131994864p-16
+        fmt.Printf("%e \n", f) // 1.234568e+11
+        fmt.Printf("%E \n", f) // 1.234568E+11
+        fmt.Printf("%f \n", f) // 123456789123.456787
+        fmt.Printf("%F \n", f) // 1123456789123.456787
+        fmt.Printf("%g \n", f) // 1.2345678912345679e+11
+        fmt.Printf("%G \n", f) // 1.2345678912345679E+11
+    }
+    ```
 
 
 
@@ -443,20 +445,20 @@ func main() {
 | %x     | 每个字节用两字符十六进制数表示（使用a-f）                    |
 | %X     | 每个字节用两字符十六进制数表示（使用A-F）                    |
 
-eg：
+!!!example
 
-```go
-import "fmt"
+    ```go
+    import "fmt"
 
-func main() {
-	s := "你好 Boii"
-	fmt.Printf("%s \n", s) // 你好 Boii
-	fmt.Printf("%q \n", s) // "你好 Boii"
-	fmt.Printf("%x \n", s) // e4bda0e5a5bd20426f6969
-	fmt.Printf("%X \n", s) // E4 BD A0 E5 A5 BD 20 42 6F 69 69
-						   //    你   |   好    | | B  o  i  i
-}
-```
+    func main() {
+        s := "你好 Boii"
+        fmt.Printf("%s \n", s) // 你好 Boii
+        fmt.Printf("%q \n", s) // "你好 Boii"
+        fmt.Printf("%x \n", s) // e4bda0e5a5bd20426f6969
+        fmt.Printf("%X \n", s) // E4 BD A0 E5 A5 BD 20 42 6F 69 69
+                               //    你   |   好    | | B  o  i  i
+    }
+    ```
 
 
 
@@ -466,17 +468,17 @@ func main() {
 | ------ | ------------------------------ |
 | %p     | 表示为十六进制，并加上前导的0x |
 
-eg：
+!!!example
 
-```go
-import "fmt"
+    ```go
+    import "fmt"
 
-func main() {
-	a := "Boii"
-	fmt.Printf("%p \n", &a)  // 0xc00009e220
-	fmt.Printf("%#p \n", &a) // c00009e220
-}
-```
+    func main() {
+        a := "Boii"
+        fmt.Printf("%p \n", &a)  // 0xc00009e220
+        fmt.Printf("%#p \n", &a) // c00009e220
+    }
+    ```
 
 
 
@@ -498,27 +500,27 @@ func main() {
 | %9.2f  | 宽度9，精度2       |
 | %9.f   | 宽度9，精度0       |
 
-eg：
+!!!example
 
-```go
-import "fmt"
+    ```go
+    import "fmt"
 
-func main() {
-	f := 123456789123.456789123456789
-	fmt.Printf("%f \n", f)    // 123456789123.456787 
-	fmt.Printf("%9f \n", f)   // 123456789123.456787
-	fmt.Printf("%9.f \n", f)  // 123456789123 
-	fmt.Printf("%.2f \n", f)  // 123456789123.46
-	fmt.Printf("%9.2f \n", f) // 123456789123.46
-	
-	f = 75.445	
-	fmt.Printf("%f \n", f)    // 75.445000
-	fmt.Printf("%9f \n", f)   // 75.445000
-	fmt.Printf("%9.f \n", f)  //        75
-	fmt.Printf("%.2f \n", f)  // 75.44
-	fmt.Printf("%9.2f \n", f) //     75.44
-}
-```
+    func main() {
+        f := 123456789123.456789123456789
+        fmt.Printf("%f \n", f)    // 123456789123.456787 
+        fmt.Printf("%9f \n", f)   // 123456789123.456787
+        fmt.Printf("%9.f \n", f)  // 123456789123 
+        fmt.Printf("%.2f \n", f)  // 123456789123.46
+        fmt.Printf("%9.2f \n", f) // 123456789123.46
+        
+        f = 75.445	
+        fmt.Printf("%f \n", f)    // 75.445000
+        fmt.Printf("%9f \n", f)   // 75.445000
+        fmt.Printf("%9.f \n", f)  //        75
+        fmt.Printf("%.2f \n", f)  // 75.44
+        fmt.Printf("%9.2f \n", f) //     75.44
+    }
+    ```
 
 ![](https://cdn.jsdelivr.net/gh/TCP404/Picgo/blog/illustration-pic/Go/IMG/20210608150153.png)
 
@@ -532,38 +534,38 @@ func main() {
 | ‘#’  | 八进制数前加0（%#o），十六进制数前加0x（%#x）或0X（%#X），指针去掉前面的0x（%#p）对%q（%#q），对%U（%#U）会输出空格和单引号括起来的go字面值； |
 | ‘0’  | 使用0而不是空格填充，对于数值类型会把填充的0放在正负号后面； |
 
-eg：
+!!! example
 
-```go
-import "fmt"
+    ```go
+    import "fmt"
 
-func main() {
-	s := "Boii"
-	fmt.Printf("|%s| \n", s)     // |Boii|
-	fmt.Printf("|%5s| \n", s)    // | Boii|
-	fmt.Printf("|%-5s| \n", s)   // |Boii |
-	fmt.Printf("|%5.7s| \n", s)  // | Boii|
-	fmt.Printf("|%-5.7s| \n", s) // |Boii |
-	fmt.Printf("|%5.2s| \n", s)  // |   Bo|
-	fmt.Printf("|%05s| \n", s)   // |0Boii|
-    
-	d := -100
-	fmt.Printf("|%d| \n", d)     // |-100|
-	fmt.Printf("|%5d| \n", d)    // | -100|
-	fmt.Printf("|%-5d| \n", d)   // |-100 |
-	fmt.Printf("|%5.7d| \n", d)  // |-0000100|
-	fmt.Printf("|%-5.7d| \n", d) // |-0000100|
-	fmt.Printf("|%5.2d| \n", d)  // | -100|
-	fmt.Printf("|%05d| \n", d)   // |-0100|
-    
-	d = 18
-	fmt.Printf("|%d| \n", d)     // |18|
-	fmt.Printf("|%5d| \n", d)    // |   18|
-	fmt.Printf("|%-5d| \n", d)   // |18   |
-	fmt.Printf("|%5.7d| \n", d)  // |0000018|
-	fmt.Printf("|%-5.7d| \n", d) // |0000018|
-	fmt.Printf("|%5.2d| \n", d)  // |   18|
-	fmt.Printf("|%05d| \n", d)   // |00018|
-}
-```
+    func main() {
+        s := "Boii"
+        fmt.Printf("|%s| \n", s)     // |Boii|
+        fmt.Printf("|%5s| \n", s)    // | Boii|
+        fmt.Printf("|%-5s| \n", s)   // |Boii |
+        fmt.Printf("|%5.7s| \n", s)  // | Boii|
+        fmt.Printf("|%-5.7s| \n", s) // |Boii |
+        fmt.Printf("|%5.2s| \n", s)  // |   Bo|
+        fmt.Printf("|%05s| \n", s)   // |0Boii|
+        
+        d := -100
+        fmt.Printf("|%d| \n", d)     // |-100|
+        fmt.Printf("|%5d| \n", d)    // | -100|
+        fmt.Printf("|%-5d| \n", d)   // |-100 |
+        fmt.Printf("|%5.7d| \n", d)  // |-0000100|
+        fmt.Printf("|%-5.7d| \n", d) // |-0000100|
+        fmt.Printf("|%5.2d| \n", d)  // | -100|
+        fmt.Printf("|%05d| \n", d)   // |-0100|
+        
+        d = 18
+        fmt.Printf("|%d| \n", d)     // |18|
+        fmt.Printf("|%5d| \n", d)    // |   18|
+        fmt.Printf("|%-5d| \n", d)   // |18   |
+        fmt.Printf("|%5.7d| \n", d)  // |0000018|
+        fmt.Printf("|%-5.7d| \n", d) // |0000018|
+        fmt.Printf("|%5.2d| \n", d)  // |   18|
+        fmt.Printf("|%05d| \n", d)   // |00018|
+    }
+    ```
 
