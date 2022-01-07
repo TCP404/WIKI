@@ -15,15 +15,15 @@
 
 ## 环境变量
 
-- **GOROOT**：Go的安装位置，默认 `#!shell $HOME/go`
-- **GOPATH**：工作目录，在这下面写代码
-- **GOBIN**：编译器和链接器的安装位置，默认 `$GOROOT/bin`
+- **GOROOT**：Go的安装位置，默认 `#!shell $HOME/go`；
+- **GOPATH**：工作目录，在这下面写代码；
+- **GOBIN**：编译器和链接器的安装位置，默认 `$GOROOT/bin`；
 - **GOOS**：运行Go的操作系统；
-  - 取值：[darwin | freebsd | linux | windows]
+    - 取值：[darwin | freebsd | linux | windows]
 - **GOARCH**：运行Go的处理器架构；
-  - 取值：[386 | amd64 | arm]
+    - 取值：[386 | amd64 | arm]
 - **GOARM**：专门针对基于 arm 架构的处理器，默认为 6；
-  - 取值：[5 | 6]
+    - 取值：[5 | 6]
 
 ## Hello World
 
