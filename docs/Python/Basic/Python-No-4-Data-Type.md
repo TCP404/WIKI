@@ -14,27 +14,32 @@ date: 2020-07-05 21:41:48
 <!--more-->
 
 ## 常见内置类型
-> 内置类型：
-> None（全局只有一个）
-> 数值类型：int、float、complax（复数）、bool
-> 迭代类型
-> 序列类型：list、bytes、range、tuple、string、array
-> 映射类型：dict
-> 集合类型：set、frozenset
-> 上下文管理类型：with
+!!! note
+    - 内置类型：
+        - None（全局只有一个）
+    - 数值类型：int、float、complax（复数）、bool
+    - 迭代类型
+        - 序列类型：list、bytes、range、tuple、string、array
+        - 映射类型：dict
+        - 集合类型：set、frozenset
+        - 上下文管理类型：with
 
-> 可变类型：list、set、dict
-> 不可变类型：int、float、string、tuple
+    可变类型：list、set、dict
+
+    不可变类型：int、float、string、tuple
 
 ## 基本数据类型
 ### 整型
 可以是任意大小的整数
+
 与数学上的表示方法一样 如：1，100，-800，0
+
 可以用十六进制表示法 如：0xFF00, 0xab54f
 
 #### 常用基本运算
 
-> 加（+）    减（-）    乘（\*）    除（/）    模（%）
+!!! note
+    加（+）    减（-）    乘（\*）    除（/）    模（%）
 
 ```python
 >>> 3 + 2
@@ -53,15 +58,16 @@ date: 2020-07-05 21:41:48
 2
 ```
 
-> 除法运算 （/）永远返回浮点型
+!!! note
+    除法运算 （/）永远返回浮点型
 
 ```python
 >>> 9 / 3
 3.0
 ```
 
-
-> 乘方（**）    截断除法、整数除（//）
+!!! note
+    乘方（**）    截断除法、整数除（//）
 
 ```python
 >>> 3 ** 2
@@ -72,7 +78,8 @@ date: 2020-07-05 21:41:48
 5
 ```
 
-> 包含多种混合类型运算数的运算会把整数转换为浮点数
+!!! note
+    包含多种混合类型运算数的运算会把整数转换为浮点数
 
 ```python
 >>> 4 * 3.75 - 1
@@ -83,9 +90,13 @@ date: 2020-07-05 21:41:48
 
 ### 浮点数
 即小数 如：1.2，524.33，-9.11
+
 如果是很大或很小的浮点数，必须用科学计数法表示，用`e+指数`代替底数 `10^指数`，如：
-> 1.23×10^9 就是 1.23e9 或 12.3e8，  0.000012 就是 1.2e-5
-> 浮点数运算可能会有四舍五入的误差
+
+!!! example
+    1.23×10^9^ 就是 1.23e9 或 12.3e8，  0.000012 就是 1.2e-5
+
+    浮点数运算可能会有四舍五入的误差
 
 ### 字符串
 
@@ -133,7 +144,7 @@ str9 = r'ab\ncd'    # ab\ncd
 转义字符
 
 | 转义字符 |    描述    |
-| :------: | :--------: |
+|:--------:|:---------:|
 |    \     |   续行符   |
 |    \\    |   反斜杠   |
 |    \'    |   单引号   |
@@ -156,20 +167,28 @@ str9 = r'ab\ncd'    # ab\ncd
 可以用 `and` , `or` , `not` 运算
 
 ### 空值
-> 空值是一个特殊的值，用 `None` 表示。`None` 不等于 `0`，`0` 是有意义的.
-> 全局只有一个None
+
+空值是一个特殊的值，用 `None` 表示。`None` 不等于 `0`，`0` 是有意义的.
+全局只有一个None
 
 
 ## 复合数据类型
 ### 列表 List
-> 一种`有序的、可变的` 元素集合
-> 用 `[ ]` 标识
->
-> 可随机添加和删除其中的元素
-> **可理解为可变的数组**
-> 是一种复合数据类型
-> List 中的元素可以不同类型
-> 区别于元组Tuple：List 中的元素可变
+
+!!! note
+    一种`有序的、可变的` 元素集合
+    
+    用 `[ ]` 标识
+
+    可随机添加和删除其中的元素
+    
+    **可理解为可变的数组**
+    
+    是一种复合数据类型
+    
+    List 中的元素可以不同类型
+    
+    区别于元组Tuple：List 中的元素可变
 
 ```python
 >>> name = ['Alice', 'Boii', 'Chen', 'Dannie', 'Eva']
@@ -186,11 +205,13 @@ str9 = r'ab\ncd'    # ab\ncd
 
 #### List的增删改查
 ##### 初始化
-> listName = [element1, element2, element3, ...]
+
+`#!py listName = [element1, element2, element3, ...]`
 
 ##### 增
 ###### 追加到末尾 append
-> listName.append(value)
+
+`#!python listName.append(value)`
 
 ```python
 >>> name = ['Alice', 'Boii', 'Chen', 'Dannie', 'Eva']
@@ -200,7 +221,7 @@ str9 = r'ab\ncd'    # ab\ncd
 ```
 
 ###### 插入到指定位置 insert
-> listName.insert(index, value)
+`#!py listName.insert(index, value)`
 
 ```python
 >>> name = ['Alice', 'Boii', 'Chen', 'Dannie', 'Eva']
@@ -211,7 +232,7 @@ str9 = r'ab\ncd'    # ab\ncd
 
 ##### 删
 ###### 删除末尾元素 pop
-> listName.pop()
+`#!py listName.pop()`
 
 ```python
 >>> name = ['Alice', 'Boii', 'Chen', 'Dannie', 'Eva']
@@ -223,9 +244,7 @@ str9 = r'ab\ncd'    # ab\ncd
 ```
 
 ###### 删除指定位置元素 pop
-> listName.pop(index)
-> 或
-> del listName[index]
+`#!py listName.pop(index)` 或 `#!py del listName[index]`
 
 ```python
 >>> name = ['Alice', 'Boii', 'Chen', 'Dannie', 'Eva']
@@ -238,8 +257,7 @@ str9 = r'ab\ncd'    # ab\ncd
 ```
 
 ##### 改
-> 修改某个元素，直接给该元素赋新值即可
-> listName[index] = value
+修改某个元素，直接给该元素赋新值即可。`#!py listName[index] = value`
 
 ```python
 >>> name = ['Alice', 'Boii', 'Chen', 'Dannie', 'Eva']
@@ -251,8 +269,7 @@ str9 = r'ab\ncd'    # ab\ncd
 
 
 ##### 查
->使用下标来访问List中的元素
->listName[index]
+使用下标来访问List中的元素。 `#!py listName[index]`
 
 ```python
 name = ['Alice', 'Boii', 'Chen', 'Dannie', 'Eva']
@@ -263,7 +280,7 @@ print(name[-1])   # 'Eva'   访问List最后一个元素
 ```
 
 #### 获得长度 len()
-> len(List名)
+`#!py len(List名)`
 
 ```python
 >>> name = ['Alice', 'Boii', 'Chen', 'Dannie', 'Eva']
@@ -280,7 +297,8 @@ print(name[-1])   # 'Eva'   访问List最后一个元素
 ```
 
 #### List嵌套List
-> 类似于多维数组的概念
+
+类似于多维数组的概念
 
 ```python
 >>> l_main = ['Boii', 23, ['https://', 'tcp404', '.com'], 443]
@@ -313,17 +331,23 @@ print(name[-1])   # 'Eva'   访问List最后一个元素
 ```
 
 ### 元组 Tuple
-> 一种 `有序的、不可变的` 元素集合
-> 用 `( )` 标识
->
-> Tuple中的元素一旦初始化就不可变
-> **可理解为不可变的数组**
-> 是一种复合数据类型
-> Tuple中的元素可以不同类型
-> 区别于List：Tuple 中的元素 `不可变`
+!!! note 
+    一种 `有序的、不可变的` 元素集合
+
+    用 `( )` 标识
+
+    Tuple中的元素一旦初始化就不可变
+
+    **可理解为不可变的数组**
+
+    是一种复合数据类型
+
+    Tuple中的元素可以不同类型
+
+    区别于List：Tuple 中的元素 `不可变`
 
 #### 初始化
-> tupleName = (elem1, elem2, elem3, ...)
+`#!py tupleName = (elem1, elem2, elem3, ...)`
 
 #### Tuple索引
 ```python
@@ -333,11 +357,12 @@ print(name[-1])   # 'Eva'   访问List最后一个元素
 ```
 
 #### Tuple的增删改查
-> Tuple不可变，所以不可以 增加、删除、修改，只能查询
-> 查询与List相同
+Tuple不可变，所以不可以 增加、删除、修改，只能查询
+
+查询与List相同
 
 ##### 查
-> tupleName[index]
+`#!py tupleName[index]`
 
 ```python
 >>> T = (1, 2, 'Boii')
@@ -357,7 +382,8 @@ print(name[-1])   # 'Eva'   访问List最后一个元素
 ```
 
 #### 定义单元素的Tuple (element，)
-> 为避免与数学的括号混淆，定义一个元素的Tuple时，要在元素后加上逗号
+
+为避免与数学的括号混淆，定义一个元素的Tuple时，要在元素后加上逗号
 
 ```python
 >>> tr = ('Boii',)
@@ -365,9 +391,10 @@ print(name[-1])   # 'Eva'   访问List最后一个元素
 ('Boii',)
 ```
 
-> 且在python解释中：
->     tr = (1) 会被认为是 tr = 1, tr 就变成一个普通的整型变量
->     tr = ('Boii') 会被认为是 tr = 'Boii', tr 就变成一个普通的字符串变量
+且在python解释中：
+
+- tr = (1) 会被认为是 tr = 1, tr 就变成一个普通的整型变量
+- tr = ('Boii') 会被认为是 tr = 'Boii', tr 就变成一个普通的字符串变量
 
 ```python
 >>> tr = (1)        # 等价于 tr = 1
@@ -383,11 +410,13 @@ print(name[-1])   # 'Eva'   访问List最后一个元素
 ('Boii',)
 ```
 #### Tuple不可变的意义
-> 因为tuple不可变，所以代码更安全。如果可能，能用tuple代替list就尽量用tuple。
+因为tuple不可变，所以代码更安全。如果可能，能用 tuple 代替 list 就尽量用 tuple。
 
 #### ！！！不可变Tuple中的可变元素
-> Tuple的不可变指的是Tuple指向的元素不可变
-> 如果元素中有 `可变的Listlist` ，那么Tuple依然可以修改
+
+Tuple的不可变指的是Tuple指向的元素不可变
+
+如果元素中有 `可变的List` ，那么 Tuple 依然可以修改
 
 ```python
 >>> t = ('a', 'b', ['A', 'B'])
@@ -397,34 +426,44 @@ print(name[-1])   # 'Eva'   访问List最后一个元素
 ('a', 'b', ['X', 'Y'])
 ```
 
-定义Tuplet时
+定义 Tuple 时
 
 ![1](https://cdn.jsdelivr.net/gh/TCP404/Picgo/blog/illustration-pic/Py/4-1.png)
 
 
-修改Tuplet的元素后
+修改 Tuple 的元素后
 
 ![2](https://cdn.jsdelivr.net/gh/TCP404/Picgo/blog/illustration-pic/Py/4-2.png)
 
 
 ### 字典 Dict
-> 一种 `无序的、可变的` 键-值对集合
-> 用 `{ }` 标识
->
-> 键key 必须是不可变对象 （如字符串、整数。而list，tuple这些不可以作为key）
-> 键key 不可以重复
-> 键key 可以不同类型，但不建议
-> 键key 可以是变量，但是这个变量必须指向字符串、整数这类不可变对象
->
-> Dictionary VS List
-> 1. Dict 查找和插入的速度极快，不会随着key的增加而变慢；
-> 2. Dict 需要占用大量的内存，内存浪费多。
-> 3. List 查找和插入的时间随着元素的增加而增加；
-> 4. List 占用空间小，浪费内存很少。
+
+!!! note
+    一种 `无序的、可变的` 键-值对集合
+
+    用 `{ }` 标识
+
+    键key 必须是不可变对象 （如字符串、整数。而list，tuple这些不可以作为key）
+
+    键key 不可以重复
+
+    键key 可以不同类型，但不建议
+
+    键key 可以是变量，但是这个变量必须指向字符串、整数这类不可变对象
+
+    Dictionary VS List
+
+    1. Dict 查找和插入的速度极快，不会随着key的增加而变慢；
+
+    2. Dict 需要占用大量的内存，内存浪费多。
+
+    3. List 查找和插入的时间随着元素的增加而增加；
+
+    4. List 占用空间小，浪费内存很少。
 
 
 #### 初始化
-> dictName = { key1 : value1, key2 : value2, key3 : value3, ... }
+`#!py dictName = { key1 : value1, key2 : value2, key3 : value3, ... }`
 
 ```python
 d = {'a': 1, 'b': 2, 'c': 3, 'd': 4}
@@ -435,11 +474,11 @@ dd = {'a':'Alice', 'b':'Boii', 18:'Kk'}
 
 
 #### Dict索引
-> Dict的索引就是 键key。
+Dict的索引就是 键key。
 
 #### Dict的增删改查和判断
 ##### 增
-> dictName[key] = value
+`#!py dictName[key] = value`
 
 ```python
 >>> d = {'a': 1, 'b': 2, 'c': 3, 'd': 4}
@@ -456,8 +495,7 @@ dd = {'a':'Alice', 'b':'Boii', 18:'Kk'}
 ```
 
 ##### 删 pop、del
-> dictName.pop(key)
->del dictName[key]
+`#!py dictName.pop(key)` 或 `#!py del dictName[key]`
 
 ```python
 >>> d = {'a': 1, 'b': 2, 'c': 3, 'd': 4}
@@ -469,8 +507,9 @@ dd = {'a':'Alice', 'b':'Boii', 18:'Kk'}
 ```
 
 ##### 改
-> dictName[key] = newValue
-> 因为key不能重复，所以如果key不存在，会变成添加，如果key存在，newValue会覆盖oldValue
+`#!py dictName[key] = newValue`
+
+因为key不能重复，所以如果key不存在，会变成添加，如果key存在，newValue会覆盖oldValue
 
 ```python
 >>> d = {'a': 1, 'b': 2, 'c': 3, 'd': 4}
@@ -484,9 +523,11 @@ dd = {'a':'Alice', 'b':'Boii', 18:'Kk'}
 
 
 ##### 查 get
-> dictName.get(key)
-> 如果key存在，返回对应的value
-> 如果key不存在，返回None
+`#!py dictName.get(key)`
+
+如果key存在，返回对应的value
+
+如果key不存在，返回None
 
 ```python
 d = {'a': 1, 'b': 2, 'c': 3, 'd': 4}
@@ -495,9 +536,11 @@ d.get('z')       # None
 ```
 
 
-> dictName.get(key, return)
-> 如果key存在，返回对应的value
-> 如果key不存在，返回指定的返回值return，return可以是整型、字符串，甚至是List等
+`#!py dictName.get(key, return)`
+
+如果key存在，返回对应的value
+
+如果key不存在，返回指定的返回值return，return可以是整型、字符串，甚至是List等
 
 ```python
 >>> d = {'a': 1, 'b': 2, 'c': 3, 'd': 4}
@@ -513,7 +556,7 @@ d.get('z')       # None
 ```
 
 ##### 判断 in、not in
-> key in dictName
+`#!py key in dictName`
 
 ```python
 >>> d = {'a': 25, 'b': 2, 'c': 3, 'd': 4}
@@ -524,20 +567,24 @@ False
 ```
 
 ### 集合 Set
-> 一种 `无序的、不重复的、可变的` 的元素的集合
-> 用 `set([ ])` 或 `{key, key, ...}` 标识
->
-> 类似数学概念中的集合
-> 可以通过 Dict 来理解：Set 是一种不存储 value 的 Dict（因为key不能重复）
-> 是一种复合数据类型
-> Set 中的元素可以不同类型
+!!! note 
+    一种 `无序的、不重复的、可变的` 的元素的集合
+
+    用 `set([ ])` 或 `{key, key, ...}` 标识
+
+    类似数学概念中的集合
+
+    可以通过 Dict 来理解：Set 是一种不存储 value 的 Dict（因为key不能重复）
+
+    是一种复合数据类型
+
+    Set 中的元素可以不同类型
 
 #### Set索引
-> Set 是无序的，所以没有索引，只有元素，或者说只有key
+Set 是无序的，所以没有索引，只有元素，或者说只有key
 
 #### 初始化
-> setName = set(key_list)
-> setName = {key1, key2, key3, ...}
+`#!py setName = set(key_list)` 或 `#!py setName = {key1, key2, key3, ...}`
 
 ```python
 >>> s1 = set([1, 2, 3, 'a', (32, 'a', False), 55])
@@ -555,8 +602,9 @@ False
 
 #### Set的增删改查
 ##### 增 add、update
-> setName.add(key)          只能添加基本数据类型
-> setName.update(key)     可以添加基本数据类型和复合数据类型
+`#!py setName.add(key)` 只能添加基本数据类型
+
+`#!py setName.update(key)` 可以添加基本数据类型和复合数据类型
 
 ```python
 >>> s3 = set([1,2,3,4,4,4,5,5])
@@ -571,9 +619,11 @@ False
 ```
 
 ##### 删除 remove、discard、pop
-> setName.remove(key)    删除指定元素，如果元素不存在会存在错误
-> setName.discard(key)    删除指定元素，如果元素不存在不会存在错误
-> setName.pop()              随机删除一个元素
+`#!py setName.remove(key)` 删除指定元素，如果元素不存在会存在错误
+
+`#!py setName.discard(key)` 删除指定元素，如果元素不存在不会存在错误
+
+`#!py setName.pop()` 随机删除一个元素
 
 ```python
 >>> s = set([1, 2, 3, 4, 7, 4, 15, 4, 5, 5])
@@ -609,11 +659,11 @@ KeyError: 20
 ```
 
 ##### 改 remove + add
-> Set 中没有改的办法，因为集合是无序的，改一个元素没有意义
-> 只能删除要改的key，然后添加新的key
->
-> setName.remove(key)
-> setName.add(key)
+Set 中没有改的办法，因为集合是无序的，改一个元素没有意义
+
+只能删除要改的key，然后添加新的key
+
+`#!py  setName.remove(key)` 或 `#!py setName.add(key)`
 
 
 ##### 查
@@ -622,7 +672,7 @@ KeyError: 20
 ## 强制类型转换
 
 | 函数                  | 描述                                                |
-| :-------------------- | :-------------------------------------------------- |
+|:----------------------|:--------------------------------------------------|
 | int(x [,base])        | 将x转换为一个整数                                   |
 | long(x [,base] )      | 将x转换为一个长整数                                 |
 | float(x)              | 将x转换到一个浮点数                                 |
@@ -633,7 +683,7 @@ KeyError: 20
 | tuple(s)              | 将序列 s 转换为一个Tuple                            |
 | list(s)               | 将序列 s 转换为一个List                             |
 | set(s)                | 转换为可变集合                                      |
-| dict(d)               | 创建一个Dict。d 必须是一个序列 (key,value)Tuple。   |
+| dict(d)               | 创建一个Dict。d 必须是一个序列 (key,value)Tuple。     |
 | frozenset(s)          | 转换为不可变集合                                    |
 | chr(x)                | 将一个整数转换为一个字符                            |
 | unichr(x)             | 将一个整数转换为Unicode字符                         |
@@ -780,10 +830,11 @@ import struct          16进制表现                10进制等值
 ```
 
 ### ASCII 字符 和 数字
-字节    b'\x05'
-字符串   '\x05'
-将一个整数 (0-1114111) 转换为 一个字符（整数对应的 ASCII 字符）
-ValueError: chr() arg not in range(0x110000)
+
+- 字节    b'\x05'
+- 字符串   '\x05'
+- 将一个整数 (0-1114111) 转换为 一个字符（整数对应的 ASCII 字符）
+- ValueError: chr() arg not in range(0x110000)
 
 ```python
 

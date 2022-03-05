@@ -89,8 +89,9 @@
     ```
 
 ## 中文编码
-> Python2 默认编码格式是：ASCII，使用中文会出错
-> 解决方法：在文件开头加入 `# -*- coding: UTF-8 -*-` 或 `# coding=utf-8`
+!!! note    
+    Python2 默认编码格式是：ASCII，使用中文会出错
+    解决方法：在文件开头加入 `# -*- coding: UTF-8 -*-` 或 `# coding=utf-8`
 
 ```python
 #!/usr/bin/python
@@ -99,8 +100,9 @@
 print("放码过来")
 ```
 
-> Python3 默认编码格式是：UTF-8，所以无需指定编码格式
-> 注意：py文件需要存储格式为 UTF-8
+!!! note
+    Python3 默认编码格式是：UTF-8，所以无需指定编码格式
+    注意：py文件需要存储格式为 UTF-8
 
 ```python
 #!/usr/bin/env python3

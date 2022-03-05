@@ -15,7 +15,7 @@ date: 2020-07-07 11:17:48
 
 ## 定义函数
 ```python
-def functionName(paramters):
+def functionName(parameters):
     function body
     [return]
 ```

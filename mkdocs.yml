@@ -112,8 +112,14 @@ nav:
           - 3-表达式: Linux/Shell/Shell-3-表达式.md
           - 4-字符串处理: Linux/Shell/Shell-4-字符串处理.md
 
+  - Redis:
+      - Get Start: Redis/1-Get-Start.md
+      - Type: Redis/2-type.md
+
+  - 笔记计划: todo.md
+
 theme:
-  name: material
+  name: material # pip install mkdocs-material
   logo: _assets/logo/favicon.png
   favicon: _assets/logo/favicon.png
   icon:
