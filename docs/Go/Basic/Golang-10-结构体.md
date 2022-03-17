@@ -142,9 +142,9 @@ func main() {
 
 所以：`new(Type)` 和 `&Type{}` 是等价的。
 
-![](https://cdn.jsdelivr.net/gh/TCP404/Picgo/blog/illustration-pic/Go/IMG/20201122164056342_11482.png)
+![](https://xcdn.loli.top/gh/TCP404/Picgo/blog/illustration-pic/Go/IMG/20201122164056342_11482.png)
 
-![](https://cdn.jsdelivr.net/gh/TCP404/Picgo/blog/illustration-pic/Go/IMG/20201122164122020_21432.png)
+![](https://xcdn.loli.top/gh/TCP404/Picgo/blog/illustration-pic/Go/IMG/20201122164122020_21432.png)
 
 ### 匿名结构体
 
@@ -490,7 +490,7 @@ type stu2 struct {
     depart string
 }
 ```
-![](https://cdn.jsdelivr.net/gh/TCP404/Picgo/blog/illustration-pic/Go/IMG/20201123131640736_15271.png)
+![](https://xcdn.loli.top/gh/TCP404/Picgo/blog/illustration-pic/Go/IMG/20201123131640736_15271.png)
 
 ## 匿名字段
 Go 中的结构体允许声明时只有类型而没有名字，这样的字段叫做匿名字段
@@ -578,7 +578,7 @@ func main() {
 ```
 
 用结构体和结构体指针的差别如下图：
-![](https://cdn.jsdelivr.net/gh/TCP404/Picgo/blog/illustration-pic/Go/IMG/20201123131640736_15271.png)
+![](https://xcdn.loli.top/gh/TCP404/Picgo/blog/illustration-pic/Go/IMG/20201123131640736_15271.png)
 
 显然当结构体较大的时候，使用结构体指针的操作开销会很小。
 

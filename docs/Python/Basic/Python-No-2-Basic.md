@@ -4,7 +4,7 @@ tags: Python
 categories:
   - Python
   - 基础
-thumbnail: 'https://cdn.jsdelivr.net/gh/TCP404/Picgo/blog/thumbnail/python.png'
+thumbnail: 'https://xcdn.loli.top/gh/TCP404/Picgo/blog/thumbnail/python.png'
 abbrlink: 38014
 date: 2020-07-03 17:40:48
 ---
@@ -87,17 +87,17 @@ ABC
 
 `a = 'ABC'`
 
-![1](https://cdn.jsdelivr.net/gh/TCP404/Picgo/blog/illustration-pic/Py/2-1.png)
+![1](https://xcdn.loli.top/gh/TCP404/Picgo/blog/illustration-pic/Py/2-1.png)
 
 
 `b = a`
 
-![2](https://cdn.jsdelivr.net/gh/TCP404/Picgo/blog/illustration-pic/Py/2-2.png)
+![2](https://xcdn.loli.top/gh/TCP404/Picgo/blog/illustration-pic/Py/2-2.png)
 
 
 `a = 'XYZ'`
 
-![2](https://cdn.jsdelivr.net/gh/TCP404/Picgo/blog/illustration-pic/Py/2-3.png)
+![2](https://xcdn.loli.top/gh/TCP404/Picgo/blog/illustration-pic/Py/2-3.png)
 
 
 ## 数据类型

@@ -31,7 +31,7 @@
     }
     ```
 
-    ![byte 的返回结果](https://cdn.jsdelivr.net/gh/TCP404/Picgo/blog/illustration-pic/Go/vx_images/745417048783.png)
+    ![byte 的返回结果](https://xcdn.loli.top/gh/TCP404/Picgo/blog/illustration-pic/Go/vx_images/745417048783.png)
 
 
 === "string 方式"
@@ -57,7 +57,7 @@
     }
     ```
 
-    ![string 返回结果](https://cdn.jsdelivr.net/gh/TCP404/Picgo/blog/illustration-pic/Go/vx_images/1050203606306.png)
+    ![string 返回结果](https://xcdn.loli.top/gh/TCP404/Picgo/blog/illustration-pic/Go/vx_images/1050203606306.png)
 
 
 === "JSON 格式"
@@ -108,7 +108,7 @@
     }
     ```
 
-    ![Json 结果](https://cdn.jsdelivr.net/gh/TCP404/Picgo/blog/illustration-pic/Go/vx_images/872328395398.png)
+    ![Json 结果](https://xcdn.loli.top/gh/TCP404/Picgo/blog/illustration-pic/Go/vx_images/872328395398.png)
 
 
 === "YAML 格式"
@@ -156,7 +156,7 @@
     }
     ```
 
-    ![yaml 结果](https://cdn.jsdelivr.net/gh/TCP404/Picgo/blog/illustration-pic/Go/vx_images/4617055721149.png)
+    ![yaml 结果](https://xcdn.loli.top/gh/TCP404/Picgo/blog/illustration-pic/Go/vx_images/4617055721149.png)
 
 
 === "XML 格式"
@@ -182,5 +182,5 @@
         r.Run()
     }
     ```
-    ![XML 结果](https://cdn.jsdelivr.net/gh/TCP404/Picgo/blog/illustration-pic/Go/vx_images/5324325669553.png)
+    ![XML 结果](https://xcdn.loli.top/gh/TCP404/Picgo/blog/illustration-pic/Go/vx_images/5324325669553.png)
 

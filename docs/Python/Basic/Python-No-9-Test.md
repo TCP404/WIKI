@@ -5,7 +5,7 @@ categories:
   - Python
   - 进阶
   - 错误与调试
-thumbnail: 'https://cdn.jsdelivr.net/gh/TCP404/Picgo/blog/thumbnail/python.png'
+thumbnail: 'https://xcdn.loli.top/gh/TCP404/Picgo/blog/thumbnail/python.png'
 abbrlink: 54509
 date: 2020-07-10 10:41:48
 ---

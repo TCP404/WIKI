@@ -5,7 +5,7 @@ categories:
   - Python
   - 进阶
   - 进程、线程
-thumbnail: 'https://cdn.jsdelivr.net/gh/TCP404/Picgo/blog/thumbnail/python.png'
+thumbnail: 'https://xcdn.loli.top/gh/TCP404/Picgo/blog/thumbnail/python.png'
 abbrlink: 46855
 date: 2020-07-16 10:41:48
 ---
@@ -20,7 +20,7 @@ date: 2020-07-16 10:41:48
 线程必须在进程中运行
 线程可以拆分成多个协程
 
-![进程](https://cdn.jsdelivr.net/gh/TCP404/Picgo/blog/illustration-pic/Py/15-1.png)
+![进程](https://xcdn.loli.top/gh/TCP404/Picgo/blog/illustration-pic/Py/15-1.png)
 
 从图中可以看出
 一个进程中有1或多个线程，进程就像一个容器一样，是内存资源分配的单位
@@ -37,7 +37,7 @@ date: 2020-07-16 10:41:48
 >         - 进程觉得一个主线程不够，可以再开N个 **子线程**
 >             - 线程觉得有很多耗时操作（如读写文件、网络请求），想把等待的时间利用起来做其他还没完成的任务，可以搞出很多个 **协程**
 
-![内存](https://cdn.jsdelivr.net/gh/TCP404/Picgo/blog/illustration-pic/Py/15-2.png)
+![内存](https://xcdn.loli.top/gh/TCP404/Picgo/blog/illustration-pic/Py/15-2.png)
 
 
 这么多个概念，其被发明的目的都是为了 **更高效的利用计算机**

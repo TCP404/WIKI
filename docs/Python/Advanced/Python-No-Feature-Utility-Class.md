@@ -6,7 +6,7 @@ tags:
 categories:
   - Python
   - 高级特性
-thumbnail: 'https://cdn.jsdelivr.net/gh/TCP404/Picgo/blog/thumbnail/python.png'
+thumbnail: 'https://xcdn.loli.top/gh/TCP404/Picgo/blog/thumbnail/python.png'
 abbrlink: 18591
 date: 2020-07-24 13:17:48
 ---
@@ -23,7 +23,7 @@ Python的高级特性3
 作用：将可迭代对象的每一个元素放在 function 中进行处理
 返回：map 返回的是一个 map 对象，这是一个可迭代对象
 
-![map](https://cdn.jsdelivr.net/gh/TCP404/Picgo/blog/illustration-pic/Py/No-Feature-map.png)
+![map](https://xcdn.loli.top/gh/TCP404/Picgo/blog/illustration-pic/Py/No-Feature-map.png)
 
 举个栗子：
 ```python
@@ -105,7 +105,7 @@ Python2 中 filter 是个内置函数, Python3 中 filter 是个内置类
 作用：将 可迭代对象 的每一个元素放在 function 中进行过滤，满足 function 中的过滤规则便返回
 返回：filter 返回的是一个 filter对象，这是一个可迭代对象。
 
-![filter](https://cdn.jsdelivr.net/gh/TCP404/Picgo/blog/illustration-pic/Py/No-Feature-filter.png)
+![filter](https://xcdn.loli.top/gh/TCP404/Picgo/blog/illustration-pic/Py/No-Feature-filter.png)
 
 ```python
 # filter 示例
@@ -146,7 +146,7 @@ reduce 不是内置函数，必须导入
 作用：把函数作用在一个序列上，函数必须接收两个参数，reduce 把结果继续和序列的下一个元素做累计运算
 返回：一个计算结果
 
-![reduce](https://cdn.jsdelivr.net/gh/TCP404/Picgo/blog/illustration-pic/Py/No-Feature-reduce.png)
+![reduce](https://xcdn.loli.top/gh/TCP404/Picgo/blog/illustration-pic/Py/No-Feature-reduce.png)
 
 听起来有点绕，用示例解释
 

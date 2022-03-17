@@ -7,7 +7,7 @@ categories:
   - Python
   - 爬虫
   - 基础
-thumbnail: 'https://cdn.jsdelivr.net/gh/TCP404/Picgo/blog/thumbnail/python.png'
+thumbnail: 'https://xcdn.loli.top/gh/TCP404/Picgo/blog/thumbnail/python.png'
 abbrlink: 33364
 date: 2020-08-20 14:17:48
 ---
@@ -61,7 +61,7 @@ url的获取方式主要通过自己查找分析
 http协议中的请求方式分为`get`、`post`、`put`、`patch`、`head`、`delete`。
 最常用的请求为 `get()` 和 `post()`，这两种请求方式都可以携带参数。
 在浏览器中分析的时候可以观察 `?` 后面的字段，有的是`query`，有的是`q`，可以通过浏览器中抓包工具进行分析
-![1](https://cdn.jsdelivr.net/gh/TCP404/Picgo/blog/illustration-pic/Py/crawler/1-1.png)
+![1](https://xcdn.loli.top/gh/TCP404/Picgo/blog/illustration-pic/Py/crawler/1-1.png)
 
 
 1. 由此就可以确定 `?` 前面是我们要的url： `https://www.sogou.com/web?`；url中的问号`?`可写可不写
@@ -137,14 +137,14 @@ requests模块中的`get()`、`post()`、`put()`等请求方法其实都是调�
 ## 抓取动态内容
 网页中有些数据不是静态的，而是动态获取，通过Ajax局部刷新。
 例如百度翻译
-![2](https://cdn.jsdelivr.net/gh/TCP404/Picgo/blog/illustration-pic/Py/crawler/1-2.png)
+![2](https://xcdn.loli.top/gh/TCP404/Picgo/blog/illustration-pic/Py/crawler/1-2.png)
 
 红框中的内容会根据输入框中内容的变化而变化，这就是**动态获取**
 当内容改变的时候，返回来的结果只会改变页面中红框的部分，这就是**局部刷新**
 
 这种数据直接抓取页面是无效的，所以我们要通过浏览器抓包工具进行观察
 
-![3](https://cdn.jsdelivr.net/gh/TCP404/Picgo/blog/illustration-pic/Py/crawler/1-3.png)
+![3](https://xcdn.loli.top/gh/TCP404/Picgo/blog/illustration-pic/Py/crawler/1-3.png)
 
 1. 可以把筛选器设置到 XHR ，这样可以只查看刷新时返回的数据
 2. 通过观察可以发现每输入一个字符就会发送一个sug，所以请求url应该是`https://fanyi.baidu.com/sug`才对

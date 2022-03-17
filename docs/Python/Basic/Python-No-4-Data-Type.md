@@ -4,7 +4,7 @@ tags: Python
 categories:
   - Python
   - 基础
-thumbnail: 'https://cdn.jsdelivr.net/gh/TCP404/Picgo/blog/thumbnail/python.png'
+thumbnail: 'https://xcdn.loli.top/gh/TCP404/Picgo/blog/thumbnail/python.png'
 abbrlink: 39690
 date: 2020-07-05 21:41:48
 ---
@@ -428,12 +428,12 @@ Tuple的不可变指的是Tuple指向的元素不可变
 
 定义 Tuple 时
 
-![1](https://cdn.jsdelivr.net/gh/TCP404/Picgo/blog/illustration-pic/Py/4-1.png)
+![1](https://xcdn.loli.top/gh/TCP404/Picgo/blog/illustration-pic/Py/4-1.png)
 
 
 修改 Tuple 的元素后
 
-![2](https://cdn.jsdelivr.net/gh/TCP404/Picgo/blog/illustration-pic/Py/4-2.png)
+![2](https://xcdn.loli.top/gh/TCP404/Picgo/blog/illustration-pic/Py/4-2.png)
 
 
 ### 字典 Dict

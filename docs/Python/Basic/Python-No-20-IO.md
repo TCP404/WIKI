@@ -5,7 +5,7 @@ categories:
   - Python
   - 进阶
   - IO
-thumbnail: 'https://cdn.jsdelivr.net/gh/TCP404/Picgo/blog/thumbnail/python.png'
+thumbnail: 'https://xcdn.loli.top/gh/TCP404/Picgo/blog/thumbnail/python.png'
 abbrlink: 9832
 date: 2020-07-21 16:41:48
 ---

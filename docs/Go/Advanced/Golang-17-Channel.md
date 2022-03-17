@@ -161,7 +161,7 @@ func main() {
 ## 通道总结
 `channel` 常见异常总结：
 
-![](https://cdn.jsdelivr.net/gh/TCP404/Picgo/blog/illustration-pic/Go/IMG/20210211100625576_17942.png)
+![](https://xcdn.loli.top/gh/TCP404/Picgo/blog/illustration-pic/Go/IMG/20210211100625576_17942.png)
 
 关闭已经关闭的`channel`也会引发`panic`。
 

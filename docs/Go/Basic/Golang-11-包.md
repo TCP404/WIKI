@@ -207,7 +207,7 @@ func main() {
     **1. 全局声明(const -> var) -> 2. init() -> 3. main()**
 
 多个包有导入关系时，init() 执行顺序：从main 包开始，按照 main 包的 **import 的顺序 广度优先** 一层层往下找
-![](https://cdn.jsdelivr.net/gh/TCP404/Picgo/blog/illustration-pic/Go/IMG/20201125164650876_22585.png)
+![](https://xcdn.loli.top/gh/TCP404/Picgo/blog/illustration-pic/Go/IMG/20201125164650876_22585.png)
 
 
 ## 匿名导包

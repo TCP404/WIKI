@@ -69,7 +69,7 @@ class Person:
         self.name = name
         self.age = age
 ```
-![](![](https://cdn.jsdelivr.net/gh/TCP404/Picgo/blog/illustration-pic/Py/IMG/20200902105833108_3400.png)
+![](![](https://xcdn.loli.top/gh/TCP404/Picgo/blog/illustration-pic/Py/IMG/20200902105833108_3400.png)
 
 
 **实例化**：
@@ -88,7 +88,7 @@ print(p2.nose)        # 1 通过对象访问
 print(p1.name)   # Boii
 print(p2.name)   # Cai
 ```
-![](https://cdn.jsdelivr.net/gh/TCP404/Picgo/blog/illustration-pic/Py/IMG/20200902105816461_6402.png)
+![](https://xcdn.loli.top/gh/TCP404/Picgo/blog/illustration-pic/Py/IMG/20200902105816461_6402.png)
 
 
 
@@ -100,7 +100,7 @@ Person.eyes = 1
 print(p1.eyes)    # 1
 print(p2.eyes)    # 1
 ```
-![](https://cdn.jsdelivr.net/gh/TCP404/Picgo/blog/illustration-pic/Py/IMG/20200902105922748_5672.png)
+![](https://xcdn.loli.top/gh/TCP404/Picgo/blog/illustration-pic/Py/IMG/20200902105922748_5672.png)
 
 
 ```python
@@ -110,7 +110,7 @@ p1.age = 50
 print(p1.age)    # 50
 print(p2.age)    # 18, 改了对象A的，对象B是不受影响的
 ```
-![](https://cdn.jsdelivr.net/gh/TCP404/Picgo/blog/illustration-pic/Py/IMG/20200902110710748_5406.png)
+![](https://xcdn.loli.top/gh/TCP404/Picgo/blog/illustration-pic/Py/IMG/20200902110710748_5406.png)
 
 
 类变量，是属于类的，存在类那块内存中，类变量被该类创建出来的对象共享。
@@ -173,7 +173,7 @@ print(Person.eyes)        # 1
 print(p1.eyes)       # 50    此时personA的内存里已经有eyes这个变量了
 print(p2.eyes)       # 1
 ```
-![](https://cdn.jsdelivr.net/gh/TCP404/Picgo/blog/illustration-pic/Py/IMG/20200902111556373_11112.png)
+![](https://xcdn.loli.top/gh/TCP404/Picgo/blog/illustration-pic/Py/IMG/20200902111556373_11112.png)
 
 注意 p1 中 已经多了一个 eyes 的变量了
 
@@ -193,7 +193,7 @@ class Person:
         self.name = name
         self.age = age
 ```
-![](https://cdn.jsdelivr.net/gh/TCP404/Picgo/blog/illustration-pic/Py/IMG/20200902142346472_20282.png)
+![](https://xcdn.loli.top/gh/TCP404/Picgo/blog/illustration-pic/Py/IMG/20200902142346472_20282.png)
 
 
 创建两个对象，然后通过对象修改类变量，和通过对象修改字典类型类变量
@@ -211,7 +211,7 @@ p1.eyes = 3
 # 通过对象 修改静态字典变量, 并不会复制一份d到对象空间里
 p1.d[1] = 50
 ```
-![](https://cdn.jsdelivr.net/gh/TCP404/Picgo/blog/illustration-pic/Py/IMG/20200902142543383_3873.png)
+![](https://xcdn.loli.top/gh/TCP404/Picgo/blog/illustration-pic/Py/IMG/20200902142543383_3873.png)
 可以看到通过类名修改后，类空间里的eyes被修改了
 通过对象修改类变量之后，对象空间里多了一个 eyes 变量并且已经修改了
 通过对象修改字典类型类变量之后，没有复制一份，而是修改了类空间里字典的值

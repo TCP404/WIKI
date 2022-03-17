@@ -4,7 +4,7 @@ tags: Python
 categories:
   - Python
   - OPP
-thumbnail: 'https://cdn.jsdelivr.net/gh/TCP404/Picgo/blog/thumbnail/python.png'
+thumbnail: 'https://xcdn.loli.top/gh/TCP404/Picgo/blog/thumbnail/python.png'
 abbrlink: 17751
 date: 2020-07-15 10:41:48
 ---

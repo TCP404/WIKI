@@ -347,7 +347,7 @@ func main() {
 
     **闭包** 是由 **函数** 和与其相关的引用 **环境** 组合而成的实体 。
 
-![](https://cdn.jsdelivr.net/gh/TCP404/Picgo/blog/illustration-pic/Go/IMG/20201120192526963_12086.png)
+![](https://xcdn.loli.top/gh/TCP404/Picgo/blog/illustration-pic/Go/IMG/20201120192526963_12086.png)
 
 
 
@@ -455,4 +455,4 @@ end
 Go 中的 `return`语句并不是原子操作，它分为 **给返回值赋值** 和 **RET指令** 两步。
 而 `defer` 语句执行的时机在返回值赋值之后，RET指令执行之前。
 
-![](https://cdn.jsdelivr.net/gh/TCP404/Picgo/blog/illustration-pic/Go/IMG/20201122103128567_27058.png)
+![](https://xcdn.loli.top/gh/TCP404/Picgo/blog/illustration-pic/Go/IMG/20201122103128567_27058.png)

@@ -6,7 +6,7 @@ tags:
 categories:
   - Python
   - 内置库
-thumbnail: 'https://cdn.jsdelivr.net/gh/TCP404/Picgo/blog/thumbnail/python.png'
+thumbnail: 'https://xcdn.loli.top/gh/TCP404/Picgo/blog/thumbnail/python.png'
 abbrlink: 25647
 date: 2020-08-23 11:17:48
 ---

@@ -7,7 +7,7 @@ categories:
   - Python
   - 爬虫
   - 基础
-thumbnail: 'https://cdn.jsdelivr.net/gh/TCP404/Picgo/blog/thumbnail/python.png'
+thumbnail: 'https://xcdn.loli.top/gh/TCP404/Picgo/blog/thumbnail/python.png'
 abbrlink: 28223
 date: 2020-08-20 12:17:48
 ---
