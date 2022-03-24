@@ -8,6 +8,111 @@ remote_name: origin
 dev_addr: 127.0.0.1:8000
 copyright: Copyright © 2021 [Mr.Boii](https://www.boii.xyz)
 
+theme:
+  name: material # pip install mkdocs-material
+  logo: _assets/logo/favicon.png
+  favicon: _assets/logo/favicon.png
+  icon:
+    admonition:
+      note:     fontawesome/solid/sticky-note
+      abstract: fontawesome/solid/book
+      info:     fontawesome/solid/info-circle
+      tip:      fontawesome/solid/bullhorn
+      success:  fontawesome/solid/check
+      question: fontawesome/solid/question-circle
+      warning:  fontawesome/solid/exclamation-triangle
+      failure:  fontawesome/solid/bomb
+      danger:   fontawesome/solid/skull
+      bug:      fontawesome/solid/robot
+      example:  fontawesome/solid/flask
+      quote:    fontawesome/solid/quote-left
+
+  palette: # 明亮/黑暗模式
+    - scheme: default
+      toggle:
+        icon: material/lightbulb-outline
+        name: Switch to dark mode
+    - scheme: slate #
+      toggle:
+        icon: material/lightbulb
+        name: Switch to light mode
+  features:
+    - navigation.tabs # 横栏导航
+    - navigation.indexes
+    - content.code.annotate # 代码注释美化，变成一个圆点，鼠标点击显示注释内容。Ref：https://squidfunk.github.io/mkdocs-material/reference/code-blocks/
+    - content.tabs.link
+
+markdown_extensions:
+  - pymdownx.highlight:
+      anchor_linenums: true
+  - pymdownx.inlinehilite
+  - pymdownx.snippets
+  - pymdownx.superfences
+
+  - attr_list
+  - md_in_html
+  - abbr                  # 名词解释支持，Ref：https://squidfunk.github.io/mkdocs-material/reference/abbreviations/
+  - pymdownx.magiclink    # 智能链接支持，Ref：https://facelessuser.github.io/pymdown-extensions/extensions/magiclink/
+  - pymdownx.smartsymbols # 智能符号支持，Ref：https://facelessuser.github.io/pymdown-extensions/extensions/smartsymbols/
+  - footnotes             # 脚注支持，   Ref：https://squidfunk.github.io/mkdocs-material/reference/footnotes/
+  - meta                  # 文章前部的 font-matter 元数据支持
+
+  # 引用块美化，Ref：https://squidfunk.github.io/mkdocs-material/reference/admonitions/
+  - admonition
+  - pymdownx.details
+
+  - pymdownx.betterem: # 智能识别加粗和斜体等符号
+      smart_enable: all # [all 全部开| none 全部关| asterisk 仅对星号起作用| underscore 仅对下划线起作用]
+
+  - pymdownx.arithmatex: # 对数据公式的支持
+      generic: true
+
+  - toc:
+      permalink: true
+
+  - pymdownx.superfences
+  - pymdownx.tabbed:
+      alternate_style: true
+
+  # 对上、下标、文本高亮、键盘样式的支持，Ref：https://squidfunk.github.io/mkdocs-material/reference/formatting/#adding-keyboard-keys
+  - pymdownx.critic
+  - pymdownx.caret
+  - pymdownx.keys
+  - pymdownx.mark
+  - pymdownx.tilde
+
+  # 对代码高亮的支持，Ref：https://squidfunk.github.io/mkdocs-material/reference/code-blocks/
+  - pymdownx.highlight:
+      anchor_linenums: true
+  - pymdownx.inlinehilite
+  - pymdownx.snippets
+  - pymdownx.superfences
+  - pymdownx.inlinehilite
+  - pymdownx.superfences
+  - pymdownx.snippets
+  - codehilite:
+      guess_lang: false
+      linenums: true
+
+  # emoji 支持
+  - pymdownx.emoji:
+      emoji_index: !!python/name:materialx.emoji.twemoji
+      emoji_generator: !!python/name:materialx.emoji.to_svg
+
+  # 列表支持，Ref：https://squidfunk.github.io/mkdocs-material/reference/lists/
+  - def_list
+  - pymdownx.tasklist:
+      custom_checkbox: true
+
+plugins:
+  - search # necessary for search to work
+    # - git-revision-date-localized
+
+extra_javascript:
+  - _assets/js/mathjax.js
+  - https://polyfill.io/v3/polyfill.min.js?features=es6
+  - https://xcdn.loli.top/npm/mathjax@3/es5/tex-mml-chtml.js
+
 nav:
   - Home: index.md
   - Golang:
@@ -28,6 +133,7 @@ nav:
           - 13.面向对象: Go/Basic/Golang-13-面向对象.md
           - 14.错误与异常: Go/Basic/Golang-14-错误与异常.md
           - 15.单元测试: Go/Basic/Golang-15-单元测试.md
+          - 16.泛型: Go/Basic/Golang-16-泛型.md
           - 类型转换: Go/Basic/Golang-类型转换.md
           - Go Module: Go/Basic/Golang-Go-Module.md
       - Advanced:
@@ -100,12 +206,12 @@ nav:
 
   - Linux:
       - Basic:
-          - 进程: Linux/Basic/进程.md
+          - 进程:      Linux/Basic/进程.md
           - 文件和链接: Linux/Basic/文件和链接.md
-          - 文件系统: Linux/Basic/文件系统.md
+          - 文件系统:   Linux/Basic/文件系统.md
           - Command1: Linux/Basic/Command1.md
           - Command2: Linux/Basic/Command2.md
-          - 1.md: Linux/Basic/1.md
+          - 1.md:     Linux/Basic/1.md
       - Shell:
           - 1-基本语法: Linux/Shell/Shell-1-基本语法.md
           - 2-函数、数组、重定向: Linux/Shell/Shell-2-函数、数组、重定向.md
@@ -113,114 +219,23 @@ nav:
           - 4-字符串处理: Linux/Shell/Shell-4-字符串处理.md
 
   - Redis:
-      - Get Start: Redis/1-Get-Start.md
-      - Type: Redis/2-type.md
+      - Get Start:   Redis/1-Get-Start.md
+      - Type-String: Redis/2-1-type-string.md
+      - Type-List:   Redis/2-2-type-list.md
+      - Type-Set:    Redis/2-3-type-set.md
+      - Type-ZSet:   Redis/2-4-type-zset.md
+      - Type-Hash:   Redis/2-5-type-hash.md
 
+  - 408:
+      - 数据结构:
+          - 0-绪论:   408/DataStructure/0-绪论.md
+          - 1-算法:   408/DataStructure/1-算法.md
+          - 2-线性表: 408/DataStructure/2-线性表.md
+          - 3-栈:    408/DataStructure/3-栈.md
+          - 4-队列:  408/DataStructure/4-队列.md
+          - 5-串:    408/DataStructure/5-串.md
+          - 6-树:    408/DataStructure/6-树.md
+          - 7-图:    408/DataStructure/7-图1.md
+          - 8-图的存储结构: 408/DataStructure/8-图2.md
+          - 9-图的算法: 408/DataStructure/9-图3.md
   - 笔记计划: todo.md
-
-theme:
-  name: material # pip install mkdocs-material
-  logo: _assets/logo/favicon.png
-  favicon: _assets/logo/favicon.png
-  icon:
-    admonition:
-      note: fontawesome/solid/sticky-note
-      abstract: fontawesome/solid/book
-      info: fontawesome/solid/info-circle
-      tip: fontawesome/solid/bullhorn
-      success: fontawesome/solid/check
-      question: fontawesome/solid/question-circle
-      warning: fontawesome/solid/exclamation-triangle
-      failure: fontawesome/solid/bomb
-      danger: fontawesome/solid/skull
-      bug: fontawesome/solid/robot
-      example: fontawesome/solid/flask
-      quote: fontawesome/solid/quote-left
-
-  palette: # 明亮/黑暗模式
-    - scheme: default
-      toggle:
-        icon: material/lightbulb-outline
-        name: Switch to dark mode
-    - scheme: slate #
-      toggle:
-        icon: material/lightbulb
-        name: Switch to light mode
-  features:
-    - navigation.tabs # 横栏导航
-    - navigation.indexes
-    - content.code.annotate # 代码注释美化，变成一个圆点，鼠标点击显示注释内容。Ref：https://squidfunk.github.io/mkdocs-material/reference/code-blocks/
-    - content.tabs.link
-
-markdown_extensions:
-  - pymdownx.highlight:
-      anchor_linenums: true
-  - pymdownx.inlinehilite
-  - pymdownx.snippets
-  - pymdownx.superfences
-
-  - attr_list
-  - md_in_html
-  - abbr # 名词解释支持，Ref：https://squidfunk.github.io/mkdocs-material/reference/abbreviations/
-  - pymdownx.magiclink # 智能链接支持，Ref：https://facelessuser.github.io/pymdown-extensions/extensions/magiclink/
-  - pymdownx.smartsymbols # 智能符号支持，Ref：https://facelessuser.github.io/pymdown-extensions/extensions/smartsymbols/
-  - footnotes # 脚注支持，   Ref：https://squidfunk.github.io/mkdocs-material/reference/footnotes/
-  - meta # 文章前部的 font-matter 元数据支持
-
-  # 引用块美化，Ref：https://squidfunk.github.io/mkdocs-material/reference/admonitions/
-  - admonition
-  - pymdownx.details
-
-  - pymdownx.betterem: # 智能识别加粗和斜体等符号
-      smart_enable: all # [all 全部开| none 全部关| asterisk 仅对星号起作用| underscore 仅对下划线起作用]
-
-  - pymdownx.arithmatex: # 对数据公式的支持
-      generic: true
-
-  - toc:
-      permalink: true
-
-  - pymdownx.superfences
-  - pymdownx.tabbed:
-      alternate_style: true
-
-  # 对上、下标、文本高亮、键盘样式的支持，Ref：https://squidfunk.github.io/mkdocs-material/reference/formatting/#adding-keyboard-keys
-  - pymdownx.critic
-  - pymdownx.caret
-  - pymdownx.keys
-  - pymdownx.mark
-  - pymdownx.tilde
-
-  # 对代码高亮的支持，Ref：https://squidfunk.github.io/mkdocs-material/reference/code-blocks/
-  - pymdownx.highlight:
-      anchor_linenums: true
-  - pymdownx.inlinehilite
-  - pymdownx.snippets
-  - pymdownx.superfences
-  - pymdownx.inlinehilite
-  - pymdownx.superfences
-  - pymdownx.snippets
-  - codehilite:
-      guess_lang: false
-      linenums: true
-
-  # emoji 支持
-  - pymdownx.emoji:
-      emoji_generator: !!python/name:pymdownx.emoji.to_png
-  #   - pymdownx.emoji:
-  #   emoji_index: !!python/name:materialx.emoji.twemoji
-  #   emoji_generator: !!python/name:materialx.emoji.to_svg
-
-  # 列表支持，Ref：https://squidfunk.github.io/mkdocs-material/reference/lists/
-  - def_list
-  - pymdownx.tasklist:
-      custom_checkbox: true
-
-plugins:
-  - search # necessary for search to work
-    # - git-revision-date-localized
-
-extra_javascript:
-  - _assets/js/mathjax.js
-  - https://polyfill.io/v3/polyfill.min.js?features=es6
-  - https://xcdn.loli.top/npm/mathjax@3/es5/tex-mml-chtml.js

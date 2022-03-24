@@ -1,21 +1,7 @@
----
-title: Python【No-7】错误处理
-tags: Python
-categories:
-  - Python
-  - 进阶
-  - 错误与调试
-thumbnail: 'https://xcdn.loli.top/gh/TCP404/Picgo/blog/thumbnail/python.png'
-abbrlink: 63024
-date: 2020-07-08 10:41:48
----
+# 错误处理
 
-语言必修课：错误处理
-
-<!--more-->
-
-## 错误处理
-> `try...except1...[exceptN...[finally...]`
+!!! note ""
+    `try...except1...[exceptN...[finally...]`
 
 ```python
 try:
@@ -26,81 +12,86 @@ finally:
     不管是否出现异常最后都会执行的代码
 ```
 
-示例：
-```python
-# 出现 除零的异常 示例
+!!! example
 
-try:
-    print("Try---------")
-    r = 10/0
-    print("result: ", r)
-except ZeroDivisionError as e:
-    print("Except------", e)
-finally:
-    print("Finally-----")
+    ```python
+    # 出现 除零的异常 示例
 
-print("END")
+    try:
+        print("Try---------")
+        r = 10/0
+        print("result: ", r)
+    except ZeroDivisionError as e:
+        print("Except------", e)
+    finally:
+        print("Finally-----")
 
---------------------------------------------------
+    print("END")
 
-# Output:
-Try---------
-Except------ division by zero
-Finally-----
-END
-```
+    --------------------------------------------------
+
+    # Output:
+    Try---------
+    Except------ division by zero
+    Finally-----
+    END
+    ```
 
 try 语句块中的代码遇到异常后会跳转到 except 语句块执行
 而 finally 语句块不管有没有异常最后都会执行。当然，也可以没有 finally 语句
 
-```python
-# 没有异常的示例
+!!! example "没有异常的示例"
 
-try:
-    print("Try---------")
-    r = 10/2
-    print("result: ", r)
-except ZeroDivisionError as e:
-    print("Except------", e)
-finally:
-    print("Finally-----")
+    ```python
+    try:
+        print("Try---------")
+        r = 10/2
+        print("result: ", r)
+    except ZeroDivisionError as e:
+        print("Except------", e)
+    finally:
+        print("Finally-----")
 
-print("END")
+    print("END")
 
---------------------------------------------------
+    --------------------------------------------------
 
-# Output:
-Try---------
-result: 5
-Finally-----
-END
-```
+    # Output:
+    Try---------
+    result: 5
+    Finally-----
+    END
+    ```
+
 ### 捕获多个异常
 
 捕获异常不止可以捕获一个，还可以`捕获多个`
-```python
-try:
-    print("Try---------")
-    r = 10 / int('a')
-    print("result: ", r)
-except ValueError as e:
-    print('ValueError: ', e)
-except ZeroDivisionError as e:
-    print("ZeroDivisionError: ", e)
-finally:
-    print("Finally-----")
 
-print("END")
+!!! example "捕获多个异常"
 
---------------------------------------------------
+    ```python
+    try:
+        print("Try---------")
+        r = 10 / int('a')
+        print("result: ", r)
+    except ValueError as e:
+        print('ValueError: ', e)
+    except ZeroDivisionError as e:
+        print("ZeroDivisionError: ", e)
+    finally:
+        print("Finally-----")
 
-# Output:
+    print("END")
 
-Try---------
-ValueError:  invalid literal for int() with base 10: 'a'
-Finally-----
-END
-```
+    --------------------------------------------------
+
+    # Output:
+
+    Try---------
+    ValueError:  invalid literal for int() with base 10: 'a'
+    Finally-----
+    END
+    ```
 
 ### else 语句
 在 except 后面还可以加一个 `else 语句块`
@@ -203,6 +194,7 @@ except UnicodeError as e:
     print('UnicodeError')
 ```
 第二个except永远捕获不到 `UnicodeError`，因为`UnicodeError`是`ValueError`的子类。
+
 即使有`UnicodeError`，也被第一个except捕获了。
 
 #### 错误类继承关系

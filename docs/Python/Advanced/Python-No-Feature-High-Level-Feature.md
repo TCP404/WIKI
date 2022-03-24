@@ -1,18 +1,4 @@
----
-title: Python【Feature】高级特性
-tags: Python
-categories:
-  - Python
-  - 高级特性
-thumbnail: 'https://xcdn.loli.top/gh/TCP404/Picgo/blog/thumbnail/python.png'
-abbrlink: 44742
-date: 2020-07-24 11:17:48
----
-
-Python的高级特性1
-
-<!--more-->
-
+# 高级特性
 ## 切片 Slice
 
 !!! note
@@ -207,35 +193,49 @@ c - Cai
 
 ## 列表生成式 List Comprehensions
 ### 列表生成式
-> [ i-expression **for** i **in** Iterations ]
-> [ i-expression **for** i **in** Iterations **if** expression ]
-> [ i-expression **if** expression **else** expression **for** i **in** Iterations ]
+
+!!! note ""
+    [ i-expression **for** i **in** Iterations ]
+    
+    [ i-expression **for** i **in** Iterations **if** expression ]
+    
+    [ i-expression **if** expression **else** expression **for** i **in** Iterations ]
 
 ```python
 [ ··· for ··· in ··· ]
 [ ··· for ··· in ··· if ··· ]
 [ ··· if ··· else ··· for ··· in ··· ]
 ```
-列表生成式是一种非常简洁的语法，可以大幅度的压缩代码
-阅读方式：
-- `[i-expression for i in Iterations]`
-遍历迭代对象 Iterations，将每个元素 e 放到 i-expression中运算后，作为这个列表 list 的元素
-- `[i-expression for i in Iterations if expression]`
-遍历迭代对象 Iterations，将每个元素 e 放到 if 中的 expression中运算后，放到 i-expression 中运算，然后作为这个列表 list 的元素
-- `[i-expression if expression else expression for i in Iterations]`
-遍历迭代对象 Iterations，将每个元素 e 放到 if else 中的 expression中运算后，放到 i-expression 中运算，然后作为这个列表 list 的元素
+列表生成式是一种非常简洁的语法，可以大幅度的压缩代码。
 
-for 前的 if else 可以看成三目运算符，这样比较好理解
+阅读方式：
+
+- `#!py [i-expression for i in Iterations]`
+
+    遍历迭代对象 Iterations，将每个元素 e 放到 i-expression中运算后，作为这个列表 list 的元素
+
+- `#!py [i-expression for i in Iterations if expression]`
+
+    遍历迭代对象 Iterations，将每个元素 e 放到 if 中的 expression中运算后，放到 i-expression 中运算，然后作为这个列表 list 的元素
+
+- `#!py [i-expression if expression else expression for i in Iterations]`
+
+    遍历迭代对象 Iterations，将每个元素 e 放到 if else 中的 expression中运算后，放到 i-expression 中运算，然后作为这个列表 list 的元素
+
+for 前的 if else 可以看成三目运算符，这样比较好理解。
+
 1. 三目运算符：True时执行 **if** expression **else** Flase时执行
-2. 对比一下：[ i-expression **if** expression **else** expression for i in Iterations ]
-3. 代入一下：[ True时执行 **if** expression **else** Flase时执行 for i in Iterations ]
+2. 对比一下：`#!py [ i-expression if expression else expression for i in Iterations ]`
+3. 代入一下：`#!py [ True时执行 if expression else Flase时执行 for i in Iterations ]`
 
 **一句话：原本有10个，for...if 后不一定有 10 个， if...else...for 以后有10个，不过可能不尽相同。**
 **两句话：for 前必 else，for 后不else。**
 
-> 注意：i-expression 的`计算变量`和 for 里的`临时变量`要相同
+!!! warning
+    注意：i-expression 的`计算变量`和 for 里的`临时变量`要相同
 
 普通列表生成式
+
 ```python
 # range(1, 11) 生成1~10 [1, 2, 3, 4, 5, 6, 7, 8, 9, 10]
 # for in 遍历这10个数
@@ -255,6 +255,7 @@ for 前的 if else 可以看成三目运算符，这样比较好理解
 ```
 
 for 里带 if 筛选的列表生成式
+
 ```python
 # range(1, 11) 生成1~10 [1, 2, 3, 4, 5, 6, 7, 8, 9, 10]
 # for in 遍历这10个数
@@ -269,6 +270,7 @@ for 里带 if 筛选的列表生成式
 ```
 
 双循环的列表生成式
+
 ```python
 # 还可以使用双循环，生成全排列
 
@@ -277,6 +279,7 @@ for 里带 if 筛选的列表生成式
 ```
 
 多变量的列表生成式
+
 ```python
 # 一个循环多个变量也是可以的
 >>> d = {'x': 'A', 'y': 'B', 'z': 'C' }
@@ -285,6 +288,7 @@ for 里带 if 筛选的列表生成式
 ```
 
 for 前带 if 的列表生成式
+
 ```python
 # # range(1, 11) 生成1~10 [1, 2, 3, 4, 5, 6, 7, 8, 9, 10]
 # for in 遍历这10个数
@@ -301,7 +305,9 @@ for 前带 if 的列表生成式
 ```
 
 ### 其他生成式
+
 除了列表生成式，还有`字典生成式`、`元组生成式`，其实现都是一样的
+
 ```python
 {k: v for k, v in d.items()}
 {k: v for k, v in d.items() if condition}
@@ -337,11 +343,15 @@ SyntaxError: invalid syntax
 ## 生成器 Generator
 
 ### 普通形式
+
 元组生成式 生成一个生成器对象，通过for或者next遍历,遍历后，原生成器对象就不存在了
 
-> ( i-expression **for** i **in** Iterations )
-> ( i-expression **for** i **in** Iterations **if** expression )
-> ( i-expression **if** expression **else** expression **for** i **in** Iterations )
+!!! note
+    ( i-expression **for** i **in** Iterations )
+    
+    ( i-expression **for** i **in** Iterations **if** expression )
+    
+    ( i-expression **if** expression **else** expression **for** i **in** Iterations )
 
 ```python
 (··· for ··· in ··· )
@@ -350,14 +360,22 @@ SyntaxError: invalid syntax
 ```
 
 生成器，是一种一边循环一边计算的机制
+
 比如现在需要一个`1到100W的平方`的列表，用列表生成式表示为`[ x * x for x in range(1000000)]`
+
 但如果只需要经常访问前面几个元素，则浪费了很大的空间
+
 而**生成器是保存了一种算法，它不会直接创建100W个数，而是等到调用的时候通过计算获得**
+
 也就是说：列表生成式是一种缩写，生成器是一种算法
 
-> 生成器 vs 列表生成式：
-> 列表生成式 是使用 `[]`，生成器 是使用 `()`
-> 列表生成式是一个列表，可以直接列出所有元素；生成器要用`next()`或`遍历`来列出所有元素
+!!! tip
+
+    生成器 vs 列表生成式：
+    
+    列表生成式 是使用 `[]`，生成器 是使用 `()`
+    
+    列表生成式是一个列表，可以直接列出所有元素；生成器要用`next()`或`遍历`来列出所有元素
 
 ```python
 >>> L = [ x * x for x in range(10)]
@@ -393,8 +411,10 @@ Traceback (most recent call last):
 StopIteration
 ```
 
-**生成器是算法，是规律，是计算方式**，通过`next(G)`计算出G的下一个元素的值，直到最后一个元素
+**生成器是算法，是规律，是计算方式**，通过`next(G)`计算出G的下一个元素的值，直到最后一个元素.
+
 没有更多元素的时候，抛出`StopIteration`错误
+
 但是这种不断调用`next()`的方法显然不科学，
 
 所以一般都是用`for循环`
@@ -418,10 +438,15 @@ def funcName():
         yield sth
         sth
 ```
-> 普通函数通过`return语句`返回
-> 生成器通过`yield语句`返回，并在下次调用时从`yield语句`处继续
-> `yield`可以看成`return`，都是返回一个值出去
-> 只不过使用`yield`在下次调用时会从`yield`处继续。
+
+!!! note ""
+    普通函数通过`return语句`返回
+
+    生成器通过`yield语句`返回，并在下次调用时从`yield语句`处继续
+
+    `yield`可以看成`return`，都是返回一个值出去
+
+    只不过使用`yield`在下次调用时会从`yield`处继续。
 
 #### 实例
 例如打印杨辉三角
@@ -452,33 +477,47 @@ def funcName():
 # [1, 9, 36, 84, 126, 126, 84, 36, 9, 1]
 ```
 实现思路：
+
 先看杨辉三角的规律：头尾都是1，中间是上一层`第n个`+`第n+1个`，每一层都是list
+
 而且第一层比较特殊，是 [1]
+
 可以先把杨辉三角核心的算法搞定。
 
 ##### 核心算法
+
 ```python
 L = [1]
 L = [1] + [L[n] + L[n+1] for n in range(len(L)-1)] +[1]
 ```
 `[1] + [L[n] + L[n+1] for n in range(len(L)-1)] +[1]` 就是核心算法了
+
 把他拆开来看，可以发现这个表达式是由中间段加上头尾的 `[1]` 组成的
 
 再看中间段 `[L[n] + L[n+1] for n in range(len(L)-1)]`
+
 这是一个列表生成式
+
 `range(len(L)-1)`会生成 0 1 2 ...
 
 假设当前为第5层，准备生成 [1, 4, 6, 4, 1]
+
 当前的 L 是 [1, 3, 3, 1]，那么`len(L)`则是4，
+
 `range(len(L) - 1)`则等价于`range(3)`,会生成 0 1 2
 
 `[L[n] + L[n+1] for n in range(len(L)-1)]`则等价于
+
 `[L[0]+L[1], L[1]+L[2], L[2]+L[3]]` 则等价于
+
 `[  1 + 3,     3 + 3,     3 + 1  ]`则等价于
+
 `[4, 6, 4]` 正好就是中间段
+
 再加上头尾两个 [1]： `[1, 4, 6, 4, 1]`
 
 ##### 做成生成器
+
 因为第一层 特殊，所以用小括号列表生成式`()`做不出来，改用函数形式
 
 ```python
@@ -492,7 +531,9 @@ def triangles():
 第一次迭代生成器triangles时，会执行 `L = [1]`，然后进入循环，遇到`yield L`把L返回出去
 
 第二次迭代生成器triangles时，会从`yield L`处继续，
+
 然后执行核心算法 `L = [1] + [L[x]+L[x+1] for x in range(len(L)-1)] + [1]`
+
 之后继续循环，又遇到`yield L`，把更新过的 L 返回出去
 
 接着第三次，第四次...
@@ -510,7 +551,9 @@ for n, t in enumerate(triangles()):
 ```
 
 生成器也是一个可迭代对象，所以可以用 `for...in...`来迭代输出
+
 `enumerate()`赋予了对应的下标
+
 这个生成器可以无限循环下去，可以获得无穷层，这里打印10层作为示范即可
 
 最后可以得到期待输出：
@@ -566,7 +609,9 @@ else:
 ```
 
 ### 总结
+
 普通形式-生成器：把列表生成式的`[]`换成`()` 
+
 函数形式-生成器：函数中带`yield`，下一次调用时会从`yield`处继续
 
 ## 迭代器 Iterator

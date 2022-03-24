@@ -1,20 +1,4 @@
----
-title: Python【No-8】调试
-tags: Python
-categories:
-  - Python
-  - 进阶
-  - 错误与调试
-thumbnail: 'https://xcdn.loli.top/gh/TCP404/Picgo/blog/thumbnail/python.png'
-abbrlink: 24435
-date: 2020-07-09 10:41:48
----
-
-开发的必经之路：调试
-
-<!--more-->
-
-
+# 调试
 大型项目中，一般都是使用日志来调试程序。不过有时候有一小块代码想做调试的时候，可以用`print`和`assert`。
 
 ## print & assert
@@ -64,6 +48,7 @@ AssertionError: n is zero!
 当assert后面的表达式为 False 时，则抛出 `AssertionError`错误
 
 `assert expression`等价于
+
 ```python
 if not expression:
     raise AssertionError
@@ -82,13 +67,14 @@ assert (linux in sys.platform), "该代码只能在 linux 系统下执行"
 ```
 
 ## 日志模块 logging
+
 Python 标准库中有一个日志模块 `logging`，相当于 java 中的 `log4j`
 
-在**软件开发阶段**或**部署开发环境**时，
+在 **软件开发阶段** 或 **部署开发环境** 时，
 为了尽可能详细的查看应用程序的运行状态来保证上线后的稳定性，
 我们可能需要把该应用程序所有的运行日志全部记录下来进行分析，这是非常耗费机器性能的。
 
-当**应用程序正式发布**或**在生产环境部署应用程序**时，
+当 **应用程序正式发布** 或 **在生产环境部署应用程序** 时，
 我们通常只需要记录应用程序的`异常信息`、`错误信息`等，
 这样既可以减小服务器的I/O压力，也可以避免我们在排查故障时被淹没在日志的海洋里。
 
@@ -106,19 +92,22 @@ Python 标准库中有一个日志模块 `logging`，相当于 java 中的 `log4
 
 
 日志等级是从下到上依次升高的（值越大等级越高）
-即：NOTEST < DEBUG < INFO < WARNING < ERROR < CRITICAL，
-而日志的信息量是依次减少的；
+
+即：**NOTEST < DEBUG < INFO < WARNING < ERROR < CRITICAL**，而日志的信息量是依次减少的；
 
 开发应用程序或部署开发环境时，可以使用`DEBUG`或`INFO`级别的日志获取尽可能详细的日志信息来进行开发或部署调试；
+
 应用上线或部署生产环境时，应该使用`WARNING`或`ERROR`或`CRITICAL`级别的日志来降低机器的I/O压力和提高获取错误日志信息的效率。
 
 日志级别的指定通常都是在`应用程序的配置文件`中进行指定的。
 
 
 ### logging 配置
-> `loggong.basicConfig(**kwargs)`
 
-**kwargs 可以接收关键字参数如下：
+!!! note ""
+    `loggong.basicConfig(**kwargs)`
+
+`**kwargs` 可以接收关键字参数如下：
 
 | 参数名称 | 描述                                                                                              | 取值范围                                                             |
 | :------- | :------------------------------------------------------------------------------------------------ | :------------------------------------------------------------------- |
@@ -137,21 +126,21 @@ format 参数的取值表
 
 | 名称            | 使用格式            | 描述                                                                                  |
 | :-------------- | :------------------ | :------------------------------------------------------------------------------------ |
-| asctime         | %(asctime)s         | 日志事件发生的时间--**人类可读时间**，如：2003-07-08 16:49:45,896                     |
-| created         | %(created)f         | 日志事件发生的时间--**时间戳**，就是当时调用time.time()函数返回的值                   |
-| relativeCreated | %(relativeCreated)d | 日志事件发生的时间相对于logging模块加载时间的**相对毫秒数**（目前还不知道干嘛用的）   |
-| msecs           | %(msecs)d           | 日志事件发生的时间的**毫秒部分**                                                      |
+| asctime         | %(asctime)s         | 日志事件发生的时间-- **人类可读时间**，如：2003-07-08 16:49:45,896                     |
+| created         | %(created)f         | 日志事件发生的时间-- **时间戳**，就是当时调用time.time()函数返回的值                   |
+| relativeCreated | %(relativeCreated)d | 日志事件发生的时间相对于logging模块加载时间的 **相对毫秒数** （目前还不知道干嘛用的）   |
+| msecs           | %(msecs)d           | 日志事件发生的时间的 **毫秒部分**                                                      |
 | --------------- | ------------------- | ----------------------------------------------------------------------------          |
-| levelname       | %(levelname)s       | 该日志记录的文字形式的**日志级别**（'DEBUG', 'INFO', 'WARNING', 'ERROR', 'CRITICAL'） |
-| levelno         | %(levelno)s         | 该日志记录的数字形式的**日志级别**（10,20,30,40,50）                                  |
-| lineno          | %(lineno)d          | 调用日志记录函数的**源代码所在的行号**                                                |
-| funcName        | %(funcName)s        | 调用日志记录函数的**函数名**                                                          |
-| name            | %(name)s            | 所使用的**日志器名称**，默认是'root'，                                                |
-| message         | %(message)s         | 日志记录的**文本内容**，通过 msg % args计算得到的                                     |
+| levelname       | %(levelname)s       | 该日志记录的文字形式的 **日志级别** （'DEBUG', 'INFO', 'WARNING', 'ERROR', 'CRITICAL'） |
+| levelno         | %(levelno)s         | 该日志记录的数字形式的 **日志级别** （10,20,30,40,50）                                  |
+| lineno          | %(lineno)d          | 调用日志记录函数的 **源代码所在的行号**                                                |
+| funcName        | %(funcName)s        | 调用日志记录函数的 **函数名**                                                          |
+| name            | %(name)s            | 所使用的 **日志器名称**，默认是'root'，                                                |
+| message         | %(message)s         | 日志记录的 **文本内容**，通过 msg % args计算得到的                                     |
 | --------------- | ------------------- | ----------------------------------------------------------------------------          |
-| pathname        | %(pathname)s        | 调用日志记录函数的源码文件的**全路径**                                                |
-| filename        | %(filename)s        | pathname的文件名部分，包含文件后缀                                                    |
-| module          | %(module)s          | filename的名称部分，不包含后缀                                                        |
+| pathname        | %(pathname)s        | 调用日志记录函数的源码文件的 **全路径**                                                |
+| filename        | %(filename)s        | pathname的 **文件名部分**，包含文件后缀                                                    |
+| module          | %(module)s          | filename的 **名称部分**，不包含后缀                                                        |
 | --------------- | ------------------- | ----------------------------------------------------------------------------          |
 | process         | %(process)d         | 进程ID                                                                                |
 | processName     | %(processName)s     | 进程名称，Python 3.1新增                                                              |
@@ -186,7 +175,9 @@ logging.critical("This is a critical log.")
 
 
 如果要让日志格式好看点，还可以指定宽度。
+
 比如执行 日志等级 的打印宽度为 8，在 s 前面加上宽度即可：`%(levelname)8s`
+
 如果要左对齐，则写上减号 -：`%(levelname)-8s`
 
 ```python
@@ -207,24 +198,28 @@ logging.error("This is a error log.")
 logging.critical("This is a critical log.")
 ```
 
-左对齐：%(levelname)-8s
+左对齐：`%(levelname)-8s`
 
 ![3](https://xcdn.loli.top/gh/TCP404/Picgo/blog/illustration-pic/Py/8-3.png)
 
 
-右对齐：%(levelname)8s
+右对齐：`%(levelname)8s`
 
 ![4](https://xcdn.loli.top/gh/TCP404/Picgo/blog/illustration-pic/Py/8-4.png)
 
 
 ### logging 模块使用
-> 用法：
-> 1. 导入 logging
-> 2. 配置(可选)
-> 3. 打日志
+
+!!! note
+    用法：
+
+    1. 导入 logging
+    2. 配置(可选)
+    3. 打日志
 
 
 logging 模块提供了两种记录日志的方式：
+
 - 使用 logging 提供的`模块级别`的函数
 - 使用 logging 日志系统的`四大组件`
 
@@ -273,5 +268,7 @@ ERROR:root:This is a error log.
 CRITICAL:root:This is a critical log.
 ```
 这里只输出 warning 级别以上的信息。这是因为默认的日志等级是 warning ，所以 debug 和 info 级别的信息就被忽略了。
+
 logging 只输出 大于等于 所设置级别以上的日志信息。
-这点可以在 `logging.basicConfig()`中设置
+
+这点可以在 `logging.basicConfig()`中设置。

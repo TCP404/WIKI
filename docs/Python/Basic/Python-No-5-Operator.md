@@ -1,18 +1,4 @@
----
-title: Python【No-5】运算符
-tags: Python
-categories:
-  - Python
-  - 基础
-thumbnail: 'https://xcdn.loli.top/gh/TCP404/Picgo/blog/thumbnail/python.png'
-abbrlink: 11720
-date: 2020-07-06 17:28:48
----
-
-基础难点：运算符
-
-<!--more-->
-
+# 操作符
 ## 算术运算符
 以下假设变量a为10，变量b为21：
 
@@ -38,8 +24,10 @@ date: 2020-07-06 17:28:48
 | >=     | 大于等于 | 返回x是否大于等于y。   | 	(a >= b) 返回 False。 |
 | <=     | 小于等于 | 返回x是否小于等于y。   | 	(a <= b) 返回 True。  |
 
-> 所有比较运算符返回1表示真，返回0表示假。
-> 这分别与特殊的变量True和False等价。注意，这些变量名的大写。
+!!! note ""
+    所有比较运算符返回1表示真，返回0表示假。
+
+    这分别与特殊的变量True和False等价。注意，这些变量名的大写。
 
 ## 赋值运算符
 以下假设变量a为10，变量b为20：
@@ -58,29 +46,31 @@ date: 2020-07-06 17:28:48
 
 ## 海象运算符/成为运算符/命名表达式运算符
 
-例1
-```python3
-age = 20
-if age> 18:
-    print('Adult')
+=== "例1"
 
-# 使用海象
-if (age := 20) > 18:
-    print('Adult')
-```
+    ```python3
+    age = 20
+    if age> 18:
+        print('Adult')
 
-例2
-```python
-L = [1, 2, 3]
-n = len(L)
-if n > 2:
-    print('Length of L is', len(L))
+    # 使用海象
+    if (age := 20) > 18:
+        print('Adult')
+    ```
 
-# 使用海象
-L = [1, 2, 3]
-if (n := len(L)) > 2:
-    print('Length of L is', n)
-```
+=== "例2"
+
+    ```python
+    L = [1, 2, 3]
+    n = len(L)
+    if n > 2:
+        print('Length of L is', len(L))
+
+    # 使用海象
+    L = [1, 2, 3]
+    if (n := len(L)) > 2:
+        print('Length of L is', n)
+    ```
 
 可以理解为 `len(L)` 的返回值赋值给`n`，然后判断 `n>2`
 这样做的好处可以提升运行效率
@@ -146,20 +136,14 @@ a^b = 0011 0001    # 49
 | >>     | 右移动运算符：运算数的各二进位全部右移N位，                              | a >> 2 输出结果 15 ，二进制解释： 0000 1111                                |
 
 
-a << 1 等价于 a * 2
-
-a << 2 等价于 a * 2 * 2
-
-a >> 1 等价于 a / 2
-
-a >> 2 等价于 a / 2 / 2
-
-a ^= a 等价于 a = a ^ a 等价于置零 a = 0
-
-a = a ^ (~a) + 1 等价于置零 a = 0
-
-~a + 1 为a的补码
-
+- `a << 1` 等价于 `a * 2`
+- `a << 2` 等价于 `a * 2 * 2`
+- `a >> 1` 等价于 `a / 2`
+- `a >> 2` 等价于 `a / 2 / 2`
+- `a ^= a` 等价于 `a = a ^ a` 等价于 置零 `a = 0`
+- `a = a ^ (~a) + 1` 等价于置零 `a = 0`
+- `~a` 为 a 的反码
+- `~a + 1` 为 a 的补码
 ## 逻辑运算符
 Python语言支持逻辑运算符，以下假设变量 a 为 10, b为 20:
 
@@ -197,8 +181,11 @@ Python语言支持逻辑运算符，以下假设变量 a 为 10, b为 20:
 140588731085608
 ```
 ## 三目运算符
-> true if expression else flase
-> 满足表达式时 if 表达式 else 不满足表达式时
+
+!!! Abstract
+    `#!py true if expression else flase`
+
+    满足表达式时 if 表达式 else 不满足表达式时
 
 ```python
 >>> a = 1

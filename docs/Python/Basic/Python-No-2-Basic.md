@@ -1,18 +1,4 @@
----
-title: Python【No-2】基础
-tags: Python
-categories:
-  - Python
-  - 基础
-thumbnail: 'https://xcdn.loli.top/gh/TCP404/Picgo/blog/thumbnail/python.png'
-abbrlink: 38014
-date: 2020-07-03 17:40:48
----
-
-Python 基础知识
-
-<!--more-->
-
+# 基础
 ## 输入 & 输出
 
 ### 输出
@@ -27,29 +13,40 @@ Python 基础知识
 ```
 
 ### 输入
-> 承接变量 = input('提示信息')
 
-```python
->>> name = input()
-Boii
->>> name
-'Boii'
->>> print(name)
-Boii
-```
+!!! note ""
+    承接变量 = input('提示信息')
 
-```python3
-# name.py
+=== "命令行式"
+    ```python
+    >>> name = input()
+    Boii
+    >>> name
+    'Boii'
+    >>> print(name)
+    Boii
+    ```
 
-name = input('Please enter your name:')
-print('Hello', name)
-```
-`>_:  python name.py`
-> Please enter your name: Boii
-> Hello Boii
+=== "文件方式"
+
+    ```python3
+    # name.py
+
+    name = input('Please enter your name:')
+    print('Hello', name)
+    ```
+
+    ```sh
+    > python name.py
+
+    Please enter your name: Boii
+    Hello Boii
+    ```
 
 ## 变量
+
 !!! note
+
     1. 大小写英文、数字、下划线_
     2. 不能数字开头
     3. 大小写敏感

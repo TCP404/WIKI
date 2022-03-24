@@ -2,7 +2,7 @@
     - 数据类型
         - [x] string
         - [x] list
-        - [ ] set
+        - [x] set
         - [ ] zset
         - [ ] hash
     - 持久化原理
