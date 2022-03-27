@@ -7,6 +7,14 @@ To resolve this problem, Redis has 3 ==Data Elimination Strategy==.
 1. **RDB**: Redis Database File (Default).
 2. **AOF**: Append Only File.
 3. **Algorithm**: 
+    - *volatile-lru*: Delete a ==L==east ==R==ecently ==U==sed key from the keys that **sets expire** when memory is deficient.
+    - *volatile-lfu*: Delete a ==L==east ==F==requently ==U==sed key from the keys that **sets expire** when memory is deficient.
+    - *volatile-random*: Delete a key ==Randomly== from the keys that **sets expire** when memory is deficient. 
+    - *volatile-ttl*: Delete the key with the **nearest expire time** (Minor TTL).
+    - *allkeys-lru*: Delete a ==L==east ==R==ecently ==U==sed key from all keys.
+    - *allkeys-lfu*: Delete a ==L==east ==F==requently ==U==sed key from all keys.
+    - *allkeys-random*: Delete a key ==Randomly== from all keys.
+    - *noeviction*: Just returns an error on write operations when memory is deficient.
 ## RDB
 
 RDB is a **default memchanism** for Redis persistence. It is enable by default.

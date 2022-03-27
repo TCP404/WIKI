@@ -15,6 +15,12 @@
         - [ ] bitmaps
         - [ ] HyperLogLog
         - [ ] GEO
+    - 缓存常见问题
+        - [ ] 缓存击穿 Hotspot Invalid
+        - [ ] 缓存穿透 Cache Penetration
+        - [ ] 缓存雪崩 Cache Avalanche
+        - [ ] 缓存预热 Cache Warm-Up
+        - [ ] 性能监控
     - 底层通信原理
         - [ ] 主从复制架构
         - [ ] 哨兵机制
@@ -22,12 +28,6 @@
         - [ ] 理论
         - [ ] 设计
         - [ ] 实践
-    - 企业解决方案
-        - [ ] 缓存预热
-        - [ ] 缓存雪崩
-        - [ ] 缓存击穿
-        - [ ] 缓存穿透
-        - [ ] 性能监控
 - MySQL
     - 技术
         - [x] SQL
