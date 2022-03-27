@@ -3,8 +3,8 @@
         - [x] string
         - [x] list
         - [x] set
-        - [ ] zset
-        - [ ] hash
+        - [x] zset
+        - [x] hash
     - 持久化原理
         - [ ] 快照 (Snapshot)
         - [ ] AOF (Append Only File)

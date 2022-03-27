@@ -5,7 +5,7 @@
 | set         | `SET key value`                   | set a pair of key-value                                              | `set name boii`           | OK                                     |
 | get         | `GET key`                         | get the value of key                                                 | `get name`                | "boii"                                 |
 | mset        | `MSET key value [key value ...]`  | set more pair of key-value at one time                               | `mset name boii age 18 `  | OK                                     |
-| mget        | `MGET key [key ...]`              | get more value of key-value at one time                              | `mget name age`           | "boii" "18"                            |
+| mget        | `MGET key [key ...]`              | get more values of key-value at one time                              | `mget name age`           | "boii" "18"                            |
 | setex       | `SETEX key seconds value`         | shortcut of `SET key value` + `EXPIRE key seconds`                   | `setex name 5 boii`       | OK                                     |
 | psetex      | `PSETEX key seconds value`        | shortcur of `SET key value` + `PEXPIRE key microseconds`             | `psetex name 5000 boii`   | OK                                     |
 | setnx       | `SETNX key value`                 | set a pair of key-value **if key isn't exists**                      | `setnx name boii`         | 1 if successful, otherwise 0           |

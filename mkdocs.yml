@@ -220,11 +220,14 @@ nav:
 
   - Redis:
       - Get Start:   Redis/1-Get-Start.md
-      - Type-String: Redis/2-1-type-string.md
-      - Type-List:   Redis/2-2-type-list.md
-      - Type-Set:    Redis/2-3-type-set.md
-      - Type-ZSet:   Redis/2-4-type-zset.md
-      - Type-Hash:   Redis/2-5-type-hash.md
+      - Type:
+        - String: Redis/2-1-type-string.md
+        - List:   Redis/2-2-type-list.md
+        - Set:    Redis/2-3-type-set.md
+        - ZSet:   Redis/2-4-type-zset.md
+        - Hash:   Redis/2-5-type-hash.md
+      - Persistence: Redis/3-presistence.md
+      - Transaction: Redis/4-transaction.md
 
   - 408:
       - 数据结构:

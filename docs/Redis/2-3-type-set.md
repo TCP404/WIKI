@@ -55,7 +55,7 @@ It has some manipualtion:
 ## SCARD
 
 - **Syntax**: `SCARD key`
-- **Description**: Returns count of set named `key`.
+- **Description**: Returns the number of members in the set named `key`.
 - **Return**: Numbers of set's count, 0 if `key` does not exist.
 
 ```sh
