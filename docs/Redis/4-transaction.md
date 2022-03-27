@@ -1,7 +1,3 @@
-<!--
- * @Author: Boii
- * @Date: 2022-03-27 10:10:26
--->
 # Transaction
 
 Redis transaction begin with the `MULTI` command and end with `EXEC` or `DISCARD` command.
@@ -20,25 +16,21 @@ But if any illegal command is pushed, an error will be reported. Then the transa
 
 ## Commands
 
-- MULTI
-
-    Marks the start of a transaction block.
+`MULTI`
+:   Marks the start of a transaction block.
 
     After MULTI command, commands for each non transactional operation are pushed on the queue.
 
-- EXEC/DISCARD
+`EXEC/DISCARD`
+:   Marks the end of a transaction block And **EXECUTE** or **DISCARD** the commands in the queue.
 
-    Marks the end of a transaction block And **EXECUTE** or **DISCARD** the commands in the queue.
-    
-- WATCH
-
-    - `WATCH key [key ...]`
+`WATCH`
+:   `WATCH key [key ...]`
 
     Marks the given keys to be watched.
 
-- UNWATCH
-
-    Unmarks all the previously watched keys for a transaction.
+`UNWATCH`
+:   Unmarks all the previously watched keys for a transaction.
 
     If you call EXEC or DISCARD, there’s no need to manually call UNWATCH.
 
@@ -78,7 +70,7 @@ QUEUED
 OK
 ```
 
-```sh title"Do not atomic"
+```sh title="Do not atomic"
 > MULTI
 OK
 

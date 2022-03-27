@@ -12,6 +12,9 @@ theme:
   name: material # pip install mkdocs-material
   logo: _assets/logo/favicon.png
   favicon: _assets/logo/favicon.png
+  font:
+    text: Inter
+    code: Fira Code
   icon:
     admonition:
       note:     fontawesome/solid/sticky-note
@@ -43,11 +46,11 @@ theme:
     - content.tabs.link
 
 markdown_extensions:
-  - pymdownx.highlight:
-      anchor_linenums: true
-  - pymdownx.inlinehilite
-  - pymdownx.snippets
-  - pymdownx.superfences
+  - pymdownx.superfences:
+      custom_fences:
+        - name: mermaid
+          class: mermaid
+          format: !!python/name:pymdownx.superfences.fence_code_format
 
   - attr_list
   - md_in_html
@@ -61,7 +64,7 @@ markdown_extensions:
   - admonition
   - pymdownx.details
 
-  - pymdownx.betterem: # 智能识别加粗和斜体等符号
+  - pymdownx.betterem:  # 智能识别加粗和斜体等符号
       smart_enable: all # [all 全部开| none 全部关| asterisk 仅对星号起作用| underscore 仅对下划线起作用]
 
   - pymdownx.arithmatex: # 对数据公式的支持
@@ -70,7 +73,6 @@ markdown_extensions:
   - toc:
       permalink: true
 
-  - pymdownx.superfences
   - pymdownx.tabbed:
       alternate_style: true
 
@@ -82,14 +84,10 @@ markdown_extensions:
   - pymdownx.tilde
 
   # 对代码高亮的支持，Ref：https://squidfunk.github.io/mkdocs-material/reference/code-blocks/
+  - pymdownx.inlinehilite
+  - pymdownx.snippets
   - pymdownx.highlight:
       anchor_linenums: true
-  - pymdownx.inlinehilite
-  - pymdownx.snippets
-  - pymdownx.superfences
-  - pymdownx.inlinehilite
-  - pymdownx.superfences
-  - pymdownx.snippets
   - codehilite:
       guess_lang: false
       linenums: true
@@ -111,7 +109,8 @@ plugins:
 extra_javascript:
   - _assets/js/mathjax.js
   - https://polyfill.io/v3/polyfill.min.js?features=es6
-  - https://xcdn.loli.top/npm/mathjax@3/es5/tex-mml-chtml.js
+  - https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js
+
 
 nav:
   - Home: index.md
@@ -226,7 +225,7 @@ nav:
         - Set:    Redis/2-3-type-set.md
         - ZSet:   Redis/2-4-type-zset.md
         - Hash:   Redis/2-5-type-hash.md
-      - Persistence: Redis/3-presistence.md
+      - Persistence: Redis/3-persistence.md
       - Transaction: Redis/4-transaction.md
 
   - 408:

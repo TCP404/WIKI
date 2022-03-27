@@ -9,8 +9,8 @@
         - [ ] 快照 (Snapshot)
         - [ ] AOF (Append Only File)
     - 事务
-        - [ ] 事务 (multi, exec)
-        - [ ] 锁
+        - [x] 事务 (multi, exec)
+        - [x] 锁 (watch, unwatch)
     - 高级数据类型
         - [ ] bitmaps
         - [ ] HyperLogLog
