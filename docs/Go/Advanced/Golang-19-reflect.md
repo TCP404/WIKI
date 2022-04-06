@@ -371,7 +371,7 @@ func main() {
 
 ## 反射API
 
-![](https://xcdn.loli.top/gh/TCP404/Picgo/blog/illustration-pic/Go/IMG/20210213215422285_5740.png)
+![](https://cdn.jsdelivr.net/gh/TCP404/Picgo/blog/illustration-pic/Go/IMG/20210213215422285_5740.png)
 
 上图很好的概括了 所有的API
 

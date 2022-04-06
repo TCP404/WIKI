@@ -7,7 +7,7 @@ categories:
   - Python
   - 爬虫
   - 基础
-thumbnail: 'https://xcdn.loli.top/gh/TCP404/Picgo/blog/thumbnail/python.png'
+thumbnail: 'https://cdn.jsdelivr.net/gh/TCP404/Picgo/blog/thumbnail/python.png'
 abbrlink: 28995
 date: 2020-08-20 14:17:48
 ---
@@ -156,7 +156,7 @@ FQILIKXCVMUIRXL8.jpg 下载成功！
 </html>
 ```
 
-> ![1](https://xcdn.loli.top/gh/TCP404/Picgo/blog/illustration-pic/Py/crawler/2-1.png)
+> ![1](https://cdn.jsdelivr.net/gh/TCP404/Picgo/blog/illustration-pic/Py/crawler/2-1.png)
 > **以下爬虫示例均以此网页示例为基础**
 有点丑，将就一下。
 

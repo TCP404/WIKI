@@ -34,7 +34,7 @@ func (group *RouterGroup) Handle(httpMethod, relativePath string, handlers ...Ha
 
     浏览器访问 `http://localhost:9090/hello` 可得到下面的结果
 
-    ![](https://xcdn.loli.top/gh/TCP404/Picgo/blog/illustration-pic/Go/vx_images/957715546196.png)
+    ![](https://cdn.jsdelivr.net/gh/TCP404/Picgo/blog/illustration-pic/Go/vx_images/957715546196.png)
 
 
 **接收 POST、PUT 等方式的请求**
@@ -71,7 +71,7 @@ func main() {
 ```
 
 通过 Postman 可以设定表单参数然后发起请求，我们用gin写的代码就可以接收到一个 POST 请求，并进行处理。
-![](https://xcdn.loli.top/gh/TCP404/Picgo/blog/illustration-pic/Go/vx_images/840022092674.png)
+![](https://cdn.jsdelivr.net/gh/TCP404/Picgo/blog/illustration-pic/Go/vx_images/840022092674.png)
 
 
 可以看到， Postman 中设置了两个参数 `user` 和 `pass`，向 `http://localhost:9090/login` 发清请求。
@@ -193,9 +193,9 @@ func (c *Context) DefaultQuery(key, defaultValue string) string;
         r.Run(":9090")
     }
     ```
-    ![age 给了值](https://xcdn.loli.top/gh/TCP404/Picgo/blog/illustration-pic/Go/vx_images/2988503917018.png)
+    ![age 给了值](https://cdn.jsdelivr.net/gh/TCP404/Picgo/blog/illustration-pic/Go/vx_images/2988503917018.png)
 
-    ![age 没给值](https://xcdn.loli.top/gh/TCP404/Picgo/blog/illustration-pic/Go/vx_images/5990713787204.png)
+    ![age 没给值](https://cdn.jsdelivr.net/gh/TCP404/Picgo/blog/illustration-pic/Go/vx_images/5990713787204.png)
 
 
 ### 获取 POST 表单参数
@@ -236,7 +236,7 @@ func (c *Context) DefaultPostForm(key, defaultValue string) string;
     }
     ```
 
-    ![](https://xcdn.loli.top/gh/TCP404/Picgo/blog/illustration-pic/Go/vx_images/783508891344.png)
+    ![](https://cdn.jsdelivr.net/gh/TCP404/Picgo/blog/illustration-pic/Go/vx_images/783508891344.png)
 
 
 ### 处理其他格式的请求参数
@@ -284,7 +284,7 @@ func (c *Context) MustBindWith(obj interface{}, b binding.Binding) error;
     }
     ```
 
-    ![](https://xcdn.loli.top/gh/TCP404/Picgo/blog/illustration-pic/Go/vx_images/320000449262.png)
+    ![](https://cdn.jsdelivr.net/gh/TCP404/Picgo/blog/illustration-pic/Go/vx_images/320000449262.png)
 
     这个例子可以解析 HTTP 请求中通过 JSON 携带的数据。
 
@@ -350,7 +350,7 @@ func (c *Context) MustBindWith(obj interface{}, b binding.Binding) error;
 例如 JSON 的话会调用 `jsonBinding.Bind()` 方法，然后在里面调用 `decodeJSON()` 方法。
 
 
-![](https://xcdn.loli.top/gh/TCP404/Picgo/blog/illustration-pic/Go/vx_images/638857661664.png)
+![](https://cdn.jsdelivr.net/gh/TCP404/Picgo/blog/illustration-pic/Go/vx_images/638857661664.png)
 
 
 
@@ -392,7 +392,7 @@ func (c *Context) ShouldBindQuery(obj interface{}) error;
     }
     ```
 
-    ![](https://xcdn.loli.top/gh/TCP404/Picgo/blog/illustration-pic/Go/vx_images/5790709568721.png)
+    ![](https://cdn.jsdelivr.net/gh/TCP404/Picgo/blog/illustration-pic/Go/vx_images/5790709568721.png)
 
     效果是一样的。
 
@@ -425,7 +425,7 @@ func (c *Context) ShouldBindQuery(obj interface{}) error;
     ```
 
 
-    ![](https://xcdn.loli.top/gh/TCP404/Picgo/blog/illustration-pic/Go/vx_images/3683906512884.png)
+    ![](https://cdn.jsdelivr.net/gh/TCP404/Picgo/blog/illustration-pic/Go/vx_images/3683906512884.png)
 
 
 ### gin.Context.Params
@@ -457,5 +457,5 @@ func (c *Context) ShouldBindQuery(obj interface{}) error;
     }
     ```
 
-    ![](https://xcdn.loli.top/gh/TCP404/Picgo/blog/illustration-pic/Go/vx_images/1504620189883.png)
+    ![](https://cdn.jsdelivr.net/gh/TCP404/Picgo/blog/illustration-pic/Go/vx_images/1504620189883.png)
 

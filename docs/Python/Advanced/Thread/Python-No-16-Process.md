@@ -5,7 +5,7 @@ categories:
   - Python
   - 进阶
   - 进程、线程
-thumbnail: 'https://xcdn.loli.top/gh/TCP404/Picgo/blog/thumbnail/python.png'
+thumbnail: 'https://cdn.jsdelivr.net/gh/TCP404/Picgo/blog/thumbnail/python.png'
 abbrlink: 19751
 date: 2020-07-17 12:41:48
 ---
@@ -25,7 +25,7 @@ date: 2020-07-17 12:41:48
 
 进程的状态分为：`新建`、`就绪`、`运行`、`等待（堵塞）`、`死亡`
 
-![状态](https://xcdn.loli.top/gh/TCP404/Picgo/blog/illustration-pic/Py/15-3.png)
+![状态](https://cdn.jsdelivr.net/gh/TCP404/Picgo/blog/illustration-pic/Py/15-3.png)
 
 - 就绪态：运行的条件都已经具备，正在等在CPU执行
 - 执行态：CPU正在执行其功能

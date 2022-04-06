@@ -358,7 +358,7 @@ $ go tool cover -html=fib.cover
 
 使用 `go tool cover -html=制定文件` 命令会打开默认浏览器显示具体的覆盖率信息。
 
-![](https://xcdn.loli.top/gh/TCP404/Picgo/blog/illustration-pic/Go/IMG/20210623230022.png)
+![](https://cdn.jsdelivr.net/gh/TCP404/Picgo/blog/illustration-pic/Go/IMG/20210623230022.png)
 
 如上图，绿色表示被覆盖的语句，红色表示未被覆盖的语句，灰色表示未追踪的语句。
 

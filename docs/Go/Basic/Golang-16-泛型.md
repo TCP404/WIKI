@@ -463,7 +463,7 @@ var 变量名 自定义泛型结构体名[类型]
     
     constraints 是官方给出的一个很简单的包，主要就是定义了几个泛型，他们的关系如下图。不过这个包在 Go 1.18 正式发布时并没有带上。使用命令 `go get golang.org/x/exp/constraints ` 可以下载到。
     
-    ![image-20220316234847716](https://xcdn.loli.top/gh/TCP404/Picgo/blog/illustration-pic/Go/IMG/package-constraints.png)
+    ![image-20220316234847716](https://cdn.jsdelivr.net/gh/TCP404/Picgo/blog/illustration-pic/Go/IMG/package-constraints.png)
     
 
 

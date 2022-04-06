@@ -6,7 +6,7 @@ tags:
 categories:
   - Python
   - 高级特性
-thumbnail: 'https://xcdn.loli.top/gh/TCP404/Picgo/blog/thumbnail/python.png'
+thumbnail: 'https://cdn.jsdelivr.net/gh/TCP404/Picgo/blog/thumbnail/python.png'
 abbrlink: 31044
 date: 2020-07-25 12:17:48
 ---
@@ -60,7 +60,7 @@ f(1, 2)
 
 大概就这么回事儿
 
-![1](https://xcdn.loli.top/gh/TCP404/Picgo/blog/illustration-pic/Py/No-Feature-1.png)
+![1](https://cdn.jsdelivr.net/gh/TCP404/Picgo/blog/illustration-pic/Py/No-Feature-1.png)
 
 ## 高阶函数
 > 高阶函数：接受函数作为参数的函数

@@ -2,7 +2,7 @@
 
 用在 `客户端` 与 `服务端` 之间的插件，我们称之为 `中间件`。
 
-![中间件示意图](https://xcdn.loli.top/gh/TCP404/Picgo/blog/illustration-pic/Go/vx_images/5592618688329.png)
+![中间件示意图](https://cdn.jsdelivr.net/gh/TCP404/Picgo/blog/illustration-pic/Go/vx_images/5592618688329.png)
 
 中间件是一个概念，其实质就是一些遵循一定规范的函数，也称做 `钩子函数(Hook)`。
 
@@ -72,7 +72,7 @@ func main() {
 }
 ```
 输出：
-![](https://xcdn.loli.top/gh/TCP404/Picgo/blog/illustration-pic/Go/vx_images/835062854610.png)
+![](https://cdn.jsdelivr.net/gh/TCP404/Picgo/blog/illustration-pic/Go/vx_images/835062854610.png)
 
 上面的栗子中可以看出，局部注册就是把中间件写在需要使用该中间件的路由中。
 
@@ -80,7 +80,7 @@ func main() {
 
 客户端请求 `/` 这个路径时，会先调用 `timer` 这个中间件，等它执行完后再去执行 `indexHandler`。
 
-![](https://xcdn.loli.top/gh/TCP404/Picgo/blog/illustration-pic/Go/vx_images/3420038008778.png)
+![](https://cdn.jsdelivr.net/gh/TCP404/Picgo/blog/illustration-pic/Go/vx_images/3420038008778.png)
 
 
 ## 全局注册中间件
@@ -132,7 +132,7 @@ func main() {
     ...
     ```
 
-    ![](https://xcdn.loli.top/gh/TCP404/Picgo/blog/illustration-pic/Go/vx_images/1537822060392.png)
+    ![](https://cdn.jsdelivr.net/gh/TCP404/Picgo/blog/illustration-pic/Go/vx_images/1537822060392.png)
 
     可以清楚看到，请求 /user 组下的路径时，调用了 timer 打印了时间，而请求 /book 组时没有。
 
@@ -144,7 +144,7 @@ func main() {
 
 中间件里没有使用到 `c.Next()` 的时候，其执行流如下
 
-![](https://xcdn.loli.top/gh/TCP404/Picgo/blog/illustration-pic/Go/vx_images/4472457420778.png)
+![](https://cdn.jsdelivr.net/gh/TCP404/Picgo/blog/illustration-pic/Go/vx_images/4472457420778.png)
 
 没有 `c.Next()` 的时候会执行完前一个中间件，就执行下一个中间件。
 
@@ -155,7 +155,7 @@ func main() {
 
 其执行流如下图：
 
-![](https://xcdn.loli.top/gh/TCP404/Picgo/blog/illustration-pic/Go/vx_images/77417672863.png)
+![](https://cdn.jsdelivr.net/gh/TCP404/Picgo/blog/illustration-pic/Go/vx_images/77417672863.png)
 
 
 ???+ example
@@ -196,7 +196,7 @@ func main() {
     }
     ```
 
-    ![](https://xcdn.loli.top/gh/TCP404/Picgo/blog/illustration-pic/Go/vx_images/2607899532868.png)
+    ![](https://cdn.jsdelivr.net/gh/TCP404/Picgo/blog/illustration-pic/Go/vx_images/2607899532868.png)
 
 
     三个 `HandlerFunc` 的注册顺序依次是 `m1、m2、indexHandler`
@@ -205,7 +205,7 @@ func main() {
 
     所以他们的执行流应该是：
 
-    ![](https://xcdn.loli.top/gh/TCP404/Picgo/blog/illustration-pic/Go/vx_images/3247650618373.png)
+    ![](https://cdn.jsdelivr.net/gh/TCP404/Picgo/blog/illustration-pic/Go/vx_images/3247650618373.png)
 
 
 ### c.Abort()
@@ -260,7 +260,7 @@ func main() {
     }
     ```
 
-    ![](https://xcdn.loli.top/gh/TCP404/Picgo/blog/illustration-pic/Go/vx_images/2547203825659.png)
+    ![](https://cdn.jsdelivr.net/gh/TCP404/Picgo/blog/illustration-pic/Go/vx_images/2547203825659.png)
 
     在 `m2` 的时候调用了 `c.Abort()`，所以后面的 `m3、indexHandler` 都没有机会执行了。
 
@@ -270,7 +270,7 @@ func main() {
 
 获取的方法有非常多，如下图：
 
-![](https://xcdn.loli.top/gh/TCP404/Picgo/blog/illustration-pic/Go/vx_images/4093224325543.png)
+![](https://cdn.jsdelivr.net/gh/TCP404/Picgo/blog/illustration-pic/Go/vx_images/4093224325543.png)
 
 在这里的获取要注意执行流的问题，如果第2个中间件执行 `c.Set()`，但是在第1个中间件就执行了 `c.Get()`，那会什么都拿不到。
 
@@ -307,7 +307,7 @@ func main() {
     }
     ```
 
-    ![](https://xcdn.loli.top/gh/TCP404/Picgo/blog/illustration-pic/Go/vx_images/1886277063287.png)
+    ![](https://cdn.jsdelivr.net/gh/TCP404/Picgo/blog/illustration-pic/Go/vx_images/1886277063287.png)
 
 ## 默认中间件
 
@@ -352,5 +352,5 @@ func main() {
 }
 ```
 
-![](https://xcdn.loli.top/gh/TCP404/Picgo/blog/illustration-pic/Go/vx_images/1064955184484.png)
+![](https://cdn.jsdelivr.net/gh/TCP404/Picgo/blog/illustration-pic/Go/vx_images/1064955184484.png)
 

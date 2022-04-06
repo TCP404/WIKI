@@ -81,10 +81,10 @@
 
 效果：
 
-![](https://xcdn.loli.top/gh/TCP404/Picgo/blog/illustration-pic/Go/vx_images/3664825137700.png)
+![](https://cdn.jsdelivr.net/gh/TCP404/Picgo/blog/illustration-pic/Go/vx_images/3664825137700.png)
 
 
-![](https://xcdn.loli.top/gh/TCP404/Picgo/blog/illustration-pic/Go/vx_images/4105243857095.png)
+![](https://cdn.jsdelivr.net/gh/TCP404/Picgo/blog/illustration-pic/Go/vx_images/4105243857095.png)
 
 
 

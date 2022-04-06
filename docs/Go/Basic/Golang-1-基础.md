@@ -287,7 +287,7 @@ func main() {
 ## 值类型和引用类型
 <figure markdown> 
 
-  ![ j = i ](https://xcdn.loli.top/gh/TCP404/Picgo/blog/illustration-pic/Go/IMG/20201115104832899_3842.png){ align=left }
+  ![ j = i ](https://cdn.jsdelivr.net/gh/TCP404/Picgo/blog/illustration-pic/Go/IMG/20201115104832899_3842.png){ align=left }
   <figcaption>j = i</figcaption>
 </figure>
 
@@ -295,7 +295,7 @@ func main() {
 
 <figure markdown> 
 
-  ![ r1 = r2 ](https://xcdn.loli.top/gh/TCP404/Picgo/blog/illustration-pic/Go/IMG/20201115104853017_32412.png){ align=left }
+  ![ r1 = r2 ](https://cdn.jsdelivr.net/gh/TCP404/Picgo/blog/illustration-pic/Go/IMG/20201115104853017_32412.png){ align=left }
   <figcaption>r1 =  r2</figcaption>
 </figure>
 

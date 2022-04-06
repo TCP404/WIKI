@@ -161,7 +161,7 @@ print(type(type))
 <class 'type'>				 # 难点：类type是由type类自身创建的实例
 ```
 
-![一切皆对象](https://xcdn.loli.top/gh/TCP404/Picgo/blog/illustration-pic/Py/1-1-一切皆对象.png)
+![一切皆对象](https://cdn.jsdelivr.net/gh/TCP404/Picgo/blog/illustration-pic/Py/1-1-一切皆对象.png)
 
 
 对于上面图片的解读如下：

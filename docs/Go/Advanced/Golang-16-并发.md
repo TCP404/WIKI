@@ -1,6 +1,6 @@
 # 并发
 
-![串行、并行、并发](https://xcdn.loli.top/gh/TCP404/Picgo/blog/illustration-pic/Go/IMG/20210210160730868_457.png)
+![串行、并行、并发](https://cdn.jsdelivr.net/gh/TCP404/Picgo/blog/illustration-pic/Go/IMG/20210210160730868_457.png)
 
 ## goroutine
 Golang 并发通过 `goroutine` 实现，类似于线程，属于用户态的线程。

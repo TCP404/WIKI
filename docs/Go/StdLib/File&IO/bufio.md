@@ -34,7 +34,7 @@ func main() {
 }
 ```
 
-![bufio 原理](https://xcdn.loli.top/gh/TCP404/Picgo/blog/illustration-pic/Go/IMG/20210210115116792_10702.png)
+![bufio 原理](https://cdn.jsdelivr.net/gh/TCP404/Picgo/blog/illustration-pic/Go/IMG/20210210115116792_10702.png)
 
 
 ## bufio 使用步骤

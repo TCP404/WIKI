@@ -6,7 +6,7 @@ tags:
 categories:
   - Python
   - 内置库
-thumbnail: 'https://xcdn.loli.top/gh/TCP404/Picgo/blog/thumbnail/python.png'
+thumbnail: 'https://cdn.jsdelivr.net/gh/TCP404/Picgo/blog/thumbnail/python.png'
 abbrlink: 41814
 date: 2020-08-22 12:17:48
 ---
@@ -69,7 +69,7 @@ python 对象格式化为 json 字符串：`json.dump()`
 带s的是处理字符串
 不带s的是从文件里处理
 
-![json](https://xcdn.loli.top/gh/TCP404/Picgo/blog/illustration-pic/Py/Buildins-json.png)
+![json](https://cdn.jsdelivr.net/gh/TCP404/Picgo/blog/illustration-pic/Py/Buildins-json.png)
 
 ### Python -> JSON
 

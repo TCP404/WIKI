@@ -88,12 +88,12 @@ func main() {
 2. 直接定义切片`长度=容量`，指定数组定义切片长度和容量视具体情况
 
 直接定义切片 ↓
-![直接定义切片](https://xcdn.loli.top/gh/TCP404/Picgo/blog/illustration-pic/Go/IMG/20201117165416502_24200.png)
+![直接定义切片](https://cdn.jsdelivr.net/gh/TCP404/Picgo/blog/illustration-pic/Go/IMG/20201117165416502_24200.png)
 
 指定数组定义切片 ↓
-![指定数组定义切片](https://xcdn.loli.top/gh/TCP404/Picgo/blog/illustration-pic/Go/IMG/20201117165435737_31154.png)
+![指定数组定义切片](https://cdn.jsdelivr.net/gh/TCP404/Picgo/blog/illustration-pic/Go/IMG/20201117165435737_31154.png)
 
-![指定数组定义切片](https://xcdn.loli.top/gh/TCP404/Picgo/blog/illustration-pic/Go/IMG/20201117165353576_15789.png)
+![指定数组定义切片](https://cdn.jsdelivr.net/gh/TCP404/Picgo/blog/illustration-pic/Go/IMG/20201117165353576_15789.png)
 
 容量指的是从接片第一个元素到底层数组的最后一个元素
 

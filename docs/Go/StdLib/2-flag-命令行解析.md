@@ -5,7 +5,7 @@ flag 包专门用来解析命令行.
 命令行最简单的组成，例如著名的系统提速命令：`#!bash rm -rf /*`，
 这条命令行由 **命令**、**flag，或称 opetion**、**参数** 组成。
 
-![系统提速命令](https://xcdn.loli.top/gh/TCP404/Picgo/blog/illustration-pic/Go/vx_images/1623225138578.png)
+![系统提速命令](https://cdn.jsdelivr.net/gh/TCP404/Picgo/blog/illustration-pic/Go/vx_images/1623225138578.png)
 
 
 我们写出来的命令行程序，在编译后会生成一个可执行文件，这个可执行文件就是命令，如：
