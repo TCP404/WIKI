@@ -3,8 +3,8 @@
 
 ## 竞态
 **竞态** 是指多个 `goroutine` 按某些交错顺序执行时，争抢使用同一份临界资源，导致程序无法给出正确的结果。
-**串行程序**中（一个程序只有一个 `goroutine`），程序中各个步骤的执行顺序由程序逻辑决定，所以单个 `goroutine` 不会引发竞态问题。
-**并发程序**中（一个程序有多个 `goroutine`），每个 `goroutine` 的执行顺序是不一样的，因此可能会带来竞态问题。
+**串行程序** 中（一个程序只有一个 `goroutine`），程序中各个步骤的执行顺序由程序逻辑决定，所以单个 `goroutine` 不会引发竞态问题。
+**并发程序** 中（一个程序有多个 `goroutine`），每个 `goroutine` 的执行顺序是不一样的，因此可能会带来竞态问题。
 
 例如：
 ```go
@@ -68,7 +68,8 @@ func main() {
 
 上锁可以很好的解决竞态问题，但是会有些许性能上的损失。
 
-> 发生竞态的主要原因是因为：多个 `goroutine` 争抢读写同一个临界资源。这个临界资源可以是打印机、全局变量等等。
+!!! info
+    发生竞态的主要原因是因为：多个 `goroutine` 争抢读写同一个临界资源。这个临界资源可以是打印机、全局变量等等。
 
 举个栗子，
 一个人就是一个 `goroutine`，公共卫生间就是一种临界资源，同一时刻只能有一个人使用（一个临界资源，同一时刻只能有一个 `goroutine` 读写 ）。多个人同时争抢一个公共卫生间肯定出问题。
@@ -90,14 +91,18 @@ func (m *Mutex) Unlock() {}
 ```
 `Mutex` 非常简单，只有`Lock()` 和 `Unlock()` 两个方法。
 
-> **加锁**
-> - `Lock()` 用于加锁
-> - 加锁规则：
->     - 如果互斥锁已经被上锁了，则加锁操作阻塞，直到互斥锁被解锁以后才能上锁。
->     - 如果互斥锁没有被上锁，那么上锁成功。
->     **解锁**
-> - `Unlock()` 用于解锁
-> - 解锁规则：释放互斥锁
+!!! note
+    **加锁**
+    
+    - `Lock()` 用于加锁
+    - 加锁规则：
+        - 如果互斥锁已经被上锁了，则加锁操作阻塞，直到互斥锁被解锁以后才能上锁。
+        - 如果互斥锁没有被上锁，那么上锁成功。
+    
+    **解锁**
+    
+    - `Unlock()` 用于解锁
+    - 解锁规则：释放互斥锁
 
 #### 上锁
 下面我们对上面的例子中，争抢临界资源的部分上锁。
@@ -139,7 +144,7 @@ func main() {
 
 #### 延迟解锁
 如果一个 `goroutine` 上了锁之后忘记释放锁，别的 `goroutine` 是永远拿不到锁的，还会导致死锁。
-在复杂的代码中，很难确定所有分支中的 `Lock()` 和 `Unlock()` 成对出现，所以，最好养成**锁成对写、延迟解锁**的习惯。
+在复杂的代码中，很难确定所有分支中的 `Lock()` 和 `Unlock()` 成对出现，所以，最好养成 **锁成对写、延迟解锁** 的习惯。
 
 ```go
 var x int
@@ -174,90 +179,97 @@ func (rw *RWMutex) RUnlock() {}
 func (rw *RWMutex) RLocker() Locker {}
 ```
 
-读写互斥锁适用于**读多写少**的场景。因为在使用 `Mutex` 互斥锁的时候，不管是因为要去读上的锁还是要去写上的锁，只要一上了锁，别的 `goroutine` 就不能上锁，也不能读写。
+读写互斥锁适用于 **读多写少** 的场景。因为在使用 `Mutex` 互斥锁的时候，不管是因为要去读上的锁还是要去写上的锁，只要一上了锁，别的 `goroutine` 就不能上锁，也不能读写。
 
 于是在 读多写少 的场景下，导致少量写操作时，也不能读。所以这种场景要使用 **读写互斥锁**。
 
-> **写锁**
-> - `Lock()` 函数用于上写锁
-> - `Unlock()` 函数用于解写锁
-> - 加锁规则：
->     - 如果当前的读写锁被上锁了，则 加写锁 操作阻塞直到读写锁被释放
->     - 如果当前的读写锁没有被锁，则 加写锁 成功
-> - 释放规则：直接释放
+!!! note
+    **写锁**
 
-> **读锁**
-> - `RLock()` 函数用于上读锁
-> - `RUnlock()` 函数用于解读锁
-> - 加锁规则：
->     - 如果当前的读写锁 没有被锁，则 加读锁 操作成功
->     - 如果当前的读写锁 被上了读锁，则 加读锁 操作成功
->     - 如果当前的读写锁 被上了写锁，则 加读锁 操作阻塞，直到读写锁被释放
+    - `Lock()` 函数用于上写锁
+    - `Unlock()` 函数用于解写锁
+    - 加锁规则：
+        - 如果当前的读写锁被上锁了，则 加写锁 操作阻塞直到读写锁被释放
+        - 如果当前的读写锁没有被锁，则 加写锁 成功
+    - 释放规则：直接释放
 
-eg：
-```go
-package main
+    **读锁**
 
-import (
-    "fmt"
-    "sync"
-    "time"
-)
+    - `RLock()` 函数用于上读锁
+    - `RUnlock()` 函数用于解读锁
+    - 加锁规则：
+        - 如果当前的读写锁 没有被锁，则 加读锁 操作成功
+        - 如果当前的读写锁 被上了读锁，则 加读锁 操作成功
+        - 如果当前的读写锁 被上了写锁，则 加读锁 操作阻塞，直到读写锁被释放
 
-var (
-    x      int64
-    wg     sync.WaitGroup
-    rwlock sync.RWMutex // 读写锁
-)
+??? example
 
-func read() {
-    defer wg.Done()
+    ```go
+    package main
 
-    rwlock.RLock() // 加读锁
-    time.Sleep(time.Millisecond)
-    fmt.Println(x)
-    defer rwlock.RUnlock() // 解读锁
-}
+    import (
+        "fmt"
+        "sync"
+        "time"
+    )
 
-func write() {
-    defer wg.Done()
+    var (
+        x      int64
+        wg     sync.WaitGroup
+        rwlock sync.RWMutex // 读写锁
+    )
 
-    rwlock.Lock() // 加写锁
-    time.Sleep(time.Millisecond * 5)
-    x = x + 1
-    defer rwlock.Unlock() // 解写锁
-}
+    func read() {
+        defer wg.Done()
 
-func main() {
-    start := time.Now()
-    for i := 0; i < 10; i++ {
-        wg.Add(1)
-        go write()
+        rwlock.RLock() // 加读锁
+        time.Sleep(time.Millisecond)
+        fmt.Println(x)
+        defer rwlock.RUnlock() // 解读锁
     }
 
-    for i := 0; i < 1000; i++ {
-        wg.Add(1)
-        go read()
+    func write() {
+        defer wg.Done()
+
+        rwlock.Lock() // 加写锁
+        time.Sleep(time.Millisecond * 5)
+        x = x + 1
+        defer rwlock.Unlock() // 解写锁
     }
 
-    wg.Wait()
-    fmt.Println(time.Now().Sub(start))
-}
-// --------------------------------------
-// Output:
-...
-1
-1
-1
-1
-215.9568ms
-```
+    func main() {
+        start := time.Now()
+        for i := 0; i < 10; i++ {
+            wg.Add(1)
+            go write()
+        }
+
+        for i := 0; i < 1000; i++ {
+            wg.Add(1)
+            go read()
+        }
+
+        wg.Wait()
+        fmt.Println(time.Now().Sub(start))
+    }
+    // --------------------------------------
+    // Output:
+    ...
+    1
+    1
+    1
+    1
+    215.9568ms
+    ```
+
 ### Mutex 和 RWMutex 的选择
-- 仅在绝大部分goroutine都在**获取读锁并且锁竞争比较激烈时**（即，goroutine一般都需要等待后才能获到锁），RWMutex才有优势
+
+- 仅在绝大部分goroutine都在 **获取读锁并且锁竞争比较激烈时**（即，goroutine一般都需要等待后才能获到锁），RWMutex才有优势
 - 否则，**一般使用Mutex即可**
 
 
 ## sync.Once
+
 ```go
 type Once struct {
     done uint32
@@ -279,13 +291,14 @@ func (o *Once) doSlow(f func()) {
     }
 }
 ```
+
 - `Once` 是一个结构体，里面有一把 `Mutex` 锁 *m*，还有一个 `done` 标志位用来标记 `f` 是否执行过了。（0未执行，1已执行）
-- `Once` 只有一个 `Do()` 方法，其中检查了一下标志位，如果为 0 表示 `f` 未执行过，调用 `doSlow()`；非 0 表示执行过了，直接返回
-    `doSlow()` 中，先是上锁，然后检查 `done` 标志位，看看 `f` 是否执行过，如果没有执行，就执行，然后标志位置为 1。
+- `Once` 只有一个 `Do()` 方法，其中检查了一下标志位，如果为 0 表示 `f` 未执行过，调用 `doSlow()`；非 0 表示执行过了，直接返回 `doSlow()` 中，先是上锁，然后检查 `done` 标志位，看看 `f` 是否执行过，如果没有执行，就执行，然后标志位置为 1。
 
 
 
 用 `sync.Once` 写一个单例模式：
+
 ```go
 package main
 
@@ -323,125 +336,137 @@ func main() {
 ```
 
 ## sync.Map
-{% noteblock info %}
-```go
-type Map struct {
-    mu Mutex
-    read atomic.Value // readOnly
-    dirty map[interface{}]*entry
-    misses int
-}
 
-// set
-func (m *Map) Store(key, value interface{}) {}
+!!! info 
 
-// get
-func (m *Map) Load(key interface{}) (value interface{}, ok bool) {}
+    ```go
+    type Map struct {
+        mu Mutex
+        read atomic.Value // readOnly
+        dirty map[interface{}]*entry
+        misses int
+    }
 
-// 删除
-func (m *Map) Delete(key interface{}) {}
-// 先加载看，有再删除
-func (m *Map) LoadAndDelete(key interface{}) (value interface{}, loaded bool) {}
-// 先加载看，没有再存，有就不存
-func (m *Map) LoadOrStore(key, value interface{}) (actual interface{}, loaded bool) {}
+    // set
+    func (m *Map) Store(key, value interface{}) {}
+    // get
+    func (m *Map) Load(key interface{}) (value interface{}, ok bool) {}
+    // 删除
+    func (m *Map) Delete(key interface{}) {}
+    // 先加载看，有再删除
+    func (m *Map) LoadAndDelete(key interface{}) (value interface{}, loaded bool) {}
+    // 先加载看，没有再存，有就不存
+    func (m *Map) LoadOrStore(key, value interface{}) (actual interface{}, loaded bool) {}
+    // 遍历
+    func (m *Map) Range(f func(key, value interface{}) bool) {}
+    ```
 
-// 遍历
-func (m *Map) Range(f func(key, value interface{}) bool) {}
-```
-Golang 中内置的 map 不是并发安全的，在对 map 并发写的时候会出现问题。
+    Golang 中内置的 map 不是并发安全的，在对 map 并发写的时候会出现问题。
 
-Golang 的 `sync` 包中提供了一个开箱即用的并发安全版map：`sync.Map`。
+    Golang 的 `sync` 包中提供了一个开箱即用的并发安全版map：`sync.Map`。
 
-开箱即用，即表示不需要 `make()` 函数初始化就能直接使用，同时内置了诸如 `Store、Load、Delete、Range` 等操作。
+    开箱即用，即表示不需要 `make()` 函数初始化就能直接使用，同时内置了诸如 `Store、Load、Delete、Range` 等操作。
 
-{% endnoteblock %}
 
 先看对内置 map 并发写会发生什么。
-```go
-var m = make(map[string]int)
-var wg sync.WaitGroup
 
-func get(key string) int {
-    return m[key]
-}
+=== "Code"
 
-func set(key string, value int) {
-    m[key] = value
-}
+    ```go
+    var m = make(map[string]int)
+    var wg sync.WaitGroup
 
-func call (n int) {
-    defer wg.Done()
-    key := strconv.Itoa(n)
-    set(key, n)
-    fmt.Printf("k=:%v,v:=%v\n", key, get(key))
-}
-
-func main() {
-    for i := 0; i < 20; i++ {
-        wg.Add(1)
-        go call(i)
+    func get(key string) int {
+        return m[key]
     }
-    wg.Wait()
-}
-// -------------------------------
-// Output:
-fatal error: k=:0,v:=0
-concurrent map writes
-k=:19,v:=19
-fatal error: concurrent map writes
-...
-```
+
+    func set(key string, value int) {
+        m[key] = value
+    }
+
+    func call (n int) {
+        defer wg.Done()
+        key := strconv.Itoa(n)
+        set(key, n)
+        fmt.Printf("k=:%v,v:=%v\n", key, get(key))
+    }
+
+    func main() {
+        for i := 0; i < 20; i++ {
+            wg.Add(1)
+            go call(i)
+        }
+        wg.Wait()
+    }
+    ```
+
+=== "Output"
+    ```
+    fatal error: k=:0,v:=0
+    concurrent map writes
+    k=:19,v:=19
+    fatal error: concurrent map writes
+    ...
+
 
 采用 并发安全版：
-```go
-var wg sync.WaitGroup
-var sm = sync.Map{}    // 声明 sync.Map 变量
 
-func call(n int) {
-    defer wg.Done()
+=== "Code"
 
-    key := strconv.Itoa(n)
+    ```go
+    var wg sync.WaitGroup
+    var sm = sync.Map{}    // 声明 sync.Map 变量
 
-    sm.Store(key, n)         // 写
-    value, _ := sm.Load(key) // 读
+    func call(n int) {
+        defer wg.Done()
 
-    fmt.Printf("k=:%v,v:=%v\n", key, value)
-}
+        key := strconv.Itoa(n)
 
-func main() {
-    for i := 0; i < 20; i++ {
-        wg.Add(1)
-        go call(i)
+        sm.Store(key, n)         // 写
+        value, _ := sm.Load(key) // 读
+
+        fmt.Printf("k=:%v,v:=%v\n", key, value)
     }
-    wg.Wait()
-}
-// -------------------------------
-// Output:
-k=:19,v:=19
-k=:10,v:=10
-k=:11,v:=11
-k=:2,v:=2  
-k=:15,v:=15
-k=:3,v:=3  
-k=:12,v:=12
-k=:0,v:=0  
-k=:13,v:=13
-k=:18,v:=18
-k=:14,v:=14
-k=:6,v:=6  
-k=:4,v:=4  
-k=:5,v:=5  
-k=:8,v:=8
-k=:7,v:=7
-k=:9,v:=9
-k=:1,v:=1
-k=:17,v:=17
-k=:16,v:=16
-```
+
+    func main() {
+        for i := 0; i < 20; i++ {
+            wg.Add(1)
+            go call(i)
+        }
+        wg.Wait()
+    }
+    ```
+
+=== "Output"
+
+    ```
+    k=:19,v:=19
+    k=:10,v:=10
+    k=:11,v:=11
+    k=:2,v:=2  
+    k=:15,v:=15
+    k=:3,v:=3  
+    k=:12,v:=12
+    k=:0,v:=0  
+    k=:13,v:=13
+    k=:18,v:=18
+    k=:14,v:=14
+    k=:6,v:=6  
+    k=:4,v:=4  
+    k=:5,v:=5  
+    k=:8,v:=8
+    k=:7,v:=7
+    k=:9,v:=9
+    k=:1,v:=1
+    k=:17,v:=17
+    k=:16,v:=16
+    ```
 
 ## 原子操作
 代码中的加锁操作因为涉及内核态的上下文切换会比较耗时、代价比较高。
+
 针对基本数据类型我们还可以使用原子操作来保证并发安全，因为原子操作是 Go 语言提供的方法它在用户态就可以完成，
+
 因此性能比加锁操作更好。Go语言中原子操作由内置的标准库 `sync/atomic` 提供。
 
 ### atomic 包
@@ -539,8 +564,8 @@ func test(f func()) time.Duration {
 
 func main() {
     fmt.Println("非并发安全版:", x, test(add))
-    fmt.Println("加锁版		:", y, test(mutexAdd))
-    fmt.Println("原子操作版	 :", z, test(atomicAdd))
+    fmt.Println("加锁版     :", y, test(mutexAdd))
+    fmt.Println("原子操作版  :", z, test(atomicAdd))
 }
 
 // -------------------------------
@@ -549,6 +574,7 @@ func main() {
 加锁版     : 10000 3.9898ms
 原子操作版 : 10000 2.9909ms
 ```
+
 从结果可以看出，非并发安全版连结果都不对，加锁版安全，原子版安全且效率更高。
 
 `atomic` 包提供了底层的原子级内存操作，对于同步算法的实现很有用。这些函数必须谨慎地保证正确使用。除了某些特殊的底层应用，使用通道或者sync包的函数/类型实现同步更好。
