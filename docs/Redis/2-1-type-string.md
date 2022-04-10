@@ -1,11 +1,26 @@
 # Type: String
 
+String is a basic type on Redis
+
+The maximum capcity of type String is 512M Byte.
+
+In type String, you can use the text as the string value. That is normal.
+
+But the String in Redis can be calculate if the string content is numeric.
+
+You can add or subtract a integer string by command `INCR`, `INCRBY`, `DECR`, `DECRBY`.
+
+And you can add a floating string by command `INCRBYFLOAT` and positive argument, subtract by command `INCRBYFLOAT` and nagetive argument.
+
+In addition, you can also do binary manipulation on strings with command `SETBIT`, `GETBIT`, `BITCOUNT`, `BITOP`, `BITPOS`...
+
+
 | command     | syntax                            | description                                                          | example                   | return                                 |
 |-------------|-----------------------------------|----------------------------------------------------------------------|---------------------------|----------------------------------------|
 | set         | `SET key value`                   | set a pair of key-value                                              | `set name boii`           | OK                                     |
 | get         | `GET key`                         | get the value of key                                                 | `get name`                | "boii"                                 |
 | mset        | `MSET key value [key value ...]`  | set more pair of key-value at one time                               | `mset name boii age 18 `  | OK                                     |
-| mget        | `MGET key [key ...]`              | get more values of key-value at one time                              | `mget name age`           | "boii" "18"                            |
+| mget        | `MGET key [key ...]`              | get more values of key-value at one time                             | `mget name age`           | "boii" "18"                            |
 | setex       | `SETEX key seconds value`         | shortcut of `SET key value` + `EXPIRE key seconds`                   | `setex name 5 boii`       | OK                                     |
 | psetex      | `PSETEX key seconds value`        | shortcur of `SET key value` + `PEXPIRE key microseconds`             | `psetex name 5000 boii`   | OK                                     |
 | setnx       | `SETNX key value`                 | set a pair of key-value **if key isn't exists**                      | `setnx name boii`         | 1 if successful, otherwise 0           |
@@ -31,39 +46,3 @@
 
 
 ## Calculation
-
-
-## Underlying Data Structure
-
-```mermaid
-graph TD
-    STR[String]
-    L[List]
-    S[Set]
-    Z[Zset]
-    H[Hash]
-
-    SDS[Simple Dynamic String]
-    DLL[Double Linked List]
-    ZL[Ziplist]
-    HT[Hash Table]
-    SL[Skip List]
-    IA[Integet Array]
-
-    STR --> SDS
-    L --> DLL
-    L --> ZL
-    S --> HT
-    S --> IA
-    H --> ZL
-    H --> HT
-    Z --> ZL
-    Z --> SL
-```
-
-ZSet is implemented by Ziplist and Skip List.
-
-If the numbers of ZSet element is less than 128, OR the size of all ZSet elements is less than 64 bytes, the Ziplist is used, otherwise the Skip List is used.
-- Use Skip List: When 
-    
-    When `ZCARD key` < 128 || 

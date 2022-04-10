@@ -75,6 +75,15 @@ Redis 需要启动服务端开启 Redis 服务，然后通过客户端连接进�
     $ _
     ```
 
+## Redis
+
+Redis is a KEY-VALUE cache middleware. 
+
+The KEY can be any binary data. Reids is binary secure. That is to say, you can use a string as a key, or use a JSON object, or even a picture as a key.
+
+It has 5 basic types of VALUE: ==String==, ==List==, ==Set==, Sorted Set(==ZSet==) and ==Hash==.
+
+
 ## Conception
 
 !!! note 
@@ -119,13 +128,13 @@ clear all data from all database: `FLUSHALL`, it will clear all data from all da
     - Syntax: `EXPIRE key seconds`
     - Description: set the expire(unit: second) for the given key, the key will be delete when expired.
     - Return: 1 if setting is successful.
-    - Example: `EXPIRE age 5` means that the key <age> expiration time is set to 5 seconds later.
+    - Example: `EXPIRE age 5` means that the key `age` expiration time is set to 5 seconds later.
 
 - PEXPIRE
     - Syntax: `PEXPIRE key microsecond`
     - Description: same with the command EXPIRE but unit is microsecond.
     - Return: 1 if setting is successful.
-    - Example: `EXPIRE age 10000` means that the key <age> expiration time is set to 10000 microseconds (equal 10 second) later.
+    - Example: `EXPIRE age 10000` means that the key `age` expiration time is set to 10000 microseconds (equal 10 second) later.
 
 - TTL
     - Syntax: `TTL key`
@@ -177,3 +186,8 @@ clear all data from all database: `FLUSHALL`, it will clear all data from all da
         - hash
         - set
         - zset
+
+## Manipulation with Redis
+
+- SELECT
+- FLUSHALL, FLUSHDB
