@@ -1,12 +1,12 @@
-site_name: Boii's Wiki
-site_url: https://wiki.boii.xyz
-site_author: Boii
-repo_url: https://github.com/TCP404/WIKI/
-repo_name: GitHub
+site_name:     Boii's Wiki
+site_url:      https://wiki.boii.xyz
+site_author:   Boii
+repo_url:      https://github.com/TCP404/WIKI/
+repo_name:     GitHub
 remote_branch: gh-pages
-remote_name: origin
-dev_addr: 127.0.0.1:8000
-copyright: Copyright © 2021 [Mr.Boii](https://www.boii.xyz)
+remote_name:   origin
+dev_addr:      127.0.0.1:8000
+copyright:     Copyright © 2021 [Mr.Boii](https://www.boii.xyz)
 
 theme:
   name: material # pip install mkdocs-material
@@ -116,78 +116,79 @@ nav:
   - Home: index.md
   - Golang:
       - Basic:
-          - 0.总叙: Go/Basic/Golang-0-总叙.md
-          - 1.基础: Go/Basic/Golang-1-基础.md
-          - 2.数据类型: Go/Basic/Golang-2-数据类型.md
-          - 3.运算符: Go/Basic/Golang-3-运算符.md
-          - 4.流程控制: Go/Basic/Golang-4-流程控制.md
-          - 5.数组: Go/Basic/Golang-5-数组.md
-          - 6.slice: Go/Basic/Golang-6-slice.md
-          - 7.map: Go/Basic/Golang-7-map.md
-          - 8.函数: Go/Basic/Golang-8-函数.md
-          - 9.指针: Go/Basic/Golang-9-指针.md
-          - 10.结构体: Go/Basic/Golang-10-结构体.md
-          - 11.包: Go/Basic/Golang-11-包.md
-          - 12.接口: Go/Basic/Golang-12-接口.md
-          - 13.面向对象: Go/Basic/Golang-13-面向对象.md
+          - 0.总叙:        Go/Basic/Golang-0-总叙.md
+          - 1.基础:        Go/Basic/Golang-1-基础.md
+          - 2.数据类型:    Go/Basic/Golang-2-数据类型.md
+          - 3.运算符:      Go/Basic/Golang-3-运算符.md
+          - 4.流程控制:    Go/Basic/Golang-4-流程控制.md
+          - 5.数组:        Go/Basic/Golang-5-数组.md
+          - 6.slice:       Go/Basic/Golang-6-slice.md
+          - 7.map:         Go/Basic/Golang-7-map.md
+          - 8.函数:        Go/Basic/Golang-8-函数.md
+          - 9.指针:        Go/Basic/Golang-9-指针.md
+          - 10.结构体:     Go/Basic/Golang-10-结构体.md
+          - 11.包:         Go/Basic/Golang-11-包.md
+          - 12.接口:       Go/Basic/Golang-12-接口.md
+          - 13.面向对象:   Go/Basic/Golang-13-面向对象.md
           - 14.错误与异常: Go/Basic/Golang-14-错误与异常.md
-          - 15.单元测试: Go/Basic/Golang-15-单元测试.md
-          - 16.泛型: Go/Basic/Golang-16-泛型.md
-          - 类型转换: Go/Basic/Golang-类型转换.md
-          - Go Module: Go/Basic/Golang-Go-Module.md
+          - 15.单元测试:   Go/Basic/Golang-15-单元测试.md
+          - 16.泛型:       Go/Basic/Golang-16-泛型.md
+          - 类型转换:      Go/Basic/Golang-类型转换.md
+          - Go Module:     Go/Basic/Golang-Go-Module.md
+          - Go Workspace:  Go/Basic/Golang-Go-Workspace.md
       - Advanced:
-          - 16.并发: Go/Advanced/Golang-16-并发.md
-          - 17.Channel: Go/Advanced/Golang-17-Channel.md
-          - 18.并发安全: Go/Advanced/Golang-18-并发安全.md
-          - 19.反射: Go/Advanced/Golang-19-reflect.md
+          - 并发:     Go/Advanced/Golang-16-并发.md
+          - Channel:  Go/Advanced/Golang-17-Channel.md
+          - 并发安全: Go/Advanced/Golang-18-并发安全.md
+          - 反射:     Go/Advanced/Golang-19-reflect.md
       - Framework:
           - Gin:
               - Get start: Go/Framework/gin/Gin-0-Get-Start.md
-              - 返回数据: Go/Framework/gin/Gin-1-返回数据.md
-              - 接收请求: Go/Framework/gin/Gin-2-接收请求.md
-              - 路由组: Go/Framework/gin/Gin-3-路由组.md
+              - 返回数据:  Go/Framework/gin/Gin-1-返回数据.md
+              - 接收请求:  Go/Framework/gin/Gin-2-接收请求.md
+              - 路由组:    Go/Framework/gin/Gin-3-路由组.md
               - 上传下载重定向: Go/Framework/gin/Gin-4-上传下载重定向.md
-              - 中间件: Go/Framework/gin/Gin-5-中间件.md
+              - 中间件:    Go/Framework/gin/Gin-5-中间件.md
         # - GORM:
       - Standard Library:
-          - 0-time: Go/StdLib/0-time-时间与日期.md
-          - 1-random: Go/StdLib/1-random-随机数.md
-          - 2-flag: Go/StdLib/2-flag-命令行解析.md
-          - 3-log: Go/StdLib/3-log-日志服务.md
-          - 4-fmt: Go/StdLib/4-fmt-格式化.md
+          - 0-time:    Go/StdLib/0-time-时间与日期.md
+          - 1-random:  Go/StdLib/1-random-随机数.md
+          - 2-flag:    Go/StdLib/2-flag-命令行解析.md
+          - 3-log:     Go/StdLib/3-log-日志服务.md
+          - 4-fmt:     Go/StdLib/4-fmt-格式化.md
           - 5-strings: Go/StdLib/5-strings-字符串操作.md
-          - 6-json: Go/StdLib/6-json.md
+          - 6-json:    Go/StdLib/6-json.md
           - File & IO:
-              - IO: Go/StdLib/File&IO/io.md
+              - IO:    Go/StdLib/File&IO/io.md
               - Bufio: Go/StdLib/File&IO/bufio.md
           # - net:
       - nil:
-          - 交叉编译: Go/nil/Golang-nil-交叉编译.md
+          - 交叉编译:     Go/nil/Golang-nil-交叉编译.md
           - 选项设计模式: Go/nil/Golang-nil-选项设计模式.md
 
   - Python:
       - Basic:
-          - 总叙: Python/Basic/Python-No-1-Abstract.md
-          - 基础: Python/Basic/Python-No-2-Basic.md
+          - 总叙:       Python/Basic/Python-No-1-Abstract.md
+          - 基础:       Python/Basic/Python-No-2-Basic.md
           - 判断和循环: Python/Basic/Python-No-3-Judge&Loop.md
-          - 数据类型: Python/Basic/Python-No-4-Data-Type.md
-          - 运算符: Python/Basic/Python-No-5-Operator.md
-          - 函数: Python/Basic/Python-No-6-Function.md
-          - 错误处理: Python/Basic/Python-No-7-Error-Handle.md
-          - 调试: Python/Basic/Python-No-8-Debug.md
-          - 测试: Python/Basic/Python-No-9-Test.md
-          - 模块: Python/Basic/Python-No-10-Module.md
-          - File: Python/Basic/Python-No-19-File.md
-          - IO: Python/Basic/Python-No-20-IO.md
+          - 数据类型:   Python/Basic/Python-No-4-Data-Type.md
+          - 运算符:     Python/Basic/Python-No-5-Operator.md
+          - 函数:       Python/Basic/Python-No-6-Function.md
+          - 错误处理:   Python/Basic/Python-No-7-Error-Handle.md
+          - 调试:       Python/Basic/Python-No-8-Debug.md
+          - 测试:       Python/Basic/Python-No-9-Test.md
+          - 模块:       Python/Basic/Python-No-10-Module.md
+          - File:       Python/Basic/Python-No-19-File.md
+          - IO:         Python/Basic/Python-No-20-IO.md
       - Advanced:
-          - 高级特性: Python/Advanced/Python-No-Feature-High-Level-Feature.md
-          - 工具类: Python/Advanced/Python-No-Feature-Utility-Class.md
+          - 高级特性:   Python/Advanced/Python-No-Feature-High-Level-Feature.md
+          - 工具类:     Python/Advanced/Python-No-Feature-Utility-Class.md
           - 函数式编程: Python/Advanced/Python-No-Feature-Functional.md
           - 面向对象:
               - 类和对象: Python/Advanced/OOP/Python-No-11-Class&Object.md
-              - 私有化: Python/Advanced/OOP/Python-No-12-Privatization.md
+              - 私有化:   Python/Advanced/OOP/Python-No-12-Privatization.md
               - 魔术方法: Python/Advanced/OOP/Python-No-13-Magic-Method.md
-              - 枚举类: Python/Advanced/OOP/Python-No-14-Enum.md
+              - 枚举类:  Python/Advanced/OOP/Python-No-14-Enum.md
           - 进程线程:
               - 总叙: Python/Advanced/Thread/Python-No-15-Abstract.md
               - 进程: Python/Advanced/Thread/Python-No-16-Process.md
@@ -195,27 +196,27 @@ nav:
               - 协程: Python/Advanced/Thread/Python-No-18-Coroutine.md
       - Builtin:
           - json: Python/Builtin/Python-No-Builtin-json.md
-          - re: Python/Builtin/Python-No-Builtin-re.md
+          - re:   Python/Builtin/Python-No-Builtin-re.md
       - Type:
           - string: Python/Type/Python-No-Type-String.md
       - Crawler:
-          - 总叙: Python/Crawler/Python-Crawler-0-Crawler-Abstract.md
+          - 总叙:     Python/Crawler/Python-Crawler-0-Crawler-Abstract.md
           - 通用爬虫: Python/Crawler/Python-Crawler-1-General-Crawler.md
           - 聚焦爬虫: Python/Crawler/Python-Crawler-2-Focused-Crawler.md
 
   - Linux:
       - Basic:
-          - 进程:      Linux/Basic/进程.md
+          - 进程:       Linux/Basic/进程.md
           - 文件和链接: Linux/Basic/文件和链接.md
           - 文件系统:   Linux/Basic/文件系统.md
-          - Command1: Linux/Basic/Command1.md
-          - Command2: Linux/Basic/Command2.md
-          - 1.md:     Linux/Basic/1.md
+          - Command1:   Linux/Basic/Command1.md
+          - Command2:   Linux/Basic/Command2.md
+          - 1.md:       Linux/Basic/1.md
       - Shell:
-          - 1-基本语法: Linux/Shell/Shell-1-基本语法.md
+          - 1-基本语法:           Linux/Shell/Shell-1-基本语法.md
           - 2-函数、数组、重定向: Linux/Shell/Shell-2-函数、数组、重定向.md
-          - 3-表达式: Linux/Shell/Shell-3-表达式.md
-          - 4-字符串处理: Linux/Shell/Shell-4-字符串处理.md
+          - 3-表达式:             Linux/Shell/Shell-3-表达式.md
+          - 4-字符串处理:         Linux/Shell/Shell-4-字符串处理.md
 
   - Redis:
       - Get Start:   Redis/1-Get-Start.md
@@ -230,14 +231,14 @@ nav:
 
   - 408:
       - 数据结构:
-          - 0-绪论:   408/DataStructure/0-绪论.md
-          - 1-算法:   408/DataStructure/1-算法.md
-          - 2-线性表: 408/DataStructure/2-线性表.md
-          - 3-栈:    408/DataStructure/3-栈.md
-          - 4-队列:  408/DataStructure/4-队列.md
-          - 5-串:    408/DataStructure/5-串.md
-          - 6-树:    408/DataStructure/6-树.md
-          - 7-图:    408/DataStructure/7-图1.md
+          - 0-绪论:         408/DataStructure/0-绪论.md
+          - 1-算法:         408/DataStructure/1-算法.md
+          - 2-线性表:       408/DataStructure/2-线性表.md
+          - 3-栈:           408/DataStructure/3-栈.md
+          - 4-队列:         408/DataStructure/4-队列.md
+          - 5-串:           408/DataStructure/5-串.md
+          - 6-树:           408/DataStructure/6-树.md
+          - 7-图:           408/DataStructure/7-图1.md
           - 8-图的存储结构: 408/DataStructure/8-图2.md
-          - 9-图的算法: 408/DataStructure/9-图3.md
+          - 9-图的算法:     408/DataStructure/9-图3.md
   - 笔记计划: todo.md
