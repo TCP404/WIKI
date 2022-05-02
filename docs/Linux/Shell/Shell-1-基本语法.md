@@ -53,11 +53,11 @@ My name is $name
 
 - 使用 `shift` 可以滑动参数（`$0` 除外）
 
-    ```shell
-    		命令行：ec  A  B  C  D  E  F  G
-    	原位置参数：$0 $1 $2 $3 $4 $5 $6 $7
-    移位后位置参数：$0    $1 $2 $3 $4 $5 $6
-    ```
+```shell
+ec  A  B  C  D  E  F  G     # 命令行
+$0 $1 $2 $3 $4 $5 $6 $7     # 原位置参数
+$0    $1 $2 $3 $4 $5 $6     # 移位后位置参数
+```
 
     
 
@@ -67,9 +67,9 @@ My name is $name
 
 - 变量名
     - [ _ | a-z | A-Z | 0-9]
-    - **声明**变量时**省略**符号`$`
-    - 使用变量时**加上**符号`$`
-    - 变量名**区分**大小写
+    - **声明** 变量时 **省略** 符号`$`
+    - 使用变量时 **加上** 符号`$`
+    - 变量名 **区分** 大小写
     - 等号两侧不可以有空格
 
 - **定义变量**
@@ -91,15 +91,15 @@ My name is $name
 
 - **只读变量**：使用 `readonly`修饰
     ```bash
-    name="Boii"		 # 定义变量
-    readonly name	# 设定只读
+    name="Boii"     # 定义变量
+    readonly name   # 设定只读
     ```
 
 - **取消设置变量**：使用 `unset`修饰
   
     ```bash
     name="Boii"  # 定义变量
-    unset name	 # 取消设置
+    unset name   # 取消设置
     ```
     注销或删除的变量告诉shell删除的变量的变量列表做了跟踪。一旦您取消设置变量，你不可以访问存储在变量值。
 
@@ -132,9 +132,9 @@ My name is $name
 | :---- | :--------------------------------------------- |
 | $0    | 脚本自身名字                                     |
 | \$1~\$9 | 第一个到第九个参数                                |
-| $#    | 位置参数**个数**                                |
-| $*    | 所有位置参数看作**一整个字符串**                    |
-| $@    | 将参数列表存储为数组，每个位置参数被看作各自**独立的字符串** |
+| $#    | 位置参数 **个数**                                |
+| $*    | 所有位置参数看作 **一整个字符串**                    |
+| $@    | 将参数列表存储为数组，每个位置参数被看作各自 **独立的字符串** |
 |  |  |
 | $$    | 当前进程PID                                     |
 | $!    | 上一条运行后台进程的PID                            |
@@ -169,10 +169,14 @@ a b c
 
     # 或
     # 单行写法1
+    
     if condition; then
         ...
     fi
+
+    # 或
     # 单行写法2
+    
     if condition; then ...; fi
     ```
 
@@ -198,9 +202,9 @@ a b c
     或
     
     if condition; then
-    	...
+        ...
     else
-    	...
+        ...
     fi
     ```
 
@@ -245,7 +249,7 @@ fi
 
 ### test 命令
 
-test 命令用于检查某个条件是否成立，可以进行 **数值、字符、文件**三个方面的测试，测试结束后会返回一个返回值，0为真，1为假。
+test 命令用于检查某个条件是否成立，可以进行 **数值、字符、文件** 三个方面的测试，测试结束后会返回一个返回值，0为真，1为假。
 
 ### 判断
 
@@ -263,32 +267,38 @@ b=2
 | `-lt` | 小于为真    | \$a -lt \$b | 0         |
 | `-le` | 小于等于为真 | \$a -le \$b | 0         |
 
-> 在命令中执行基本的算术运算，需要用 `[]` 包裹
-> eg:
->
-> ```bash
-> #!/bin/bash
-> a=1
-> b=2
->
-> # 错误写法
-> # if test $a+1 -eq $b; ...
-> # if test $[a]+1 -eq $b; ...
->
-> # 正确写法
-> if test $[a+1] -eq $b; then
->     echo "a = b"
-> fi
-> ```
-> ```bash
-> $ ./b.sh
-> a = b
-> ```
+
+!!! note
+    在命令中执行基本的算术运算，需要用 `[]` 包裹
+    
+    eg:
+
+    ```bash
+    #!/bin/bash
+    a=1
+    b=2
+    
+    # 错误写法
+    # if test $a+1 -eq $b; ...
+    # if test $[a]+1 -eq $b; ...
+    
+    # 正确写法
+    if test $[a+1] -eq $b; then
+        echo "a = b"
+    fi
+    ```
+    
+    ```bash
+    $ ./b.sh
+    a = b
+    ```
 
 #### 字符串判断
 
 s1="abc"
+
 s2="xyz"
+
 s3=""
 
 | 参数              | 说明                   | 栗子返回值 |
@@ -360,124 +370,128 @@ $ ./b.sh
 
 #### for 循环
 
-1. ```shell
+1. 
+    ```shell
     for var
     do
-    	commands
+        commands
     done
     ```
 
-2. ```shell
+2. 
+    ```shell
     for var in list
     do
         commands
     done
     ```
 
-    eg:
+    !!! example
 
+        ```shell
+        learn="Hello Shell, I am Boii"
+        for word in $learn
+        do
+            echo $word
+        done
+        
+        # Output
+        Hello
+        Shell,
+        I
+        am
+        Boii
+        ```
+
+3. 
     ```shell
-    learn="Hello Shell, I am Boii"
-    for word in $learn
-    do
-    	echo $word
-    done
-    
-    # Output
-    Hello
-    Shell,
-    I
-    am
-    Boii
-    ```
-
-3. ```shell
     for num in {1..n}
     do
         commands
     done
     ```
 
-    eg:
+    !!! example
 
+        ```shell
+        for num in {1..5}
+        do
+            echo $num
+        done
+        
+        # Output
+        1
+        2
+        3
+        4
+        5
+        ```
+
+4. 
     ```shell
-    for num in {1..5}
-    do
-    	echo $num
-    done
-    
-    # Output
-    1
-    2
-    3
-    4
-    5
-    ```
-
-4. ```shell
     for var in {START..END..STEP}
     do
         commands
     done
     ```
 
-    eg:
+    !!! example
 
+        ```shell
+        for num in {1..10..2}
+        do
+            echo $num
+        done
+        
+        # Output
+        1
+        3
+        5
+        7
+        9
+        ```
+
+5. 
     ```shell
-    for num in {1..10..2}
-    do
-    	echo $num
-    done
-    
-    # Output
-    1
-    3
-    5
-    7
-    9
-    ```
-
-    
-
-5. ```shell
     for (( expression1; expression2; expression3 ))
     do
         commands
     done
     ```
 
-    eg:
+    !!! example
 
+        ```shell
+        for (( i=1; i<6; i++ ))
+        do
+            echo $i
+        done
+        
+        # Output
+        1
+        2
+        3
+        4
+        5
+        6
+        ```
+
+6. 
     ```shell
-    for (( i=1; i<6; i++ ))
-    do
-    	echo $i
-    done
-    
-    # Output
-    1
-    2
-    3
-    4
-    5
-    6
-    ```
-
-6. ```shell
     for ((;;))
     do
         commands
     done
     ```
 
-    eg:
+    !!! example
 
-    ```shell
-    for ((;;))
-    do
-    	echo "infinite loop"
-    done
-    ```
+        ```shell
+        for ((;;))
+        do
+            echo "infinite loop"
+        done
+        ```
 
     
 
@@ -489,7 +503,7 @@ $ ./b.sh
     
     for i in $str
     do
-    	echo $i
+        echo $i
     done
     
     #Output
@@ -508,7 +522,7 @@ $ ./b.sh
     
     for i in "$str"
     do
-    	echo $i
+        echo $i
     done
     
     #Output
@@ -522,13 +536,13 @@ $ ./b.sh
 #!/bin/bash
 for b in {40..47}
 do
-	for f in {30..37}
-	do
-		for s in 0 1 4 5 7 8
-		do
-			echo -n -e "\033[${s};${f};${b}mHello World!\033[0m "
-		done
-	done
+    for f in {30..37}
+    do
+        for s in 0 1 4 5 7 8
+        do
+            echo -n -e "\033[${s};${f};${b}mHello World!\033[0m "
+        done
+    done
 done
 ```
 
@@ -538,49 +552,49 @@ done
 
 当 condition 为真时，执行 commands
 
-1. ```shell
+1. 
+    ```shell
     while condition
     do
-    	commands
+        commands
     done
     ```
 
-    eg:
+    !!! example
 
+        ```shell
+        # 单条件 while 循环
+        i1=10
+        i2=20
+        while [[ $i1 -lt $i2 ]]
+        do
+            echo $i1
+            ((i1++))
+        done
+        
+        # 多条件 while 循环
+        a1=10
+        a2=20
+        a3=30
+        while [[ $a1 -gt 0 && $a2 -lt $3 ]]
+        do
+            echo $a2
+            ((a2++))
+        done
+        ```
+
+2. 
     ```shell
-    # 单条件 while 循环
-    i1=10
-    i2=20
-    while [[ $i1 -lt $i2 ]]
-    do
-    	echo $i1
-    	((i1++))
-    done
-    
-    # 多条件 while 循环
-    a1=10
-    a2=20
-    a3=30
-    while [[ $a1 -gt 0 && $a2 -lt $3 ]]
-    do
-    	echo $a2
-    	((a2++))
-    done
-    ```
-
-    
-
-2. ```shell
     while :
     do
-    	commands
+        commands
     done
     
     或
     
     while true
     do
-    	commands
+        commands
     done
     
     或
@@ -588,88 +602,87 @@ done
     while :; do commands; done
     ```
 
-    eg:
+    !!! example
 
+        ```shell
+        while :
+        do
+            echo "Hello, Boii"
+            sleep 1s
+        done
+        
+        或
+        
+        while true
+        do
+            echo "Hello, Boii"
+            sleep 1s
+        done
+        
+        或
+        
+        while :; do echo "Hello, Boii"; sleep 1s; done
+        ```
+
+3. 
     ```shell
-    while :
-    do
-    	echo "Hello, Boii"
-    	sleep 1s
-    done
-    
-    或
-    
-    while true
-    do
-    	echo "Hello, Boii"
-    	sleep 1s
-    done
-    
-    或
-    
-    while :; do echo "Hello, Boii"; sleep 1s; done
-    ```
-
-    
-
-3. ```shell
     while ((condition))
     do
-    	commands
+        commands
     done
     ```
 
-    eg:
+    !!! example
 
-    ```shell
-    i=1
-    while ((i <= 10))
-    do
-    	echo $i
-    	((i++))
-    done
-    ```
+        ```shell
+        i=1
+        while ((i <= 10))
+        do
+            echo $i
+            ((i++))
+        done
+        ```
 
 #### until 循环
 
 当 condition 为假时，执行 commands
 
-1. ```shell
+1. 
+    ```shell
     until condition
     do
-    	commands
+        commands
     done
     
     或
     
     until false
     do
-    	commands
+        commands
     done
     ```
 
-    eg:
+    !!! example
 
-    ```shell
-    i=1
-    until false
-    do
-    	if [[ $i == 10 ]]
-    	then
-    		break
-    	fi
-    	echo $i
-    done
-    ```
+        ```shell
+        i=1
+        until false
+        do
+            if [[ $i == 10 ]]
+            then
+                break
+            fi
+            echo $i
+        done
+        ```
 
     
 
 2. 
-
     ```shell
     until (( condition ))
     do
-    	commands
+        commands
     done
     ```
 
@@ -678,7 +691,7 @@ done
 ```shell
 select var in word1 word2 ... wordN
 do
-	commands
+    commands
 done
 ```
 
@@ -744,18 +757,18 @@ $
 
 ```shell
 case expression in
-	pattern_1)
-		statements
-		;;
-	pattern_2)
-		statements
-		;;
-	pattern_3|pattern_4|pattern_5)
-		statements
-		;;
-	*)
-		statements
-		;;
+    pattern_1)
+        statements
+        ;;
+    pattern_2)
+        statements
+        ;;
+    pattern_3|pattern_4|pattern_5)
+        statements
+        ;;
+    *)
+        statements
+        ;;
 esac
 ```
 
@@ -772,14 +785,14 @@ esac
 read -p "Do you know Golang?[Yes/no] " answer
 
 case $answer in
-	Yes|yes|y|Y)
-		echo "That is amazing."
-		echo
-		;;
-	No|no|n|N)
-		echo "emmmmmm."
-		echo
-		;;
+    Yes|yes|y|Y)
+        echo "That is amazing."
+        echo
+        ;;
+    No|no|n|N)
+        echo "emmmmmm."
+        echo
+        ;;
 easc
 ```
 
