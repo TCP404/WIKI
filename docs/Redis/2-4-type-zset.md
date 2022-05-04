@@ -203,7 +203,7 @@ ZRANGE can perfrom different types of range queries: by index(rank), by score, b
 
 - **Syntax**: `ZRANGE key min max [BYSCORE|BYLEX] [REV] [LIMIT offset count] [WITHSCORES]`
 - **Description**: Lists the elements within the specified MIN and MAX ranges.
-    - The ranges includes minimum element and maximum element, equal to the start-with and end-with. 
+    - The ranges ==includes== minimum element and maximum element, equal to the ==start-with and end-with==. 
     - **WITHSCORES**: Lists members with score. Only members are listed by default.
     - **BYSCORE**: Lists members from min to max by score
     - **BYLEX**: Lists members from min to max ly lexicographical order.
@@ -223,6 +223,7 @@ ZRANGE can perfrom different types of range queries: by index(rank), by score, b
             - `ZRANGE key (1 5` return `1 < index <= 5`
             - `ZRANGE key 1 (5` return `1 <= index < 5`
             - `ZRANGE key (1 (5` return `1 < index < 5`
+
     - **Score range**:
         - **min | max**: When the BYSCORE option is used, `-inf` and `+inf` is vaild.
             - `-inf` and `+inf` is a built-in variable mean infinite.
@@ -236,7 +237,6 @@ ZRANGE can perfrom different types of range queries: by index(rank), by score, b
             - `ZRANGE key 3 +inf BYSCORE` return `3 <= score <= highest-score`
             - `ZRANGE key 5 -inf BYSCORE` return `(empty list)` because `min` is greater than `max`
 
-
     - **Lexicographical range**:
         - **start | stop**: 
             - When the BYLEX option is used, `start` and `stop` must start with `(` or `[` to specify whether the range interval is exclusive or inclusive.
@@ -248,12 +248,13 @@ ZRANGE can perfrom different types of range queries: by index(rank), by score, b
 
   
 
-- Min and Max:
-    In a index range query, it is in the same way as Python index: 0 means first element, 1 means second element, -1 means last element, -2 means penultimate element, and so on.
+- Conclusion - Min and Max:
 
-    In a score range query, `-inf` and `+inf` is vaild then `-` and `+` is invaild.
-
-    In a lexicographical query, `-` and `+` is vaild then `-inf` and `+inf` is invaild. And it must start with `(` or `[`, except `-` and `+`.
+    - In a **index range** query, it is in the same way as Python index: 
+        - 0 means First element, 1 means Second element, 
+        - -1 means Last element, -2 means Penultimate element, and so on.
+    - In a **score range** query, `-inf` and `+inf` is {++vaild++}, then `-` and `+` is {++invaild++}.
+    - In a **lexicographical range** query, `-` and `+` is {++vaild++}, then `-inf` and `+inf` is {++invaild++}. And it ==must== start with `(` or `[`, except `-` and `+`.
 
 ??? example
     
