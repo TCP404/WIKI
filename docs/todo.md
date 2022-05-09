@@ -6,8 +6,8 @@
         - [x] zset
         - [x] hash
     - 持久化原理
-        - [ ] 快照 (Snapshot)
-        - [ ] AOF (Append Only File)
+        - [x] RDB快照 (Snapshot)
+        - [x] AOF (Append Only File)
     - 事务
         - [x] 事务 (multi, exec)
         - [x] 锁 (watch, unwatch)
