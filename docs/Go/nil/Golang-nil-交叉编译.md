@@ -8,7 +8,7 @@ Golang 支持交叉编译，可以在一个平台上生成另一个平台的可�
    
     ```shell
     CGO_ENABLED=0 GOOS=linux GOARCH=amd64 go build main.go
-    CGO_ENABLED=0 GOOS=windows GOARCH=amd64 go build main.go12
+    CGO_ENABLED=0 GOOS=windows GOARCH=amd64 go build main.go
     ```
 
 === "Linux"
@@ -16,7 +16,7 @@ Golang 支持交叉编译，可以在一个平台上生成另一个平台的可�
 
     ```shell
     CGO_ENABLED=0 GOOS=darwin GOARCH=amd64 go build main.go
-    CGO_ENABLED=0 GOOS=windows GOARCH=amd64 go build main.go12
+    CGO_ENABLED=0 GOOS=windows GOARCH=amd64 go build main.go
     ```
 
 === "Windows"
