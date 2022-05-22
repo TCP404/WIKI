@@ -166,6 +166,20 @@ nav:
               - IO:    Go/StdLib/File&IO/io.md
               - Bufio: Go/StdLib/File&IO/bufio.md
           # - net:
+      - Socket:
+          - IM-System:
+              - 1-搭建基础服务:      Go/Socket/IM-System/IM1-搭建基础服务.md
+              - 2-上线广播功能:      Go/Socket/IM-System/IM2-上线广播功能.md
+              - 3-消息群发功能:      Go/Socket/IM-System/IM3-消息群发功能.md
+              - 4-业务封装:         Go/Socket/IM-System/IM4-业务封装.md
+              - 5-在线用户查询功能:  Go/Socket/IM-System/IM5-在线用户查询功能.md
+              - 6-修改用户名功能:    Go/Socket/IM-System/IM6-修改用户名功能.md
+              - 7-超时强踢功能:      Go/Socket/IM-System/IM7-超时强踢功能.md
+              - 8-私聊功能:         Go/Socket/IM-System/IM8-私聊功能.md
+              - 9-客户端框架:       Go/Socket/IM-System/IM9-客户端框架.md
+              - 10-命令行解析:      Go/Socket/IM-System/IM10-命令行解析.md
+              - 11-发送请求:        Go/Socket/IM-System/IM11-发送请求.md
+
       - nil:
           - 交叉编译:     Go/nil/Golang-nil-交叉编译.md
           - 选项设计模式: Go/nil/Golang-nil-选项设计模式.md
