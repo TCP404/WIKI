@@ -5,8 +5,8 @@ pin: false
 tags:
   - Golang
 categories: [Golang, Basic]
-headimg: 'https://cdn.jsdelivr.net/gh/TCP404/Picgo/blog/cover/go2.png'
-thumbnail: 'https://cdn.jsdelivr.net/gh/TCP404/Picgo/blog/thumbnail/golang.png'
+headimg: 'https://blogpicure.oss-cn-shenzhen.aliyuncs.com/blog/cover/go2.png'
+thumbnail: 'https://blogpicure.oss-cn-shenzhen.aliyuncs.com/blog/thumbnail/golang.png'
 abbrlink: 7ebc0a4
 date: 2021-07-17 10:27:41
 updated: 2021-07-17 10:27:41

@@ -84,17 +84,17 @@ ABC
 
 `a = 'ABC'`
 
-![1](https://cdn.jsdelivr.net/gh/TCP404/Picgo/blog/illustration-pic/Py/2-1.png)
+![1](https://blogpicure.oss-cn-shenzhen.aliyuncs.com/blog/illustration-pic/Py/2-1.png)
 
 
 `b = a`
 
-![2](https://cdn.jsdelivr.net/gh/TCP404/Picgo/blog/illustration-pic/Py/2-2.png)
+![2](https://blogpicure.oss-cn-shenzhen.aliyuncs.com/blog/illustration-pic/Py/2-2.png)
 
 
 `a = 'XYZ'`
 
-![2](https://cdn.jsdelivr.net/gh/TCP404/Picgo/blog/illustration-pic/Py/2-3.png)
+![2](https://blogpicure.oss-cn-shenzhen.aliyuncs.com/blog/illustration-pic/Py/2-3.png)
 
 
 ## 数据类型

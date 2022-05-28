@@ -93,7 +93,7 @@ echo ${str%xyz*}	# abxyzc,def,ghi,abc
 echo ${str%%xyz*}	# ab
 ```
 
-![](https://cdn.jsdelivr.net/gh/TCP404/Picgo/blog/illustration-pic/Linux/%E5%AD%97%E7%AC%A6%E4%B8%B2%E6%88%AA%E5%8F%96-20210617203833.png)
+![](https://blogpicure.oss-cn-shenzhen.aliyuncs.com/blog/illustration-pic/Linux/%E5%AD%97%E7%AC%A6%E4%B8%B2%E6%88%AA%E5%8F%96-20210617203833.png)
 
 ### 变量状态赋值
 

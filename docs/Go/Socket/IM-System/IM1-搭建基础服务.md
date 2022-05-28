@@ -1,6 +1,6 @@
 # IM1
 
-![](https://cdn.jsdelivr.net/gh/TCP404/Picgo/blog/illustration-pic/Go/vx_images/2566840859.png)
+![](https://blogpicure.oss-cn-shenzhen.aliyuncs.com/blog/illustration-pic/Go/vx_images/2566840859.png)
 
 ## 前期准备
 
@@ -101,7 +101,7 @@ $ go build -o server main.go server.go
 $ ./server
 ```
 
-![运行效果](https://cdn.jsdelivr.net/gh/TCP404/Picgo/blog/illustration-pic/Go/vx_images/233006238492.png)
+![运行效果](https://blogpicure.oss-cn-shenzhen.aliyuncs.com/blog/illustration-pic/Go/vx_images/233006238492.png)
 
 左侧为服务端，运行 `./server` 后显示了服务监听着 `127.0.0.1：8088` 端口;
 右侧为客户端，使用 `nc` 命令模拟，发送出请求后，服务端返回了 `Connection Successfuly.` 的字样，而服务端也打印出同样的字符串。

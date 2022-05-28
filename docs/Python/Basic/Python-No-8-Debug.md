@@ -166,12 +166,12 @@ logging.critical("This is a critical log.")
 
 执行后结果如下：
 
-![1](https://cdn.jsdelivr.net/gh/TCP404/Picgo/blog/illustration-pic/Py/8-1.png)
+![1](https://blogpicure.oss-cn-shenzhen.aliyuncs.com/blog/illustration-pic/Py/8-1.png)
 
 
 执行第二次后结果如下：
 
-![2](https://cdn.jsdelivr.net/gh/TCP404/Picgo/blog/illustration-pic/Py/8-2.png)
+![2](https://blogpicure.oss-cn-shenzhen.aliyuncs.com/blog/illustration-pic/Py/8-2.png)
 
 
 如果要让日志格式好看点，还可以指定宽度。
@@ -200,12 +200,12 @@ logging.critical("This is a critical log.")
 
 左对齐：`%(levelname)-8s`
 
-![3](https://cdn.jsdelivr.net/gh/TCP404/Picgo/blog/illustration-pic/Py/8-3.png)
+![3](https://blogpicure.oss-cn-shenzhen.aliyuncs.com/blog/illustration-pic/Py/8-3.png)
 
 
 右对齐：`%(levelname)8s`
 
-![4](https://cdn.jsdelivr.net/gh/TCP404/Picgo/blog/illustration-pic/Py/8-4.png)
+![4](https://blogpicure.oss-cn-shenzhen.aliyuncs.com/blog/illustration-pic/Py/8-4.png)
 
 
 ### logging 模块使用

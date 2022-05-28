@@ -5,7 +5,7 @@ categories:
   - Python
   - 进阶
   - 进程、线程
-thumbnail: 'https://cdn.jsdelivr.net/gh/TCP404/Picgo/blog/thumbnail/python.png'
+thumbnail: 'https://blogpicure.oss-cn-shenzhen.aliyuncs.com/blog/thumbnail/python.png'
 abbrlink: 37243
 date: 2020-07-19 14:41:48
 ---

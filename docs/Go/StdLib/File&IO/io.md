@@ -15,7 +15,7 @@ IO操作，无外乎 **读（Read）** 和 **写（Write）**。
 - 数据从磁盘进入内存，称之为 **读取（Read）、输入（Input）**；
 - 数据从内存出去磁盘，称之为 **写入（Write）、输出（Output）**；
 
-![IO](https://cdn.jsdelivr.net/gh/TCP404/Picgo/blog/illustration-pic/Go/IMG/20210209103021253_12593.png)
+![IO](https://blogpicure.oss-cn-shenzhen.aliyuncs.com/blog/illustration-pic/Go/IMG/20210209103021253_12593.png)
 
 ```go
 func main() {

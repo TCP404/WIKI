@@ -4,7 +4,7 @@ tags: Python
 categories:
   - Python
   - 基础
-thumbnail: 'https://cdn.jsdelivr.net/gh/TCP404/Picgo/blog/thumbnail/python.png'
+thumbnail: 'https://blogpicure.oss-cn-shenzhen.aliyuncs.com/blog/thumbnail/python.png'
 abbrlink: 32620
 date: 2020-07-26 11:17:48
 ---

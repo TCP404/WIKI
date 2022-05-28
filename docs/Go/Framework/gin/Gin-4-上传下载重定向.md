@@ -28,7 +28,7 @@
         </html>
         ```
 
-        ![](https://cdn.jsdelivr.net/gh/TCP404/Picgo/blog/illustration-pic/Go/vx_images/6000782296428.png)
+        ![](https://blogpicure.oss-cn-shenzhen.aliyuncs.com/blog/illustration-pic/Go/vx_images/6000782296428.png)
 
         前端需要用一个表单来进行上传，这里我们设置了表单提交的请求方式为 POST。
 
@@ -69,21 +69,21 @@
 
     === "测试"
 
-        ![上传文件](https://cdn.jsdelivr.net/gh/TCP404/Picgo/blog/illustration-pic/Go/vx_images/1762924054854.png)
+        ![上传文件](https://blogpicure.oss-cn-shenzhen.aliyuncs.com/blog/illustration-pic/Go/vx_images/1762924054854.png)
 
-        ![上传成功](https://cdn.jsdelivr.net/gh/TCP404/Picgo/blog/illustration-pic/Go/vx_images/5500107717484.png)
+        ![上传成功](https://blogpicure.oss-cn-shenzhen.aliyuncs.com/blog/illustration-pic/Go/vx_images/5500107717484.png)
 
-        ![成功保存](https://cdn.jsdelivr.net/gh/TCP404/Picgo/blog/illustration-pic/Go/vx_images/5880663088309.png)
+        ![成功保存](https://blogpicure.oss-cn-shenzhen.aliyuncs.com/blog/illustration-pic/Go/vx_images/5880663088309.png)
 
     === "使用 Postman"
 
         使用 PostMan 时需要给 Header 添加一个属性 `Content-Type: multipart/form-data`
 
-        ![](https://cdn.jsdelivr.net/gh/TCP404/Picgo/blog/illustration-pic/Go/vx_images/3692804942610.png)
+        ![](https://blogpicure.oss-cn-shenzhen.aliyuncs.com/blog/illustration-pic/Go/vx_images/3692804942610.png)
 
         然后在 Body 中的 form-data 中上传数据
 
-        ![](https://cdn.jsdelivr.net/gh/TCP404/Picgo/blog/illustration-pic/Go/vx_images/1504988688338.png)
+        ![](https://blogpicure.oss-cn-shenzhen.aliyuncs.com/blog/illustration-pic/Go/vx_images/1504988688338.png)
 
     === "使用 curl 命令"
 
@@ -188,7 +188,7 @@ func main() {
 }
 ```
 
-![](https://cdn.jsdelivr.net/gh/TCP404/Picgo/blog/illustration-pic/Go/vx_images/1820376192887.png)
+![](https://blogpicure.oss-cn-shenzhen.aliyuncs.com/blog/illustration-pic/Go/vx_images/1820376192887.png)
 
 
 当然，还可以在响应头中添加更多信息
@@ -236,7 +236,7 @@ func main() {
 - 转发：只能转发到站内路由。
 
 
-![重定向和转发](https://cdn.jsdelivr.net/gh/TCP404/Picgo/blog/illustration-pic/Go/vx_images/3628459928845.png)
+![重定向和转发](https://blogpicure.oss-cn-shenzhen.aliyuncs.com/blog/illustration-pic/Go/vx_images/3628459928845.png)
 
 
 === "重定向"
@@ -269,9 +269,9 @@ func main() {
     }
     ```
 
-    ![重定向到站内](https://cdn.jsdelivr.net/gh/TCP404/Picgo/blog/illustration-pic/Go/vx_images/5296060724295.png)
+    ![重定向到站内](https://blogpicure.oss-cn-shenzhen.aliyuncs.com/blog/illustration-pic/Go/vx_images/5296060724295.png)
 
-    ![重定向到站外](https://cdn.jsdelivr.net/gh/TCP404/Picgo/blog/illustration-pic/Go/vx_images/3265866644390.png)
+    ![重定向到站外](https://blogpicure.oss-cn-shenzhen.aliyuncs.com/blog/illustration-pic/Go/vx_images/3265866644390.png)
 
 === "转发"
 
@@ -299,5 +299,5 @@ func main() {
     }
     ```
 
-    ![转发到站内](https://cdn.jsdelivr.net/gh/TCP404/Picgo/blog/illustration-pic/Go/vx_images/623353626862.png)
+    ![转发到站内](https://blogpicure.oss-cn-shenzhen.aliyuncs.com/blog/illustration-pic/Go/vx_images/623353626862.png)
 

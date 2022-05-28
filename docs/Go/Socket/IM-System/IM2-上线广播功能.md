@@ -1,6 +1,6 @@
 # IM2-实现用户上线广播
 
-![](https://cdn.jsdelivr.net/gh/TCP404/Picgo/blog/illustration-pic/Go/vx_images/3976583799263.png)
+![](https://blogpicure.oss-cn-shenzhen.aliyuncs.com/blog/illustration-pic/Go/vx_images/3976583799263.png)
 
 
 实现用户上线广播功能，类似于 QQ 的好友上线提醒功能。
@@ -182,7 +182,7 @@ $ go build -o server server.go user.go main.go
 
 $ ./server
 ```
-![运行效果](https://cdn.jsdelivr.net/gh/TCP404/Picgo/blog/illustration-pic/Go/vx_images/2521541188493.png)
+![运行效果](https://blogpicure.oss-cn-shenzhen.aliyuncs.com/blog/illustration-pic/Go/vx_images/2521541188493.png)
 
 
 ## 总结

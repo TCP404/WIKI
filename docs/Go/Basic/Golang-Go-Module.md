@@ -24,7 +24,7 @@
 === "Windows"
     在环境变量中添加一条值
 
-    ![](https://cdn.jsdelivr.net/gh/TCP404/Picgo/blog/illustration-pic/Go/IMG/20210217115631352_20287.png)
+    ![](https://blogpicure.oss-cn-shenzhen.aliyuncs.com/blog/illustration-pic/Go/IMG/20210217115631352_20287.png)
 
 === "Linux"
     直接执行命令到 `/etc/profile` 或 `$HOME/.profile`
@@ -63,7 +63,7 @@ go mod why      解释为什么要依赖
 
 eg：
 
-![](https://cdn.jsdelivr.net/gh/TCP404/Picgo/blog/illustration-pic/Go/IMG/20210217123923793_585.png)
+![](https://blogpicure.oss-cn-shenzhen.aliyuncs.com/blog/illustration-pic/Go/IMG/20210217123923793_585.png)
 
 
 ## go mod tidy 整理依赖
@@ -170,7 +170,7 @@ replace bad/thing v1.4.5 => good/thing v1.4.5
     如：`go get 'github.com/gin-gonic/gin@<v1.2.3'`。
 
 
-![](https://cdn.jsdelivr.net/gh/TCP404/Picgo/blog/illustration-pic/Go/IMG/20210217145451209_10624.png)
+![](https://blogpicure.oss-cn-shenzhen.aliyuncs.com/blog/illustration-pic/Go/IMG/20210217145451209_10624.png)
 
 如上图所示，为了能让 Go Modules 的使用者能够从旧版本更方便地升级至新版本，Go 语言官方提出了两个重要的规则：
 
@@ -179,7 +179,7 @@ replace bad/thing v1.4.5 => good/thing v1.4.5
 
 而与 Git 分支的集成如下：
 
-![Go Modules 分支](https://cdn.jsdelivr.net/gh/TCP404/Picgo/blog/illustration-pic/Go/IMG/20210217145532595_1214.png)
+![Go Modules 分支](https://blogpicure.oss-cn-shenzhen.aliyuncs.com/blog/illustration-pic/Go/IMG/20210217145532595_1214.png)
 
 !!! note ""
     参考 [Go Modules 详解](https://juejin.cn/post/6844903872054427656)
@@ -217,12 +217,12 @@ replace bad/thing v1.4.5 => good/thing v1.4.5
     我的 GOPATH：`GOPATH=E:\---CODE\GO\root`
 
     GOPATH 放进去的工作区：
-    ![](https://cdn.jsdelivr.net/gh/TCP404/Picgo/blog/illustration-pic/Go/IMG/20210216232600109_13119.png)
+    ![](https://blogpicure.oss-cn-shenzhen.aliyuncs.com/blog/illustration-pic/Go/IMG/20210216232600109_13119.png)
 
 
     没有 GOPATH 的工作区
 
-    ![](https://cdn.jsdelivr.net/gh/TCP404/Picgo/blog/illustration-pic/Go/IMG/20210216232836076_13857.png)
+    ![](https://blogpicure.oss-cn-shenzhen.aliyuncs.com/blog/illustration-pic/Go/IMG/20210216232836076_13857.png)
 
     相安无事
 
@@ -233,16 +233,16 @@ replace bad/thing v1.4.5 => good/thing v1.4.5
     我试了只有这个地址一次过。
 
     - 第一步：修改环境变量 GOPROXY
-        ![](https://cdn.jsdelivr.net/gh/TCP404/Picgo/blog/illustration-pic/Go/IMG/20210216233219520_22889.png)
+        ![](https://blogpicure.oss-cn-shenzhen.aliyuncs.com/blog/illustration-pic/Go/IMG/20210216233219520_22889.png)
 
     - 第二步：确保 GOPATH 下有`bin`、`pkg`、`src` 三个目录
 
     - 第三步：在 VSC 中按下 `Ctrl+Shift+P` 唤醒快捷命令行，输入：`Go:install/Update Tools`，回车。
-        ![](https://cdn.jsdelivr.net/gh/TCP404/Picgo/blog/illustration-pic/Go/IMG/20210216232958058_14544.png)
+        ![](https://blogpicure.oss-cn-shenzhen.aliyuncs.com/blog/illustration-pic/Go/IMG/20210216232958058_14544.png)
 
 
     - 第四步：全选，然后点击 OK 开始下载
-        ![](https://cdn.jsdelivr.net/gh/TCP404/Picgo/blog/illustration-pic/Go/IMG/20210216233135419_18930.png)
+        ![](https://blogpicure.oss-cn-shenzhen.aliyuncs.com/blog/illustration-pic/Go/IMG/20210216233135419_18930.png)
 
     - 第四步：丝滑顺畅一次过
-        ![](https://cdn.jsdelivr.net/gh/TCP404/Picgo/blog/illustration-pic/Go/IMG/20210216233350018_30494.png)
+        ![](https://blogpicure.oss-cn-shenzhen.aliyuncs.com/blog/illustration-pic/Go/IMG/20210216233350018_30494.png)

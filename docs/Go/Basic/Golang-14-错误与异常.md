@@ -396,5 +396,5 @@ func panic(v interface{})
     `recover` 必须放在可能引发 `panic` 的地方之前
     即使 `recover` 了，在函数里，引发 `panic` 的地方下面那些代码依然没有机会运行。
 
-![](https://cdn.jsdelivr.net/gh/TCP404/Picgo/blog/illustration-pic/Go/IMG/20210207173528135_25602.png)
+![](https://blogpicure.oss-cn-shenzhen.aliyuncs.com/blog/illustration-pic/Go/IMG/20210207173528135_25602.png)
 

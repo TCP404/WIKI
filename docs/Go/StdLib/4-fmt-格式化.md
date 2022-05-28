@@ -522,7 +522,7 @@ printf 系列函数都支持 format 格式化参数，但是占位符非常多�
     }
     ```
 
-![](https://cdn.jsdelivr.net/gh/TCP404/Picgo/blog/illustration-pic/Go/IMG/20210608150153.png)
+![](https://blogpicure.oss-cn-shenzhen.aliyuncs.com/blog/illustration-pic/Go/IMG/20210608150153.png)
 
 ### 其他
 

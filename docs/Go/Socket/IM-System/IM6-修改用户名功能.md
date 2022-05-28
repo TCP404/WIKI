@@ -105,7 +105,7 @@ $ go build -o server main.go server.go user.go
 $ ./server
 ```
 
-![运行效果](https://cdn.jsdelivr.net/gh/TCP404/Picgo/blog/illustration-pic/Go/vx_images/1534027720860.png)
+![运行效果](https://blogpicure.oss-cn-shenzhen.aliyuncs.com/blog/illustration-pic/Go/vx_images/1534027720860.png)
 
 ## 完整代码
 

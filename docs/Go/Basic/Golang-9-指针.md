@@ -33,7 +33,7 @@ func main() {
 }
 ```
 
-![](https://cdn.jsdelivr.net/gh/TCP404/Picgo/blog/illustration-pic/Go/IMG/20201126192904446_12246.png)
+![](https://blogpicure.oss-cn-shenzhen.aliyuncs.com/blog/illustration-pic/Go/IMG/20201126192904446_12246.png)
 
 ## 指针取值
 
