@@ -179,10 +179,14 @@ nav:
               - 9-客户端框架:       Go/Socket/IM-System/IM9-客户端框架.md
               - 10-命令行解析:      Go/Socket/IM-System/IM10-命令行解析.md
               - 11-发送请求:        Go/Socket/IM-System/IM11-发送请求.md
-
       - nil:
           - 交叉编译:     Go/nil/Golang-nil-交叉编译.md
           - 选项设计模式: Go/nil/Golang-nil-选项设计模式.md
+  - Rust:
+      - Basic:
+          - 0-Hello: Rust/Basic/0-Hello.md
+          - 1-变量:  Rust/Basic/1-变量.md
+          - 2-数据类型: Rust/Basic/2-数据类型.md
 
   - Python:
       - Basic:
