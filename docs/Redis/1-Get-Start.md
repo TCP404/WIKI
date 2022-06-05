@@ -1,4 +1,4 @@
-# Get Start
+# Hello Redis
 
 目前正在练习英文写作，待连载完成后再重写中文版
 
