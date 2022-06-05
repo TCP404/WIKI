@@ -253,7 +253,9 @@ nav:
         - Hash:   Redis/2-5-type-hash.md
       - Persistence: Redis/3-persistence.md
       - Transaction: Redis/4-transaction.md
-
+  - MongoDB:
+      - 0-Hello: Mongo/0-Hello.md
+      - 1-文档:   Mongo/1-文档.md
   - 408:
       - 数据结构:
           - 0-绪论:         408/DataStructure/0-绪论.md
