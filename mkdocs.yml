@@ -21,7 +21,7 @@ theme:
         - rust
   icon:
     admonition:
-      note:     fontawesome/solid/sticky-note
+      note:     fontawesome/solid/note-sticky
       abstract: fontawesome/solid/book
       info:     fontawesome/solid/info-circle
       tip:      fontawesome/solid/bullhorn
