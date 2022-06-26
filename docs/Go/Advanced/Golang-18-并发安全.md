@@ -267,6 +267,14 @@ func (rw *RWMutex) RLocker() Locker {}
 - 仅在绝大部分goroutine都在 **获取读锁并且锁竞争比较激烈时**（即，goroutine一般都需要等待后才能获到锁），RWMutex才有优势
 - 否则，**一般使用Mutex即可**
 
+!!! tip
+
+    只读场景：sync.map > rwmutex >> mutex
+    读写场景（边读边写）：rwmutex > mutex >> sync.map
+    读写场景（读80% 写20%）：sync.map > rwmutex > mutex
+    读写场景（读98% 写2%）：sync.map > rwmutex >> mutex
+    只写场景：sync.map >> mutex > rwmutex
+
 
 ## sync.Once
 

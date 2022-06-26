@@ -260,6 +260,12 @@ nav:
       - 0-Hello: Mongo/0-Hello.md
       - 1-文档:   Mongo/1-文档.md
 
+  - MySQL:
+      - 0-Hello:  MySQL/0-Hello.md
+      - 1-数据类型: MySQL/1-数据类型.md
+      - 2-SQL:    MySQL/2-SQL.md
+      - 3-索引:   MySQL/3-索引.md
+
   - 408:
       - 数据结构:
           - 0-绪论:         408/DataStructure/0-绪论.md
@@ -273,4 +279,4 @@ nav:
           - 8-图的存储结构: 408/DataStructure/8-图2.md
           - 9-图的算法:     408/DataStructure/9-图3.md
 
-  - 笔记计划: todo.md
+  - TODO: todo.md
