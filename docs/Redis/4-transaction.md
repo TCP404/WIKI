@@ -183,5 +183,5 @@ It was not watch the keys, so the result was unexpected.
 | 2) "5"               |                 |
 
 
-
+![](https://blogpicure.oss-cn-shenzhen.aliyuncs.com/blog/illustration-pic/redis/tx-pipe.png)
 

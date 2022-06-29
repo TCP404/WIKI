@@ -48,6 +48,8 @@ theme:
     - navigation.indexes
     - content.code.annotate # 代码注释美化，变成一个圆点，鼠标点击显示注释内容。Ref：https://squidfunk.github.io/mkdocs-material/reference/code-blocks/
     - content.tabs.link
+    - toc.follow
+    - navigation.top
 
 markdown_extensions:
   - pymdownx.superfences:
@@ -137,9 +139,10 @@ nav:
           - 14.错误与异常: Go/Basic/Golang-14-错误与异常.md
           - 15.单元测试:   Go/Basic/Golang-15-单元测试.md
           - 16.泛型:       Go/Basic/Golang-16-泛型.md
-          - 类型转换:      Go/Basic/Golang-类型转换.md
-          - Go Module:     Go/Basic/Golang-Go-Module.md
-          - Go Workspace:  Go/Basic/Golang-Go-Workspace.md
+          - Other:
+              - 类型转换:      Go/Basic/Golang-类型转换.md
+              - Go Module:     Go/Basic/Golang-Go-Module.md
+              - Go Workspace:  Go/Basic/Golang-Go-Workspace.md
       - Advanced:
           - 并发:     Go/Advanced/Golang-16-并发.md
           - Channel:  Go/Advanced/Golang-17-Channel.md
