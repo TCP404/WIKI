@@ -148,6 +148,8 @@ nav:
           - Channel:  Go/Advanced/Golang-17-Channel.md
           - 并发安全: Go/Advanced/Golang-18-并发安全.md
           - 反射:     Go/Advanced/Golang-19-reflect.md
+          - GPM:     Go/Advanced/Golang-GPM模型.md
+          - 坑:      Go/Advanced/Golang-go并发的坑.md
       - Gin:
           - Get start: Go/Framework/gin/Gin-0-Get-Start.md
           - 返回数据:  Go/Framework/gin/Gin-1-返回数据.md
@@ -289,5 +291,13 @@ nav:
           - 7-图:           408/DataStructure/7-图1.md
           - 8-图的存储结构: 408/DataStructure/8-图2.md
           - 9-图的算法:     408/DataStructure/9-图3.md
+
+  - ES:
+      - 0-Hello: ES/0-Hello.md
+      - 1-索引基本操作: ES/1-索引基本操作.md
+      - 2-映射基本操作: ES/2-映射基本操作.md
+      - 3-文档基本操作: ES/3-文档基本操作.md
+
+
 
   - TODO: todo.md
