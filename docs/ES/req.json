@@ -1,5 +1,13 @@
 
 { "index": { "_id": 1 } }
-{ "title": "Andriod1", "price": 1999.00, "description": "Androd yyds", "create_at": "2022-06-06"}
+{ "id": 1,"title": "Andriod", "price": 1999.00, "description": "Andriod only yyds", "create_at": "2022-06-06"}
 { "create": { "_id": 2 } }
-{ "title": "Iphone1", "price": 4999.00, "description": "Iphone yyds", "create_at": "2022-06-06"}
+{ "id": 2,"title": "Iphone", "price": 4999.00, "description": "Iphone just yyds", "create_at": "2022-06-07"}
+{ "create": { "_id": 3 } }
+{ "id": 3,"title": "Xiaomi", "price": 2999.00, "description": "Xiaomi 为发烧而生", "create_at": "2022-06-08"}
+{ "create": { "_id": 4 } }
+{ "id": 4,"title": "Oppo", "price": 3999.00, "description": "充电两小时, 通话五分钟", "create_at": "2022-06-09"}
+{ "create": { "_id": 5 } }
+{ "id": 5,"title": "Vivo", "price": 6978.00, "description": "拍出你的美", "create_at": "2022-06-10"}
+{ "create": { "_id": 5 } }
+{ "id": 5,"title": "Huawei", "price": 6978.00, "description": "Huawei yyds", "create_at": "2022-06-10"}
