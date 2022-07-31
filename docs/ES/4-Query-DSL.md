@@ -754,9 +754,9 @@ GET /<INDEX_NAME>/_search
 }
 ```
 
-### 其他特性
+## 其他特性
 
-#### 高亮查询 highlight
+### 高亮查询 highlight
 
 !!! warning
     ES7 中只有能分词的才能高亮
@@ -906,7 +906,7 @@ GET /<INDEX_NAME>/_search
         }
         ```
 
-#### 分页 from, size
+### 分页 from, size
 
 !!! note
     `from` 用来指定起始返回位置，默认0；`size` 用来指定返回条数，默认10。
@@ -1004,7 +1004,7 @@ GET /<INDEX_NAME>/_search
         }
         ```
 
-#### 排序 sort
+### 排序 sort
 
 默认降序 desc
 
@@ -1030,7 +1030,7 @@ GET /<INDEX_NAME>/_search
 }
 ```
 
-#### 返回指定字段 _source
+### 返回指定字段 _source
 ```http
 GET /<INDEX_NAME>/_search
 {
