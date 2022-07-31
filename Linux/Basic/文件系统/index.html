@@ -1,0 +1,4559 @@
+
+<!doctype html>
+<html lang="en" class="no-js">
+  <head>
+    
+      <meta charset="utf-8">
+      <meta name="viewport" content="width=device-width,initial-scale=1">
+      
+      
+        <meta name="author" content="Boii">
+      
+      
+        <link rel="canonical" href="https://wiki.boii.xyz/Linux/Basic/%E6%96%87%E4%BB%B6%E7%B3%BB%E7%BB%9F/">
+      
+      <link rel="icon" href="../../../_assets/logo/favicon.png">
+      <meta name="generator" content="mkdocs-1.3.1, mkdocs-material-8.3.9">
+    
+    
+      
+        <title>文件系统 - Boii's Wiki</title>
+      
+    
+    
+      <link rel="stylesheet" href="../../../assets/stylesheets/main.1d29e8d0.min.css">
+      
+        
+        <link rel="stylesheet" href="../../../assets/stylesheets/palette.cbb835fc.min.css">
+        
+      
+      
+  
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+  
+  <style>:root{--md-admonition-icon--note:url('data:image/svg+xml;charset=utf-8,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 448 512"><!--! Font Awesome Free 6.1.1 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free (Icons: CC BY 4.0, Fonts: SIL OFL 1.1, Code: MIT License) Copyright 2022 Fonticons, Inc.--><path d="M400 32H48C21.49 32 0 53.49 0 80v352c0 26.5 21.49 48 48 48h245.5c16.97 0 33.25-6.744 45.26-18.75l90.51-90.51A63.855 63.855 0 0 0 448 325.5V80c0-26.51-21.5-48-48-48zM64 96h320l-.001 224H320c-17.67 0-32 14.33-32 32v64H64V96z"/></svg>');--md-admonition-icon--abstract:url('data:image/svg+xml;charset=utf-8,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 448 512"><!--! Font Awesome Free 6.1.1 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free (Icons: CC BY 4.0, Fonts: SIL OFL 1.1, Code: MIT License) Copyright 2022 Fonticons, Inc.--><path d="M448 336V48c0-26.51-21.5-48-48-48H96C42.98 0 0 42.98 0 96v320c0 53.02 42.98 96 96 96h320c17.67 0 32-14.33 32-31.1 0-11.72-6.607-21.52-16-27.1v-81.36c9.8-9.64 16-22.24 16-36.44zM143.1 128h192c9.7 0 16.9 7.2 16.9 16s-7.2 16-16 16H143.1c-7.9 0-15.1-7.2-15.1-16s7.2-16 15.1-16zm0 64h192c9.7 0 16.9 7.2 16.9 16s-7.2 16-16 16H143.1c-7.9 0-15.1-7.2-15.1-16s7.2-16 15.1-16zM384 448H96c-17.67 0-32-14.33-32-32s14.33-32 32-32h288v64z"/></svg>');--md-admonition-icon--info:url('data:image/svg+xml;charset=utf-8,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512"><!--! Font Awesome Free 6.1.1 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free (Icons: CC BY 4.0, Fonts: SIL OFL 1.1, Code: MIT License) Copyright 2022 Fonticons, Inc.--><path d="M256 0C114.6 0 0 114.6 0 256s114.6 256 256 256 256-114.6 256-256S397.4 0 256 0zm0 128c17.67 0 32 14.33 32 32s-14.33 32-32 32-32-14.3-32-32 14.3-32 32-32zm40 256h-80c-13.2 0-24-10.7-24-24s10.75-24 24-24h16v-64h-8c-13.25 0-24-10.75-24-24s10.8-24 24-24h32c13.25 0 24 10.75 24 24v88h16c13.25 0 24 10.75 24 24s-10.7 24-24 24z"/></svg>');--md-admonition-icon--tip:url('data:image/svg+xml;charset=utf-8,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512"><!--! Font Awesome Free 6.1.1 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free (Icons: CC BY 4.0, Fonts: SIL OFL 1.1, Code: MIT License) Copyright 2022 Fonticons, Inc.--><path d="M480 179.6c18.6 8.8 32 32.5 32 60.4s-13.4 51.6-32 60.4V448c0 12.9-7.8 24.6-19.8 29.6-11.9 4.9-25.7 2.2-34.8-7l-43.7-44.5c-48-48-113.1-74.1-181-74.1H192v128c0 17.7-14.3 32-32 32H96c-17.67 0-32-14.3-32-32V352c-35.35 0-64-28.7-64-64v-96c0-35.3 28.65-64 64-64h136.7c67.9 0 133-27 181-74.98l43.7-43.647c9.1-9.151 22.9-11.889 34.8-6.936C472.2 7.39 480 19.06 480 32v147.6zM200.7 192H192v96h8.7c79.8 0 156.5 29.8 215.3 83.3V108.7C357.2 162.2 280.5 192 200.7 192z"/></svg>');--md-admonition-icon--success:url('data:image/svg+xml;charset=utf-8,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 448 512"><!--! Font Awesome Free 6.1.1 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free (Icons: CC BY 4.0, Fonts: SIL OFL 1.1, Code: MIT License) Copyright 2022 Fonticons, Inc.--><path d="M438.6 105.4c12.5 12.5 12.5 32.7 0 45.2l-256 256c-12.5 12.5-32.7 12.5-45.2 0L9.372 278.6c-12.496-12.5-12.496-32.7 0-45.2 12.498-12.5 32.758-12.5 45.258 0L159.1 338.7l234.3-233.3c12.5-12.52 32.7-12.52 45.2 0z"/></svg>');--md-admonition-icon--question:url('data:image/svg+xml;charset=utf-8,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512"><!--! Font Awesome Free 6.1.1 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free (Icons: CC BY 4.0, Fonts: SIL OFL 1.1, Code: MIT License) Copyright 2022 Fonticons, Inc.--><path d="M256 0C114.6 0 0 114.6 0 256s114.6 256 256 256 256-114.6 256-256S397.4 0 256 0zm0 400c-18 0-32-14-32-32s13.1-32 32-32c17.1 0 32 14 32 32s-14.9 32-32 32zm69.1-142L280 286v2c0 13-11 24-24 24s-24-11-24-24v-16c0-8 4-16 12-21l57-34c7-4 11-11 11-19 0-12-10.9-22-22.9-22H238c-12.9 0-22 10-22 22 0 13-11 24-24 24s-24-11-24-24c0-39 31-70 69.1-70h51.1c40.8 0 71.8 31 71.8 70 0 24-13 47-34.9 60z"/></svg>');--md-admonition-icon--warning:url('data:image/svg+xml;charset=utf-8,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512"><!--! Font Awesome Free 6.1.1 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free (Icons: CC BY 4.0, Fonts: SIL OFL 1.1, Code: MIT License) Copyright 2022 Fonticons, Inc.--><path d="M506.3 417 293 53c-16.33-28-57.54-28-73.98 0L5.82 417c-16.41 27.9 4.029 63 36.92 63h426.6c32.76 0 53.26-35 36.96-63zM232 168c0-13.25 10.75-24 24-24s24 10.8 24 24v128c0 13.25-10.75 24-23.1 24S232 309.3 232 296V168zm24 248c-17.36 0-31.44-14.08-31.44-31.44s14.07-31.44 31.44-31.44 31.44 14.08 31.44 31.44C287.4 401.9 273.4 416 256 416z"/></svg>');--md-admonition-icon--failure:url('data:image/svg+xml;charset=utf-8,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512"><!--! Font Awesome Free 6.1.1 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free (Icons: CC BY 4.0, Fonts: SIL OFL 1.1, Code: MIT License) Copyright 2022 Fonticons, Inc.--><path d="M440.8 4.994C441.9 1.99 444.8 0 448 0s6.1 1.99 7.2 4.994l14.1 37.676L507 56.79c3 1.13 5 4 5 7.21s-2 6.08-5 7.21l-37.7 14.12L455.2 123c-1.1 3-4 5-7.2 5s-6.1-2-7.2-5l-14.1-37.67-38.6-14.12c-3-1.13-4.1-4-4.1-7.21s1.1-6.08 4.1-7.21l38.6-14.12 14.1-37.676zM289.4 97.37c12.5-12.49 32.7-12.49 45.2 0l28.7 28.73 17.4-17.4c6.2-6.3 16.4-6.3 22.6 0 6.3 6.2 6.3 16.4 0 22.6l-17.4 17.4 28.7 28.7c12.5 12.5 12.5 32.7 0 45.2l-10.8 10.9c7.9 22 12.2 45.8 12.2 70.5 0 114.9-93.1 208-208 208C93.12 512 0 418.9 0 304S93.12 96 208 96c24.7 0 48.5 4.3 70.5 12.3l10.9-10.93zM95.1 296c0-57.4 47.5-104 104-104h8c9.7 0 16-7.2 16-16s-6.3-16-16-16h-8c-74.2 0-136 60.9-136 136v8c0 8.8 8.06 16 16 16 9.74 0 16-7.2 16-16v-8z"/></svg>');--md-admonition-icon--danger:url('data:image/svg+xml;charset=utf-8,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512"><!--! Font Awesome Free 6.1.1 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free (Icons: CC BY 4.0, Fonts: SIL OFL 1.1, Code: MIT License) Copyright 2022 Fonticons, Inc.--><path d="M416 400v64c0 26.5-21.5 48-48 48h-48v-48c0-8.8-7.2-16-16-16s-16 7.2-16 16v48h-64v-48c0-8.8-7.2-16-16-16s-16 7.2-16 16v48h-48c-26.5 0-48-21.5-48-48v-64c0-.4 0-.7.01-1.1C37.48 357.8 0 294.7 0 224 0 100.3 114.6 0 256 0s256 100.3 256 224c0 70.7-37.5 133.8-96.9 174.9 0 .4.9.7.9 1.1zM160 192c-35.3 0-64 28.7-64 64s28.7 64 64 64 64-28.7 64-64-28.7-64-64-64zm192 128c35.3 0 64-28.7 64-64s-28.7-64-64-64-64 28.7-64 64 28.7 64 64 64z"/></svg>');--md-admonition-icon--bug:url('data:image/svg+xml;charset=utf-8,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 640 512"><!--! Font Awesome Free 6.1.1 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free (Icons: CC BY 4.0, Fonts: SIL OFL 1.1, Code: MIT License) Copyright 2022 Fonticons, Inc.--><path d="M9.375 233.4C3.375 239.4 0 247.5 0 256v128c0 8.5 3.375 16.62 9.375 22.62S23.5 416 32 416h32V224H32c-8.5 0-16.62 3.4-22.625 9.4zM464 96H352V32c0-17.62-14.38-32-32-32s-32 14.38-32 32v64H176c-44.2 0-80 35.8-80 80v272c0 35.38 28.62 64 64 64h320c35.38 0 64-28.62 64-64V176c0-44.2-35.7-80-80-80zM256 416h-64v-32h64v32zm-32-120c-22.1 0-40-17.9-40-40s17.9-40 40-40 40 17.9 40 40-17.9 40-40 40zm128 120h-64v-32h64v32zm96 0h-64v-32h64v32zm-32-120c-22.12 0-40-17.88-40-40s17.9-40 40-40 40 17.9 40 40-17.9 40-40 40zm214.6-62.6c-6-6-14.1-9.4-22.6-9.4h-32v192h32c8.5 0 16.62-3.375 22.62-9.375S640 392.5 640 384V256c0-8.5-3.4-16.6-9.4-22.6z"/></svg>');--md-admonition-icon--example:url('data:image/svg+xml;charset=utf-8,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 448 512"><!--! Font Awesome Free 6.1.1 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free (Icons: CC BY 4.0, Fonts: SIL OFL 1.1, Code: MIT License) Copyright 2022 Fonticons, Inc.--><path d="M437.2 403.5 319.1 215V64h7.1c13.25 0 23.1-10.75 23.1-24V24c0-13.25-10.75-24-23.1-24H120c-13.2 0-23.99 10.75-23.99 24v16c0 13.25 10.75 24 23.1 24h7.1L128 215 10.8 403.5C-18.48 450.6 15.27 512 70.89 512h306.2c55.61 0 89.41-61.5 60.11-108.5zM137.1 320l48.15-77.63c4.55-5.07 6.65-11.57 6.65-18.37l.065-160h63.99l-.06 160c0 6.875 2.25 13.25 5.875 18.38L309.9 320H137.1z"/></svg>');--md-admonition-icon--quote:url('data:image/svg+xml;charset=utf-8,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 448 512"><!--! Font Awesome Free 6.1.1 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free (Icons: CC BY 4.0, Fonts: SIL OFL 1.1, Code: MIT License) Copyright 2022 Fonticons, Inc.--><path d="M96 224c-11.28 0-21.95 2.3-32 5.9V224c0-35.3 28.7-64 64-64 17.67 0 32-14.33 32-32s-14.3-32-32-32C57.42 96 0 153.4 0 224v96c0 53.02 42.98 96 96 96s96-42.98 96-96-43-96-96-96zm256 0c-11.28 0-21.95 2.305-32 5.879V224c0-35.3 28.7-64 64-64 17.67 0 32-14.33 32-32s-14.33-32-32-32c-70.58 0-128 57.42-128 128v96c0 53.02 42.98 96 96 96s96-42.98 96-96-43-96-96-96z"/></svg>');}</style>
+
+    
+    
+    
+      
+        
+        
+        <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+        <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Inter:300,300i,400,400i,700,700i%7CFira+Code:400,400i,700,700i&display=fallback">
+        <style>:root{--md-text-font:"Inter";--md-code-font:"Fira Code"}</style>
+      
+    
+    
+    <script>__md_scope=new URL("../../..",location),__md_get=(e,_=localStorage,t=__md_scope)=>JSON.parse(_.getItem(t.pathname+"."+e)),__md_set=(e,_,t=localStorage,a=__md_scope)=>{try{t.setItem(a.pathname+"."+e,JSON.stringify(_))}catch(e){}}</script>
+    
+      
+
+    
+    
+  </head>
+  
+  
+    
+    
+      
+    
+    
+    
+    
+    <body dir="ltr" data-md-color-scheme="default" data-md-color-primary="" data-md-color-accent="">
+  
+    
+    
+      <script>var palette=__md_get("__palette");if(palette&&"object"==typeof palette.color)for(var key of Object.keys(palette.color))document.body.setAttribute("data-md-color-"+key,palette.color[key])</script>
+    
+    <input class="md-toggle" data-md-toggle="drawer" type="checkbox" id="__drawer" autocomplete="off">
+    <input class="md-toggle" data-md-toggle="search" type="checkbox" id="__search" autocomplete="off">
+    <label class="md-overlay" for="__drawer"></label>
+    <div data-md-component="skip">
+      
+        
+        <a href="#ext2" class="md-skip">
+          Skip to content
+        </a>
+      
+    </div>
+    <div data-md-component="announce">
+      
+    </div>
+    
+    
+      
+
+<header class="md-header" data-md-component="header">
+  <nav class="md-header__inner md-grid" aria-label="Header">
+    <a href="../../.." title="Boii&#39;s Wiki" class="md-header__button md-logo" aria-label="Boii's Wiki" data-md-component="logo">
+      
+  <img src="../../../_assets/logo/favicon.png" alt="logo">
+
+    </a>
+    <label class="md-header__button md-icon" for="__drawer">
+      <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M3 6h18v2H3V6m0 5h18v2H3v-2m0 5h18v2H3v-2Z"/></svg>
+    </label>
+    <div class="md-header__title" data-md-component="header-title">
+      <div class="md-header__ellipsis">
+        <div class="md-header__topic">
+          <span class="md-ellipsis">
+            Boii's Wiki
+          </span>
+        </div>
+        <div class="md-header__topic" data-md-component="header-topic">
+          <span class="md-ellipsis">
+            
+              文件系统
+            
+          </span>
+        </div>
+      </div>
+    </div>
+    
+      <form class="md-header__option" data-md-component="palette">
+        
+          
+          
+          <input class="md-option" data-md-color-media="" data-md-color-scheme="default" data-md-color-primary="" data-md-color-accent=""  aria-label="Switch to dark mode"  type="radio" name="__palette" id="__palette_1">
+          
+            <label class="md-header__button md-icon" title="Switch to dark mode" for="__palette_2" hidden>
+              <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 2a7 7 0 0 1 7 7c0 2.38-1.19 4.47-3 5.74V17a1 1 0 0 1-1 1H9a1 1 0 0 1-1-1v-2.26C6.19 13.47 5 11.38 5 9a7 7 0 0 1 7-7M9 21v-1h6v1a1 1 0 0 1-1 1h-4a1 1 0 0 1-1-1m3-17a5 5 0 0 0-5 5c0 2.05 1.23 3.81 3 4.58V16h4v-2.42c1.77-.77 3-2.53 3-4.58a5 5 0 0 0-5-5Z"/></svg>
+            </label>
+          
+        
+          
+          
+          <input class="md-option" data-md-color-media="" data-md-color-scheme="slate" data-md-color-primary="" data-md-color-accent=""  aria-label="Switch to light mode"  type="radio" name="__palette" id="__palette_2">
+          
+            <label class="md-header__button md-icon" title="Switch to light mode" for="__palette_1" hidden>
+              <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 2a7 7 0 0 0-7 7c0 2.38 1.19 4.47 3 5.74V17a1 1 0 0 0 1 1h6a1 1 0 0 0 1-1v-2.26c1.81-1.27 3-3.36 3-5.74a7 7 0 0 0-7-7M9 21a1 1 0 0 0 1 1h4a1 1 0 0 0 1-1v-1H9v1Z"/></svg>
+            </label>
+          
+        
+      </form>
+    
+    
+    
+      <label class="md-header__button md-icon" for="__search">
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M9.5 3A6.5 6.5 0 0 1 16 9.5c0 1.61-.59 3.09-1.56 4.23l.27.27h.79l5 5-1.5 1.5-5-5v-.79l-.27-.27A6.516 6.516 0 0 1 9.5 16 6.5 6.5 0 0 1 3 9.5 6.5 6.5 0 0 1 9.5 3m0 2C7 5 5 7 5 9.5S7 14 9.5 14 14 12 14 9.5 12 5 9.5 5Z"/></svg>
+      </label>
+      <div class="md-search" data-md-component="search" role="dialog">
+  <label class="md-search__overlay" for="__search"></label>
+  <div class="md-search__inner" role="search">
+    <form class="md-search__form" name="search">
+      <input type="text" class="md-search__input" name="query" aria-label="Search" placeholder="Search" autocapitalize="off" autocorrect="off" autocomplete="off" spellcheck="false" data-md-component="search-query" required>
+      <label class="md-search__icon md-icon" for="__search">
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M9.5 3A6.5 6.5 0 0 1 16 9.5c0 1.61-.59 3.09-1.56 4.23l.27.27h.79l5 5-1.5 1.5-5-5v-.79l-.27-.27A6.516 6.516 0 0 1 9.5 16 6.5 6.5 0 0 1 3 9.5 6.5 6.5 0 0 1 9.5 3m0 2C7 5 5 7 5 9.5S7 14 9.5 14 14 12 14 9.5 12 5 9.5 5Z"/></svg>
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M20 11v2H8l5.5 5.5-1.42 1.42L4.16 12l7.92-7.92L13.5 5.5 8 11h12Z"/></svg>
+      </label>
+      <nav class="md-search__options" aria-label="Search">
+        
+        <button type="reset" class="md-search__icon md-icon" aria-label="Clear" tabindex="-1">
+          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M19 6.41 17.59 5 12 10.59 6.41 5 5 6.41 10.59 12 5 17.59 6.41 19 12 13.41 17.59 19 19 17.59 13.41 12 19 6.41Z"/></svg>
+        </button>
+      </nav>
+      
+    </form>
+    <div class="md-search__output">
+      <div class="md-search__scrollwrap" data-md-scrollfix>
+        <div class="md-search-result" data-md-component="search-result">
+          <div class="md-search-result__meta">
+            Initializing search
+          </div>
+          <ol class="md-search-result__list"></ol>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+    
+    
+      <div class="md-header__source">
+        <a href="https://github.com/TCP404/WIKI/" title="Go to repository" class="md-source" data-md-component="source">
+  <div class="md-source__icon md-icon">
+    
+    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 448 512"><!--! Font Awesome Free 6.1.1 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free (Icons: CC BY 4.0, Fonts: SIL OFL 1.1, Code: MIT License) Copyright 2022 Fonticons, Inc.--><path d="M439.55 236.05 244 40.45a28.87 28.87 0 0 0-40.81 0l-40.66 40.63 51.52 51.52c27.06-9.14 52.68 16.77 43.39 43.68l49.66 49.66c34.23-11.8 61.18 31 35.47 56.69-26.49 26.49-70.21-2.87-56-37.34L240.22 199v121.85c25.3 12.54 22.26 41.85 9.08 55a34.34 34.34 0 0 1-48.55 0c-17.57-17.6-11.07-46.91 11.25-56v-123c-20.8-8.51-24.6-30.74-18.64-45L142.57 101 8.45 235.14a28.86 28.86 0 0 0 0 40.81l195.61 195.6a28.86 28.86 0 0 0 40.8 0l194.69-194.69a28.86 28.86 0 0 0 0-40.81z"/></svg>
+  </div>
+  <div class="md-source__repository">
+    GitHub
+  </div>
+</a>
+      </div>
+    
+  </nav>
+  
+</header>
+    
+    <div class="md-container" data-md-component="container">
+      
+      
+        
+          
+            
+<nav class="md-tabs" aria-label="Tabs" data-md-component="tabs">
+  <div class="md-tabs__inner md-grid">
+    <ul class="md-tabs__list">
+      
+        
+  
+  
+
+
+  <li class="md-tabs__item">
+    <a href="../../.." class="md-tabs__link">
+      Home
+    </a>
+  </li>
+
+      
+        
+  
+  
+
+
+  
+  
+  
+    
+
+  
+  
+  
+    <li class="md-tabs__item">
+      <a href="../../../Go/Basic/Golang-0-%E6%80%BB%E5%8F%99/" class="md-tabs__link">
+        Golang
+      </a>
+    </li>
+  
+
+  
+
+      
+        
+  
+  
+
+
+  
+  
+  
+    
+
+  
+  
+  
+    <li class="md-tabs__item">
+      <a href="../../../Rust/Basic/0-Hello/" class="md-tabs__link">
+        Rust
+      </a>
+    </li>
+  
+
+  
+
+      
+        
+  
+  
+
+
+  
+  
+  
+    
+
+  
+  
+  
+    <li class="md-tabs__item">
+      <a href="../../../Python/Basic/Python-No-1-Abstract/" class="md-tabs__link">
+        Python
+      </a>
+    </li>
+  
+
+  
+
+      
+        
+  
+  
+    
+  
+
+
+  
+  
+  
+    
+
+  
+  
+  
+    <li class="md-tabs__item">
+      <a href="../%E8%BF%9B%E7%A8%8B/" class="md-tabs__link md-tabs__link--active">
+        Linux
+      </a>
+    </li>
+  
+
+  
+
+      
+        
+  
+  
+
+
+  
+  
+  
+    <li class="md-tabs__item">
+      <a href="../../../Redis/1-Get-Start/" class="md-tabs__link">
+        Redis
+      </a>
+    </li>
+  
+
+      
+        
+  
+  
+
+
+  
+  
+  
+    <li class="md-tabs__item">
+      <a href="../../../Mongo/0-Hello/" class="md-tabs__link">
+        MongoDB
+      </a>
+    </li>
+  
+
+      
+        
+  
+  
+
+
+  
+  
+  
+    <li class="md-tabs__item">
+      <a href="../../../MySQL/0-Hello/" class="md-tabs__link">
+        MySQL
+      </a>
+    </li>
+  
+
+      
+        
+  
+  
+
+
+  
+  
+  
+    
+
+  
+  
+  
+    <li class="md-tabs__item">
+      <a href="../../../408/DataStructure/0-%E7%BB%AA%E8%AE%BA/" class="md-tabs__link">
+        408
+      </a>
+    </li>
+  
+
+  
+
+      
+        
+  
+  
+
+
+  
+  
+  
+    <li class="md-tabs__item">
+      <a href="../../../ES/0-Hello/" class="md-tabs__link">
+        ES
+      </a>
+    </li>
+  
+
+      
+        
+  
+  
+
+
+  <li class="md-tabs__item">
+    <a href="../../../todo/" class="md-tabs__link">
+      TODO
+    </a>
+  </li>
+
+      
+    </ul>
+  </div>
+</nav>
+          
+        
+      
+      <main class="md-main" data-md-component="main">
+        <div class="md-main__inner md-grid">
+          
+            
+              
+              <div class="md-sidebar md-sidebar--primary" data-md-component="sidebar" data-md-type="navigation" >
+                <div class="md-sidebar__scrollwrap">
+                  <div class="md-sidebar__inner">
+                    
+
+  
+
+
+<nav class="md-nav md-nav--primary md-nav--lifted" aria-label="Navigation" data-md-level="0">
+  <label class="md-nav__title" for="__drawer">
+    <a href="../../.." title="Boii&#39;s Wiki" class="md-nav__button md-logo" aria-label="Boii's Wiki" data-md-component="logo">
+      
+  <img src="../../../_assets/logo/favicon.png" alt="logo">
+
+    </a>
+    Boii's Wiki
+  </label>
+  
+    <div class="md-nav__source">
+      <a href="https://github.com/TCP404/WIKI/" title="Go to repository" class="md-source" data-md-component="source">
+  <div class="md-source__icon md-icon">
+    
+    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 448 512"><!--! Font Awesome Free 6.1.1 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free (Icons: CC BY 4.0, Fonts: SIL OFL 1.1, Code: MIT License) Copyright 2022 Fonticons, Inc.--><path d="M439.55 236.05 244 40.45a28.87 28.87 0 0 0-40.81 0l-40.66 40.63 51.52 51.52c27.06-9.14 52.68 16.77 43.39 43.68l49.66 49.66c34.23-11.8 61.18 31 35.47 56.69-26.49 26.49-70.21-2.87-56-37.34L240.22 199v121.85c25.3 12.54 22.26 41.85 9.08 55a34.34 34.34 0 0 1-48.55 0c-17.57-17.6-11.07-46.91 11.25-56v-123c-20.8-8.51-24.6-30.74-18.64-45L142.57 101 8.45 235.14a28.86 28.86 0 0 0 0 40.81l195.61 195.6a28.86 28.86 0 0 0 40.8 0l194.69-194.69a28.86 28.86 0 0 0 0-40.81z"/></svg>
+  </div>
+  <div class="md-source__repository">
+    GitHub
+  </div>
+</a>
+    </div>
+  
+  <ul class="md-nav__list" data-md-scrollfix>
+    
+      
+      
+      
+
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../.." class="md-nav__link">
+        Home
+      </a>
+    </li>
+  
+
+    
+      
+      
+      
+
+  
+  
+  
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+      
+        <input class="md-nav__toggle md-toggle" data-md-toggle="__nav_2" type="checkbox" id="__nav_2" >
+      
+      
+      
+        
+          
+        
+          
+        
+          
+        
+          
+        
+          
+        
+          
+        
+      
+      
+        <label class="md-nav__link" for="__nav_2">
+          Golang
+          <span class="md-nav__icon md-icon"></span>
+        </label>
+      
+      <nav class="md-nav" aria-label="Golang" data-md-level="1">
+        <label class="md-nav__title" for="__nav_2">
+          <span class="md-nav__icon md-icon"></span>
+          Golang
+        </label>
+        <ul class="md-nav__list" data-md-scrollfix>
+          
+            
+              
+  
+  
+  
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+      
+        <input class="md-nav__toggle md-toggle" data-md-toggle="__nav_2_1" type="checkbox" id="__nav_2_1" >
+      
+      
+      
+        
+          
+        
+          
+        
+          
+        
+          
+        
+          
+        
+          
+        
+          
+        
+          
+        
+          
+        
+          
+        
+          
+        
+          
+        
+          
+        
+          
+        
+          
+        
+          
+        
+          
+        
+          
+        
+      
+      
+        <label class="md-nav__link" for="__nav_2_1">
+          Basic
+          <span class="md-nav__icon md-icon"></span>
+        </label>
+      
+      <nav class="md-nav" aria-label="Basic" data-md-level="2">
+        <label class="md-nav__title" for="__nav_2_1">
+          <span class="md-nav__icon md-icon"></span>
+          Basic
+        </label>
+        <ul class="md-nav__list" data-md-scrollfix>
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../Go/Basic/Golang-0-%E6%80%BB%E5%8F%99/" class="md-nav__link">
+        0.总叙
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../Go/Basic/Golang-1-%E5%9F%BA%E7%A1%80/" class="md-nav__link">
+        1.基础
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../Go/Basic/Golang-2-%E6%95%B0%E6%8D%AE%E7%B1%BB%E5%9E%8B/" class="md-nav__link">
+        2.数据类型
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../Go/Basic/Golang-3-%E8%BF%90%E7%AE%97%E7%AC%A6/" class="md-nav__link">
+        3.运算符
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../Go/Basic/Golang-4-%E6%B5%81%E7%A8%8B%E6%8E%A7%E5%88%B6/" class="md-nav__link">
+        4.流程控制
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../Go/Basic/Golang-5-%E6%95%B0%E7%BB%84/" class="md-nav__link">
+        5.数组
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../Go/Basic/Golang-6-slice/" class="md-nav__link">
+        6.slice
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../Go/Basic/Golang-7-map/" class="md-nav__link">
+        7.map
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../Go/Basic/Golang-8-%E5%87%BD%E6%95%B0/" class="md-nav__link">
+        8.函数
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../Go/Basic/Golang-9-%E6%8C%87%E9%92%88/" class="md-nav__link">
+        9.指针
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../Go/Basic/Golang-10-%E7%BB%93%E6%9E%84%E4%BD%93/" class="md-nav__link">
+        10.结构体
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../Go/Basic/Golang-11-%E5%8C%85/" class="md-nav__link">
+        11.包
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../Go/Basic/Golang-12-%E6%8E%A5%E5%8F%A3/" class="md-nav__link">
+        12.接口
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../Go/Basic/Golang-13-%E9%9D%A2%E5%90%91%E5%AF%B9%E8%B1%A1/" class="md-nav__link">
+        13.面向对象
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../Go/Basic/Golang-14-%E9%94%99%E8%AF%AF%E4%B8%8E%E5%BC%82%E5%B8%B8/" class="md-nav__link">
+        14.错误与异常
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../Go/Basic/Golang-15-%E5%8D%95%E5%85%83%E6%B5%8B%E8%AF%95/" class="md-nav__link">
+        15.单元测试
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../Go/Basic/Golang-16-%E6%B3%9B%E5%9E%8B/" class="md-nav__link">
+        16.泛型
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+      
+        <input class="md-nav__toggle md-toggle" data-md-toggle="__nav_2_1_18" type="checkbox" id="__nav_2_1_18" >
+      
+      
+      
+        
+          
+        
+          
+        
+          
+        
+      
+      
+        <label class="md-nav__link" for="__nav_2_1_18">
+          Other
+          <span class="md-nav__icon md-icon"></span>
+        </label>
+      
+      <nav class="md-nav" aria-label="Other" data-md-level="3">
+        <label class="md-nav__title" for="__nav_2_1_18">
+          <span class="md-nav__icon md-icon"></span>
+          Other
+        </label>
+        <ul class="md-nav__list" data-md-scrollfix>
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../Go/Basic/Golang-%E7%B1%BB%E5%9E%8B%E8%BD%AC%E6%8D%A2/" class="md-nav__link">
+        类型转换
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../Go/Basic/Golang-Go-Module/" class="md-nav__link">
+        Go Module
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../Go/Basic/Golang-Go-Workspace/" class="md-nav__link">
+        Go Workspace
+      </a>
+    </li>
+  
+
+            
+          
+        </ul>
+      </nav>
+    </li>
+  
+
+            
+          
+        </ul>
+      </nav>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+      
+        <input class="md-nav__toggle md-toggle" data-md-toggle="__nav_2_2" type="checkbox" id="__nav_2_2" >
+      
+      
+      
+        
+          
+        
+          
+        
+          
+        
+          
+        
+          
+        
+          
+        
+      
+      
+        <label class="md-nav__link" for="__nav_2_2">
+          Advanced
+          <span class="md-nav__icon md-icon"></span>
+        </label>
+      
+      <nav class="md-nav" aria-label="Advanced" data-md-level="2">
+        <label class="md-nav__title" for="__nav_2_2">
+          <span class="md-nav__icon md-icon"></span>
+          Advanced
+        </label>
+        <ul class="md-nav__list" data-md-scrollfix>
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../Go/Advanced/Golang-16-%E5%B9%B6%E5%8F%91/" class="md-nav__link">
+        并发
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../Go/Advanced/Golang-17-Channel/" class="md-nav__link">
+        Channel
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../Go/Advanced/Golang-18-%E5%B9%B6%E5%8F%91%E5%AE%89%E5%85%A8/" class="md-nav__link">
+        并发安全
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../Go/Advanced/Golang-19-reflect/" class="md-nav__link">
+        反射
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../Go/Advanced/Golang-GPM%E6%A8%A1%E5%9E%8B/" class="md-nav__link">
+        GPM
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../Go/Advanced/Golang-go%E5%B9%B6%E5%8F%91%E7%9A%84%E5%9D%91/" class="md-nav__link">
+        坑
+      </a>
+    </li>
+  
+
+            
+          
+        </ul>
+      </nav>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+      
+        <input class="md-nav__toggle md-toggle" data-md-toggle="__nav_2_3" type="checkbox" id="__nav_2_3" >
+      
+      
+      
+        
+          
+        
+          
+        
+          
+        
+          
+        
+          
+        
+          
+        
+      
+      
+        <label class="md-nav__link" for="__nav_2_3">
+          Gin
+          <span class="md-nav__icon md-icon"></span>
+        </label>
+      
+      <nav class="md-nav" aria-label="Gin" data-md-level="2">
+        <label class="md-nav__title" for="__nav_2_3">
+          <span class="md-nav__icon md-icon"></span>
+          Gin
+        </label>
+        <ul class="md-nav__list" data-md-scrollfix>
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../Go/Framework/gin/Gin-0-Get-Start/" class="md-nav__link">
+        Get start
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../Go/Framework/gin/Gin-1-%E8%BF%94%E5%9B%9E%E6%95%B0%E6%8D%AE/" class="md-nav__link">
+        返回数据
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../Go/Framework/gin/Gin-2-%E6%8E%A5%E6%94%B6%E8%AF%B7%E6%B1%82/" class="md-nav__link">
+        接收请求
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../Go/Framework/gin/Gin-3-%E8%B7%AF%E7%94%B1%E7%BB%84/" class="md-nav__link">
+        路由组
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../Go/Framework/gin/Gin-4-%E4%B8%8A%E4%BC%A0%E4%B8%8B%E8%BD%BD%E9%87%8D%E5%AE%9A%E5%90%91/" class="md-nav__link">
+        上传下载重定向
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../Go/Framework/gin/Gin-5-%E4%B8%AD%E9%97%B4%E4%BB%B6/" class="md-nav__link">
+        中间件
+      </a>
+    </li>
+  
+
+            
+          
+        </ul>
+      </nav>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+      
+        <input class="md-nav__toggle md-toggle" data-md-toggle="__nav_2_4" type="checkbox" id="__nav_2_4" >
+      
+      
+      
+        
+          
+        
+          
+        
+          
+        
+          
+        
+          
+        
+          
+        
+          
+        
+          
+        
+      
+      
+        <label class="md-nav__link" for="__nav_2_4">
+          Standard Library
+          <span class="md-nav__icon md-icon"></span>
+        </label>
+      
+      <nav class="md-nav" aria-label="Standard Library" data-md-level="2">
+        <label class="md-nav__title" for="__nav_2_4">
+          <span class="md-nav__icon md-icon"></span>
+          Standard Library
+        </label>
+        <ul class="md-nav__list" data-md-scrollfix>
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../Go/StdLib/0-time-%E6%97%B6%E9%97%B4%E4%B8%8E%E6%97%A5%E6%9C%9F/" class="md-nav__link">
+        0-time
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../Go/StdLib/1-random-%E9%9A%8F%E6%9C%BA%E6%95%B0/" class="md-nav__link">
+        1-random
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../Go/StdLib/2-flag-%E5%91%BD%E4%BB%A4%E8%A1%8C%E8%A7%A3%E6%9E%90/" class="md-nav__link">
+        2-flag
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../Go/StdLib/3-log-%E6%97%A5%E5%BF%97%E6%9C%8D%E5%8A%A1/" class="md-nav__link">
+        3-log
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../Go/StdLib/4-fmt-%E6%A0%BC%E5%BC%8F%E5%8C%96/" class="md-nav__link">
+        4-fmt
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../Go/StdLib/5-strings-%E5%AD%97%E7%AC%A6%E4%B8%B2%E6%93%8D%E4%BD%9C/" class="md-nav__link">
+        5-strings
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../Go/StdLib/6-json/" class="md-nav__link">
+        6-json
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+      
+        <input class="md-nav__toggle md-toggle" data-md-toggle="__nav_2_4_8" type="checkbox" id="__nav_2_4_8" >
+      
+      
+      
+        
+          
+        
+          
+        
+      
+      
+        <label class="md-nav__link" for="__nav_2_4_8">
+          File & IO
+          <span class="md-nav__icon md-icon"></span>
+        </label>
+      
+      <nav class="md-nav" aria-label="File & IO" data-md-level="3">
+        <label class="md-nav__title" for="__nav_2_4_8">
+          <span class="md-nav__icon md-icon"></span>
+          File & IO
+        </label>
+        <ul class="md-nav__list" data-md-scrollfix>
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../Go/StdLib/File%26IO/io/" class="md-nav__link">
+        IO
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../Go/StdLib/File%26IO/bufio/" class="md-nav__link">
+        Bufio
+      </a>
+    </li>
+  
+
+            
+          
+        </ul>
+      </nav>
+    </li>
+  
+
+            
+          
+        </ul>
+      </nav>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+      
+        <input class="md-nav__toggle md-toggle" data-md-toggle="__nav_2_5" type="checkbox" id="__nav_2_5" >
+      
+      
+      
+        
+          
+        
+      
+      
+        <label class="md-nav__link" for="__nav_2_5">
+          Socket
+          <span class="md-nav__icon md-icon"></span>
+        </label>
+      
+      <nav class="md-nav" aria-label="Socket" data-md-level="2">
+        <label class="md-nav__title" for="__nav_2_5">
+          <span class="md-nav__icon md-icon"></span>
+          Socket
+        </label>
+        <ul class="md-nav__list" data-md-scrollfix>
+          
+            
+              
+  
+  
+  
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+      
+        <input class="md-nav__toggle md-toggle" data-md-toggle="__nav_2_5_1" type="checkbox" id="__nav_2_5_1" >
+      
+      
+      
+        
+          
+        
+          
+        
+          
+        
+          
+        
+          
+        
+          
+        
+          
+        
+          
+        
+          
+        
+          
+        
+          
+        
+      
+      
+        <label class="md-nav__link" for="__nav_2_5_1">
+          IM-System
+          <span class="md-nav__icon md-icon"></span>
+        </label>
+      
+      <nav class="md-nav" aria-label="IM-System" data-md-level="3">
+        <label class="md-nav__title" for="__nav_2_5_1">
+          <span class="md-nav__icon md-icon"></span>
+          IM-System
+        </label>
+        <ul class="md-nav__list" data-md-scrollfix>
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../Go/Socket/IM-System/IM1-%E6%90%AD%E5%BB%BA%E5%9F%BA%E7%A1%80%E6%9C%8D%E5%8A%A1/" class="md-nav__link">
+        1-搭建基础服务
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../Go/Socket/IM-System/IM2-%E4%B8%8A%E7%BA%BF%E5%B9%BF%E6%92%AD%E5%8A%9F%E8%83%BD/" class="md-nav__link">
+        2-上线广播功能
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../Go/Socket/IM-System/IM3-%E6%B6%88%E6%81%AF%E7%BE%A4%E5%8F%91%E5%8A%9F%E8%83%BD/" class="md-nav__link">
+        3-消息群发功能
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../Go/Socket/IM-System/IM4-%E4%B8%9A%E5%8A%A1%E5%B0%81%E8%A3%85/" class="md-nav__link">
+        4-业务封装
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../Go/Socket/IM-System/IM5-%E5%9C%A8%E7%BA%BF%E7%94%A8%E6%88%B7%E6%9F%A5%E8%AF%A2%E5%8A%9F%E8%83%BD/" class="md-nav__link">
+        5-在线用户查询功能
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../Go/Socket/IM-System/IM6-%E4%BF%AE%E6%94%B9%E7%94%A8%E6%88%B7%E5%90%8D%E5%8A%9F%E8%83%BD/" class="md-nav__link">
+        6-修改用户名功能
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../Go/Socket/IM-System/IM7-%E8%B6%85%E6%97%B6%E5%BC%BA%E8%B8%A2%E5%8A%9F%E8%83%BD/" class="md-nav__link">
+        7-超时强踢功能
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../Go/Socket/IM-System/IM8-%E7%A7%81%E8%81%8A%E5%8A%9F%E8%83%BD/" class="md-nav__link">
+        8-私聊功能
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../Go/Socket/IM-System/IM9-%E5%AE%A2%E6%88%B7%E7%AB%AF%E6%A1%86%E6%9E%B6/" class="md-nav__link">
+        9-客户端框架
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../Go/Socket/IM-System/IM10-%E5%91%BD%E4%BB%A4%E8%A1%8C%E8%A7%A3%E6%9E%90/" class="md-nav__link">
+        10-命令行解析
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../Go/Socket/IM-System/IM11-%E5%8F%91%E9%80%81%E8%AF%B7%E6%B1%82/" class="md-nav__link">
+        11-发送请求
+      </a>
+    </li>
+  
+
+            
+          
+        </ul>
+      </nav>
+    </li>
+  
+
+            
+          
+        </ul>
+      </nav>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+      
+        <input class="md-nav__toggle md-toggle" data-md-toggle="__nav_2_6" type="checkbox" id="__nav_2_6" >
+      
+      
+      
+        
+          
+        
+          
+        
+          
+        
+          
+        
+          
+        
+          
+        
+          
+        
+          
+        
+          
+        
+          
+        
+          
+        
+          
+        
+      
+      
+        <label class="md-nav__link" for="__nav_2_6">
+          nil
+          <span class="md-nav__icon md-icon"></span>
+        </label>
+      
+      <nav class="md-nav" aria-label="nil" data-md-level="2">
+        <label class="md-nav__title" for="__nav_2_6">
+          <span class="md-nav__icon md-icon"></span>
+          nil
+        </label>
+        <ul class="md-nav__list" data-md-scrollfix>
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../Go/nil/Golang-nil-%E4%BA%A4%E5%8F%89%E7%BC%96%E8%AF%91/" class="md-nav__link">
+        交叉编译
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../Go/nil/Golang-nil-%E9%80%89%E9%A1%B9%E8%AE%BE%E8%AE%A1%E6%A8%A1%E5%BC%8F/" class="md-nav__link">
+        选项设计模式
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../Go/nil/Golang-nil-1-for%26range/" class="md-nav__link">
+        1-for&range
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../Go/nil/Golang-nil-2-slice/" class="md-nav__link">
+        2-slice原理
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../Go/nil/Golang-nil-3-map/" class="md-nav__link">
+        3-map原理
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../Go/nil/Golang-nil-4-string/" class="md-nav__link">
+        4-string原理
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../Go/nil/Golang-nil-5-chan/" class="md-nav__link">
+        5-chan原理
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../Go/nil/Golang-nil-6-struct/" class="md-nav__link">
+        6-struct原理
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../Go/nil/Golang-nil-7-%E5%85%B3%E4%BA%8Enil/" class="md-nav__link">
+        7-关于nil
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../Go/nil/Golang-nil-8-%E5%80%BC%E5%AE%9E%E7%8E%B0%E4%B8%8E%E6%8C%87%E9%92%88%E5%AE%9E%E7%8E%B0/" class="md-nav__link">
+        8-值实现&指针实现
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../Go/nil/Golang-nil-9-%E5%AE%9E%E7%8E%B0%E6%8A%BD%E8%B1%A1%E7%B1%BB/" class="md-nav__link">
+        9-实现抽象类
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../Go/nil/Golang-nil-10-%E5%8F%8D%E5%B0%84/" class="md-nav__link">
+        10-反射
+      </a>
+    </li>
+  
+
+            
+          
+        </ul>
+      </nav>
+    </li>
+  
+
+            
+          
+        </ul>
+      </nav>
+    </li>
+  
+
+    
+      
+      
+      
+
+  
+  
+  
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+      
+        <input class="md-nav__toggle md-toggle" data-md-toggle="__nav_3" type="checkbox" id="__nav_3" >
+      
+      
+      
+        
+          
+        
+      
+      
+        <label class="md-nav__link" for="__nav_3">
+          Rust
+          <span class="md-nav__icon md-icon"></span>
+        </label>
+      
+      <nav class="md-nav" aria-label="Rust" data-md-level="1">
+        <label class="md-nav__title" for="__nav_3">
+          <span class="md-nav__icon md-icon"></span>
+          Rust
+        </label>
+        <ul class="md-nav__list" data-md-scrollfix>
+          
+            
+              
+  
+  
+  
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+      
+        <input class="md-nav__toggle md-toggle" data-md-toggle="__nav_3_1" type="checkbox" id="__nav_3_1" >
+      
+      
+      
+        
+          
+        
+          
+        
+          
+        
+          
+        
+          
+        
+          
+        
+          
+        
+      
+      
+        <label class="md-nav__link" for="__nav_3_1">
+          Basic
+          <span class="md-nav__icon md-icon"></span>
+        </label>
+      
+      <nav class="md-nav" aria-label="Basic" data-md-level="2">
+        <label class="md-nav__title" for="__nav_3_1">
+          <span class="md-nav__icon md-icon"></span>
+          Basic
+        </label>
+        <ul class="md-nav__list" data-md-scrollfix>
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../Rust/Basic/0-Hello/" class="md-nav__link">
+        0-Hello
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../Rust/Basic/1-%E5%8F%98%E9%87%8F/" class="md-nav__link">
+        1-变量
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../Rust/Basic/2-%E6%95%B0%E6%8D%AE%E7%B1%BB%E5%9E%8B/" class="md-nav__link">
+        2-数据类型
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../Rust/Basic/3-%E5%87%BD%E6%95%B0/" class="md-nav__link">
+        3-函数
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../Rust/Basic/4-%E6%B5%81%E7%A8%8B%E6%8E%A7%E5%88%B6/" class="md-nav__link">
+        4-流程控制
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../Rust/Basic/5-%E6%89%80%E6%9C%89%E6%9D%83/" class="md-nav__link">
+        5-所有权
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../Rust/Basic/6-%E7%BB%93%E6%9E%84%E4%BD%93/" class="md-nav__link">
+        6-结构体
+      </a>
+    </li>
+  
+
+            
+          
+        </ul>
+      </nav>
+    </li>
+  
+
+            
+          
+        </ul>
+      </nav>
+    </li>
+  
+
+    
+      
+      
+      
+
+  
+  
+  
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+      
+        <input class="md-nav__toggle md-toggle" data-md-toggle="__nav_4" type="checkbox" id="__nav_4" >
+      
+      
+      
+        
+          
+        
+          
+        
+          
+        
+          
+        
+          
+        
+      
+      
+        <label class="md-nav__link" for="__nav_4">
+          Python
+          <span class="md-nav__icon md-icon"></span>
+        </label>
+      
+      <nav class="md-nav" aria-label="Python" data-md-level="1">
+        <label class="md-nav__title" for="__nav_4">
+          <span class="md-nav__icon md-icon"></span>
+          Python
+        </label>
+        <ul class="md-nav__list" data-md-scrollfix>
+          
+            
+              
+  
+  
+  
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+      
+        <input class="md-nav__toggle md-toggle" data-md-toggle="__nav_4_1" type="checkbox" id="__nav_4_1" >
+      
+      
+      
+        
+          
+        
+          
+        
+          
+        
+          
+        
+          
+        
+          
+        
+          
+        
+          
+        
+          
+        
+          
+        
+          
+        
+          
+        
+      
+      
+        <label class="md-nav__link" for="__nav_4_1">
+          Basic
+          <span class="md-nav__icon md-icon"></span>
+        </label>
+      
+      <nav class="md-nav" aria-label="Basic" data-md-level="2">
+        <label class="md-nav__title" for="__nav_4_1">
+          <span class="md-nav__icon md-icon"></span>
+          Basic
+        </label>
+        <ul class="md-nav__list" data-md-scrollfix>
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../Python/Basic/Python-No-1-Abstract/" class="md-nav__link">
+        总叙
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../Python/Basic/Python-No-2-Basic/" class="md-nav__link">
+        基础
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../Python/Basic/Python-No-3-Judge%26Loop/" class="md-nav__link">
+        判断和循环
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../Python/Basic/Python-No-4-Data-Type/" class="md-nav__link">
+        数据类型
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../Python/Basic/Python-No-5-Operator/" class="md-nav__link">
+        运算符
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../Python/Basic/Python-No-6-Function/" class="md-nav__link">
+        函数
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../Python/Basic/Python-No-7-Error-Handle/" class="md-nav__link">
+        错误处理
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../Python/Basic/Python-No-8-Debug/" class="md-nav__link">
+        调试
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../Python/Basic/Python-No-9-Test/" class="md-nav__link">
+        测试
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../Python/Basic/Python-No-10-Module/" class="md-nav__link">
+        模块
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../Python/Basic/Python-No-19-File/" class="md-nav__link">
+        File
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../Python/Basic/Python-No-20-IO/" class="md-nav__link">
+        IO
+      </a>
+    </li>
+  
+
+            
+          
+        </ul>
+      </nav>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+      
+        <input class="md-nav__toggle md-toggle" data-md-toggle="__nav_4_2" type="checkbox" id="__nav_4_2" >
+      
+      
+      
+        
+          
+        
+          
+        
+          
+        
+          
+        
+          
+        
+      
+      
+        <label class="md-nav__link" for="__nav_4_2">
+          Advanced
+          <span class="md-nav__icon md-icon"></span>
+        </label>
+      
+      <nav class="md-nav" aria-label="Advanced" data-md-level="2">
+        <label class="md-nav__title" for="__nav_4_2">
+          <span class="md-nav__icon md-icon"></span>
+          Advanced
+        </label>
+        <ul class="md-nav__list" data-md-scrollfix>
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../Python/Advanced/Python-No-Feature-High-Level-Feature/" class="md-nav__link">
+        高级特性
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../Python/Advanced/Python-No-Feature-Utility-Class/" class="md-nav__link">
+        工具类
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../Python/Advanced/Python-No-Feature-Functional/" class="md-nav__link">
+        函数式编程
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+      
+        <input class="md-nav__toggle md-toggle" data-md-toggle="__nav_4_2_4" type="checkbox" id="__nav_4_2_4" >
+      
+      
+      
+        
+          
+        
+          
+        
+          
+        
+          
+        
+      
+      
+        <label class="md-nav__link" for="__nav_4_2_4">
+          面向对象
+          <span class="md-nav__icon md-icon"></span>
+        </label>
+      
+      <nav class="md-nav" aria-label="面向对象" data-md-level="3">
+        <label class="md-nav__title" for="__nav_4_2_4">
+          <span class="md-nav__icon md-icon"></span>
+          面向对象
+        </label>
+        <ul class="md-nav__list" data-md-scrollfix>
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../Python/Advanced/OOP/Python-No-11-Class%26Object/" class="md-nav__link">
+        类和对象
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../Python/Advanced/OOP/Python-No-12-Privatization/" class="md-nav__link">
+        私有化
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../Python/Advanced/OOP/Python-No-13-Magic-Method/" class="md-nav__link">
+        魔术方法
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../Python/Advanced/OOP/Python-No-14-Enum/" class="md-nav__link">
+        枚举类
+      </a>
+    </li>
+  
+
+            
+          
+        </ul>
+      </nav>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+      
+        <input class="md-nav__toggle md-toggle" data-md-toggle="__nav_4_2_5" type="checkbox" id="__nav_4_2_5" >
+      
+      
+      
+        
+          
+        
+          
+        
+          
+        
+          
+        
+      
+      
+        <label class="md-nav__link" for="__nav_4_2_5">
+          进程线程
+          <span class="md-nav__icon md-icon"></span>
+        </label>
+      
+      <nav class="md-nav" aria-label="进程线程" data-md-level="3">
+        <label class="md-nav__title" for="__nav_4_2_5">
+          <span class="md-nav__icon md-icon"></span>
+          进程线程
+        </label>
+        <ul class="md-nav__list" data-md-scrollfix>
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../Python/Advanced/Thread/Python-No-15-Abstract/" class="md-nav__link">
+        总叙
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../Python/Advanced/Thread/Python-No-16-Process/" class="md-nav__link">
+        进程
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../Python/Advanced/Thread/Python-No-17-Thread/" class="md-nav__link">
+        线程
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../Python/Advanced/Thread/Python-No-18-Coroutine/" class="md-nav__link">
+        协程
+      </a>
+    </li>
+  
+
+            
+          
+        </ul>
+      </nav>
+    </li>
+  
+
+            
+          
+        </ul>
+      </nav>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+      
+        <input class="md-nav__toggle md-toggle" data-md-toggle="__nav_4_3" type="checkbox" id="__nav_4_3" >
+      
+      
+      
+        
+          
+        
+          
+        
+      
+      
+        <label class="md-nav__link" for="__nav_4_3">
+          Builtin
+          <span class="md-nav__icon md-icon"></span>
+        </label>
+      
+      <nav class="md-nav" aria-label="Builtin" data-md-level="2">
+        <label class="md-nav__title" for="__nav_4_3">
+          <span class="md-nav__icon md-icon"></span>
+          Builtin
+        </label>
+        <ul class="md-nav__list" data-md-scrollfix>
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../Python/Builtin/Python-No-Builtin-json/" class="md-nav__link">
+        json
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../Python/Builtin/Python-No-Builtin-re/" class="md-nav__link">
+        re
+      </a>
+    </li>
+  
+
+            
+          
+        </ul>
+      </nav>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+      
+        <input class="md-nav__toggle md-toggle" data-md-toggle="__nav_4_4" type="checkbox" id="__nav_4_4" >
+      
+      
+      
+        
+          
+        
+      
+      
+        <label class="md-nav__link" for="__nav_4_4">
+          Type
+          <span class="md-nav__icon md-icon"></span>
+        </label>
+      
+      <nav class="md-nav" aria-label="Type" data-md-level="2">
+        <label class="md-nav__title" for="__nav_4_4">
+          <span class="md-nav__icon md-icon"></span>
+          Type
+        </label>
+        <ul class="md-nav__list" data-md-scrollfix>
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../Python/Type/Python-No-Type-String/" class="md-nav__link">
+        string
+      </a>
+    </li>
+  
+
+            
+          
+        </ul>
+      </nav>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+      
+        <input class="md-nav__toggle md-toggle" data-md-toggle="__nav_4_5" type="checkbox" id="__nav_4_5" >
+      
+      
+      
+        
+          
+        
+          
+        
+          
+        
+      
+      
+        <label class="md-nav__link" for="__nav_4_5">
+          Crawler
+          <span class="md-nav__icon md-icon"></span>
+        </label>
+      
+      <nav class="md-nav" aria-label="Crawler" data-md-level="2">
+        <label class="md-nav__title" for="__nav_4_5">
+          <span class="md-nav__icon md-icon"></span>
+          Crawler
+        </label>
+        <ul class="md-nav__list" data-md-scrollfix>
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../Python/Crawler/Python-Crawler-0-Crawler-Abstract/" class="md-nav__link">
+        总叙
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../Python/Crawler/Python-Crawler-1-General-Crawler/" class="md-nav__link">
+        通用爬虫
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../Python/Crawler/Python-Crawler-2-Focused-Crawler/" class="md-nav__link">
+        聚焦爬虫
+      </a>
+    </li>
+  
+
+            
+          
+        </ul>
+      </nav>
+    </li>
+  
+
+            
+          
+        </ul>
+      </nav>
+    </li>
+  
+
+    
+      
+      
+      
+
+  
+  
+    
+  
+  
+    
+    <li class="md-nav__item md-nav__item--active md-nav__item--nested">
+      
+      
+        <input class="md-nav__toggle md-toggle" data-md-toggle="__nav_5" type="checkbox" id="__nav_5" checked>
+      
+      
+      
+        
+          
+        
+          
+        
+      
+      
+        <label class="md-nav__link" for="__nav_5">
+          Linux
+          <span class="md-nav__icon md-icon"></span>
+        </label>
+      
+      <nav class="md-nav" aria-label="Linux" data-md-level="1">
+        <label class="md-nav__title" for="__nav_5">
+          <span class="md-nav__icon md-icon"></span>
+          Linux
+        </label>
+        <ul class="md-nav__list" data-md-scrollfix>
+          
+            
+              
+  
+  
+    
+  
+  
+    
+    <li class="md-nav__item md-nav__item--active md-nav__item--nested">
+      
+      
+        <input class="md-nav__toggle md-toggle" data-md-toggle="__nav_5_1" type="checkbox" id="__nav_5_1" checked>
+      
+      
+      
+        
+          
+        
+          
+        
+          
+        
+          
+        
+          
+        
+          
+        
+      
+      
+        <label class="md-nav__link" for="__nav_5_1">
+          Basic
+          <span class="md-nav__icon md-icon"></span>
+        </label>
+      
+      <nav class="md-nav" aria-label="Basic" data-md-level="2">
+        <label class="md-nav__title" for="__nav_5_1">
+          <span class="md-nav__icon md-icon"></span>
+          Basic
+        </label>
+        <ul class="md-nav__list" data-md-scrollfix>
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../%E8%BF%9B%E7%A8%8B/" class="md-nav__link">
+        进程
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../%E6%96%87%E4%BB%B6%E5%92%8C%E9%93%BE%E6%8E%A5/" class="md-nav__link">
+        文件和链接
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+    
+  
+  
+    <li class="md-nav__item md-nav__item--active">
+      
+      <input class="md-nav__toggle md-toggle" data-md-toggle="toc" type="checkbox" id="__toc">
+      
+      
+      
+        <label class="md-nav__link md-nav__link--active" for="__toc">
+          文件系统
+          <span class="md-nav__icon md-icon"></span>
+        </label>
+      
+      <a href="./" class="md-nav__link md-nav__link--active">
+        文件系统
+      </a>
+      
+        
+
+<nav class="md-nav md-nav--secondary" aria-label="Table of contents">
+  
+  
+  
+  
+    <label class="md-nav__title" for="__toc">
+      <span class="md-nav__icon md-icon"></span>
+      Table of contents
+    </label>
+    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#ext2" class="md-nav__link">
+    ext2文件系统
+  </a>
+  
+    <nav class="md-nav" aria-label="ext2文件系统">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#_1" class="md-nav__link">
+    总体存储布局
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#_2" class="md-nav__link">
+    实例剖析
+  </a>
+  
+    <nav class="md-nav" aria-label="实例剖析">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#_3" class="md-nav__link">
+    习题
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#_4" class="md-nav__link">
+    数据块寻址
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#_5" class="md-nav__link">
+    文件和目录操作的系统函数
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+    </ul>
+  
+</nav>
+      
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../Command1/" class="md-nav__link">
+        Command1
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../Command2/" class="md-nav__link">
+        Command2
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../1/" class="md-nav__link">
+        1.md
+      </a>
+    </li>
+  
+
+            
+          
+        </ul>
+      </nav>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+      
+        <input class="md-nav__toggle md-toggle" data-md-toggle="__nav_5_2" type="checkbox" id="__nav_5_2" >
+      
+      
+      
+        
+          
+        
+          
+        
+          
+        
+          
+        
+      
+      
+        <label class="md-nav__link" for="__nav_5_2">
+          Shell
+          <span class="md-nav__icon md-icon"></span>
+        </label>
+      
+      <nav class="md-nav" aria-label="Shell" data-md-level="2">
+        <label class="md-nav__title" for="__nav_5_2">
+          <span class="md-nav__icon md-icon"></span>
+          Shell
+        </label>
+        <ul class="md-nav__list" data-md-scrollfix>
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../Shell/Shell-1-%E5%9F%BA%E6%9C%AC%E8%AF%AD%E6%B3%95/" class="md-nav__link">
+        1-基本语法
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../Shell/Shell-2-%E5%87%BD%E6%95%B0%E3%80%81%E6%95%B0%E7%BB%84%E3%80%81%E9%87%8D%E5%AE%9A%E5%90%91/" class="md-nav__link">
+        2-函数、数组、重定向
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../Shell/Shell-3-%E8%A1%A8%E8%BE%BE%E5%BC%8F/" class="md-nav__link">
+        3-表达式
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../Shell/Shell-4-%E5%AD%97%E7%AC%A6%E4%B8%B2%E5%A4%84%E7%90%86/" class="md-nav__link">
+        4-字符串处理
+      </a>
+    </li>
+  
+
+            
+          
+        </ul>
+      </nav>
+    </li>
+  
+
+            
+          
+        </ul>
+      </nav>
+    </li>
+  
+
+    
+      
+      
+      
+
+  
+  
+  
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+      
+        <input class="md-nav__toggle md-toggle" data-md-toggle="__nav_6" type="checkbox" id="__nav_6" >
+      
+      
+      
+        
+          
+        
+          
+        
+          
+        
+          
+        
+      
+      
+        <label class="md-nav__link" for="__nav_6">
+          Redis
+          <span class="md-nav__icon md-icon"></span>
+        </label>
+      
+      <nav class="md-nav" aria-label="Redis" data-md-level="1">
+        <label class="md-nav__title" for="__nav_6">
+          <span class="md-nav__icon md-icon"></span>
+          Redis
+        </label>
+        <ul class="md-nav__list" data-md-scrollfix>
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../Redis/1-Get-Start/" class="md-nav__link">
+        Get Start
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+      
+        <input class="md-nav__toggle md-toggle" data-md-toggle="__nav_6_2" type="checkbox" id="__nav_6_2" >
+      
+      
+      
+        
+          
+        
+          
+        
+          
+        
+          
+        
+          
+        
+      
+      
+        <label class="md-nav__link" for="__nav_6_2">
+          Type
+          <span class="md-nav__icon md-icon"></span>
+        </label>
+      
+      <nav class="md-nav" aria-label="Type" data-md-level="2">
+        <label class="md-nav__title" for="__nav_6_2">
+          <span class="md-nav__icon md-icon"></span>
+          Type
+        </label>
+        <ul class="md-nav__list" data-md-scrollfix>
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../Redis/2-1-type-string/" class="md-nav__link">
+        String
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../Redis/2-2-type-list/" class="md-nav__link">
+        List
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../Redis/2-3-type-set/" class="md-nav__link">
+        Set
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../Redis/2-4-type-zset/" class="md-nav__link">
+        ZSet
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../Redis/2-5-type-hash/" class="md-nav__link">
+        Hash
+      </a>
+    </li>
+  
+
+            
+          
+        </ul>
+      </nav>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../Redis/3-persistence/" class="md-nav__link">
+        Persistence
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../Redis/4-transaction/" class="md-nav__link">
+        Transaction
+      </a>
+    </li>
+  
+
+            
+          
+        </ul>
+      </nav>
+    </li>
+  
+
+    
+      
+      
+      
+
+  
+  
+  
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+      
+        <input class="md-nav__toggle md-toggle" data-md-toggle="__nav_7" type="checkbox" id="__nav_7" >
+      
+      
+      
+        
+          
+        
+          
+        
+      
+      
+        <label class="md-nav__link" for="__nav_7">
+          MongoDB
+          <span class="md-nav__icon md-icon"></span>
+        </label>
+      
+      <nav class="md-nav" aria-label="MongoDB" data-md-level="1">
+        <label class="md-nav__title" for="__nav_7">
+          <span class="md-nav__icon md-icon"></span>
+          MongoDB
+        </label>
+        <ul class="md-nav__list" data-md-scrollfix>
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../Mongo/0-Hello/" class="md-nav__link">
+        0-Hello
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../Mongo/1-%E6%96%87%E6%A1%A3/" class="md-nav__link">
+        1-文档
+      </a>
+    </li>
+  
+
+            
+          
+        </ul>
+      </nav>
+    </li>
+  
+
+    
+      
+      
+      
+
+  
+  
+  
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+      
+        <input class="md-nav__toggle md-toggle" data-md-toggle="__nav_8" type="checkbox" id="__nav_8" >
+      
+      
+      
+        
+          
+        
+          
+        
+          
+        
+          
+        
+      
+      
+        <label class="md-nav__link" for="__nav_8">
+          MySQL
+          <span class="md-nav__icon md-icon"></span>
+        </label>
+      
+      <nav class="md-nav" aria-label="MySQL" data-md-level="1">
+        <label class="md-nav__title" for="__nav_8">
+          <span class="md-nav__icon md-icon"></span>
+          MySQL
+        </label>
+        <ul class="md-nav__list" data-md-scrollfix>
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../MySQL/0-Hello/" class="md-nav__link">
+        0-Hello
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../MySQL/1-%E6%95%B0%E6%8D%AE%E7%B1%BB%E5%9E%8B/" class="md-nav__link">
+        1-数据类型
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../MySQL/2-SQL/" class="md-nav__link">
+        2-SQL
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../MySQL/3-%E7%B4%A2%E5%BC%95/" class="md-nav__link">
+        3-索引
+      </a>
+    </li>
+  
+
+            
+          
+        </ul>
+      </nav>
+    </li>
+  
+
+    
+      
+      
+      
+
+  
+  
+  
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+      
+        <input class="md-nav__toggle md-toggle" data-md-toggle="__nav_9" type="checkbox" id="__nav_9" >
+      
+      
+      
+        
+          
+        
+      
+      
+        <label class="md-nav__link" for="__nav_9">
+          408
+          <span class="md-nav__icon md-icon"></span>
+        </label>
+      
+      <nav class="md-nav" aria-label="408" data-md-level="1">
+        <label class="md-nav__title" for="__nav_9">
+          <span class="md-nav__icon md-icon"></span>
+          408
+        </label>
+        <ul class="md-nav__list" data-md-scrollfix>
+          
+            
+              
+  
+  
+  
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+      
+        <input class="md-nav__toggle md-toggle" data-md-toggle="__nav_9_1" type="checkbox" id="__nav_9_1" >
+      
+      
+      
+        
+          
+        
+          
+        
+          
+        
+          
+        
+          
+        
+          
+        
+          
+        
+          
+        
+          
+        
+          
+        
+      
+      
+        <label class="md-nav__link" for="__nav_9_1">
+          数据结构
+          <span class="md-nav__icon md-icon"></span>
+        </label>
+      
+      <nav class="md-nav" aria-label="数据结构" data-md-level="2">
+        <label class="md-nav__title" for="__nav_9_1">
+          <span class="md-nav__icon md-icon"></span>
+          数据结构
+        </label>
+        <ul class="md-nav__list" data-md-scrollfix>
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../408/DataStructure/0-%E7%BB%AA%E8%AE%BA/" class="md-nav__link">
+        0-绪论
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../408/DataStructure/1-%E7%AE%97%E6%B3%95/" class="md-nav__link">
+        1-算法
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../408/DataStructure/2-%E7%BA%BF%E6%80%A7%E8%A1%A8/" class="md-nav__link">
+        2-线性表
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../408/DataStructure/3-%E6%A0%88/" class="md-nav__link">
+        3-栈
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../408/DataStructure/4-%E9%98%9F%E5%88%97/" class="md-nav__link">
+        4-队列
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../408/DataStructure/5-%E4%B8%B2/" class="md-nav__link">
+        5-串
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../408/DataStructure/6-%E6%A0%91/" class="md-nav__link">
+        6-树
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../408/DataStructure/7-%E5%9B%BE1/" class="md-nav__link">
+        7-图
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../408/DataStructure/8-%E5%9B%BE2/" class="md-nav__link">
+        8-图的存储结构
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../408/DataStructure/9-%E5%9B%BE3/" class="md-nav__link">
+        9-图的算法
+      </a>
+    </li>
+  
+
+            
+          
+        </ul>
+      </nav>
+    </li>
+  
+
+            
+          
+        </ul>
+      </nav>
+    </li>
+  
+
+    
+      
+      
+      
+
+  
+  
+  
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+      
+        <input class="md-nav__toggle md-toggle" data-md-toggle="__nav_10" type="checkbox" id="__nav_10" >
+      
+      
+      
+        
+          
+        
+          
+        
+          
+        
+          
+        
+          
+        
+      
+      
+        <label class="md-nav__link" for="__nav_10">
+          ES
+          <span class="md-nav__icon md-icon"></span>
+        </label>
+      
+      <nav class="md-nav" aria-label="ES" data-md-level="1">
+        <label class="md-nav__title" for="__nav_10">
+          <span class="md-nav__icon md-icon"></span>
+          ES
+        </label>
+        <ul class="md-nav__list" data-md-scrollfix>
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../ES/0-Hello/" class="md-nav__link">
+        0-Hello
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../ES/1-%E7%B4%A2%E5%BC%95%E5%9F%BA%E6%9C%AC%E6%93%8D%E4%BD%9C/" class="md-nav__link">
+        1-索引基本操作
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../ES/2-%E6%98%A0%E5%B0%84%E5%9F%BA%E6%9C%AC%E6%93%8D%E4%BD%9C/" class="md-nav__link">
+        2-映射基本操作
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../ES/3-%E6%96%87%E6%A1%A3%E5%9F%BA%E6%9C%AC%E6%93%8D%E4%BD%9C/" class="md-nav__link">
+        3-文档基本操作
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../ES/4-Query-DSL/" class="md-nav__link">
+        4-Query-DSL
+      </a>
+    </li>
+  
+
+            
+          
+        </ul>
+      </nav>
+    </li>
+  
+
+    
+      
+      
+      
+
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../todo/" class="md-nav__link">
+        TODO
+      </a>
+    </li>
+  
+
+    
+  </ul>
+</nav>
+                  </div>
+                </div>
+              </div>
+            
+            
+              
+              <div class="md-sidebar md-sidebar--secondary" data-md-component="sidebar" data-md-type="toc" >
+                <div class="md-sidebar__scrollwrap">
+                  <div class="md-sidebar__inner">
+                    
+
+<nav class="md-nav md-nav--secondary" aria-label="Table of contents">
+  
+  
+  
+  
+    <label class="md-nav__title" for="__toc">
+      <span class="md-nav__icon md-icon"></span>
+      Table of contents
+    </label>
+    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#ext2" class="md-nav__link">
+    ext2文件系统
+  </a>
+  
+    <nav class="md-nav" aria-label="ext2文件系统">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#_1" class="md-nav__link">
+    总体存储布局
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#_2" class="md-nav__link">
+    实例剖析
+  </a>
+  
+    <nav class="md-nav" aria-label="实例剖析">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#_3" class="md-nav__link">
+    习题
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#_4" class="md-nav__link">
+    数据块寻址
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#_5" class="md-nav__link">
+    文件和目录操作的系统函数
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+    </ul>
+  
+</nav>
+                  </div>
+                </div>
+              </div>
+            
+          
+          <div class="md-content" data-md-component="content">
+            <article class="md-content__inner md-typeset">
+              
+                
+  <a href="https://github.com/TCP404/WIKI/edit/master/docs/Linux/Basic/文件系统.md" title="Edit this page" class="md-content__button md-icon">
+    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M20.71 7.04c.39-.39.39-1.04 0-1.41l-2.34-2.34c-.37-.39-1.02-.39-1.41 0l-1.84 1.83 3.75 3.75M3 17.25V21h3.75L17.81 9.93l-3.75-3.75L3 17.25Z"/></svg>
+  </a>
+
+
+
+  <h1>文件系统</h1>
+
+<h2 id="ext2">ext2文件系统<a class="headerlink" href="#ext2" title="Permanent link">&para;</a></h2>
+<h3 id="_1">总体存储布局<a class="headerlink" href="#_1" title="Permanent link">&para;</a></h3>
+<p>我们知道，一个磁盘可以划分成多个分区，每个分区必须先用格式化工具（例如某种<code>mkfs</code>命令）格式化成某种格式的文件系统，然后才能存储文件，格式化的过程会在磁盘上写一些管理存储布局的信息。下图是一个磁盘分区格式化成ext2文件系统后的存储布局。</p>
+<p><strong>图 29.2. ext2文件系统的总体存储布局</strong></p>
+<p><img alt="ext2文件系统的总体存储布局" src="http://docs.linuxtone.org/ebooks/C&amp;CPP/c/images/fs.ext2layout.png" /></p>
+<p>文件系统中存储的最小单位是块（Block），一个块究竟多大是在格式化时确定的，例如<code>mke2fs</code>的<code>-b</code>选项可以设定块大小为1024、2048或4096字节。而上图中启动块（Boot Block）的大小是确定的，就是1KB，启动块是由PC标准规定的，用来存储磁盘分区信息和启动信息，任何文件系统都不能使用启动块。启动块之后才是ext2文件系统的开始，ext2文件系统将整个分区划成若干个同样大小的块组（Block Group），每个块组都由以下部分组成。</p>
+<ul>
+<li>
+<p>超级块（Super Block）</p>
+<p>描述整个分区的文件系统信息，例如块大小、文件系统版本号、上次<code>mount</code>的时间等等。超级块在每个块组的开头都有一份拷贝。</p>
+</li>
+<li>
+<p>块组描述符表（GDT，Group Descriptor Table）</p>
+<p>由很多块组描述符组成，整个分区分成多少个块组就对应有多少个块组描述符。每个块组描述符（Group Descriptor）存储一个块组的描述信息，例如在这个块组中从哪里开始是inode表，从哪里开始是数据块，空闲的inode和数据块还有多少个等等。和超级块类似，块组描述符表在每个块组的开头也都有一份拷贝，这些信息是非常重要的，一旦超级块意外损坏就会丢失整个分区的数据，一旦块组描述符意外损坏就会丢失整个块组的数据，因此它们都有多份拷贝。通常内核只用到第0个块组中的拷贝，当执行<code>e2fsck</code>检查文件系统一致性时，第0个块组中的超级块和块组描述符表就会拷贝到其它块组，这样当第0个块组的开头意外损坏时就可以用其它拷贝来恢复，从而减少损失。</p>
+</li>
+<li>
+<p>块位图（Block Bitmap）</p>
+<p>一个块组中的块是这样利用的：数据块（Data Block）存储所有文件的数据，比如某个分区的块大小是1024字节，某个文件是2049字节，那么就需要三个数据块来存，即使第三个块只存了一个字节也需要占用一个整块；超级块、块组描述符表、块位图、inode位图、inode表这几部分存储该块组的描述信息。</p>
+<p>那么如何知道哪些块已经用来存储文件数据或其它描述信息，哪些块仍然空闲可用呢？块位图就是用来描述整个块组中哪些块已用哪些块空闲的，它本身占一个块，其中的每个bit代表本块组中的一个块，这个bit为1表示该块已用，这个bit为0表示该块空闲可用。为什么用<code>df</code>命令统计整个磁盘的已用空间非常快呢？因为只需要查看每个块组的块位图即可，而不需要搜遍整个分区。相反，用<code>du</code>命令查看一个较大目录的已用空间就非常慢，因为不可避免地要搜遍整个目录的所有文件。</p>
+<p>与此相联系的另一个问题是：在格式化一个分区时究竟会划出多少个块组呢？主要的限制在于块位图本身必须只占一个块。用<code>mke2fs</code>格式化时默认块大小是1024字节，可以用<code>-b</code>参数指定块大小，现在设块大小指定为1024字节，那么一个块可以有8*1024个bit，这样大小的一个块位图就可以表示8*1024个块的占用情况，因此**一个块组最多可以有8*1024个块。**</p>
+<p>如果整个分区有s个块，那么就可以有s/(8*1024)个块组。格式化时可以用<code>-g</code>参数指定一个块组有多少个块，但是通常不需要手动指定，<code>mke2fs</code>工具会计算出最优的数值。</p>
+</li>
+<li>
+<p>inode位图（inode Bitmap）</p>
+<p>和块位图类似，本身占一个块，其中每个bit表示一个inode是否空闲可用。</p>
+</li>
+<li>
+<p>inode表（inode Table）</p>
+<p>我们知道，一个文件除了数据需要存储之外，一些描述信息也需要存储，例如文件类型（常规、目录、符号链接等），权限，文件大小，创建/修改/访问时间等，也就是<code>ls -l</code>命令看到的那些信息，这些信息存在inode中而不是数据块中。</p>
+<p>每个文件都有一个inode，一个块组中的所有inode组成了inode表。inode表占多少个块在格式化时就要决定并写入块组描述符中，<code>mke2fs</code>格式化工具的默认策略是：一个块组有 n 个8KB就分配 n 个inode。</p>
+<p>由于数据块占了整个块组的绝大部分，也可以近似认为数据块有 n 个8KB就分配 n 个inode，换句话说，如果平均每个文件的大小是8KB，当分区存满的时候inode表会得到比较充分的利用，数据块也不浪费。</p>
+<p>如果这个分区存的都是很大的文件（比如电影），则数据块用完的时候inode会有一些浪费，如果这个分区存的都是很小的文件（比如源代码），则有可能数据块还没用完inode就已经用完了，数据块可能有很大的浪费。</p>
+<p>如果用户在格式化时能够对这个分区以后要存储的文件大小做一个预测，也可以用<code>mke2fs</code>的<code>-i</code>参数手动指定每多少个字节分配一个inode。</p>
+</li>
+<li>
+<p>数据块</p>
+<p>根据不同的文件类型有以下几种情况：</p>
+<ul>
+<li>对于常规文件，文件的数据存储在数据块中。</li>
+<li>对于目录，该目录下的所有文件名和目录名存储在数据块中，(注意「文件名」保存在它所在目录的数据块中，除文件名之外，<code>ls -l</code> 命令看到的其它信息都保存在该文件的 inode 中。注意这个概念：目录也是一种文件，是一种特殊类型的文件。）</li>
+<li>对于符号链接，如果目标路径名较短则直接保存在 inode 中以便更快地查找，如果目标路径名较长则分配一个数据块来保存。</li>
+<li>设备文件、FIFO 和 socket 等特殊文件没有数据块，设备文件的主设备号和次设备号保存在 inode 中。</li>
+</ul>
+</li>
+</ul>
+<p>现在做几个小实验来理解这些概念。例如在<code>home</code>目录下<code>ls -l</code>：</p>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-0-1" name="__codelineno-0-1" href="#__codelineno-0-1"></a>$ ls -l
+<a id="__codelineno-0-2" name="__codelineno-0-2" href="#__codelineno-0-2"></a>total 32
+<a id="__codelineno-0-3" name="__codelineno-0-3" href="#__codelineno-0-3"></a>drwxr-xr-x 114 akaedu akaedu 12288 2008-10-25 11:33 akaedu
+<a id="__codelineno-0-4" name="__codelineno-0-4" href="#__codelineno-0-4"></a>drwxr-xr-x 114 ftp    ftp     4096 2008-10-25 10:30 ftp
+<a id="__codelineno-0-5" name="__codelineno-0-5" href="#__codelineno-0-5"></a>drwx------   2 root   root   16384 2008-07-04 05:58 lost+found
+</code></pre></div>
+<p>为什么各目录的大小都是4096的整数倍？因为这个分区的块大小是4096，目录的大小总是数据块的整数倍。</p>
+<p>为什么有的目录大有的目录小？因为目录的数据块保存着它下边所有文件和目录的名字，如果一个目录中的文件很多，一个块装不下这么多文件名，就可能分配更多的数据块给这个目录。</p>
+<p>再比如：</p>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-1-1" name="__codelineno-1-1" href="#__codelineno-1-1"></a>$ ls -l /dev
+<a id="__codelineno-1-2" name="__codelineno-1-2" href="#__codelineno-1-2"></a>......
+<a id="__codelineno-1-3" name="__codelineno-1-3" href="#__codelineno-1-3"></a>prw-r-----  1 syslog adm            0 2008-10-25 11:39 xconsole
+<a id="__codelineno-1-4" name="__codelineno-1-4" href="#__codelineno-1-4"></a>crw-rw-rw-  1 root   root      1,   5 2008-10-24 16:44 zero
+</code></pre></div>
+<p><code>xconsole</code>文件的类型是<code>p</code>（表示pipe），是一个FIFO文件，后面会讲到它其实是一块内核缓冲区的标识，不在磁盘上保存数据，因此没有数据块，文件大小是0。</p>
+<p><code>zero</code>文件的类型是<code>c</code>，表示字符设备文件，它代表内核中的一个设备驱动程序，也没有数据块，原本应该写文件大小的地方写了<code>1, 5</code>这两个数字，表示主设备号和次设备号，访问该文件时，内核根据设备号找到相应的驱动程序。</p>
+<p>再比如：</p>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-2-1" name="__codelineno-2-1" href="#__codelineno-2-1"></a>$ touch hello
+<a id="__codelineno-2-2" name="__codelineno-2-2" href="#__codelineno-2-2"></a>$ ln -s ./hello halo
+<a id="__codelineno-2-3" name="__codelineno-2-3" href="#__codelineno-2-3"></a>$ ls -l
+<a id="__codelineno-2-4" name="__codelineno-2-4" href="#__codelineno-2-4"></a>total 0
+<a id="__codelineno-2-5" name="__codelineno-2-5" href="#__codelineno-2-5"></a>lrwxrwxrwx 1 akaedu akaedu 7 2008-10-25 15:04 halo -&gt; ./hello
+<a id="__codelineno-2-6" name="__codelineno-2-6" href="#__codelineno-2-6"></a>-rw-r--r-- 1 akaedu akaedu 0 2008-10-25 15:04 hello
+</code></pre></div>
+<p>文件<code>hello</code>是刚创建的，字节数为0，符号链接文件<code>halo</code>指向<code>hello</code>，字节数却是7，为什么呢？其实7就是“./hello”这7个字符，符号链接文件就保存着这样一个路径名。</p>
+<p>再试试硬链接：</p>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-3-1" name="__codelineno-3-1" href="#__codelineno-3-1"></a>$ ln ./hello hello2
+<a id="__codelineno-3-2" name="__codelineno-3-2" href="#__codelineno-3-2"></a>$ ls -l
+<a id="__codelineno-3-3" name="__codelineno-3-3" href="#__codelineno-3-3"></a>total 0
+<a id="__codelineno-3-4" name="__codelineno-3-4" href="#__codelineno-3-4"></a>lrwxrwxrwx 1 akaedu akaedu 7 2008-10-25 15:08 halo -&gt; ./hello
+<a id="__codelineno-3-5" name="__codelineno-3-5" href="#__codelineno-3-5"></a>-rw-r--r-- 2 akaedu akaedu 0 2008-10-25 15:04 hello
+<a id="__codelineno-3-6" name="__codelineno-3-6" href="#__codelineno-3-6"></a>-rw-r--r-- 2 akaedu akaedu 0 2008-10-25 15:04 hello2
+</code></pre></div>
+<p><code>hello2</code>和<code>hello</code>除了文件名不一样之外，别的属性都一模一样，并且<code>hello</code>的属性发生了变化，第二栏的数字原本是1，现在变成2了。</p>
+<p>从根本上说，<code>hello</code>和<code>hello2</code>是同一个文件在文件系统中的两个名字，<code>ls -l</code>第二栏的数字是硬链接数，表示一个文件在文件系统中有几个名字（这些名字可以保存在不同目录的数据块中，或者说可以位于不同的路径下），硬链接数也保存在inode中。既然是同一个文件，inode当然只有一个，所以用<code>ls -l</code>看它们的属性是一模一样的，因为都是从这个inode里读出来的。</p>
+<p>再研究一下目录的硬链接数：</p>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-4-1" name="__codelineno-4-1" href="#__codelineno-4-1"></a>$ mkdir a
+<a id="__codelineno-4-2" name="__codelineno-4-2" href="#__codelineno-4-2"></a>$ mkdir a/b
+<a id="__codelineno-4-3" name="__codelineno-4-3" href="#__codelineno-4-3"></a>$ ls -ld a
+<a id="__codelineno-4-4" name="__codelineno-4-4" href="#__codelineno-4-4"></a>drwxr-xr-x 3 akaedu akaedu 4096 2008-10-25 16:15 a
+<a id="__codelineno-4-5" name="__codelineno-4-5" href="#__codelineno-4-5"></a>$ ls -la a
+<a id="__codelineno-4-6" name="__codelineno-4-6" href="#__codelineno-4-6"></a>total 20
+<a id="__codelineno-4-7" name="__codelineno-4-7" href="#__codelineno-4-7"></a>drwxr-xr-x   3 akaedu akaedu  4096 2008-10-25 16:15 .
+<a id="__codelineno-4-8" name="__codelineno-4-8" href="#__codelineno-4-8"></a>drwxr-xr-x 115 akaedu akaedu 12288 2008-10-25 16:14 ..
+<a id="__codelineno-4-9" name="__codelineno-4-9" href="#__codelineno-4-9"></a>drwxr-xr-x   2 akaedu akaedu  4096 2008-10-25 16:15 b
+<a id="__codelineno-4-10" name="__codelineno-4-10" href="#__codelineno-4-10"></a>$ ls -la a/b
+<a id="__codelineno-4-11" name="__codelineno-4-11" href="#__codelineno-4-11"></a>total 8
+<a id="__codelineno-4-12" name="__codelineno-4-12" href="#__codelineno-4-12"></a>drwxr-xr-x 2 akaedu akaedu 4096 2008-10-25 16:15 .
+<a id="__codelineno-4-13" name="__codelineno-4-13" href="#__codelineno-4-13"></a>drwxr-xr-x 3 akaedu akaedu 4096 2008-10-25 16:15 ..
+</code></pre></div>
+<p>首先创建目录<code>a</code>，然后在它下面创建子目录<code>a/b</code>。</p>
+<p>目录<code>a</code>的硬链接数是3，这3个名字分别是当前目录下的<code>a</code>，<code>a</code>目录下的<code>.</code>和<code>b</code>目录下的<code>..</code>。</p>
+<p>目录<code>b</code>的硬链接数是2，这两个名字分别是<code>a</code>目录下的<code>b</code>和<code>b</code>目录下的<code>.</code>。</p>
+<p>注意，<em>目录的硬链接只能这种方式创建，用<code>ln</code>命令可以创建目录的符号链接，但不能创建目录的硬链接</em>。</p>
+<h3 id="_2">实例剖析<a class="headerlink" href="#_2" title="Permanent link">&para;</a></h3>
+<p>如果要格式化一个分区来研究文件系统格式则必须有一个空闲的磁盘分区，为了方便实验，我们把一个文件当作分区来格式化，然后分析这个文件中的数据来印证上面所讲的要点。</p>
+<p>首先创建一个1MB的文件并清零：</p>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-5-1" name="__codelineno-5-1" href="#__codelineno-5-1"></a>$ dd if=/dev/zero of=fs count=256 bs=4K
+</code></pre></div>
+<p>我们知道<code>cp</code>命令可以把一个文件拷贝成另一个文件，而<code>dd</code>命令可以把一个文件的一部分拷贝成另一个文件。</p>
+<p>这个命令的作用是把<code>/dev/zero</code>文件开头的1M（256×4K）字节拷贝成文件名为<code>fs</code>的文件。</p>
+<p>刚才我们看到<code>/dev/zero</code>是一个特殊的设备文件，它没有磁盘数据块，对它进行读操作传给设备号为<code>1, 5</code>的驱动程序。<code>/dev/zero</code>这个文件可以看作是无穷大的，不管从哪里开始读，读出来的都是字节0x00。因此这个命令拷贝了1M个0x00到<code>fs</code>文件。<code>if</code>和<code>of</code>参数表示输入文件和输出文件，<code>count</code>和<code>bs</code>参数表示拷贝多少次，每次拷多少字节。</p>
+<p>做好之后对文件<code>fs</code>进行格式化，也就是*把这个文件的数据块合起来看成一个1MB的磁盘分区，在这个分区上再划分出块组*。</p>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-6-1" name="__codelineno-6-1" href="#__codelineno-6-1"></a>$ mke2fs fs
+<a id="__codelineno-6-2" name="__codelineno-6-2" href="#__codelineno-6-2"></a>mke2fs 1.40.2 (12-Jul-2007)
+<a id="__codelineno-6-3" name="__codelineno-6-3" href="#__codelineno-6-3"></a>fs is not a block special device.
+<a id="__codelineno-6-4" name="__codelineno-6-4" href="#__codelineno-6-4"></a>Proceed anyway? (y,n) （输入y回车）
+<a id="__codelineno-6-5" name="__codelineno-6-5" href="#__codelineno-6-5"></a>Filesystem label=
+<a id="__codelineno-6-6" name="__codelineno-6-6" href="#__codelineno-6-6"></a>OS type: Linux
+<a id="__codelineno-6-7" name="__codelineno-6-7" href="#__codelineno-6-7"></a>Block size=1024 (log=0)
+<a id="__codelineno-6-8" name="__codelineno-6-8" href="#__codelineno-6-8"></a>Fragment size=1024 (log=0)
+<a id="__codelineno-6-9" name="__codelineno-6-9" href="#__codelineno-6-9"></a>128 inodes, 1024 blocks
+<a id="__codelineno-6-10" name="__codelineno-6-10" href="#__codelineno-6-10"></a>51 blocks (4.98%) reserved for the super user
+<a id="__codelineno-6-11" name="__codelineno-6-11" href="#__codelineno-6-11"></a>First data block=1
+<a id="__codelineno-6-12" name="__codelineno-6-12" href="#__codelineno-6-12"></a>Maximum filesystem blocks=1048576
+<a id="__codelineno-6-13" name="__codelineno-6-13" href="#__codelineno-6-13"></a>1 block group
+<a id="__codelineno-6-14" name="__codelineno-6-14" href="#__codelineno-6-14"></a>8192 blocks per group, 8192 fragments per group
+<a id="__codelineno-6-15" name="__codelineno-6-15" href="#__codelineno-6-15"></a>128 inodes per group
+<a id="__codelineno-6-16" name="__codelineno-6-16" href="#__codelineno-6-16"></a>
+<a id="__codelineno-6-17" name="__codelineno-6-17" href="#__codelineno-6-17"></a>Writing inode tables: done                            
+<a id="__codelineno-6-18" name="__codelineno-6-18" href="#__codelineno-6-18"></a>Writing superblocks and filesystem accounting information: done
+<a id="__codelineno-6-19" name="__codelineno-6-19" href="#__codelineno-6-19"></a>
+<a id="__codelineno-6-20" name="__codelineno-6-20" href="#__codelineno-6-20"></a>This filesystem will be automatically checked every 27 mounts or
+<a id="__codelineno-6-21" name="__codelineno-6-21" href="#__codelineno-6-21"></a>180 days, whichever comes first.  Use tune2fs -c or -i to override.
+</code></pre></div>
+<p>格式化一个真正的分区应该指定块设备文件名，例如<code>/dev/sda1</code>，而这个<code>fs</code>是常规文件而不是块设备文件，<code>mke2fs</code>认为用户有可能是误操作了，所以给出提示，要求确认是否真的要格式化，输入<code>y</code>回车完成格式化。</p>
+<p>现在<code>fs</code>的大小仍然是1MB，但不再是全0了，其中已经有了块组和描述信息。用<code>dumpe2fs</code>工具可以查看这个分区的超级块和块组描述符表中的信息：</p>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-7-1" name="__codelineno-7-1" href="#__codelineno-7-1"></a>$ dumpe2fs fs
+<a id="__codelineno-7-2" name="__codelineno-7-2" href="#__codelineno-7-2"></a>dumpe2fs 1.40.2 (12-Jul-2007)
+<a id="__codelineno-7-3" name="__codelineno-7-3" href="#__codelineno-7-3"></a>Filesystem volume name:   &lt;none&gt;
+<a id="__codelineno-7-4" name="__codelineno-7-4" href="#__codelineno-7-4"></a>Last mounted on:          &lt;not available&gt;
+<a id="__codelineno-7-5" name="__codelineno-7-5" href="#__codelineno-7-5"></a>Filesystem UUID:          8e1f3b7a-4d1f-41dc-8928-526e43b2fd74
+<a id="__codelineno-7-6" name="__codelineno-7-6" href="#__codelineno-7-6"></a>Filesystem magic number:  0xEF53
+<a id="__codelineno-7-7" name="__codelineno-7-7" href="#__codelineno-7-7"></a>Filesystem revision #:    1 (dynamic)
+<a id="__codelineno-7-8" name="__codelineno-7-8" href="#__codelineno-7-8"></a>Filesystem features:      resize_inode dir_index filetype sparse_super
+<a id="__codelineno-7-9" name="__codelineno-7-9" href="#__codelineno-7-9"></a>Filesystem flags:         signed directory hash 
+<a id="__codelineno-7-10" name="__codelineno-7-10" href="#__codelineno-7-10"></a>Default mount options:    (none)
+<a id="__codelineno-7-11" name="__codelineno-7-11" href="#__codelineno-7-11"></a>Filesystem state:         clean
+<a id="__codelineno-7-12" name="__codelineno-7-12" href="#__codelineno-7-12"></a>Errors behavior:          Continue
+<a id="__codelineno-7-13" name="__codelineno-7-13" href="#__codelineno-7-13"></a>Filesystem OS type:       Linux
+<a id="__codelineno-7-14" name="__codelineno-7-14" href="#__codelineno-7-14"></a>Inode count:              128
+<a id="__codelineno-7-15" name="__codelineno-7-15" href="#__codelineno-7-15"></a>Block count:              1024
+<a id="__codelineno-7-16" name="__codelineno-7-16" href="#__codelineno-7-16"></a>Reserved block count:     51
+<a id="__codelineno-7-17" name="__codelineno-7-17" href="#__codelineno-7-17"></a>Free blocks:              986
+<a id="__codelineno-7-18" name="__codelineno-7-18" href="#__codelineno-7-18"></a>Free inodes:              117
+<a id="__codelineno-7-19" name="__codelineno-7-19" href="#__codelineno-7-19"></a>First block:              1
+<a id="__codelineno-7-20" name="__codelineno-7-20" href="#__codelineno-7-20"></a>Block size:               1024
+<a id="__codelineno-7-21" name="__codelineno-7-21" href="#__codelineno-7-21"></a>Fragment size:            1024
+<a id="__codelineno-7-22" name="__codelineno-7-22" href="#__codelineno-7-22"></a>Reserved GDT blocks:      3
+<a id="__codelineno-7-23" name="__codelineno-7-23" href="#__codelineno-7-23"></a>Blocks per group:         8192
+<a id="__codelineno-7-24" name="__codelineno-7-24" href="#__codelineno-7-24"></a>Fragments per group:      8192
+<a id="__codelineno-7-25" name="__codelineno-7-25" href="#__codelineno-7-25"></a>Inodes per group:         128
+<a id="__codelineno-7-26" name="__codelineno-7-26" href="#__codelineno-7-26"></a>Inode blocks per group:   16
+<a id="__codelineno-7-27" name="__codelineno-7-27" href="#__codelineno-7-27"></a>Filesystem created:       Sun Dec 16 14:56:59 2007
+<a id="__codelineno-7-28" name="__codelineno-7-28" href="#__codelineno-7-28"></a>Last mount time:          n/a
+<a id="__codelineno-7-29" name="__codelineno-7-29" href="#__codelineno-7-29"></a>Last write time:          Sun Dec 16 14:56:59 2007
+<a id="__codelineno-7-30" name="__codelineno-7-30" href="#__codelineno-7-30"></a>Mount count:              0
+<a id="__codelineno-7-31" name="__codelineno-7-31" href="#__codelineno-7-31"></a>Maximum mount count:      30
+<a id="__codelineno-7-32" name="__codelineno-7-32" href="#__codelineno-7-32"></a>Last checked:             Sun Dec 16 14:56:59 2007
+<a id="__codelineno-7-33" name="__codelineno-7-33" href="#__codelineno-7-33"></a>Check interval:           15552000 (6 months)
+<a id="__codelineno-7-34" name="__codelineno-7-34" href="#__codelineno-7-34"></a>Next check after:         Fri Jun 13 14:56:59 2008
+<a id="__codelineno-7-35" name="__codelineno-7-35" href="#__codelineno-7-35"></a>Reserved blocks uid:      0 (user root)
+<a id="__codelineno-7-36" name="__codelineno-7-36" href="#__codelineno-7-36"></a>Reserved blocks gid:      0 (group root)
+<a id="__codelineno-7-37" name="__codelineno-7-37" href="#__codelineno-7-37"></a>First inode:              11
+<a id="__codelineno-7-38" name="__codelineno-7-38" href="#__codelineno-7-38"></a>Inode size:               128
+<a id="__codelineno-7-39" name="__codelineno-7-39" href="#__codelineno-7-39"></a>Default directory hash:   tea
+<a id="__codelineno-7-40" name="__codelineno-7-40" href="#__codelineno-7-40"></a>Directory Hash Seed:      6d0e58bd-b9db-41ae-92b3-4563a02a5981
+<a id="__codelineno-7-41" name="__codelineno-7-41" href="#__codelineno-7-41"></a>
+<a id="__codelineno-7-42" name="__codelineno-7-42" href="#__codelineno-7-42"></a>
+<a id="__codelineno-7-43" name="__codelineno-7-43" href="#__codelineno-7-43"></a>Group 0: (Blocks 1-1023)
+<a id="__codelineno-7-44" name="__codelineno-7-44" href="#__codelineno-7-44"></a>  Primary superblock at 1, Group descriptors at 2-2
+<a id="__codelineno-7-45" name="__codelineno-7-45" href="#__codelineno-7-45"></a>  Reserved GDT blocks at 3-5
+<a id="__codelineno-7-46" name="__codelineno-7-46" href="#__codelineno-7-46"></a>  Block bitmap at 6 (+5), Inode bitmap at 7 (+6)
+<a id="__codelineno-7-47" name="__codelineno-7-47" href="#__codelineno-7-47"></a>  Inode table at 8-23 (+7)
+<a id="__codelineno-7-48" name="__codelineno-7-48" href="#__codelineno-7-48"></a>  986 free blocks, 117 free inodes, 2 directories
+<a id="__codelineno-7-49" name="__codelineno-7-49" href="#__codelineno-7-49"></a>  Free blocks: 38-1023
+<a id="__codelineno-7-50" name="__codelineno-7-50" href="#__codelineno-7-50"></a>  Free inodes: 12-128
+<a id="__codelineno-7-51" name="__codelineno-7-51" href="#__codelineno-7-51"></a>
+<a id="__codelineno-7-52" name="__codelineno-7-52" href="#__codelineno-7-52"></a>128 inodes per group, 8 inodes per block, so: 16 blocks for inode table
+</code></pre></div>
+<p>根据上面讲过的知识简单计算一下，块大小是1024字节，1MB的分区共有1024个块，第0个块是启动块，启动块之后才算ext2文件系统的开始，因此Group 0占据第1个到第1023个块，共1023个块。块位图占一个块，共有1024×8=8192个bit，足够表示这1023个块了，因此只要一个块组就够了。默认是每8KB分配一个inode，因此1MB的分区对应128个inode，这些数据都和<code>dumpe2fs</code>的输出吻合。</p>
+<p>用常规文件制作而成的文件系统也可以像磁盘分区一样<code>mount</code>到某个目录，例如：</p>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-8-1" name="__codelineno-8-1" href="#__codelineno-8-1"></a>$ sudo mount -o loop fs /mnt
+<a id="__codelineno-8-2" name="__codelineno-8-2" href="#__codelineno-8-2"></a>$ cd /mnt/
+<a id="__codelineno-8-3" name="__codelineno-8-3" href="#__codelineno-8-3"></a>$ ls -la
+<a id="__codelineno-8-4" name="__codelineno-8-4" href="#__codelineno-8-4"></a>total 17
+<a id="__codelineno-8-5" name="__codelineno-8-5" href="#__codelineno-8-5"></a>drwxr-xr-x  3 akaedu akaedu  1024 2008-10-25 12:20 .
+<a id="__codelineno-8-6" name="__codelineno-8-6" href="#__codelineno-8-6"></a>drwxr-xr-x 21 root    root     4096 2008-08-18 08:54 ..
+<a id="__codelineno-8-7" name="__codelineno-8-7" href="#__codelineno-8-7"></a>drwx------  2 root    root    12288 2008-10-25 12:20 lost+found
+</code></pre></div>
+<p><code>-o loop</code>选项告诉<code>mount</code>这是一个常规文件而不是一个块设备文件。<code>mount</code>会把它的数据块中的数据当作分区格式来解释。文件系统格式化之后在根目录下自动生成三个子目录：<code>.</code>，<code>..</code>和<code>lost+found</code>。</p>
+<p>其它子目录下的<code>.</code>表示当前目录，<code>..</code>表示上一级目录，而根目录的<code>.</code>和<code>..</code>都表示根目录本身。</p>
+<p><code>lost+found</code>目录由<code>e2fsck</code>工具使用，如果在检查磁盘时发现错误，就把有错误的块挂在这个目录下，因为这些块不知道是谁的，找不到主，就放在这里“失物招领”了。</p>
+<p>现在可以在<code>/mnt</code>目录下添加删除文件，这些操作会自动保存到文件<code>fs</code>中。然后把这个分区<code>umount</code>下来，以确保所有的改动都保存到文件中了。</p>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-9-1" name="__codelineno-9-1" href="#__codelineno-9-1"></a>$ sudo umount /mnt
+</code></pre></div>
+<p>注意，下面的实验步骤是对新创建的文件系统做的，如果你在文件系统中添加删除过文件，跟着做下面的步骤时结果可能和我写的不太一样，不过也不影响理解。</p>
+<p>现在我们用二进制查看工具查看这个文件系统的所有字节，并且同<code>dumpe2fs</code>工具的输出信息相比较，就可以很好地理解文件系统的存储布局了。</p>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-10-1" name="__codelineno-10-1" href="#__codelineno-10-1"></a>$ od -tx1 -Ax fs
+<a id="__codelineno-10-2" name="__codelineno-10-2" href="#__codelineno-10-2"></a>000000 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00
+<a id="__codelineno-10-3" name="__codelineno-10-3" href="#__codelineno-10-3"></a>*
+<a id="__codelineno-10-4" name="__codelineno-10-4" href="#__codelineno-10-4"></a>000400 80 00 00 00 00 04 00 00 33 00 00 00 da 03 00 00
+<a id="__codelineno-10-5" name="__codelineno-10-5" href="#__codelineno-10-5"></a>000410 75 00 00 00 01 00 00 00 00 00 00 00 00 00 00 00
+<a id="__codelineno-10-6" name="__codelineno-10-6" href="#__codelineno-10-6"></a>......
+</code></pre></div>
+<p>其中以*开头的行表示这一段数据全是零因此省略了。下面详细分析<code>od</code>输出的信息。</p>
+<p>从000000开始的1KB是启动块，由于这不是一个真正的磁盘分区，启动块的内容全部为零。从000400到0007ff的1KB是超级块，对照着<code>dumpe2fs</code>的输出信息，详细分析如下：</p>
+<p><strong>图 29.3. 超级块</strong></p>
+<p><img alt="超级块" src="http://docs.linuxtone.org/ebooks/C&amp;CPP/c/images/fs.sb.png" /></p>
+<p>超级块中从0004d0到末尾的204个字节是填充字节，保留未用，上图未画出。注意，ext2文件系统中各字段都是按小端存储的，如果把字节在文件中的位置看作地址，那么靠近文件开头的是低地址，存低字节。各字段的位置、长度和含义详见<a href="http://docs.linuxtone.org/ebooks/C&amp;CPP/c/bi01.html#bibli.ulk">[ULK]</a>。</p>
+<p>从000800开始是块组描述符表，这个文件系统较小，只有一个块组描述符，对照着<code>dumpe2fs</code>的输出信息分析如下：</p>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-11-1" name="__codelineno-11-1" href="#__codelineno-11-1"></a>...
+<a id="__codelineno-11-2" name="__codelineno-11-2" href="#__codelineno-11-2"></a>Group 0: (Blocks 1-1023)
+<a id="__codelineno-11-3" name="__codelineno-11-3" href="#__codelineno-11-3"></a>  Primary superblock at 1, Group descriptors at 2-2
+<a id="__codelineno-11-4" name="__codelineno-11-4" href="#__codelineno-11-4"></a>  Reserved GDT blocks at 3-5
+<a id="__codelineno-11-5" name="__codelineno-11-5" href="#__codelineno-11-5"></a>  Block bitmap at 6 (+5), Inode bitmap at 7 (+6)
+<a id="__codelineno-11-6" name="__codelineno-11-6" href="#__codelineno-11-6"></a>  Inode table at 8-23 (+7)
+<a id="__codelineno-11-7" name="__codelineno-11-7" href="#__codelineno-11-7"></a>  986 free blocks, 117 free inodes, 2 directories
+<a id="__codelineno-11-8" name="__codelineno-11-8" href="#__codelineno-11-8"></a>  Free blocks: 38-1023
+<a id="__codelineno-11-9" name="__codelineno-11-9" href="#__codelineno-11-9"></a>  Free inodes: 12-128
+<a id="__codelineno-11-10" name="__codelineno-11-10" href="#__codelineno-11-10"></a>...
+</code></pre></div>
+<p><strong>图 29.4. 块组描述符</strong></p>
+<p><img alt="块组描述符" src="http://docs.linuxtone.org/ebooks/C&amp;CPP/c/images/fs.gd.png" /></p>
+<p>整个文件系统是1MB，每个块是1KB，应该有1024个块，除去启动块还有1023个块，分别编号为1-1023，它们全都属于Group 0。</p>
+<p>其中，Block 1是超级块，接下来的块组描述符指出，块位图是Block 6，因此中间的Block 2-5是块组描述符表，其中Block 3-5保留未用。块组描述符还指出，inode位图是Block 7，inode表是从Block 8开始的，那么inode表到哪个块结束呢？由于超级块中指出每个块组有128个inode，每个inode的大小是128字节，因此共占16个块，inode表的范围是Block 8-23。</p>
+<p>从Block 24开始就是数据块了。块组描述符中指出，空闲的数据块有986个，由于文件系统是新创建的，空闲块是连续的Block 38-1023，用掉了前面的Block 24-37。从块位图中可以看出，前37位（前4个字节加最后一个字节的低5位）都是1，就表示Block 1-37已用:</p>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-12-1" name="__codelineno-12-1" href="#__codelineno-12-1"></a>001800 ff ff ff ff 1f 00 00 00 00 00 00 00 00 00 00 00
+<a id="__codelineno-12-2" name="__codelineno-12-2" href="#__codelineno-12-2"></a>001810 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00
+<a id="__codelineno-12-3" name="__codelineno-12-3" href="#__codelineno-12-3"></a>*
+<a id="__codelineno-12-4" name="__codelineno-12-4" href="#__codelineno-12-4"></a>001870 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 80
+<a id="__codelineno-12-5" name="__codelineno-12-5" href="#__codelineno-12-5"></a>001880 ff ff ff ff ff ff ff ff ff ff ff ff ff ff ff ff
+<a id="__codelineno-12-6" name="__codelineno-12-6" href="#__codelineno-12-6"></a>*
+</code></pre></div>
+<p>在块位图中，Block 38-1023对应的位都是0（一直到001870那一行最后一个字节的低7位），接下来的位已经超出了文件系统的空间，不管是0还是1都没有意义。可见，块位图每个字节中的位应该按从低位到高位的顺序来看。以后随着文件系统的使用和添加删除文件，块位图中的1就变得不连续了。</p>
+<p>块组描述符指出，空闲的inode有117个，由于文件系统是新创建的，空闲的inode也是连续的，inode编号从1到128，空闲的inode编号从12到128。从inode位图可以看出，前11位都是1，表示前11个inode已用：</p>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-13-1" name="__codelineno-13-1" href="#__codelineno-13-1"></a>001c00 ff 07 00 00 00 00 00 00 00 00 00 00 00 00 00 00
+<a id="__codelineno-13-2" name="__codelineno-13-2" href="#__codelineno-13-2"></a>001c10 ff ff ff ff ff ff ff ff ff ff ff ff ff ff ff ff
+<a id="__codelineno-13-3" name="__codelineno-13-3" href="#__codelineno-13-3"></a>*
+</code></pre></div>
+<p>以后随着文件系统的使用和添加删除文件，inode位图中的1就变得不连续了。</p>
+<p>001c00这一行的128位就表示了所有inode，因此下面的行不管是0还是1都没有意义。已用的11个inode中，前10个inode是被ext2文件系统保留的，其中第2个inode是根目录，第11个inode是<code>lost+found</code>目录，块组描述符也指出该组有两个目录，就是根目录和<code>lost+found</code>。</p>
+<p>探索文件系统还有一个很有用的工具<code>debugfs</code>，它提供一个命令行界面，可以对文件系统做各种操作，例如查看信息、恢复数据、修正文件系统中的错误。下面用<code>debugfs</code>打开<code>fs</code>文件，然后在提示符下输入<code>help</code>看看它都能做哪些事情：</p>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-14-1" name="__codelineno-14-1" href="#__codelineno-14-1"></a>$ debugfs fs
+<a id="__codelineno-14-2" name="__codelineno-14-2" href="#__codelineno-14-2"></a>debugfs 1.40.2 (12-Jul-2007)
+<a id="__codelineno-14-3" name="__codelineno-14-3" href="#__codelineno-14-3"></a>debugfs:  help
+</code></pre></div>
+<p>在<code>debugfs</code>的提示符下输入<code>stat /</code>命令，这时在新的一屏中显示根目录的inode信息：</p>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-15-1" name="__codelineno-15-1" href="#__codelineno-15-1"></a>Inode: 2   Type: directory    Mode:  0755   Flags: 0x0   Generation: 0
+<a id="__codelineno-15-2" name="__codelineno-15-2" href="#__codelineno-15-2"></a>User:  1000   Group:  1000   Size: 1024
+<a id="__codelineno-15-3" name="__codelineno-15-3" href="#__codelineno-15-3"></a>File ACL: 0    Directory ACL: 0
+<a id="__codelineno-15-4" name="__codelineno-15-4" href="#__codelineno-15-4"></a>Links: 3   Blockcount: 2
+<a id="__codelineno-15-5" name="__codelineno-15-5" href="#__codelineno-15-5"></a>Fragment:  Address: 0    Number: 0    Size: 0
+<a id="__codelineno-15-6" name="__codelineno-15-6" href="#__codelineno-15-6"></a>ctime: 0x4764cc3b -- Sun Dec 16 14:56:59 2007
+<a id="__codelineno-15-7" name="__codelineno-15-7" href="#__codelineno-15-7"></a>atime: 0x4764cc3b -- Sun Dec 16 14:56:59 2007
+<a id="__codelineno-15-8" name="__codelineno-15-8" href="#__codelineno-15-8"></a>mtime: 0x4764cc3b -- Sun Dec 16 14:56:59 2007
+<a id="__codelineno-15-9" name="__codelineno-15-9" href="#__codelineno-15-9"></a>BLOCKS:
+<a id="__codelineno-15-10" name="__codelineno-15-10" href="#__codelineno-15-10"></a>(0):24
+<a id="__codelineno-15-11" name="__codelineno-15-11" href="#__codelineno-15-11"></a>TOTAL: 1
+</code></pre></div>
+<p>按q退出这一屏，然后用<code>quit</code>命令退出<code>debugfs</code>：</p>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-16-1" name="__codelineno-16-1" href="#__codelineno-16-1"></a>debugfs:  quit
+</code></pre></div>
+<p>把以上信息和<code>od</code>命令的输出对照起来分析：</p>
+<p><strong>图 29.5. 根目录的inode</strong></p>
+<p><img alt="根目录的inode" src="http://docs.linuxtone.org/ebooks/C&amp;CPP/c/images/fs.rootinode.png" /></p>
+<p>上图中的<code>st_mode</code>以八进制表示，包含了文件类型和文件权限，最高位的4表示文件类型为目录（各种文件类型的编码详见stat(2)），低位的755表示权限。Size是1024，说明根目录现在只有一个数据块。Links为3表示根目录有三个硬链接，分别是根目录下的<code>.</code>和<code>..</code>，以及<code>lost+found</code>子目录下的<code>..</code>。注意，虽然我们通常用<code>/</code>表示根目录，但是并没有名为<code>/</code>的硬链接，事实上，<code>/</code>是路径分隔符，不能在文件名中出现。这里的<code>Blockcount</code>是以512字节为一个块来数的，并非格式化文件系统时所指定的块大小，磁盘的最小读写单位称为扇区（Sector），通常是512字节，所以<code>Blockcount</code>是磁盘的物理块数量，而非分区的逻辑块数量。根目录数据块的位置由上图中的<code>Blocks[0]</code>指出，也就是第24个块，它在文件系统中的位置是24×0x400=0x6000，从<code>od</code>命令的输出中找到006000地址，它的格式是这样：</p>
+<p><strong>图 29.6. 根目录的数据块</strong></p>
+<p><img alt="根目录的数据块" src="http://docs.linuxtone.org/ebooks/C&amp;CPP/c/images/fs.datablock.png" /></p>
+<p>目录的数据块由许多不定长的记录组成，每条记录描述该目录下的一个文件，在上图中用框表示。第一条记录描述inode号为2的文件，也就是根目录本身，该记录的总长度为12字节，其中文件名的长度为1字节，文件类型为2（见下表，注意此处的文件类型编码和<code>st_mode</code>不一致），文件名是<code>.</code>。</p>
+<p><strong>表 29.1. 目录中的文件类型编码</strong></p>
+<table>
+<thead>
+<tr>
+<th>编码</th>
+<th>文件类型</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>0</td>
+<td>Unknown</td>
+</tr>
+<tr>
+<td>1</td>
+<td>Regular file</td>
+</tr>
+<tr>
+<td>2</td>
+<td>Directory</td>
+</tr>
+<tr>
+<td>3</td>
+<td>Character device</td>
+</tr>
+<tr>
+<td>4</td>
+<td>Block device</td>
+</tr>
+<tr>
+<td>5</td>
+<td>Named pipe</td>
+</tr>
+<tr>
+<td>6</td>
+<td>Socket</td>
+</tr>
+<tr>
+<td>7</td>
+<td>Symbolic link</td>
+</tr>
+</tbody>
+</table>
+<p>第二条记录也是描述inode号为2的文件（根目录），该记录总长度为12字节，其中文件名的长度为2字节，文件类型为2，文件名字符串是<code>..</code>。第三条记录一直延续到该数据块的末尾，描述inode号为11的文件（<code>lost+found</code>目录），该记录的总长度为1000字节（和前面两条记录加起来是1024字节），文件类型为2，文件名字符串是<code>lost+found</code>，后面全是0字节。如果要在根目录下创建新的文件，可以把第三条记录截短，在原来的0字节处创建新的记录。如果该目录下的文件名太多，一个数据块不够用，则会分配新的数据块，块编号会填充到inode的<code>Blocks[1]</code>字段。</p>
+<p><code>debugfs</code>也提供了<code>cd</code>、<code>ls</code>等命令，不需要<code>mount</code>就可以查看这个文件系统中的目录，例如用<code>ls</code>查看根目录：</p>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-17-1" name="__codelineno-17-1" href="#__codelineno-17-1"></a> 2  (12) .    2  (12) ..    11  (1000) lost+found
+</code></pre></div>
+<p>列出了inode号、记录长度和文件名，这些信息都是从根目录的数据块中读出来的。</p>
+<h4 id="_3">习题<a class="headerlink" href="#_3" title="Permanent link">&para;</a></h4>
+<p>1、请读者仿照对根目录的分析，自己分析<code>lost+found</code>目录的inode和数据块的格式。</p>
+<p>2、<code>mount</code>这个文件系统，在里面添加删除文件，然后<code>umount</code>下来，再次分析它的格式，和原来的结果比较一下看哪些字节发生了变化。</p>
+<h3 id="_4">数据块寻址<a class="headerlink" href="#_4" title="Permanent link">&para;</a></h3>
+<p>如果一个文件有多个数据块，这些数据块很可能不是连续存放的，应该如何寻址到每个块呢？根据上面的分析，根目录的数据块是通过其inode中的索引项<code>Blocks[0]</code>找到的，事实上，这样的索引项一共有15个，从<code>Blocks[0]</code>到<code>Blocks[14]</code>，每个索引项占4字节。前12个索引项都表示块编号，例如上面的例子中<code>Blocks[0]</code>字段保存着24，就表示第24个块是该文件的数据块，如果块大小是1KB，这样可以表示从0字节到12KB的文件。如果剩下的三个索引项<code>Blocks[12]</code>到<code>Blocks[14]</code>也是这么用的，就只能表示最大15KB的文件了，这是远远不够的，事实上，剩下的三个索引项都是间接索引。</p>
+<p>索引项<code>Blocks[12]</code>所指向的块并非数据块，而是称为间接寻址块（Indirect Block），其中存放的都是类似<code>Blocks[0]</code>这种索引项，再由索引项指向数据块。设块大小是b，那么一个间接寻址块中可以存放b/4个索引项，指向b/4个数据块。所以如果把<code>Blocks[0]</code>到<code>Blocks[12]</code>都用上，最多可以表示b/4+12个数据块，对于块大小是1K的情况，最大可表示268K的文件。如下图所示，注意文件的数据块编号是从0开始的，<code>Blocks[0]</code>指向第0个数据块，<code>Blocks[11]</code>指向第11个数据块，<code>Blocks[12]</code>所指向的间接寻址块的第一个索引项指向第12个数据块，依此类推。</p>
+<p><strong>图 29.7. 数据块的寻址</strong></p>
+<p><img alt="数据块的寻址" src="http://docs.linuxtone.org/ebooks/C&amp;CPP/c/images/fs.datablockaddr.png" /></p>
+<p>从上图可以看出，索引项<code>Blocks[13]</code>指向两级的间接寻址块，最多可表示(b/4)2+b/4+12个数据块，对于1K的块大小最大可表示64.26MB的文件。索引项<code>Blocks[14]</code>指向三级的间接寻址块，最多可表示(b/4)3+(b/4)2+b/4+12个数据块，对于1K的块大小最大可表示16.06GB的文件。</p>
+<p>可见，这种寻址方式对于访问不超过12个数据块的小文件是非常快的，访问文件中的任意数据只需要两次读盘操作，一次读inode（也就是读索引项）一次读数据块。而访问大文件中的数据则需要最多五次读盘操作：inode、一级间接寻址块、二级间接寻址块、三级间接寻址块、数据块。实际上，磁盘中的inode和数据块往往已经被内核缓存了，读大文件的效率也不会太低。</p>
+<h3 id="_5">文件和目录操作的系统函数<a class="headerlink" href="#_5" title="Permanent link">&para;</a></h3>
+<p>本节简要介绍一下文件和目录操作常用的系统函数，常用的文件操作命令如<code>ls</code>、<code>cp</code>、<code>mv</code>等也是基于这些函数实现的。本节的侧重点在于讲解这些函数的工作原理，而不是如何使用它们，理解了实现原理之后再看这些函数的用法就很简单了，请读者自己查阅Man Page了解其用法。</p>
+<p><code>stat(2)</code>函数读取文件的inode，然后把inode中的各种文件属性填入一个<code>struct stat</code>结构体传出给调用者。<code>stat(1)</code>命令是基于<code>stat</code>函数实现的。<code>stat</code>需要根据传入的文件路径找到inode，假设一个路径是<code>/opt/file</code>，则查找的顺序是：</p>
+<ol>
+<li>读出inode表中第2项，也就是根目录的inode，从中找出根目录数据块的位置</li>
+<li>从根目录的数据块中找出文件名为<code>opt</code>的记录，从记录中读出它的inode号</li>
+<li>读出<code>opt</code>目录的inode，从中找出它的数据块的位置</li>
+<li>从<code>opt</code>目录的数据块中找出文件名为<code>file</code>的记录，从记录中读出它的inode号</li>
+<li>读出<code>file</code>文件的inode</li>
+</ol>
+<p>还有另外两个类似<code>stat</code>的函数：<code>fstat(2)</code>函数传入一个已打开的文件描述符，传出inode信息，<code>lstat(2)</code>函数也是传入路径传出inode信息，但是和<code>stat</code>函数有一点不同，当文件是一个符号链接时，<code>stat(2)</code>函数传出的是它所指向的目标文件的inode，而<code>lstat</code>函数传出的就是符号链接文件本身的inode。</p>
+<p><code>access(2)</code>函数检查执行当前进程的用户是否有权限访问某个文件，传入文件路径和要执行的访问操作（读/写/执行），<code>access</code>函数取出文件inode中的<code>st_mode</code>字段，比较一下访问权限，然后返回0表示允许访问，返回-1表示错误或不允许访问。</p>
+<p><code>chmod(2)</code>和<code>fchmod(2)</code>函数改变文件的访问权限，也就是修改inode中的<code>st_mode</code>字段。这两个函数的区别类似于<code>stat</code>/<code>fstat</code>。<code>chmod(1)</code>命令是基于<code>chmod</code>函数实现的。</p>
+<p><code>chown(2)</code>/<code>fchown(2)</code>/<code>lchown(2)</code>改变文件的所有者和组，也就是修改inode中的<code>User</code>和<code>Group</code>字段，只有超级用户才能正确调用这几个函数，这几个函数之间的区别类似于<code>stat</code>/<code>fstat</code>/<code>lstat</code>。<code>chown(1)</code>命令是基于<code>chown</code>函数实现的。</p>
+<p><code>utime(2)</code>函数改变文件的访问时间和修改时间，也就是修改inode中的<code>atime</code>和<code>mtime</code>字段。<code>touch(1)</code>命令是基于<code>utime</code>函数实现的。</p>
+<p><code>truncate(2)</code>和<code>ftruncate(2)</code>函数把文件截断到某个长度，如果新的长度比原来的长度短，则后面的数据被截掉了，如果新的长度比原来的长度长，则后面多出来的部分用0填充，这需要修改inode中的<code>Blocks</code>索引项以及块位图中相应的bit。这两个函数的区别类似于<code>stat</code>/<code>fstat</code>。</p>
+<p><code>link(2)</code>函数创建硬链接，其原理是在目录的数据块中添加一条新记录，其中的inode号字段和原文件相同。<code>symlink(2)</code>函数创建一个符号链接，这需要创建一个新的inode，其中<code>st_mode</code>字段的文件类型是符号链接，原文件的路径保存在inode中或者分配一个数据块来保存。<code>ln(1)</code>命令是基于<code>link</code>和<code>symlink</code>函数实现的。</p>
+<p><code>unlink(2)</code>函数删除一个链接。如果是符号链接则释放这个符号链接的inode和数据块，清除inode位图和块位图中相应的位。如果是硬链接则从目录的数据块中清除一条文件名记录，如果当前文件的硬链接数已经是1了还要删除它，就同时释放它的inode和数据块，清除inode位图和块位图中相应的位，这样就真的删除文件了。<code>unlink(1)</code>命令和<code>rm(1)</code>命令是基于<code>unlink</code>函数实现的。</p>
+<p><code>rename(2)</code>函数改变文件名，需要修改目录数据块中的文件名记录，如果原文件名和新文件名不在一个目录下则需要从原目录数据块中清除一条记录然后添加到新目录的数据块中。<code>mv(1)</code>命令是基于<code>rename</code>函数实现的，因此在同一分区的不同目录中移动文件并不需要复制和删除文件的inode和数据块，只需要一个改名操作，即使要移动整个目录，这个目录下有很多子目录和文件也要随着一起移动，移动操作也只是对顶级目录的改名操作，很快就能完成。但是，如果在不同的分区之间移动文件就必须复制和删除inode和数据块，如果要移动整个目录，所有子目录和文件都要复制删除，这就很慢了。</p>
+<p><code>readlink(2)</code>函数读取一个符号链接所指向的目标路径，其原理是从符号链接的inode或数据块中读出保存的数据，这就是目标路径。</p>
+<p><code>mkdir(2)</code>函数创建新的目录，要做的操作是在它的父目录数据块中添加一条记录，然后分配新的inode和数据块，inode的<code>st_mode</code>字段的文件类型是目录，在数据块中填两个记录，分别是<code>.</code>和<code>..</code>，由于<code>..</code>表示父目录，因此父目录的硬链接数要加1。<code>mkdir(1)</code>命令是基于<code>mkdir</code>函数实现的。</p>
+<p><code>rmdir(2)</code>函数删除一个目录，这个目录必须是空的（只包含<code>.</code>和<code>..</code>）才能删除，要做的操作是释放它的inode和数据块，清除inode位图和块位图中相应的位，清除父目录数据块中的记录，父目录的硬链接数要减1。<code>rmdir(1)</code>命令是基于<code>rmdir</code>函数实现的。</p>
+<p><code>opendir(3)</code>/<code>readdir(3)</code>/<code>closedir(3)</code>用于遍历目录数据块中的记录。<code>opendir</code>打开一个目录，返回一个<code>DIR *</code>指针代表这个目录，它是一个类似<code>FILE *</code>指针的句柄，<code>closedir</code>用于关闭这个句柄，把<code>DIR *</code>指针传给<code>readdir</code>读取目录数据块中的记录，每次返回一个指向<code>struct dirent</code>的指针，反复读就可以遍历所有记录，所有记录遍历完之后<code>readdir</code>返回<code>NULL</code>。结构体<code>struct dirent</code>的定义如下：</p>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-18-1" name="__codelineno-18-1" href="#__codelineno-18-1"></a>struct dirent {
+<a id="__codelineno-18-2" name="__codelineno-18-2" href="#__codelineno-18-2"></a>    ino_t          d_ino;       /* inode number */
+<a id="__codelineno-18-3" name="__codelineno-18-3" href="#__codelineno-18-3"></a>    off_t          d_off;       /* offset to the next dirent */
+<a id="__codelineno-18-4" name="__codelineno-18-4" href="#__codelineno-18-4"></a>    unsigned short d_reclen;    /* length of this record */
+<a id="__codelineno-18-5" name="__codelineno-18-5" href="#__codelineno-18-5"></a>    unsigned char  d_type;      /* type of file */
+<a id="__codelineno-18-6" name="__codelineno-18-6" href="#__codelineno-18-6"></a>    char           d_name[256]; /* filename */
+<a id="__codelineno-18-7" name="__codelineno-18-7" href="#__codelineno-18-7"></a>};
+</code></pre></div>
+<p>这些字段和<a href="http://docs.linuxtone.org/ebooks/C&amp;CPP/c/ch29s02.html#fs.datablock">图 29.6 “根目录的数据块”</a>基本一致。这里的文件名<code>d_name</code>被库函数处理过，已经在结尾加了'\0'，而<a href="http://docs.linuxtone.org/ebooks/C&amp;CPP/c/ch29s02.html#fs.datablock">图 29.6 “根目录的数据块”</a>中的文件名字段不保证是以'\0'结尾的，需要根据前面的文件名长度字段确定文件名到哪里结束。</p>
+<p>下面这个例子出自[<a href="http://docs.linuxtone.org/ebooks/C&amp;CPP/c/bi01.html#bibli.kr">K&amp;R]</a>，作用是递归地打印出一个目录下的所有子目录和文件，类似<code>ls -R</code>。</p>
+<p><strong>例 29.1. 递归列出目录中的文件列表</strong></p>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-19-1" name="__codelineno-19-1" href="#__codelineno-19-1"></a>#include &lt;sys/types.h&gt;
+<a id="__codelineno-19-2" name="__codelineno-19-2" href="#__codelineno-19-2"></a>#include &lt;sys/stat.h&gt;
+<a id="__codelineno-19-3" name="__codelineno-19-3" href="#__codelineno-19-3"></a>#include &lt;unistd.h&gt;
+<a id="__codelineno-19-4" name="__codelineno-19-4" href="#__codelineno-19-4"></a>#include &lt;dirent.h&gt;
+<a id="__codelineno-19-5" name="__codelineno-19-5" href="#__codelineno-19-5"></a>#include &lt;stdio.h&gt;
+<a id="__codelineno-19-6" name="__codelineno-19-6" href="#__codelineno-19-6"></a>#include &lt;string.h&gt;
+<a id="__codelineno-19-7" name="__codelineno-19-7" href="#__codelineno-19-7"></a>
+<a id="__codelineno-19-8" name="__codelineno-19-8" href="#__codelineno-19-8"></a>#define MAX_PATH 1024
+<a id="__codelineno-19-9" name="__codelineno-19-9" href="#__codelineno-19-9"></a>
+<a id="__codelineno-19-10" name="__codelineno-19-10" href="#__codelineno-19-10"></a>/* dirwalk:  apply fcn to all files in dir */
+<a id="__codelineno-19-11" name="__codelineno-19-11" href="#__codelineno-19-11"></a>void dirwalk(char *dir, void (*fcn)(char *))
+<a id="__codelineno-19-12" name="__codelineno-19-12" href="#__codelineno-19-12"></a>{
+<a id="__codelineno-19-13" name="__codelineno-19-13" href="#__codelineno-19-13"></a>    char name[MAX_PATH];
+<a id="__codelineno-19-14" name="__codelineno-19-14" href="#__codelineno-19-14"></a>    struct dirent *dp;
+<a id="__codelineno-19-15" name="__codelineno-19-15" href="#__codelineno-19-15"></a>    DIR *dfd;
+<a id="__codelineno-19-16" name="__codelineno-19-16" href="#__codelineno-19-16"></a>
+<a id="__codelineno-19-17" name="__codelineno-19-17" href="#__codelineno-19-17"></a>    if ((dfd = opendir(dir)) == NULL) {
+<a id="__codelineno-19-18" name="__codelineno-19-18" href="#__codelineno-19-18"></a>        fprintf(stderr, &quot;dirwalk: can&#39;t open %s\n&quot;, dir);
+<a id="__codelineno-19-19" name="__codelineno-19-19" href="#__codelineno-19-19"></a>        return;
+<a id="__codelineno-19-20" name="__codelineno-19-20" href="#__codelineno-19-20"></a>    }
+<a id="__codelineno-19-21" name="__codelineno-19-21" href="#__codelineno-19-21"></a>    while ((dp = readdir(dfd)) != NULL) {
+<a id="__codelineno-19-22" name="__codelineno-19-22" href="#__codelineno-19-22"></a>        if (strcmp(dp-&gt;d_name, &quot;.&quot;) == 0
+<a id="__codelineno-19-23" name="__codelineno-19-23" href="#__codelineno-19-23"></a>            || strcmp(dp-&gt;d_name, &quot;..&quot;) == 0)
+<a id="__codelineno-19-24" name="__codelineno-19-24" href="#__codelineno-19-24"></a>            continue;    /* skip self and parent */
+<a id="__codelineno-19-25" name="__codelineno-19-25" href="#__codelineno-19-25"></a>        if (strlen(dir)+strlen(dp-&gt;d_name)+2 &gt; sizeof(name))
+<a id="__codelineno-19-26" name="__codelineno-19-26" href="#__codelineno-19-26"></a>            fprintf(stderr, &quot;dirwalk: name %s %s too long\n&quot;,
+<a id="__codelineno-19-27" name="__codelineno-19-27" href="#__codelineno-19-27"></a>                dir, dp-&gt;d_name);
+<a id="__codelineno-19-28" name="__codelineno-19-28" href="#__codelineno-19-28"></a>        else {
+<a id="__codelineno-19-29" name="__codelineno-19-29" href="#__codelineno-19-29"></a>            sprintf(name, &quot;%s/%s&quot;, dir, dp-&gt;d_name);
+<a id="__codelineno-19-30" name="__codelineno-19-30" href="#__codelineno-19-30"></a>            (*fcn)(name);
+<a id="__codelineno-19-31" name="__codelineno-19-31" href="#__codelineno-19-31"></a>        }
+<a id="__codelineno-19-32" name="__codelineno-19-32" href="#__codelineno-19-32"></a>    }
+<a id="__codelineno-19-33" name="__codelineno-19-33" href="#__codelineno-19-33"></a>    closedir(dfd);
+<a id="__codelineno-19-34" name="__codelineno-19-34" href="#__codelineno-19-34"></a>}
+<a id="__codelineno-19-35" name="__codelineno-19-35" href="#__codelineno-19-35"></a>
+<a id="__codelineno-19-36" name="__codelineno-19-36" href="#__codelineno-19-36"></a>/* fsize:  print the size and name of file &quot;name&quot; */
+<a id="__codelineno-19-37" name="__codelineno-19-37" href="#__codelineno-19-37"></a>void fsize(char *name)
+<a id="__codelineno-19-38" name="__codelineno-19-38" href="#__codelineno-19-38"></a>{
+<a id="__codelineno-19-39" name="__codelineno-19-39" href="#__codelineno-19-39"></a>    struct stat stbuf;
+<a id="__codelineno-19-40" name="__codelineno-19-40" href="#__codelineno-19-40"></a>
+<a id="__codelineno-19-41" name="__codelineno-19-41" href="#__codelineno-19-41"></a>    if (stat(name, &amp;stbuf) == -1) {
+<a id="__codelineno-19-42" name="__codelineno-19-42" href="#__codelineno-19-42"></a>        fprintf(stderr, &quot;fsize: can&#39;t access %s\n&quot;, name);
+<a id="__codelineno-19-43" name="__codelineno-19-43" href="#__codelineno-19-43"></a>        return;
+<a id="__codelineno-19-44" name="__codelineno-19-44" href="#__codelineno-19-44"></a>    }
+<a id="__codelineno-19-45" name="__codelineno-19-45" href="#__codelineno-19-45"></a>    if ((stbuf.st_mode &amp; S_IFMT) == S_IFDIR)
+<a id="__codelineno-19-46" name="__codelineno-19-46" href="#__codelineno-19-46"></a>        dirwalk(name, fsize);
+<a id="__codelineno-19-47" name="__codelineno-19-47" href="#__codelineno-19-47"></a>    printf(&quot;%8ld %s\n&quot;, stbuf.st_size, name);
+<a id="__codelineno-19-48" name="__codelineno-19-48" href="#__codelineno-19-48"></a>}
+<a id="__codelineno-19-49" name="__codelineno-19-49" href="#__codelineno-19-49"></a>
+<a id="__codelineno-19-50" name="__codelineno-19-50" href="#__codelineno-19-50"></a>int main(int argc, char **argv)
+<a id="__codelineno-19-51" name="__codelineno-19-51" href="#__codelineno-19-51"></a>{
+<a id="__codelineno-19-52" name="__codelineno-19-52" href="#__codelineno-19-52"></a>    if (argc == 1)  /* default: current directory */
+<a id="__codelineno-19-53" name="__codelineno-19-53" href="#__codelineno-19-53"></a>        fsize(&quot;.&quot;);
+<a id="__codelineno-19-54" name="__codelineno-19-54" href="#__codelineno-19-54"></a>    else
+<a id="__codelineno-19-55" name="__codelineno-19-55" href="#__codelineno-19-55"></a>        while (--argc &gt; 0)
+<a id="__codelineno-19-56" name="__codelineno-19-56" href="#__codelineno-19-56"></a>            fsize(*++argv);
+<a id="__codelineno-19-57" name="__codelineno-19-57" href="#__codelineno-19-57"></a>    return 0;
+<a id="__codelineno-19-58" name="__codelineno-19-58" href="#__codelineno-19-58"></a>}
+</code></pre></div>
+<p>然而这个程序还是不如<code>ls -R</code>健壮，它有可能死循环，思考一下什么情况会导致死循环。</p>
+<table>
+<thead>
+<tr>
+<th><a href="http://docs.linuxtone.org/ebooks/C&amp;CPP/c/ch29s01.html">上一页</a></th>
+<th><a href="http://docs.linuxtone.org/ebooks/C&amp;CPP/c/ch29.html">上一级</a></th>
+<th><a href="http://docs.linuxtone.org/ebooks/C&amp;CPP/c/ch29s03.html">下一页</a></th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>引言</td>
+<td><a href="http://docs.linuxtone.org/ebooks/C&amp;CPP/c/index.html">起始页</a></td>
+<td>VFS</td>
+</tr>
+</tbody>
+</table>
+
+              
+            </article>
+            
+  <script>var tabs=__md_get("__tabs");if(Array.isArray(tabs))e:for(var set of document.querySelectorAll(".tabbed-set")){var tab,labels=set.querySelector(".tabbed-labels");for(tab of tabs)for(var label of labels.getElementsByTagName("label"))if(label.innerText.trim()===tab){var input=document.getElementById(label.htmlFor);input.checked=!0;continue e}}</script>
+
+          </div>
+        </div>
+        
+          <a href="#" class="md-top md-icon" data-md-component="top" hidden>
+            <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M13 20h-2V8l-5.5 5.5-1.42-1.42L12 4.16l7.92 7.92-1.42 1.42L13 8v12Z"/></svg>
+            Back to top
+          </a>
+        
+      </main>
+      
+        <footer class="md-footer">
+  
+    
+    <nav class="md-footer__inner md-grid" aria-label="Footer" >
+      
+        
+        <a href="../%E6%96%87%E4%BB%B6%E5%92%8C%E9%93%BE%E6%8E%A5/" class="md-footer__link md-footer__link--prev" aria-label="Previous: 文件和链接" rel="prev">
+          <div class="md-footer__button md-icon">
+            <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M20 11v2H8l5.5 5.5-1.42 1.42L4.16 12l7.92-7.92L13.5 5.5 8 11h12Z"/></svg>
+          </div>
+          <div class="md-footer__title">
+            <div class="md-ellipsis">
+              <span class="md-footer__direction">
+                Previous
+              </span>
+              文件和链接
+            </div>
+          </div>
+        </a>
+      
+      
+        
+        <a href="../Command1/" class="md-footer__link md-footer__link--next" aria-label="Next: Command1" rel="next">
+          <div class="md-footer__title">
+            <div class="md-ellipsis">
+              <span class="md-footer__direction">
+                Next
+              </span>
+              Command1
+            </div>
+          </div>
+          <div class="md-footer__button md-icon">
+            <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M4 11v2h12l-5.5 5.5 1.42 1.42L19.84 12l-7.92-7.92L10.5 5.5 16 11H4Z"/></svg>
+          </div>
+        </a>
+      
+    </nav>
+  
+  <div class="md-footer-meta md-typeset">
+    <div class="md-footer-meta__inner md-grid">
+      <div class="md-copyright">
+  
+    <div class="md-copyright__highlight">
+      Copyright © 2021 [Mr.Boii](https://www.boii.xyz)
+    </div>
+  
+  
+    Made with
+    <a href="https://squidfunk.github.io/mkdocs-material/" target="_blank" rel="noopener">
+      Material for MkDocs
+    </a>
+  
+</div>
+      
+    </div>
+  </div>
+</footer>
+      
+    </div>
+    <div class="md-dialog" data-md-component="dialog">
+      <div class="md-dialog__inner md-typeset"></div>
+    </div>
+    <script id="__config" type="application/json">{"base": "../../..", "features": ["navigation.tabs", "navigation.indexes", "content.code.annotate", "content.tabs.link", "toc.follow", "navigation.top"], "search": "../../../assets/javascripts/workers/search.b97dbffb.min.js", "translations": {"clipboard.copied": "Copied to clipboard", "clipboard.copy": "Copy to clipboard", "search.config.lang": "en", "search.config.pipeline": "trimmer, stopWordFilter", "search.config.separator": "[\\s\\-]+", "search.placeholder": "Search", "search.result.more.one": "1 more on this page", "search.result.more.other": "# more on this page", "search.result.none": "No matching documents", "search.result.one": "1 matching document", "search.result.other": "# matching documents", "search.result.placeholder": "Type to start searching", "search.result.term.missing": "Missing", "select.version.title": "Select version"}}</script>
+    
+    
+      <script src="../../../assets/javascripts/bundle.6c7ad80a.min.js"></script>
+      
+        <script src="../../../_assets/js/mathjax.js"></script>
+      
+        <script src="https://polyfill.io/v3/polyfill.min.js?features=es6"></script>
+      
+        <script src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
+      
+    
+  </body>
+</html>
