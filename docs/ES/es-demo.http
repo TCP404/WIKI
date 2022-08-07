@@ -334,3 +334,21 @@ Content-Type: application/json
     "size": 2,
     "_source": ["id", "title"]
 }
+
+###
+GET {{host}}/product/_search HTTP/1.1
+Content-Type: application/json
+
+{
+    "query": {
+        "bool": {
+            "must": [{"fuzzy": {"description": {"value": "yyds"}}}],
+            "filter": [{"range": {
+                            "create_at": {
+                                "gt": "2022-06-06",
+                                "lt": "2022-06-08"
+                            }
+                        }}]
+        }
+    }
+}

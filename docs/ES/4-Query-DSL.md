@@ -754,6 +754,101 @@ GET /<INDEX_NAME>/_search
 }
 ```
 
+### 过滤查询
+`ES` 的查询操作分为两种：
+
+1. 匹配查询 (query)
+2. 过滤查询 (filter)
+
+匹配查询 query 就是上面的关键词、范围、前缀、通配符、多ID、模糊查询等，这种查询是直接送达 ES 服务的。
+ES 服务会计算每个返回文档的得分，然后根据得分排序。
+
+过滤查询则会先筛选出符合的文档，并不计算得分，然后送达 ES 服务。而且过滤查询还可以缓存起来。所以从性能角度考虑，过滤比匹配更快。
+
+!!! tip
+    过滤查询适合在大范围筛选数据，而匹配查询适合精确匹配数据。一般应用时，应先使用过滤操作过滤数据，然后使用匹配查询匹配数据。
+
+过滤查询必须在布尔查询中。
+
+过滤有 `term`、`terms`、`exists`、`range`、`ids` 几种。
+
+```http
+GET /<INDEX_NAME>/_search
+{
+    "query": {
+        "bool": {
+            "must": [ {...} ],
+            "filter": [ 
+                {
+                    "<term | terms | exists | range | ids>": { ... }
+                } 
+            ]
+        }
+    }
+}
+```
+
+!!! example
+    === "Req"
+        ```http
+        GET {{host}}/product/_search HTTP/1.1
+        Content-Type: application/json
+
+        {
+            "query": {
+                "bool": {
+                    "must": [{"fuzzy": {"description": {"value": "yyds"}}}],
+                    "filter": [{"range": {
+                                    "create_at": {
+                                        "gt": "2022-06-06",
+                                        "lt": "2022-06-08"
+                                    }
+                                }}]
+                }
+            }
+        }
+        ```
+    === "Resp"
+        ```http
+        HTTP/1.1 200 OK
+        content-type: application/json; charset=UTF-8
+        content-encoding: gzip
+        content-length: 252
+
+        {
+            "took": 2,
+            "timed_out": false,
+            "_shards": {
+                "total": 1,
+                "successful": 1,
+                "skipped": 0,
+                "failed": 0
+            },
+            "hits": {
+                "total": {
+                    "value": 1,
+                    "relation": "eq"
+                },
+                "max_score": 1.0700173,
+                "hits": [
+                    {
+                        "_index": "product",
+                        "_type": "_doc",
+                        "_id": "2",
+                        "_score": 1.0700173,
+                        "_source": {
+                            "id": 2,
+                            "title": "Iphone",
+                            "price": 4999.00,
+                            "description": "Iphone just yyds",
+                            "create_at": "2022-06-07"
+                        }
+                    }
+                ]
+            }
+        }
+        ```
+
 ## 其他特性
 
 ### 高亮查询 highlight
@@ -1100,3 +1195,18 @@ GET /<INDEX_NAME>/_search
             }
         }
         ```
+
+
+
+### 去重
+```http
+GET /<INDEX_NAME>/_search
+{
+    "query": {
+        ...
+    }
+    "collapse": {
+        "field": "<FIELD>"
+    }
+}
+```

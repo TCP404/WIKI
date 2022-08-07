@@ -298,7 +298,7 @@ nav:
       - 2-映射基本操作: ES/2-映射基本操作.md
       - 3-文档基本操作: ES/3-文档基本操作.md
       - 4-Query-DSL:  ES/4-Query-DSL.md
-
+      - 5-Script:     ES/5-script.md
 
 
   - TODO: todo.md
