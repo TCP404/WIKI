@@ -299,6 +299,7 @@ nav:
       - 3-文档基本操作: ES/3-文档基本操作.md
       - 4-Query-DSL:  ES/4-Query-DSL.md
       - 5-Script:     ES/5-script.md
+      - 6-聚合分析:    ES/6-聚合分析.md
 
 
   - TODO: todo.md
