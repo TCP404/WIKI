@@ -108,19 +108,19 @@ $0    $1 $2 $3 $4 $5 $6     # 移位后位置参数
 这些变量是由LINUX操作系统本身创建和维护的预定义变量。它们的标准约定是通常以大写字母进行定义。因此，每当看到以大写字母定义的变量时，很可能它们就是系统定义的变量。
 
 
-|    变量    |                     备注                      |
-| --------- | -------------------------------------------- |
-| $SHELL    | 默认shell                                     |
-| $HOME     | 当前用户家目录                                  |
-| $IFS      | 内部字段分隔符                                  |
-| $LANG     | 默认语言                                      |
-| $PATH     | 默认可执行程序路径                              |
-| $PWD      | 当前目录                                      |
-| $UID      | 当前用户ID                                    |
-| $USER     | 当前用户                                      |
+| 变量      | 备注                                               |
+|-----------|--------------------------------------------------|
+| $SHELL    | 默认shell                                          |
+| $HOME     | 当前用户家目录                                     |
+| $IFS      | 内部字段分隔符                                     |
+| $LANG     | 默认语言                                           |
+| $PATH     | 默认可执行程序路径                                 |
+| $PWD      | 当前目录                                           |
+| $UID      | 当前用户ID                                         |
+| $USER     | 当前用户                                           |
 | $HISTSIZE | 历史命令大小，可通过HISTTIMEFO 变量设置命令执行时间 |
-| $RANDOM   | 	随机生成一个 0 至 32767 的整数                 |
-| $HOSTNAME | 主机名                                        |
+| $RANDOM   | 随机生成一个 0 至 32767 的整数                     |
+| $HOSTNAME | 主机名                                             |
 
 
 ### 位置变量
@@ -128,17 +128,17 @@ $0    $1 $2 $3 $4 $5 $6     # 移位后位置参数
 
 ### 特殊变量
 
-| 变量   | 备注                                            |
-| :---- | :--------------------------------------------- |
-| $0    | 脚本自身名字                                     |
-| \$1~\$9 | 第一个到第九个参数                                |
-| $#    | 位置参数 **个数**                                |
-| $*    | 所有位置参数看作 **一整个字符串**                    |
-| $@    | 将参数列表存储为数组，每个位置参数被看作各自 **独立的字符串** |
-|  |  |
-| $$    | 当前进程PID                                     |
-| $!    | 上一条运行后台进程的PID                            |
-| $? | 返回上一条命令是否执行成功.[0成功，非0失败] |
+| 变量    | 备注                                                         |
+|:--------|:-------------------------------------------------------------|
+| $0      | 脚本自身名字                                                 |
+| \$1~\$9 | 第一个到第九个参数                                           |
+| $#      | 位置参数 **个数**                                            |
+| $*      | 所有位置参数看作 **一整个字符串**                            |
+| $@      | 将参数列表存储为数组，每个位置参数被看作各自 **独立的字符串** |
+|         |                                                              |
+| $$      | 当前进程PID                                                  |
+| $!      | 上一条运行后台进程的PID                                      |
+| $?      | 返回上一条命令是否执行成功.[0成功，非0失败]                   |
 
 
 - $@ 的使用
@@ -258,14 +258,14 @@ test 命令用于检查某个条件是否成立，可以进行 **数值、字符
 a=1
 b=2
 
-| 参数   | 说明        | 举栗       | 栗子返回值 |
-| :---- | :--------- | :-------- | -------- |
-| `-eq` | 相等为真     | \$a -eq \$b | 1         |
-| `-ne` | 不等为真     | \$a -ne \$b | 0         |
-| `-gt` | 大于为真     | \$a -gt \$b | 1         |
-| `-ge` | 大于等于为真 | \$a -ge \$b | 1         |
-| `-lt` | 小于为真    | \$a -lt \$b | 0         |
-| `-le` | 小于等于为真 | \$a -le \$b | 0         |
+| 参数  | 说明         | 举栗        | 栗子返回值 |
+|:------|:-----------|:------------|------------|
+| `-eq` | 相等为真     | \$a -eq \$b | 1          |
+| `-ne` | 不等为真     | \$a -ne \$b | 0          |
+| `-gt` | 大于为真     | \$a -gt \$b | 1          |
+| `-ge` | 大于等于为真 | \$a -ge \$b | 1          |
+| `-lt` | 小于为真     | \$a -lt \$b | 0          |
+| `-le` | 小于等于为真 | \$a -le \$b | 0          |
 
 
 !!! note
@@ -301,13 +301,13 @@ s2="xyz"
 
 s3=""
 
-| 参数              | 说明                   | 栗子返回值 |
-| :--------------- | :-------------------- | :------- |
-| [ \$s1 `=` \$s2 ] | 相等为真                | 1         |
-| [ \$s1 `==` \$s2 ] | 与 [ $s1 = $s2 ]  等价 | 1         |
-| [ \$s1 `!=` \$s2 ] | 不等为真                | 0         |
-| [ `-z` \$s3 ]    | 空串为真                | 0         |
-| [ `-n` \$s3 ]    | 非空串为真              | 1         |
+| 参数               | 说明                   | 栗子返回值 |
+|:-------------------|:---------------------|:-----------|
+| [ \$s1 `=` \$s2 ]  | 相等为真               | 1          |
+| [ \$s1 `==` \$s2 ] | 与 [ $s1 = $s2 ]  等价 | 1          |
+| [ \$s1 `!=` \$s2 ] | 不等为真               | 0          |
+| [ `-z` \$s3 ]      | 空串为真               | 0          |
+| [ `-n` \$s3 ]      | 非空串为真             | 1          |
 > 注意这里等号 `=` 两边需要空格，否则就成了赋值操作了
 
 ```bash
@@ -326,35 +326,35 @@ $ ./b.sh
 #### 文件判断
 
 
-| 参数                   | 说明                                                                                        |
-| :-------------------- | :----------------------------------------------------------------------------------------- |
-| **类型判断**           | **类型判断**                                                                                |
-| [ `-a` file ]         | 如果 file **存在**，则为true。                                                                |
-| [ `-e` file ]         | 如果 file **存在**，则为true。                                                                |
-| [ `-b` file ]         | 如果 file 存在并且是一个 **块（设备）文件**，则为true。                                            |
-| [ `-c` file ]         | 如果 file 存在并且是一个 **字符（设备）文件**，则为true。                                           |
-| [ `-d` file ]         | 如果 file 存在并且是一个 **目录**，则为true。                                                    |
-| [ `-f` file ]         | 如果 file 存在并且是一个 **普通文件**，则为true。                                                 |
-| [ `-S` file ]         | 如果 file 存在并且是一个 **网络 socket**，则为true。                                             |
-| [ `-h` file ]         | 如果 file 存在并且是一个 **符号链接**，则为true。                                                 |
-| [ `-L` file ]         | 如果 file 存在并且是一个 **符号链接**，则为true。                                                 |
-| [ `-p` file ]         | 如果 file 存在并且是一个 **命名管道**，则为true。                                                 |
+| 参数                  | 说明                                                                                                   |
+|:----------------------|:-----------------------------------------------------------------------------------------------------|
+| **类型判断**          | **类型判断**                                                                                           |
+| [ `-a` file ]         | 如果 file **存在**，则为true。                                                                           |
+| [ `-e` file ]         | 如果 file **存在**，则为true。                                                                           |
+| [ `-b` file ]         | 如果 file 存在并且是一个 **块（设备）文件**，则为true。                                                    |
+| [ `-c` file ]         | 如果 file 存在并且是一个 **字符（设备）文件**，则为true。                                                  |
+| [ `-d` file ]         | 如果 file 存在并且是一个 **目录**，则为true。                                                            |
+| [ `-f` file ]         | 如果 file 存在并且是一个 **普通文件**，则为true。                                                        |
+| [ `-S` file ]         | 如果 file 存在并且是一个 **网络 socket**，则为true。                                                     |
+| [ `-h` file ]         | 如果 file 存在并且是一个 **符号链接**，则为true。                                                        |
+| [ `-L` file ]         | 如果 file 存在并且是一个 **符号链接**，则为true。                                                        |
+| [ `-p` file ]         | 如果 file 存在并且是一个 **命名管道**，则为true。                                                        |
 | [ `-t` fd ]           | 如果 fd 是一个 **文件描述符**，并且重定向到终端，则为true。 这可以用来判断是否重定向了标准输入／输出／错误。 |
-| **权限判断**           | **类型判断**                                                                                |
-| [ `-r` file ]         | 如果 file 存在并且 **可读**（当前用户有可读权限），则为true。                                       |
-| [ `-w` file ]         | 如果 file 存在并且 **可写**（当前用户拥有可写权限），则为true。                                      |
-| [ `-x` file ]         | 如果 file 存在并且 **可执行**（有效用户有执行／搜索权限），则为true。                                 |
-| **属性判断**           | **属性判断**                                                                                |
-| [ `-g` file ]         | 如果 file 存在并且 **设置了组 ID**，则为true。                                                   |
-| [ `-k` file ]         | 如果 file 存在并且 **设置了它的“sticky bit”**，则为true。                                        |
-| [ `-u` file ]         | 如果 file 存在并且 **设置了 setuid 位**，则为true。                                              |
-| [ `-G` file ]         | 如果 file 存在并且 **属于有效的组 ID**，则为true。                                                |
-| [ `-O` file ]         | 如果 file 存在并且 **属于有效的用户 ID**，则为true。                                              |
-| [ `-s` file ]         | 如果 file 存在且其 **长度大于零**，则为true。                                                    |
-| [ `-N` file ]         | 如果 file 存在并且自上次读取后 **已被修改**，则为true。                                            |
-| [ file1 `-nt` file2 ] | 如果 FILE1 比 FILE2 的更新时间 **更近**，或者 FILE1 存在而 FILE2 不存在，则为true。                 |
-| [ file1 `-ot` file2 ] | 如果 FILE1 比 FILE2 的更新时间 **更旧**，或者 FILE2 存在而 FILE1 不存在，则为true。                 |
-| [ FILE1 `-ef` FILE2 ] | 如果 FILE1 和 FILE2 **引用相同的设备和 inode 编号**，则为true。                                  |
+| **权限判断**          | **类型判断**                                                                                           |
+| [ `-r` file ]         | 如果 file 存在并且 **可读**（当前用户有可读权限），则为true。                                              |
+| [ `-w` file ]         | 如果 file 存在并且 **可写**（当前用户拥有可写权限），则为true。                                            |
+| [ `-x` file ]         | 如果 file 存在并且 **可执行**（有效用户有执行／搜索权限），则为true。                                       |
+| **属性判断**          | **属性判断**                                                                                           |
+| [ `-g` file ]         | 如果 file 存在并且 **设置了组 ID**，则为true。                                                           |
+| [ `-k` file ]         | 如果 file 存在并且 **设置了它的“sticky bit”**，则为true。                                                |
+| [ `-u` file ]         | 如果 file 存在并且 **设置了 setuid 位**，则为true。                                                      |
+| [ `-G` file ]         | 如果 file 存在并且 **属于有效的组 ID**，则为true。                                                       |
+| [ `-O` file ]         | 如果 file 存在并且 **属于有效的用户 ID**，则为true。                                                     |
+| [ `-s` file ]         | 如果 file 存在且其 **长度大于零**，则为true。                                                            |
+| [ `-N` file ]         | 如果 file 存在并且自上次读取后 **已被修改**，则为true。                                                  |
+| [ file1 `-nt` file2 ] | 如果 FILE1 比 FILE2 的更新时间 **更近**，或者 FILE1 存在而 FILE2 不存在，则为true。                       |
+| [ file1 `-ot` file2 ] | 如果 FILE1 比 FILE2 的更新时间 **更旧**，或者 FILE2 存在而 FILE1 不存在，则为true。                       |
+| [ FILE1 `-ef` FILE2 ] | 如果 FILE1 和 FILE2 **引用相同的设备和 inode 编号**，则为true。                                          |
 
 
 
@@ -370,165 +370,171 @@ $ ./b.sh
 
 #### for 循环
 
-1. 
+第一种：
+
+```shell
+for var
+do
+    commands
+done
+```
+
+第二种
+
+```shell
+for var in list
+do
+    commands
+done
+```
+
+!!! example
+
     ```shell
-    for var
+    learn="Hello Shell, I am Boii"
+    for word in $learn
     do
-        commands
+        echo $word
     done
+    
+    # Output
+    Hello
+    Shell,
+    I
+    am
+    Boii
     ```
 
-2. 
+第三种
+
+```shell
+for num in {1..n}
+do
+    commands
+done
+```
+
+!!! example
+
     ```shell
-    for var in list
+    for num in {1..5}
     do
-        commands
+        echo $num
     done
+    
+    # Output
+    1
+    2
+    3
+    4
+    5
     ```
 
-    !!! example
+第四种
 
-        ```shell
-        learn="Hello Shell, I am Boii"
-        for word in $learn
-        do
-            echo $word
-        done
-        
-        # Output
-        Hello
-        Shell,
-        I
-        am
-        Boii
-        ```
+```shell
+for var in {START..END..STEP}
+do
+    commands
+done
+```
 
-3. 
+!!! example
+
     ```shell
-    for num in {1..n}
+    for num in {1..10..2}
     do
-        commands
+        echo $num
     done
+    
+    # Output
+    1
+    3
+    5
+    7
+    9
     ```
 
-    !!! example
+第五种
 
-        ```shell
-        for num in {1..5}
-        do
-            echo $num
-        done
-        
-        # Output
-        1
-        2
-        3
-        4
-        5
-        ```
+```shell
+for (( expression1; expression2; expression3 ))
+do
+    commands
+done
+```
 
-4. 
+!!! example
+
     ```shell
-    for var in {START..END..STEP}
+    for (( i=1; i<6; i++ ))
     do
-        commands
+        echo $i
     done
+    
+    # Output
+    1
+    2
+    3
+    4
+    5
+    6
     ```
 
-    !!! example
+第六种，无限循环
 
-        ```shell
-        for num in {1..10..2}
-        do
-            echo $num
-        done
-        
-        # Output
-        1
-        3
-        5
-        7
-        9
-        ```
+```shell
+for ((;;))
+do
+    commands
+done
+```
 
-5. 
-    ```shell
-    for (( expression1; expression2; expression3 ))
-    do
-        commands
-    done
-    ```
+!!! example
 
-    !!! example
-
-        ```shell
-        for (( i=1; i<6; i++ ))
-        do
-            echo $i
-        done
-        
-        # Output
-        1
-        2
-        3
-        4
-        5
-        6
-        ```
-
-6. 
     ```shell
     for ((;;))
     do
-        commands
+        echo "infinite loop"
     done
     ```
 
-    !!! example
-
-        ```shell
-        for ((;;))
-        do
-            echo "infinite loop"
-        done
-        ```
-
     
 
-7. 按空格分割读取字符串
+第七种，按空格分割读取字符串
 
-    ```shell
-    str="Let's start
-    talk about sth."
-    
-    for i in $str
-    do
-        echo $i
-    done
-    
-    #Output
-    Let's
-    start
-    talk
-    about
-    sth.
-    ```
+```shell
+str="Let's start
+talk about sth."
 
-8. 按换行分割读取字符串
+for i in $str
+do
+    echo $i
+done
 
-    ```shell
-    str="Let's start
-    talk about sth."
-    
-    for i in "$str"
-    do
-        echo $i
-    done
-    
-    #Output
-    Let's start
-    talk about sth.
-    ```
+#Output
+Let's
+start
+talk
+about
+sth.
+```
+
+第八种，按换行分割读取字符串
+
+```shell
+str="Let's start
+talk about sth."
+
+for i in "$str"
+do
+    echo $i
+done
+
+#Output
+Let's start
+talk about sth.
+```
 
 ##### 彩色打印
 
