@@ -558,7 +558,7 @@ done
 
 当 condition 为真时，执行 commands
 
-1. 
+1. 基本样式
     ```shell
     while condition
     do
@@ -589,7 +589,7 @@ done
         done
         ```
 
-2. 
+2. 无限循环
     ```shell
     while :
     do
@@ -630,7 +630,7 @@ done
         while :; do echo "Hello, Boii"; sleep 1s; done
         ```
 
-3. 
+3. 带条件
     ```shell
     while ((condition))
     do
@@ -653,7 +653,7 @@ done
 
 当 condition 为假时，执行 commands
 
-1. 
+1. 基本样式
     ```shell
     until condition
     do
@@ -684,7 +684,7 @@ done
 
     
 
-2. 
+2. 带条件
     ```shell
     until (( condition ))
     do
