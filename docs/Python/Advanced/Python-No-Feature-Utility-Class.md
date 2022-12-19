@@ -7,7 +7,6 @@ categories:
   - Python
   - 高级特性
 thumbnail: 'https://blogpicure.oss-cn-shenzhen.aliyuncs.com/blog/thumbnail/python.png'
-abbrlink: 18591
 date: 2020-07-24 13:17:48
 ---
 

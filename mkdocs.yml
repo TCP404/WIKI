@@ -198,13 +198,15 @@ nav:
 
   - Rust:
       - Basic:
-          - 0-Hello: Rust/Basic/0-Hello.md
-          - 1-变量:  Rust/Basic/1-变量.md
-          - 2-数据类型: Rust/Basic/2-数据类型.md
-          - 3-函数: Rust/Basic/3-函数.md
-          - 4-流程控制: Rust/Basic/4-流程控制.md
-          - 5-所有权: Rust/Basic/5-所有权.md
-          - 6-结构体: Rust/Basic/6-结构体.md
+          - "0-Hello": Rust/Basic/0-Hello.md
+          - "1-变量":  Rust/Basic/1-变量.md
+          - "2-数据类型": 
+              - "2.1-数据类型": Rust/Basic/2.1-数据类型.md
+              - "2.2-字符串": Rust/Basic/2.2-字符串.md
+          - "3-函数": Rust/Basic/3-函数.md
+          - "4-流程控制": Rust/Basic/4-流程控制.md
+          - "5-所有权": Rust/Basic/5-所有权.md
+          - "6-结构体": Rust/Basic/6-结构体.md
 
   - Python:
       - Basic:

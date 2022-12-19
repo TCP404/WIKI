@@ -6,7 +6,6 @@ categories:
   - 进阶
   - 进程、线程
 thumbnail: 'https://blogpicure.oss-cn-shenzhen.aliyuncs.com/blog/thumbnail/python.png'
-abbrlink: 34736
 date: 2020-07-18 13:41:48
 ---
 
