@@ -6,7 +6,7 @@ repo_name:     GitHub
 remote_branch: gh-pages
 remote_name:   origin
 dev_addr:      127.0.0.1:8000
-copyright:     Copyright © 2021 [Mr.Boii](https://www.boii.xyz)
+copyright:     Copyright © 2023 [Mr.Boii](https://www.boii.xyz)
 
 theme:
   name: material # pip install mkdocs-material
