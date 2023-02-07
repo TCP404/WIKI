@@ -237,7 +237,7 @@ hello!
 
 想要带参很简单。
 
-{% codeblock lang:python line_number:true mark:9,11 %}
+```python
 import time
 
 
@@ -262,7 +262,7 @@ cal_time(add)(1, 2)
 # Output:
 3
 耗时：0.00800633430480957
-{% endcodeblock %}
+```
 
 
 #### 接收的函数有返回值
