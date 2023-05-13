@@ -150,6 +150,7 @@ nav:
           - 反射:     Go/Advanced/Golang-19-reflect.md
           - GPM:     Go/Advanced/Golang-GPM模型.md
           - 坑:      Go/Advanced/Golang-go并发的坑.md
+          - 并发模型: Go/Advanced/Golang-并发模型.md
       - Gin:
           - Get start: Go/Framework/gin/Gin-0-Get-Start.md
           - 返回数据:  Go/Framework/gin/Gin-1-返回数据.md
