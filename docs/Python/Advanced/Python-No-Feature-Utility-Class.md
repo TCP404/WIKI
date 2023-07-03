@@ -14,6 +14,8 @@ Python的高级特性3
 
 <!--more-->
 
+
+![map-reduce](https://blogpicure.oss-cn-shenzhen.aliyuncs.com/blog/illustration-pic/Py/map-reduce.png)
 ## map
 将传入的函数作用于可迭代对象的每一个元素上
 
