@@ -343,7 +343,7 @@ g3.join()
 写了三个join
 不如给他来个一次性
 
-> `gevent.joinall(spawn_list, timeout=None, raise_error=False, count=None)`
+`#!py gevent.joinall(spawn_list, timeout=None, raise_error=False, count=None)`
 
 ```python
 import time
