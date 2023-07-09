@@ -132,8 +132,10 @@ gr1.switch
 
 ## 使用 gevent 实现并发
 
+```python
 > `import gevent`
 > `gevent.spawn(funcName, args)`
+```
 
 先看看没有阻塞操作的时候：
 ```python
