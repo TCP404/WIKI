@@ -266,8 +266,11 @@ if __name__ == '__main__':
 这就带来一个问题：如果我的代码是开发完了才加入了 gevent ，那岂不是要把很多地方手动改到 gevent 能接受。还好 gevent 提供了一个补丁
 
 ### gevent 补丁
+
 > `from gevent import monkey`
+
 > `monkey.patch_all()`
+
 > 一定要写在最上方
 
 ```python
