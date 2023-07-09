@@ -138,7 +138,7 @@ gr1.switch
 ```
 
 先看看没有阻塞操作的时候：
-```python
+```python hl_lines="1 20 21 22"
 # 没有阻塞
 import gevent
 
@@ -273,12 +273,12 @@ if __name__ == '__main__':
 
 > 一定要写在最上方
 
-```python
+```python hl_lines="3 5"
 import time
 import gevent
 from gevent import monkey
 
-monkey.patch_all()    # 打补丁
+monkey.patch_all()    # 打补丁, 一定要写在最上方
 
 
 def task_1(n):
