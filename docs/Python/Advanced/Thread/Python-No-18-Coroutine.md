@@ -87,11 +87,9 @@ if __name__ == '__main__':
 
 ## 使用 greenlet 实现并发
 
-```shell
-> pip install greenlet
-```
+\>_: `pip install greenlet`
 
-```python
+```python hl_lines="1 7 14 17 18 21"
 from greenlet import greenlet
 import time
 
@@ -133,12 +131,12 @@ gr1.switch
 ## 使用 gevent 实现并发
 
 ```python
-> `import gevent`
-> `gevent.spawn(funcName, args)`
+import gevent
+gevent.spawn(funcName, args)
 ```
 
 先看看没有阻塞操作的时候：
-```python hl_lines="1 20 21 22"
+```python hl_lines="2 21 22 23"
 # 没有阻塞
 import gevent
 
@@ -267,12 +265,6 @@ if __name__ == '__main__':
 
 ### gevent 补丁
 
-> `from gevent import monkey`
-
-> `monkey.patch_all()`
-
-> 一定要写在最上方
-
 ```python hl_lines="3 5"
 import time
 import gevent
@@ -340,12 +332,11 @@ g1.join()
 g2.join()
 g3.join()
 
-写了三个join
-不如给他来个一次性
+写了三个join, 不如给他来个一次性: 
 
-`#!py gevent.joinall(spawn_list, timeout=None, raise_error=False, count=None)`
+`#!py3 gevent.joinall(spawn_list, timeout=None, raise_error=False, count=None)`
 
-```python
+```python hl_lines="28 29 30 31 32"
 import time
 import gevent
 from gevent import monkey

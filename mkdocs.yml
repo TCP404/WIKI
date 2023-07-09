@@ -93,7 +93,11 @@ markdown_extensions:
   - pymdownx.inlinehilite
   - pymdownx.snippets
   - pymdownx.highlight:
+      linenums: true
       anchor_linenums: true
+      use_pygments: true
+      pygments_lang_class: true
+
   - codehilite:
       guess_lang: false
       linenums: true
