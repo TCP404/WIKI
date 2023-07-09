@@ -15,7 +15,7 @@ date: 2020-07-19 14:41:48
 
 !!! note
     **线程** 是系统级别的，由操作系统调度
-    
+
     **协程** 是程序级别的，由程序根据需要自己调度
 
 协程可以想象成线程里的线程，也就是将一个线程里多个任务分拆给多个协程。
@@ -87,7 +87,9 @@ if __name__ == '__main__':
 
 ## 使用 greenlet 实现并发
 
-\>_: pip install greenlet
+```shell
+> pip install greenlet
+```
 
 ```python
 from greenlet import greenlet
