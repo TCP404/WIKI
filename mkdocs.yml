@@ -50,6 +50,7 @@ theme:
     - content.tabs.link
     - toc.follow
     - navigation.top
+    - content.tooltips
 
 markdown_extensions:
   - pymdownx.superfences:
@@ -57,7 +58,7 @@ markdown_extensions:
         - name: mermaid
           class: mermaid
           format: !!python/name:pymdownx.superfences.fence_code_format
-
+  - meta
   - attr_list
   - md_in_html
   - abbr                  # 名词解释支持，Ref：https://squidfunk.github.io/mkdocs-material/reference/abbreviations/
@@ -69,7 +70,8 @@ markdown_extensions:
   # 引用块美化，Ref：https://squidfunk.github.io/mkdocs-material/reference/admonitions/
   - admonition
   - pymdownx.details
-
+  - pymdownx.snippets
+  - pymdownx.superfences
   - pymdownx.betterem:  # 智能识别加粗和斜体等符号
       smart_enable: all # [all 全部开| none 全部关| asterisk 仅对星号起作用| underscore 仅对下划线起作用]
 
@@ -104,8 +106,8 @@ markdown_extensions:
 
   # emoji 支持
   - pymdownx.emoji:
-      emoji_index: !!python/name:materialx.emoji.twemoji
-      emoji_generator: !!python/name:materialx.emoji.to_svg
+      emoji_index: !!python/name:material.extensions.emoji.twemoji
+      emoji_generator: !!python/name:material.extensions.emoji.to_svg
 
   # 列表支持，Ref：https://squidfunk.github.io/mkdocs-material/reference/lists/
   - def_list
@@ -123,8 +125,9 @@ extra_javascript:
 
 
 nav:
-  - Home: index.md
-  - Golang:
+  - "Home": index.md
+  
+  - "Golang":
       - Basic:
           - 0.总叙:        Go/Basic/Golang-0-总叙.md
           - 1.基础:        Go/Basic/Golang-1-基础.md
@@ -201,7 +204,7 @@ nav:
           - 9-实现抽象类: Go/nil/Golang-nil-9-实现抽象类.md
           - 10-反射: Go/nil/Golang-nil-10-反射.md
 
-  - Rust:
+  - "Rust":
       - Basic:
           - "0-Hello": Rust/Basic/0-Hello.md
           - "1-变量":  Rust/Basic/1-变量.md
@@ -213,7 +216,7 @@ nav:
           - "5-所有权": Rust/Basic/5-所有权.md
           - "6-结构体": Rust/Basic/6-结构体.md
 
-  - Python:
+  - "Python":
       - Basic:
           - 总叙:       Python/Basic/Python-No-1-Abstract.md
           - 基础:       Python/Basic/Python-No-2-Basic.md
@@ -251,7 +254,7 @@ nav:
           - 通用爬虫: Python/Crawler/Python-Crawler-1-General-Crawler.md
           - 聚焦爬虫: Python/Crawler/Python-Crawler-2-Focused-Crawler.md
 
-  - Linux:
+  - "Linux":
       - Basic:
           - 进程:       Linux/Basic/进程.md
           - 文件和链接: Linux/Basic/文件和链接.md
@@ -265,7 +268,7 @@ nav:
           - 3-表达式:             Linux/Shell/Shell-3-表达式.md
           - 4-字符串处理:         Linux/Shell/Shell-4-字符串处理.md
 
-  - Redis:
+  - "Redis":
       - Get Start:   Redis/1-Get-Start.md
       - Type:
         - String: Redis/2-1-type-string.md
@@ -276,17 +279,23 @@ nav:
       - Persistence: Redis/3-persistence.md
       - Transaction: Redis/4-transaction.md
 
-  - MongoDB:
+  - "MongoDB":
       - 0-Hello: Mongo/0-Hello.md
       - 1-文档:   Mongo/1-文档.md
 
-  - MySQL:
+  - "MySQL":
       - 0-Hello:  MySQL/0-Hello.md
       - 1-数据类型: MySQL/1-数据类型.md
       - 2-SQL:    MySQL/2-SQL.md
       - 3-索引:   MySQL/3-索引.md
+      - 4-explain: MySQL/4-explain.md
+      - 5-事务:   MySQL/5-事务.md
+      - 6-锁:     MySQL/6-锁.md
+      - 7-日志:   MySQL/7-日志.md
+      - 存储结构:  MySQL/存储结构.md
+      - 执行过程:  MySQL/执行过程.md
 
-  - 408:
+  - "408":
       - 数据结构:
           - 0-绪论:         408/DataStructure/0-绪论.md
           - 1-算法:         408/DataStructure/1-算法.md
@@ -299,7 +308,7 @@ nav:
           - 8-图的存储结构: 408/DataStructure/8-图2.md
           - 9-图的算法:     408/DataStructure/9-图3.md
 
-  - ES:
+  - "ES":
       - 0-Hello: ES/0-Hello.md
       - 1-索引基本操作: ES/1-索引基本操作.md
       - 2-映射基本操作: ES/2-映射基本操作.md
@@ -308,5 +317,16 @@ nav:
       - 5-Script:     ES/5-script.md
       - 6-聚合分析:    ES/6-聚合分析.md
 
+  - 分布式:
+      - 0-Hello: Distributed/0-Hello.md
+      # - 1-分布式事务: Distributed/1-分布式事务.md
+      # - 2-分布式锁:   Distributed/2-分布式锁.md
+      # - 3-分布式缓存: Distributed/3-分布式缓存.md
+      # - 4-分布式消息队列: Distributed/4-分布式消息队列.md
+      # - 5-分布式搜索引擎: Distributed/5-分布式搜索引擎.md
+      # - 6-分布式文件系统: Distributed/6-分布式文件系统.md
+      # - 7-分布式存储: Distributed/7-分布式存储.md
+      # - 8-分布式计算: Distributed/8-分布式计算.md
+      # - 9-分布式调度: Distributed/9-分布式调度.md
 
   - TODO: todo.md

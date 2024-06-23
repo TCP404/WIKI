@@ -1,6 +1,5 @@
 ---
 title: Python【No-17】线程
-tags: Python
 categories:
   - Python
   - 进阶

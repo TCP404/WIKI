@@ -1,7 +1,7 @@
 ---
-title: Python【No-16】进程
-tags: Python
-categories:
+Title: Python【No-16】进程
+
+Categories:
   - Python
   - 进阶
   - 进程、线程
@@ -47,6 +47,7 @@ date: 2020-07-17 12:41:48
 3. 通过 Process 对象启动线程
 
 创建一个 Process对象的时候可以传入参数
+
 `multiprocessing.Process(group=None, target=None, name=None, args=(), kwargs={}, *, daemon=None)`
 
 - 应始终使用关键字参数调用构造函数。

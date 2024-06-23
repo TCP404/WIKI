@@ -1,6 +1,5 @@
 ---
 title: Python【No-18】协程
-tags: Python
 categories:
   - Python
   - 进阶
