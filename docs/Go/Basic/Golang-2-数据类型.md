@@ -380,7 +380,7 @@ var i int = 10
 var f float32 = float32(i)
 ```
 
-详见[类型转换](/wiki/Go/Basic/Golang-类型转换.md)
+详见[类型转换](./Golang-类型转换.md)
 
 ## 类型大小
 
