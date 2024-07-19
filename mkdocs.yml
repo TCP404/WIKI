@@ -128,7 +128,7 @@ markdown_extensions:
 
 plugins:
   - search # necessary for search to work
-    # - git-revision-date-localized
+  # - git-revision-date-localized
   - glightbox:
       touchNavigation: true
       loop: false
@@ -145,7 +145,12 @@ plugins:
       background: white
       shadow: true
       manual: false
-
+  - encryptcontent:
+      title_prefix: ' '
+      password_file: 'passwords.yml' # file with password inventory
+      password_button: True
+      input_class: 'w3-input' # CSS class used for input username and password
+      button_class: 'w3-button w3-theme-l1 w3-hover-theme' # CSS class for password_button
 
 extra_css:
   - _assets/css/extra.css
@@ -162,7 +167,7 @@ extra_javascript:
 
 nav:
   - "Home": index.md
-  
+
   - "Golang":
       - Basic:
           - 0.总叙:        Go/Basic/Golang-0-总叙.md
@@ -364,3 +369,6 @@ nav:
       # - 7-分布式存储: Distributed/7-分布式存储.md
       # - 8-分布式计算: Distributed/8-分布式计算.md
       # - 9-分布式调度: Distributed/9-分布式调度.md
+
+  - Other:
+      - Example: example.md
