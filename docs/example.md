@@ -7,7 +7,7 @@ level: confidential
     From: [shafish-Mkdocs Material使用记录](https://shafish.cn/blog/mkdocs/)
 # Mkdocs Material使用记录
 
-[Back](index.md/#2021年文章导航){ .md-button}
+[Back](http://123.com/这里填一个链接或者路径){ .md-button}
 
 ## 一、markdown使用
 
