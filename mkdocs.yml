@@ -367,6 +367,7 @@ nav:
 
   - 分布式:
       - 0-Hello: Distributed/0-Hello.md
+      - 1-分布式算法: Distributed/1-分布式算法.md
       # - 1-分布式事务: Distributed/1-分布式事务.md
       # - 2-分布式锁:   Distributed/2-分布式锁.md
       # - 3-分布式缓存: Distributed/3-分布式缓存.md
