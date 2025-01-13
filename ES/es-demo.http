@@ -1,0 +1,354 @@
+@host = http://120.79.135.172:9200
+
+# 查看所有索引
+GET {{host}}/_cat/indices HTTP/1.1
+
+###
+# 查看所有索引，带title
+GET {{host}}/_cat/indices?v HTTP/1.1
+
+###
+# 查看指定索引
+GET {{host}}/product2 HTTP/1.1
+
+###
+# 查看指定索引的设置
+GET {{host}}/product2/_settings HTTP/1.1
+
+###
+# 查看指定索引的mappings
+GET {{host}}/product/_mappings HTTP/1.1
+
+# ==============================================================================
+
+###
+# 创建索引
+PUT {{host}}/product1
+
+### 
+# 创建索引，带上配置
+PUT {{host}}/product2 HTTP/1.1
+content-type: application/json
+
+{
+    "settings": {
+        "number_of_shards": 1,
+        "number_of_replicas": 0
+    }
+}
+
+###
+# 删除索引
+DELETE {{host}}/product HTTP/1.1
+
+
+###
+# 创建mapping
+PUT {{host}}/product HTTP/1.1
+Content-Type: application/json
+
+{
+    "settings": {
+        "number_of_shards": 1,
+        "number_of_replicas": 0
+    },
+    "mappings": {
+        "properties": {
+            "id": { "type": "integer" },
+            "title": { "type": "keyword" },
+            "price": { "type": "double" },
+            "description": { "type": "text" },
+            "create_at": { "type": "date" }
+        }
+    }
+}
+
+# ==============================================================================
+###
+# 添加文档,自动生成ID
+POST {{host}}/product/_doc HTTP/1.1
+Content-Type: application/json
+
+{
+    "title": "IPhone 12",
+    "price": 8999.99,
+    "description": "balabala",
+    "create_at": "2022-07-17"
+}
+
+###
+# 添加文档，指定ID
+POST {{host}}/product/_create/3 HTTP/1.1
+Content-Type: application/json
+
+{
+    "title": "IPhone 11",
+    "price": 7999.99,
+    "description": "balabala11",
+    "create_at": "2022-07-19"
+}
+
+###
+# 基于ID查询文档
+GET {{host}}/product/_doc/2 HTTP/1.1
+
+###
+# 更新文档，全量更新的方式
+PUT {{host}}/product/_doc/2 HTTP/1.1
+Content-Type: application/json
+
+{
+    "title": "IPhone 20"
+}
+
+###
+# 更新文档，增量更新的方式
+POST {{host}}/product/_update/2 HTTP/1.1
+Content-Type: application/json
+
+{
+    "doc": {
+        "title": "IPhone 20"
+    }
+}
+
+###
+# 删除文档
+DELETE {{host}}/product/_doc/2 HTTP/1.1
+
+# ==============================================================================
+
+###
+# 文档批量创建
+POST {{host}}/product/_bulk HTTP/1.1
+Content-Type: application/json
+
+< req.json
+
+# ==============================================================================
+
+###
+# 查询所有
+GET {{host}}/product/_search HTTP/1.1
+Content-Type: application/json
+
+{
+    "query": {
+        "match_all": {}
+    }
+}
+
+###
+# 关键词查询
+GET {{host}}/product/_search HTTP/1.1
+Content-Type: application/json
+
+{
+    "query": {
+        "term": {
+            "title": {
+                "value": "Iphone"
+            }
+        }
+    }
+}
+
+###
+# 范围查询
+GET {{host}}/product/_search HTTP/1.1
+Content-Type: application/json
+
+{
+    "query": {
+        "range": {
+            "price": {
+                "gt": 1000,
+                "lt": 5000
+            }
+        }
+    }
+}
+
+###
+# 前缀查询
+GET {{host}}/product/_search HTTP/1.1
+Content-Type: application/json
+
+{
+    "query": {
+        "prefix": {
+            "title": {
+                "value": "Ip"
+            }
+        }
+    }
+}
+
+###
+# 通配符查询 ？ 匹配一个任意字符，* 匹配多个任意字符
+GET {{host}}/product/_search HTTP/1.1
+Content-Type: application/json
+
+{
+    "query": {
+        "wildcard": {
+            "title": {
+                "value": "An*"
+            }
+        }
+    }
+}
+
+###
+# 多ID查询
+GET {{host}}/product/_search HTTP/1.1
+Content-Type: application/json
+
+{
+    "query": {
+        "ids": {
+            "values": ["1", "2", "3"]
+        }
+    }
+}
+
+
+
+###
+# 模糊查询
+GET {{host}}/product/_search HTTP/1.1
+Content-Type: application/json
+
+{
+    "query": {
+        "fuzzy": {
+            "description": "Iphone"
+        }
+    }
+}
+
+
+###
+# 布尔查询
+GET {{host}}/product/_search HTTP/1.1
+Content-Type: application/json
+
+{
+    "query": {
+        "bool": {
+            "must": [
+                {
+                    "range": {
+                        "price": {
+                            "gt": 4999,
+                            "lt": 10000
+                        }
+                    }
+                }, {
+                    "prefix": {
+                        "title": {
+                            "value": "Iph"
+                        }
+                    }
+                }
+            ]
+        }
+    }
+}
+
+# ==============================================================================
+
+###
+# 多字段查询
+GET {{host}}/product/_search HTTP/1.1
+Content-Type: application/json
+
+{
+    "query": {
+        "multi_match": {
+            "query": "五分钟",
+            "fields": [ "title", "description" ]
+        }
+    },
+    "highlight": {
+        "fields": {
+            "*": {}
+        }
+    }
+}
+
+# ==============================================================================
+
+###
+# 高亮查询
+GET {{host}}/product/_search HTTP/1.1
+Content-Type: application/json
+
+{
+    "query": {
+        "fuzzy": {
+            "description": "Iphone"
+        }
+    },
+    "highlight": {
+        "fields": { "*": {} },
+        "pre_tags": ["<span style='color:red;'>"],
+        "post_tags": ["</span>"]
+    }
+}
+
+###
+# 分页查询
+GET {{host}}/product/_search HTTP/1.1
+Content-Type: application/json
+
+{
+    "query": {
+        "match_all": {}
+    },
+    "from": 2,
+    "size": 10
+}
+
+###
+# 排序
+GET {{host}}/product/_search HTTP/1.1
+Content-Type: application/json
+
+{
+    "query": {
+        "match_all": {}
+    },
+    "sort": { "price": "desc" }
+}
+
+###
+# 指定返回字段
+GET {{host}}/product/_search HTTP/1.1
+Content-Type: application/json
+
+{
+    "query": {
+        "match_all": {}
+    },
+    "size": 2,
+    "_source": ["id", "title"]
+}
+
+###
+GET {{host}}/product/_search HTTP/1.1
+Content-Type: application/json
+
+{
+    "query": {
+        "bool": {
+            "must": [{"fuzzy": {"description": {"value": "yyds"}}}],
+            "filter": [{"range": {
+                            "create_at": {
+                                "gt": "2022-06-06",
+                                "lt": "2022-06-08"
+                            }
+                        }}]
+        }
+    }
+}
