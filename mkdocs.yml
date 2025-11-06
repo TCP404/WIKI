@@ -171,6 +171,9 @@ extra_javascript:
   - _assets/js/glightbox.min.js
   - _assets/js/shortcuts.js
 
+watch:
+  - docs
+  - mkdocs.yml
 
 nav:
   - "Home": index.md
@@ -303,20 +306,21 @@ nav:
           - 聚焦爬虫: Python/Crawler/Python-Crawler-2-Focused-Crawler.md
 
   - "Linux":
-      - Basic:
-          - 进程:       Linux/Basic/进程.md
-          - 文件和链接: Linux/Basic/文件和链接.md
-          - 文件系统:   Linux/Basic/文件系统.md
-          - Command1:   Linux/Basic/Command1.md
-          - Command2:   Linux/Basic/Command2.md
-          - 1.md:       Linux/Basic/1.md
-      - Shell:
-          - 1-基本语法:           Linux/Shell/Shell-1-基本语法.md
-          - 2-函数、数组、重定向: Linux/Shell/Shell-2-函数、数组、重定向.md
-          - 3-表达式:             Linux/Shell/Shell-3-表达式.md
-          - 4-字符串处理:         Linux/Shell/Shell-4-字符串处理.md
+    - Basic:
+        - 进程:       Linux/Basic/进程.md
+        - 文件和链接: Linux/Basic/文件和链接.md
+        - 文件系统:   Linux/Basic/文件系统.md
+        - Command1:   Linux/Basic/Command1.md
+        - Command2:   Linux/Basic/Command2.md
+        - 1.md:       Linux/Basic/1.md
+    - Shell:
+        - 1-基本语法:           Linux/Shell/Shell-1-基本语法.md
+        - 2-函数、数组、重定向: Linux/Shell/Shell-2-函数、数组、重定向.md
+        - 3-表达式:             Linux/Shell/Shell-3-表达式.md
+        - 4-字符串处理:         Linux/Shell/Shell-4-字符串处理.md
 
-  - "Redis":
+  - "Storage":
+    - "Redis":
       - Get Start:   Redis/1-Get-Start.md
       - Type:
         - String: Redis/2-1-type-string.md
@@ -327,11 +331,11 @@ nav:
       - Persistence: Redis/3-persistence.md
       - Transaction: Redis/4-transaction.md
 
-  - "MongoDB":
+    - "MongoDB":
       - 0-Hello: Mongo/0-Hello.md
       - 1-文档:   Mongo/1-文档.md
 
-  - "MySQL":
+    - "MySQL":
       - 0-Hello:  MySQL/0-Hello.md
       - 1-数据类型: MySQL/1-数据类型.md
       - 2-SQL:    MySQL/2-SQL.md
@@ -342,21 +346,7 @@ nav:
       - 7-日志:   MySQL/7-日志.md
       - 存储结构:  MySQL/存储结构.md
       - 执行过程:  MySQL/执行过程.md
-
-  - "408":
-      - 数据结构:
-          - 0-绪论:         408/DataStructure/0-绪论.md
-          - 1-算法:         408/DataStructure/1-算法.md
-          - 2-线性表:       408/DataStructure/2-线性表.md
-          - 3-栈:           408/DataStructure/3-栈.md
-          - 4-队列:         408/DataStructure/4-队列.md
-          - 5-串:           408/DataStructure/5-串.md
-          - 6-树:           408/DataStructure/6-树.md
-          - 7-图:           408/DataStructure/7-图1.md
-          - 8-图的存储结构: 408/DataStructure/8-图2.md
-          - 9-图的算法:     408/DataStructure/9-图3.md
-
-  - "ES":
+    - "ES":
       - 0-Hello: ES/0-Hello.md
       - 1-索引基本操作: ES/1-索引基本操作.md
       - 2-映射基本操作: ES/2-映射基本操作.md
@@ -364,6 +354,22 @@ nav:
       - 4-Query-DSL:  ES/4-Query-DSL.md
       - 5-Script:     ES/5-script.md
       - 6-聚合分析:    ES/6-聚合分析.md
+
+  - "408":
+    - 数据结构:
+      - 0-绪论:         408/DataStructure/0-绪论.md
+      - 1-算法:         408/DataStructure/1-算法.md
+      - 2-线性表:       408/DataStructure/2-线性表.md
+      - 3-栈:           408/DataStructure/3-栈.md
+      - 4-队列:         408/DataStructure/4-队列.md
+      - 5-串:           408/DataStructure/5-串.md
+      - 6-树:           408/DataStructure/6-树.md
+      - 7-图:           408/DataStructure/7-图1.md
+      - 8-图的存储结构: 408/DataStructure/8-图2.md
+      - 9-图的算法:     408/DataStructure/9-图3.md
+    - 网络:
+      - HTTP: 408/NET/HTTP.md
+      - CSP-Header: 408/NET/CSP-Header.md
 
   - 分布式:
       - 0-Hello: Distributed/0-Hello.md
