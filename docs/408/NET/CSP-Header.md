@@ -182,7 +182,7 @@ Content-Security-Policy:
 2. `sandbox` **(沙盒)**
     - **作用**： 这是一个 **极其强大** 的指令。它在你的页面上启用一个类似于 `<iframe>` 的沙盒环境，**极大地限制了** 页面的能力。
     - **目的**： 主要用于当你需要展示用户上传的 HTML 内容（例如一个 `.html` 文件）时，或者当你希望对某个页面进行“降权”处理时。
-    - **工作方式**： 当你发送 `sandbox` 指令时，它会 **默认禁止 **页面执行几乎所有操作，包括：
+    - **工作方式**： 当你发送 `sandbox` 指令时，它会 **默认禁止** 页面执行几乎所有操作，包括：
         - 执行脚本
         - 提交表单
         - 打开新窗口 (`window.open` 或 `target="_blank"`)
@@ -202,8 +202,119 @@ Content-Security-Policy:
 
 ### 📚 第三部分：导航指令 (Navigation Directives)
 
+这类指令控制 **用户可以从当前页面导航到哪里**，或者 **谁可以导航到当前页面**。
+
+1. `form-action` **(表单提交)**
+    - **作用**： 限制 `<form>` 标签的 `action` 属性可以指向的 URL。
+    - **攻击场景**：
+        - 假设攻击者通过 XSS 向你的登录页面注入了一个 **新的、假的登录表单**。这个假表单看起来和你的真表单一样，但它的 `action` 属性指向 `https://evil-attacker.com/steal-password.php`。
+        - 当用户在你的（受信任的）域名上输入用户名和密码并点击“登录”时，他们的凭证就会被发送到攻击者的服务器。
+    - **如何防御**： 使用 `form-action` 来锁定表单可以提交的目的地。
+    - **示例**： `form-action 'self' https://login-partner.com;` 
+        - 这告诉浏览器，页面上的所有 `<form>` 只能提交到：
+            1. `'self'` (你自己的域名)
+            2. `https://login-partner.com` (例如，如果你使用了像 OAuth 这样的第三方登录服务)
+        - 任何试图提交到其他地方的表单都会被 **阻止**。
+    - **注意**： 如果没有设置 `form-action`，浏览器会回退到 `default-src`。
 
 
+2. `frame-ancestors` **(框架祖先)**
+**这是一个极其重要的、用于防止点击劫持 (Clickjacking) 的指令。**
+- **作用**： 控制 **哪些网站** 可以将你的页面嵌入到 `<iframe>`、`<frame>`、`<object>` 或 `<embed>` 中。
+- **什么是点击劫持 (Clickjacking)？**
+    - 攻击者在他们自己的网站 `evil.com` 上设置一个页面。
+    - 他们使用一个透明的 `<iframe>` 将你的网站（比如 my-bank.com）整个嵌入进来。
+    - 他们在这个透明的 `<iframe>` 上层放置一个看起来无害的按钮，比如“点我赢奖品”。
+    - 用户访问 `evil.com`，以为自己点击的是“赢奖品”按钮。
+    - 实际上，他们点击的是 **你网站上** 的按钮（比如“确认转账”或“删除账户”），因为你的网站被透明地覆盖在下面。
+- **如何防御**：
+- `frame-ancestors 'none';`: (最佳实践) 这告诉浏览器：“任何人都不准把我的网站嵌入到 `<iframe>` 中。” 这能完全杜绝点击劫持攻击。
+- `frame-ancestors 'self';`: 只允许你自己的网站（同源）嵌入自己。
+- `frame-ancestors https://partner.com;`: 只允许 partner.com 嵌入你的网站。
+
+⚠️ 重要区别：
+- `frame-src` (抓取指令) 控制你的页面 **可以嵌入谁**。
+- `frame-ancestors` (导航指令) 控制 **谁可以嵌入你**。
+
+另外，`frame-ancestors` 不会回退到 `default-src`。它要么存在，要么不存在。它也取代了旧的、非标准的 `X-Frame-Options` 头部。
 
 
 ### 📚 第四部分：报告指令 (Reporting Directives)
+这类指令定义了当 CSP 策略被违反时，浏览器应该做什么。它们不会改变策略的执行，只是告诉浏览器“如果出了问题，请通知我”。
+
+1. `report-uri` **(报告 URI)** - [已废弃]
+- **作用**： 告诉浏览器将 CSP 违规报告 (JSON 格式) `POST` 到哪个 URL。
+- **状态**： **已废弃 (Deprecated)**。
+- **示例**： `report-uri /csp-violation-report-endpoint;`
+- **问题**：
+    - 尽管它已被废弃，但它仍然是目前兼容性最好的报告指令。
+    - 许多浏览器（尤其是旧版本）只支持 `report-uri`。
+    - **因此，在现实世界中，你通常需要同时设置 `report-uri` 和 `report-to` 以实现最大兼容性。**
+
+
+2. `report-to` **(报告至)**
+- **作用**： 这是 `report-uri` 的 **现代替代品**。它旨在与新的 **Reporting API** 协同工作。
+- **工作方式**： `report-to` 不直接指定一个 URL，而是指定一个你在另一个 HTTP 头部 (`Reporting-Endpoints`) 中 **预先定义好的“报告组”的名称**。
+- **这样做的好处**：
+    - **解耦**： 你可以在一个地方 (`Reporting-Endpoints` 头部) 定义所有的报告端点（不仅是 CSP，还包括证书透明度、网络错误等），然后在 CSP 策略中通过名称引用它们。
+    - **异步**： Reporting API 允许浏览器更智能地批量、异步地发送报告，减少了对你服务器的“报告风暴”。
+    - **功能更强**： Reporting API 是一个更广泛的规范，用于报告各种 Web 问题。
+
+
+??? example
+
+    第一步： 在你的响应中设置 Report-To 头部，定义一个名为 default (或任何你喜欢的名字) 的报告组。
+
+    ```HTTP
+    Report-To: {
+    "group": "csp-reports",
+    "max_age": 10886400,
+    "endpoints": [
+        { "url": "https://reporter.example.com/csp-endpoint" }
+    ]
+    }
+    ```
+    第二步： 在你的 CSP 策略中，使用 report-to 指令引用这个组名。
+
+    ```HTTP
+    Content-Security-Policy: ...; report-to csp-reports;
+    ```
+
+    浏览器兼容性策略 (最佳实践)： 由于 report-to 还很新，你应该同时提供两者。支持 report-to 的浏览器会优先使用它；不支持的浏览器会回退到 report-uri。
+
+    ```HTTP
+    Content-Security-Policy: ...; 
+    report-uri /csp-report-fallback; 
+    report-to csp-reports;
+    ```
+
+
+### 📚 第五部分：其他指令 (Other Directives)
+这组指令主要用于处理从 HTTPS 到 HTTP 的降级问题，即 **“混合内容” (Mixed Content)**。
+> 什么是混合内容？
+> 
+>   当你的主页面是通过 `https` 安全加载的，但页面上的某些资源（如图片 `<img>`、脚本 `<script>`）却是通过 `http` 不安全加载的，这就叫混合内容。
+>   现代浏览器会默认 **阻止** “活动”混合内容（如 `http` 脚本），但可能仍会加载“被动”混合内容（如 `http` 图片），这会导致浏览器地址栏的安全锁 🔒 消失，并显示“不安全”警告。
+
+1. `upgrade-insecure-requests` **(升级不安全请求)**
+    - **作用**： 这是一个 **“自动修复”** 指令。它告诉浏览器：“如果你在这个 `https` 页面上发现任何 `http://` 的请求，请在发送它之前，自动将其重写为 `https://**`。”
+    - **示例**： `upgrade-insecure-requests;` (它没有值)
+    - **优点**：
+        - 这是一个非常强大的工具，尤其是在迁移一个大型旧网站从 `http` 到 `https` 时。
+        - 假设你的旧文章里有成千上万个硬编码的 `http://` 图片链接。你不需要去数据库里修改每一条，只需要添加这个 CSP 指令，浏览器就会自动尝试用 `https://` 加载它们。
+    - **缺点**：
+        - 如果对方服务器不支持 `https` 怎么办？ 如果浏览器将 `http://example.com/img.png` 升级为 `https://example.com/img.png`，但 `example.com` 的服务器并没有配置 `https` 证书，那么这个请求会 **失败**。资源将无法加载。
+    - **另一个作用**： 它还会自动将所有导航到 `http://` 站点的链接（当用户点击时）重定向到 `https` 版本。
+
+2. `block-all-mixed-content` **(阻止所有混合内容)**
+   - **作用**： 这是一个 **“严格模式”** 指令。它告诉浏览器：“不要尝试升级，直接阻止所有 `http://` 资源（包括图片、脚本等）在我的 `https://` 页面上加载。”
+   - **示例**： `block-all-mixed-content;`
+   - **优点**：
+       - 提供最强的安全性，确保你的 `https` 页面上 100% 没有不安全的内容。
+   - **缺点**：
+       - 如果你意外地引用了一个 `http` 资源（即使是支持 `https` 的），它也会被阻止，而不是像 `upgrade-insecure-requests` 那样被“自动修复”。
+   - **注意**：
+       - 根据 CSP Level 3 规范，如果一个策略同时包含了 `upgrade-insecure-requests` 和 `block-all-mixed-content`，`upgrade-insecure-requests` 会被忽略，`block-all-mixed-content` 优先。
+       - 然而，现代浏览器（Chrome/Firefox）已经默认会阻止“活动”混合内容（如脚本）。如果你设置了 `upgrade-insecure-requests`，它实际上已经隐含了“阻止那些无法被升级的混合内容”的意思，因此 `block-all-mixed-content` 在很大程度上已经被 `upgrade-insecure-requests` 覆盖或废弃了。
+   - **最佳实践**： 优先使用 `upgrade-insecure-requests`。
+  

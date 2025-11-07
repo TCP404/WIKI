@@ -171,10 +171,6 @@ extra_javascript:
   - _assets/js/glightbox.min.js
   - _assets/js/shortcuts.js
 
-watch:
-  - docs
-  - mkdocs.yml
-
 nav:
   - "Home": index.md
 

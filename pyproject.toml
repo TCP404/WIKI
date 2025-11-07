@@ -1,0 +1,31 @@
+[project]
+name = "wiki"
+version = "0.1.0"
+description = "Personal documentation wiki using MkDocs"
+readme = "README.md"
+requires-python = ">=3.9"
+license = {text = "MIT"}
+dependencies = [
+    "mkdocs-material>=9.6.23",
+    "mkdocs-glightbox>=0.5.2",
+    "mkdocs-pygments>=0.0.2",
+]
+
+[project.optional-dependencies]
+dev = []
+
+[build-system]
+requires = ["hatchling"]
+build-backend = "hatchling.build"
+
+[tool.hatch.build]
+exclude = [
+    "/.venv",
+    "/docs",
+    "/.git",
+    "/.gitignore",
+    "/mkdocs.yml",
+]
+
+[tool.uv]
+dev-dependencies = []
