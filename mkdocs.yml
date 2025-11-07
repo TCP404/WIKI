@@ -60,6 +60,7 @@ theme:
 
     - content.code.annotate # 代码注释美化，变成一个圆点，鼠标点击显示注释内容。Ref：https://squidfunk.github.io/mkdocs-material/reference/code-blocks/
     - content.code.copy
+    - content.code.select
     - content.tabs.link
     - toc.follow      # 跟随滚动
     # - toc.integrate # 左侧生产目录
