@@ -589,4 +589,4 @@ Content-Security-Policy:
 - **最佳实践**： 优先使用 `upgrade-insecure-requests`。
   
 
-*[Reporting API] https://developer.mozilla.org/en-US/docs/Web/API/Reporting_API
+*[Reporting API]: https://developer.mozilla.org/en-US/docs/Web/API/Reporting_API
