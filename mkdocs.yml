@@ -175,7 +175,11 @@ extra_javascript:
 nav:
   - "Home": index.md
 
-  - "Golang":
+  - "Swift":
+    - 0.Basic:    Swift/Swift-0-basic-type.md
+
+  - "Language":
+    - "Golang":
       - Basic:
           - 0.总叙:        Go/Basic/Golang-0-总叙.md
           - 1.基础:        Go/Basic/Golang-1-基础.md
@@ -252,55 +256,55 @@ nav:
           - 9-实现抽象类: Go/nil/Golang-nil-9-实现抽象类.md
           - 10-反射: Go/nil/Golang-nil-10-反射.md
 
-  - "Rust":
-      - Basic:
-          - "0-Hello": Rust/Basic/0-Hello.md
-          - "1-变量":  Rust/Basic/1-变量.md
-          - "2-数据类型": 
-              - "2.1-数据类型": Rust/Basic/2.1-数据类型.md
-              - "2.2-字符串": Rust/Basic/2.2-字符串.md
-          - "3-函数": Rust/Basic/3-函数.md
-          - "4-流程控制": Rust/Basic/4-流程控制.md
-          - "5-所有权": Rust/Basic/5-所有权.md
-          - "6-结构体": Rust/Basic/6-结构体.md
+    - "Rust":
+        - Basic:
+            - "0-Hello": Rust/Basic/0-Hello.md
+            - "1-变量":  Rust/Basic/1-变量.md
+            - "2-数据类型": 
+                - "2.1-数据类型": Rust/Basic/2.1-数据类型.md
+                - "2.2-字符串": Rust/Basic/2.2-字符串.md
+            - "3-函数": Rust/Basic/3-函数.md
+            - "4-流程控制": Rust/Basic/4-流程控制.md
+            - "5-所有权": Rust/Basic/5-所有权.md
+            - "6-结构体": Rust/Basic/6-结构体.md
 
-  - "Python":
-      - Basic:
-          - 总叙:       Python/Basic/Python-No-1-Abstract.md
-          - 基础:       Python/Basic/Python-No-2-Basic.md
-          - 判断和循环: Python/Basic/Python-No-3-Judge&Loop.md
-          - 数据类型:   Python/Basic/Python-No-4-Data-Type.md
-          - 运算符:     Python/Basic/Python-No-5-Operator.md
-          - 函数:       Python/Basic/Python-No-6-Function.md
-          - 错误处理:   Python/Basic/Python-No-7-Error-Handle.md
-          - 调试:       Python/Basic/Python-No-8-Debug.md
-          - 测试:       Python/Basic/Python-No-9-Test.md
-          - 模块:       Python/Basic/Python-No-10-Module.md
-          - File:       Python/Basic/Python-No-19-File.md
-          - IO:         Python/Basic/Python-No-20-IO.md
-      - Advanced:
-          - 高级特性:   Python/Advanced/Python-No-Feature-High-Level-Feature.md
-          - 工具类:     Python/Advanced/Python-No-Feature-Utility-Class.md
-          - 函数式编程: Python/Advanced/Python-No-Feature-Functional.md
-          - 面向对象:
-              - 类和对象: Python/Advanced/OOP/Python-No-11-Class&Object.md
-              - 私有化:   Python/Advanced/OOP/Python-No-12-Privatization.md
-              - 魔术方法: Python/Advanced/OOP/Python-No-13-Magic-Method.md
-              - 枚举类:  Python/Advanced/OOP/Python-No-14-Enum.md
-          - 进程线程:
-              - 总叙: Python/Advanced/Thread/Python-No-15-Abstract.md
-              - 进程: Python/Advanced/Thread/Python-No-16-Process.md
-              - 线程: Python/Advanced/Thread/Python-No-17-Thread.md
-              - 协程: Python/Advanced/Thread/Python-No-18-Coroutine.md
-      - Builtin:
-          - json: Python/Builtin/Python-No-Builtin-json.md
-          - re:   Python/Builtin/Python-No-Builtin-re.md
-      - Type:
-          - string: Python/Type/Python-No-Type-String.md
-      - Crawler:
-          - 总叙:     Python/Crawler/Python-Crawler-0-Crawler-Abstract.md
-          - 通用爬虫: Python/Crawler/Python-Crawler-1-General-Crawler.md
-          - 聚焦爬虫: Python/Crawler/Python-Crawler-2-Focused-Crawler.md
+    - "Python":
+        - Basic:
+            - 总叙:       Python/Basic/Python-No-1-Abstract.md
+            - 基础:       Python/Basic/Python-No-2-Basic.md
+            - 判断和循环: Python/Basic/Python-No-3-Judge&Loop.md
+            - 数据类型:   Python/Basic/Python-No-4-Data-Type.md
+            - 运算符:     Python/Basic/Python-No-5-Operator.md
+            - 函数:       Python/Basic/Python-No-6-Function.md
+            - 错误处理:   Python/Basic/Python-No-7-Error-Handle.md
+            - 调试:       Python/Basic/Python-No-8-Debug.md
+            - 测试:       Python/Basic/Python-No-9-Test.md
+            - 模块:       Python/Basic/Python-No-10-Module.md
+            - File:       Python/Basic/Python-No-19-File.md
+            - IO:         Python/Basic/Python-No-20-IO.md
+        - Advanced:
+            - 高级特性:   Python/Advanced/Python-No-Feature-High-Level-Feature.md
+            - 工具类:     Python/Advanced/Python-No-Feature-Utility-Class.md
+            - 函数式编程: Python/Advanced/Python-No-Feature-Functional.md
+            - 面向对象:
+                - 类和对象: Python/Advanced/OOP/Python-No-11-Class&Object.md
+                - 私有化:   Python/Advanced/OOP/Python-No-12-Privatization.md
+                - 魔术方法: Python/Advanced/OOP/Python-No-13-Magic-Method.md
+                - 枚举类:  Python/Advanced/OOP/Python-No-14-Enum.md
+            - 进程线程:
+                - 总叙: Python/Advanced/Thread/Python-No-15-Abstract.md
+                - 进程: Python/Advanced/Thread/Python-No-16-Process.md
+                - 线程: Python/Advanced/Thread/Python-No-17-Thread.md
+                - 协程: Python/Advanced/Thread/Python-No-18-Coroutine.md
+        - Builtin:
+            - json: Python/Builtin/Python-No-Builtin-json.md
+            - re:   Python/Builtin/Python-No-Builtin-re.md
+        - Type:
+            - string: Python/Type/Python-No-Type-String.md
+        - Crawler:
+            - 总叙:     Python/Crawler/Python-Crawler-0-Crawler-Abstract.md
+            - 通用爬虫: Python/Crawler/Python-Crawler-1-General-Crawler.md
+            - 聚焦爬虫: Python/Crawler/Python-Crawler-2-Focused-Crawler.md
 
   - "Linux":
     - Basic:
@@ -353,6 +357,9 @@ nav:
       - 6-聚合分析:    ES/6-聚合分析.md
 
   - "408":
+    - 网络:
+      # - HTTP: 408/NET/HTTP.md
+      - CSP-Header: 408/NET/CSP-Header.md
     - 数据结构:
       - 0-绪论:         408/DataStructure/0-绪论.md
       - 1-算法:         408/DataStructure/1-算法.md
@@ -364,9 +371,6 @@ nav:
       - 7-图:           408/DataStructure/7-图1.md
       - 8-图的存储结构: 408/DataStructure/8-图2.md
       - 9-图的算法:     408/DataStructure/9-图3.md
-    - 网络:
-      - HTTP: 408/NET/HTTP.md
-      - CSP-Header: 408/NET/CSP-Header.md
 
   - 分布式:
       - 0-Hello: Distributed/0-Hello.md

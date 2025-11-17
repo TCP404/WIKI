@@ -1,11 +1,12 @@
 # Swift
+
 - [ ] 基础类型：整数，浮点数，布尔，字符，字符串，元组，nil, if let, ?, !
 - [ ] 集合类型：数组 Arrays，集合 Sets，字典 Dictionary
 - [ ] 控制流：for in, while, repeat while, switch, guard, if #available
 - [ ] 函数
-    - [ ] 参数标签
-    - [ ] 可变参数
-    - [ ] inout
+  - [ ] 参数标签
+  - [ ] 可变参数
+  - [ ] inout
 - [ ] 闭包
 - [ ] 枚举
 - [ ] 结构体，下标，嵌套类型
